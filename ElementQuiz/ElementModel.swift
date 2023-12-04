@@ -9,6 +9,8 @@ import Foundation
 
 struct ChemicalElement: Codable {
     let name: String
+    let latinName: String
+    let nameRu: String
     let atomicMass: Double
     let boil: Double?
     let symbol: String
@@ -24,6 +26,8 @@ struct ChemicalElement: Codable {
     
     enum CodingKeys: String, CodingKey {
         case name
+        case latinName = "latin_name"
+        case nameRu = "name_ru"
         case atomicMass = "atomic_mass"
         case symbol
         case boil
@@ -39,6 +43,8 @@ struct ChemicalElement: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
+        self.latinName = try container.decode(String.self, forKey: .latinName)
+        self.nameRu = try container.decode(String.self, forKey: .nameRu)
         self.atomicMass = try container.decode(Double.self, forKey: .atomicMass)
         self.boil = try container.decode(Double?.self, forKey: .boil)
         self.symbol = try container.decode(String.self, forKey: .symbol)
