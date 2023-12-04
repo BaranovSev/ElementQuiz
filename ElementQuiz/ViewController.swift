@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Variables
     let fixedElementList = ["Carbon", "Gold", "Chlorine", "Sodium"]
+    let allElements: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
     var elementList: [String] = []
     var currentElementIndex = 0
     var mode: Mode = .flashCard {
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mode = .flashCard
+        print(allElements.count)
     }
     
     // MARK: - @IBActions

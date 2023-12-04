@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ElementModel.swift */; };
+		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
+		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
 		FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */; };
 		FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */; };
 		FDD3C16B2AFA6E7A0031336C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C16A2AFA6E7A0031336C /* ViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FDCBF9E72B1DEF4200214599 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
+		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
+		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
 				FDD3C1742AFA6E7B0031336C /* Info.plist */,
+				FDCBF9E72B1DEF4200214599 /* ElementModel.swift */,
+				FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */,
+				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 				FDD3C1732AFA6E7B0031336C /* LaunchScreen.storyboard in Resources */,
 				FDD3C1702AFA6E7B0031336C /* Assets.xcassets in Resources */,
 				FDD3C16E2AFA6E7A0031336C /* Main.storyboard in Resources */,
+				FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */,
+				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FDD3C16B2AFA6E7A0031336C /* ViewController.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
