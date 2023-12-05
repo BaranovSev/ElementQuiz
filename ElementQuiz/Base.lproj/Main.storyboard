@@ -16,13 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LRS-s6-zaY">
-                                <rect key="frame" x="125" y="168" width="140" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="0Qy-Hl-zrP"/>
-                                    <constraint firstAttribute="height" constant="140" id="mhD-DS-kes"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nAO-mI-vgM">
                                 <rect key="frame" x="10" y="358" width="370" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -68,16 +61,63 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PC4-HR-KPB"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-2g-wp1" customClass="ElementIconView" customModule="ElementQuiz" customModuleProvider="target">
+                                <rect key="frame" x="125" y="168" width="140" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmL-sT-K8M">
+                                        <rect key="frame" x="9.6666666666666643" y="46.666666666666657" width="120.66666666666669" height="46.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-Gu-ls4">
+                                        <rect key="frame" x="73.666666666666657" y="10" width="56.333333333333343" height="24"/>
+                                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcI-SC-E9f">
+                                        <rect key="frame" x="73.666666666666657" y="106" width="56.333333333333343" height="24"/>
+                                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.01666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MmL-sT-K8M" firstAttribute="centerY" secondItem="Ogk-2g-wp1" secondAttribute="centerY" id="A3f-m7-urZ"/>
+                                    <constraint firstAttribute="height" constant="140" id="G8z-KE-Yhg"/>
+                                    <constraint firstItem="vcI-SC-E9f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ogk-2g-wp1" secondAttribute="leading" constant="10" id="R9o-K1-tjv"/>
+                                    <constraint firstAttribute="trailing" secondItem="vcI-SC-E9f" secondAttribute="trailing" constant="10" id="RKC-qW-8hg"/>
+                                    <constraint firstAttribute="width" constant="140" id="fde-R8-vja"/>
+                                    <constraint firstItem="zgc-Gu-ls4" firstAttribute="top" secondItem="Ogk-2g-wp1" secondAttribute="top" constant="10" id="i1x-dN-SYb"/>
+                                    <constraint firstAttribute="trailing" secondItem="zgc-Gu-ls4" secondAttribute="trailing" constant="10" id="lQD-An-Ttq"/>
+                                    <constraint firstItem="MmL-sT-K8M" firstAttribute="centerX" secondItem="Ogk-2g-wp1" secondAttribute="centerX" id="mx0-NO-Juu"/>
+                                    <constraint firstItem="zgc-Gu-ls4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ogk-2g-wp1" secondAttribute="leading" constant="10" id="qzb-Sd-Y0I"/>
+                                    <constraint firstAttribute="bottom" secondItem="vcI-SC-E9f" secondAttribute="bottom" constant="10" id="sVh-hI-bZP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="atomicMassLabel" destination="vcI-SC-E9f" id="yop-4D-lsh"/>
+                                    <outlet property="elementNumberLabel" destination="zgc-Gu-ls4" id="tgH-ON-Msh"/>
+                                    <outlet property="symbolLabel" destination="MmL-sT-K8M" id="pGI-jd-Q8v"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nAO-mI-vgM" firstAttribute="top" secondItem="LRS-s6-zaY" secondAttribute="bottom" constant="50" id="35C-vF-b4f"/>
-                            <constraint firstItem="LRS-s6-zaY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7v1-TH-K8X"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="trailing" secondItem="LRS-s6-zaY" secondAttribute="trailing" id="8ot-T5-M5f"/>
+                            <constraint firstItem="nAO-mI-vgM" firstAttribute="top" secondItem="Ogk-2g-wp1" secondAttribute="bottom" constant="50" id="35C-vF-b4f"/>
+                            <constraint firstItem="rlD-zs-2XB" firstAttribute="trailing" secondItem="Ogk-2g-wp1" secondAttribute="trailing" id="8ot-T5-M5f"/>
                             <constraint firstItem="rlD-zs-2XB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GNN-hu-64q"/>
-                            <constraint firstItem="LRS-s6-zaY" firstAttribute="top" secondItem="0kI-Ms-Gta" secondAttribute="bottom" constant="70" id="JAr-3q-7o0"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="leading" secondItem="LRS-s6-zaY" secondAttribute="leading" id="NRp-Cx-3E0"/>
+                            <constraint firstItem="rlD-zs-2XB" firstAttribute="leading" secondItem="Ogk-2g-wp1" secondAttribute="leading" id="NRp-Cx-3E0"/>
+                            <constraint firstItem="Ogk-2g-wp1" firstAttribute="top" secondItem="0kI-Ms-Gta" secondAttribute="bottom" constant="70" id="RyT-EA-nd9"/>
+                            <constraint firstItem="Ogk-2g-wp1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U5G-7k-iRV"/>
                             <constraint firstItem="9J6-OU-ntT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mOP-P5-m2M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAO-mI-vgM" secondAttribute="trailing" constant="10" id="okl-oa-Zcj"/>
                             <constraint firstItem="rlD-zs-2XB" firstAttribute="top" secondItem="nAO-mI-vgM" secondAttribute="bottom" constant="20" id="qEI-RT-lTl"/>
@@ -89,7 +129,7 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="nAO-mI-vgM" id="fUv-5P-QKD"/>
-                        <outlet property="imageView" destination="LRS-s6-zaY" id="Jy7-cP-kBa"/>
+                        <outlet property="elementIcon" destination="Ogk-2g-wp1" id="QBb-RY-OCw"/>
                         <outlet property="modeSelector" destination="0kI-Ms-Gta" id="TtV-Xo-2H0"/>
                         <outlet property="nextButton" destination="tie-Ae-qhj" id="S57-Bm-e8c"/>
                         <outlet property="showAnswerButton" destination="ACP-UA-auU" id="nvZ-3q-cgc"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
 		FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ElementModel.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDCBF9E72B1DEF4200214599 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */,
 				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FDD3C16A2AFA6E7A0031336C /* ViewController.swift */,
+				FDA774532B1F70D200DF7D8C /* ElementIconView.swift */,
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 			files = (
 				FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
+				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
 				FDD3C16B2AFA6E7A0031336C /* ViewController.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,

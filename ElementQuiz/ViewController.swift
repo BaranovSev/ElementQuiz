@@ -20,17 +20,17 @@ enum State {
 
 class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: - @IBOutlets
-    @IBOutlet var answerLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var modeSelector: UISegmentedControl!
-    @IBOutlet var textField: UITextField!
-    @IBOutlet var showAnswerButton: UIButton!
-    @IBOutlet var nextButton: UIButton!
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var modeSelector: UISegmentedControl!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var showAnswerButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var elementIcon: ElementIconView!
     
     // MARK: - Variables
-    let fixedElementList = ["Carbon", "Gold", "Chlorine", "Sodium"]
-    let allElements: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
-    var elementList: [String] = []
+//    let fixedElementList = ["Carbon", "Gold", "Chlorine", "Sodium"]
+    let fixedElementList: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    var elementList: [ChemicalElement] = []
     var currentElementIndex = 0
     var mode: Mode = .flashCard {
         didSet {
@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mode = .flashCard
-        print(allElements.count)
     }
     
     // MARK: - @IBActions
@@ -156,9 +155,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateUI() {
-        let elementName = elementList[currentElementIndex]
-        let image = UIImage(named: elementName)
-        imageView.image = image
+        let currentElenent = elementList[currentElementIndex]
+        let elementName = currentElenent.name
+        elementIcon.configure(for: currentElenent)
         
         switch mode {
         case .flashCard:
@@ -188,7 +187,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textFieldContents = textField.text!
         
-        if textFieldContents.lowercased() == elementList[currentElementIndex].lowercased() {
+        if textFieldContents.lowercased() == elementList[currentElementIndex].name.lowercased() {
             answerIsCorrect = true
             correctAnswerCount += 1
         } else {
