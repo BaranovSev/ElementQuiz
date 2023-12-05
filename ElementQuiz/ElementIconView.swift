@@ -21,11 +21,11 @@ final class ElementIconView: UIView {
         case "alkaline earth metal":
             self.backgroundColor = UIColor(cgColor: CGColor(red: 0.8, green: 0.5, blue: 0.35, alpha: 1))
         case "diatomic nonmetal":
-            self.backgroundColor = UIColor(cgColor: CGColor(red: 1, green: 1, blue: 0.8, alpha: 1))
+            self.backgroundColor = UIColor(cgColor: CGColor(red: 0.56, green: 0.82, blue: 0.27, alpha: 1))
         case "lanthanide":
             self.backgroundColor = UIColor(cgColor: CGColor(red: 1, green: 0.35, blue: 1, alpha: 1))
         case "metalloid":
-            self.backgroundColor = UIColor(cgColor: CGColor(red: 0.32, green: 0.35, blue: 0.6, alpha: 1))
+            self.backgroundColor = UIColor(cgColor: CGColor(red: 0.32, green: 0.35, blue: 0.1, alpha: 1))
         case "noble gas":
             self.backgroundColor = UIColor(cgColor: CGColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 1))
         case "polyatomic nonmetal":
@@ -39,7 +39,7 @@ final class ElementIconView: UIView {
         case "unknown, predicted to be noble gas":
             self.backgroundColor = UIColor(cgColor: CGColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 0.75))
         case "unknown, probably metalloid":
-            self.backgroundColor = UIColor(cgColor: CGColor(red: 0.32, green: 0.35, blue: 0.6, alpha: 0.75))
+            self.backgroundColor = UIColor(cgColor: CGColor(red: 0.32, green: 0.35, blue: 0.1, alpha: 0.75))
         case "unknown, probably post-transition metal":
             self.backgroundColor = UIColor(cgColor: CGColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75))
         case "unknown, probably transition metal":
