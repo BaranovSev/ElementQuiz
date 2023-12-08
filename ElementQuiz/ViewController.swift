@@ -18,7 +18,7 @@ enum State {
     case score
 }
 
-class ViewController: UIViewController, UITextFieldDelegate {
+final class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: - @IBOutlets
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var modeSelector: UISegmentedControl!
@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var elementIcon: ElementIconView!
     
     // MARK: - Variables
-//    let fixedElementList = ["Carbon", "Gold", "Chlorine", "Sodium"]
     let fixedElementList: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
     var elementList: [ChemicalElement] = []
     var currentElementIndex = 0
@@ -85,7 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Functions
-    func updateFlashCardUI(_ elementName: String) {
+    private func updateFlashCardUI(_ elementName: String) {
         showAnswerButton.isHidden = false
         nextButton.isEnabled = true
         nextButton.setTitle("Next Element", for: .normal)
@@ -100,7 +99,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateQuizUI(_ elementName: String) {
+    private func updateQuizUI(_ elementName: String) {
         modeSelector.selectedSegmentIndex = 1
         // Keyboard and tehtfield
         textField.isHidden = false
@@ -154,10 +153,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateUI() {
+    
+    private func updateUI() {
         let currentElenent = elementList[currentElementIndex]
         let elementName = currentElenent.name
-        elementIcon.configure(for: currentElenent)
+        let color: UIColor = choseColorForIcon(elementCategory: currentElenent.category)
+        
+        elementIcon.displayItem = ElementIconView.DisplayItem(
+            symbolTitle: currentElenent.symbol,
+            elementNumberTitle: String(currentElenent.number),
+            atomicMassTitle: String(format: "%.3f", currentElenent.atomicMass),
+            color: color
+        )
         
         switch mode {
         case .flashCard:
@@ -168,14 +175,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Sets up a new flash card session.
-    func setupFlashCards() {
+    private func setupFlashCards() {
         state = .question
         currentElementIndex = 0
         elementList = fixedElementList
     }
      
     // Sets up a new quiz.
-    func setupQuiz() {
+    private func setupQuiz() {
         state = .question
         currentElementIndex = 0
         answerIsCorrect = false
@@ -202,10 +209,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Alert
-    func displayScoreAlert() {
+    private func displayScoreAlert() {
         let alert = UIAlertController(title:"Quiz Score",
                                       message: "Your score is \(correctAnswerCount) out of \(elementList.count).",
-                                      preferredStyle: .alert)
+                                      preferredStyle: .alert
+        )
         
         let dismissAction = UIAlertAction(title: "OK",
                                           style: .default,
@@ -217,8 +225,46 @@ class ViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func scoreAlertDismissed(_ action: UIAlertAction) {
+    private func scoreAlertDismissed(_ action: UIAlertAction) {
         mode = .flashCard
+    }
+    
+    // MARK: - Helpers
+    private func choseColorForIcon(elementCategory: String) -> UIColor {
+        switch elementCategory {
+        case "actinide":
+            return CustomColors.actinide
+        case "alkali metal":
+            return CustomColors.alkaliMetal
+        case "alkaline earth metal":
+            return CustomColors.alkalineEarthMetal
+        case "diatomic nonmetal":
+            return CustomColors.diatomicNonmetal
+        case "lanthanide":
+            return CustomColors.lanthanide
+        case "metalloid":
+            return CustomColors.metalloid
+        case "noble gas":
+            return CustomColors.nobleGas
+        case "polyatomic nonmetal":
+            return CustomColors.polyatomicNonmetal
+        case "post-transition metal":
+            return CustomColors.postTransitionMetal
+        case "transition metal":
+            return CustomColors.transitionMetal
+        case "unknown, but predicted to be an alkali metal":
+            return CustomColors.unknownAlkaliMetal
+        case "unknown, predicted to be noble gas":
+            return CustomColors.unknownNobleGas
+        case "unknown, probably metalloid":
+            return CustomColors.unknownMetalloid
+        case "unknown, probably post-transition metal":
+            return CustomColors.unknownpPostTransitionMetal
+        case "unknown, probably transition metal":
+            return CustomColors.unknownTransitionMetal
+        default:
+            return UIColor.black
+        }
     }
 }
 
