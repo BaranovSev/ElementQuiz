@@ -53,13 +53,6 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setUp()
         mode = .flashCard
-        
-        for element in fixedElementList {
-            if element.image.title != "No Image Found" {
-                print(element.number, " = ", element.nameRu)
-                print(element.image.url)
-            }
-        }
     }
     
     // MARK: - @IBActions
