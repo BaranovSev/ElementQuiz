@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChemicalElement: Codable {
+struct ChemicalElementModel: Codable {
     let name: String
     let latinName: String
     let nameRu: String
@@ -21,8 +21,9 @@ struct ChemicalElement: Codable {
     let discoveredBy: String?
     let namedBy: String?
     let summary: String
+    let image: Image
     
-    static let items: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    static let items: [ChemicalElementModel] = Bundle.main.decode(file: "PeriodicTableJSON.json")
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -38,6 +39,7 @@ struct ChemicalElement: Codable {
         case discoveredBy = "discovered_by"
         case namedBy = "named_by"
         case summary
+        case image
     }
     
     init(from decoder: Decoder) throws {
@@ -55,7 +57,14 @@ struct ChemicalElement: Codable {
         self.discoveredBy = try container.decode(String?.self, forKey: .discoveredBy)
         self.namedBy = try container.decode(String?.self, forKey: .namedBy)
         self.summary = try container.decode(String.self, forKey: .summary)
+        self.image = try container.decode(Image.self, forKey: .image)
     }
+}
+
+struct Image: Codable {
+    let title: String
+    let url: String
+    let attribution: String
 }
 
 
