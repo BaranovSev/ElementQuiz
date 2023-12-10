@@ -18,7 +18,7 @@ enum State {
     case score
 }
 
-class ViewController: UIViewController, UITextFieldDelegate {
+final class ElementQuizController: UIViewController, UITextFieldDelegate {
     // MARK: - @IBOutlets
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var modeSelector: UISegmentedControl!
@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var elementIcon: ElementIconView!
     
     // MARK: - Variables
-//    let fixedElementList = ["Carbon", "Gold", "Chlorine", "Sodium"]
-    let fixedElementList: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
-    var elementList: [ChemicalElement] = []
+    let fixedElementList: [ChemicalElementModel] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    var dataSource: ElementQuizDataSource?
+    var elementList: [ChemicalElementModel] = []
     var currentElementIndex = 0
     var mode: Mode = .flashCard {
         didSet {
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 setupQuiz()
             }
             
-            updateUI()
+            refreshUI()
         }
     }
     var state: State = .question
@@ -51,6 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
         mode = .flashCard
     }
     
@@ -66,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showAnswer(_ sender: UIButton) {
         state = .answer
         
-        updateUI()
+        refreshUI()
     }
     
     @IBAction func next(_ sender: UIButton) {
@@ -75,17 +76,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             currentElementIndex = 0
             if mode == .quiz {
                 state = .score
-                updateUI()
+                refreshUI()
                 return
             }
         }
         state = .question
         
-        updateUI()
+        refreshUI()
     }
     
     // MARK: - Functions
-    func updateFlashCardUI(_ elementName: String) {
+    private func updateFlashCardUI(_ elementName: String) {
         showAnswerButton.isHidden = false
         nextButton.isEnabled = true
         nextButton.setTitle("Next Element", for: .normal)
@@ -100,7 +101,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateQuizUI(_ elementName: String) {
+    private func updateQuizUI(_ elementName: String) {
         modeSelector.selectedSegmentIndex = 1
         // Keyboard and tehtfield
         textField.isHidden = false
@@ -154,10 +155,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateUI() {
-        let currentElenent = elementList[currentElementIndex]
-        let elementName = currentElenent.name
-        elementIcon.configure(for: currentElenent)
+    private func setUp() {
+        dataSource = ElementQuizDataSource()
+    }
+    
+    private func refreshUI() {
+        let currentElement = elementList[currentElementIndex]
+        let elementName = currentElement.name
+        
+        elementIcon.displayItem = dataSource?.elementToDisplayItem(currentElement)
         
         switch mode {
         case .flashCard:
@@ -168,14 +174,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Sets up a new flash card session.
-    func setupFlashCards() {
+    private func setupFlashCards() {
         state = .question
         currentElementIndex = 0
         elementList = fixedElementList
     }
      
     // Sets up a new quiz.
-    func setupQuiz() {
+    private func setupQuiz() {
         state = .question
         currentElementIndex = 0
         answerIsCorrect = false
@@ -196,16 +202,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         state = .answer
         
-        updateUI()
+        refreshUI()
         
         return true
     }
     
     // MARK: - Alert
-    func displayScoreAlert() {
+    private func displayScoreAlert() {
         let alert = UIAlertController(title:"Quiz Score",
                                       message: "Your score is \(correctAnswerCount) out of \(elementList.count).",
-                                      preferredStyle: .alert)
+                                      preferredStyle: .alert
+        )
         
         let dismissAction = UIAlertAction(title: "OK",
                                           style: .default,
@@ -217,7 +224,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func scoreAlertDismissed(_ action: UIAlertAction) {
+    private func scoreAlertDismissed(_ action: UIAlertAction) {
         mode = .flashCard
     }
 }

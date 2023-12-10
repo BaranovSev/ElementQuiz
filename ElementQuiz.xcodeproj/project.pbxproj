@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
-		FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ElementModel.swift */; };
+		FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A692B234E31004BC16E /* Colors.swift */; };
+		FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */; };
+		FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
 		FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */; };
 		FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */; };
-		FDD3C16B2AFA6E7A0031336C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C16A2AFA6E7A0031336C /* ViewController.swift */; };
+		FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */; };
 		FDD3C16E2AFA6E7A0031336C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16C2AFA6E7A0031336C /* Main.storyboard */; };
 		FDD3C1702AFA6E7B0031336C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */; };
 		FDD3C1732AFA6E7B0031336C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */; };
@@ -40,14 +43,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
-		FDCBF9E72B1DEF4200214599 /* ElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
+		FDB03A692B234E31004BC16E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizDataSource.swift; sourceTree = "<group>"; };
+		FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModel.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FDD3C16A2AFA6E7A0031336C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizController.swift; sourceTree = "<group>"; };
 		FDD3C16D2AFA6E7A0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDD3C1722AFA6E7B0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,6 +90,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD56C06C2B1FACAD007AB130 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDA774532B1F70D200DF7D8C /* ElementIconView.swift */,
+				FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDB03A6B2B25F845004BC16E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDB03A6F2B25F8E5004BC16E /* Models */,
+				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FDB03A6C2B25F890004BC16E /* ElementQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
+				FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */,
+			);
+			path = ElementQuiz;
+			sourceTree = "<group>";
+		};
+		FDB03A6F2B25F8E5004BC16E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FDD3C15A2AFA6E7A0031336C = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +148,17 @@
 		FDD3C1652AFA6E7A0031336C /* ElementQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				FDB03A6B2B25F845004BC16E /* ViewControllers */,
 				FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */,
-				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
-				FDD3C16A2AFA6E7A0031336C /* ViewController.swift */,
-				FDA774532B1F70D200DF7D8C /* ElementIconView.swift */,
-				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
-				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
-				FDD3C1742AFA6E7B0031336C /* Info.plist */,
-				FDCBF9E72B1DEF4200214599 /* ElementModel.swift */,
 				FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */,
+				FDB03A692B234E31004BC16E /* Colors.swift */,
+				FDD3C1742AFA6E7B0031336C /* Info.plist */,
+				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
+				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
+				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
+				FD56C06C2B1FACAD007AB130 /* Views */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -271,10 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCBF9E82B1DEF4200214599 /* ElementModel.swift in Sources */,
+				FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */,
+				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
-				FDD3C16B2AFA6E7A0031336C /* ViewController.swift in Sources */,
+				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
+				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
+				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
 			);

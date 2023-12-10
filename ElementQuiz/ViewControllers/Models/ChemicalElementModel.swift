@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChemicalElement: Codable {
+struct ChemicalElementModel: Codable {
     let name: String
     let latinName: String
     let nameRu: String
@@ -22,7 +22,7 @@ struct ChemicalElement: Codable {
     let namedBy: String?
     let summary: String
     
-    static let items: [ChemicalElement] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    static let items: [ChemicalElementModel] = Bundle.main.decode(file: "PeriodicTableJSON.json")
     
     enum CodingKeys: String, CodingKey {
         case name
