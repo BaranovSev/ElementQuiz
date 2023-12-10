@@ -21,7 +21,6 @@ struct ChemicalElementModel: Codable {
     let discoveredBy: String?
     let namedBy: String?
     let summary: String
-    let image: Image
     
     static let items: [ChemicalElementModel] = Bundle.main.decode(file: "PeriodicTableJSON.json")
     
@@ -39,7 +38,6 @@ struct ChemicalElementModel: Codable {
         case discoveredBy = "discovered_by"
         case namedBy = "named_by"
         case summary
-        case image
     }
     
     init(from decoder: Decoder) throws {
@@ -57,14 +55,7 @@ struct ChemicalElementModel: Codable {
         self.discoveredBy = try container.decode(String?.self, forKey: .discoveredBy)
         self.namedBy = try container.decode(String?.self, forKey: .namedBy)
         self.summary = try container.decode(String.self, forKey: .summary)
-        self.image = try container.decode(Image.self, forKey: .image)
     }
-}
-
-struct Image: Codable {
-    let title: String
-    let url: String
-    let attribution: String
 }
 
 
