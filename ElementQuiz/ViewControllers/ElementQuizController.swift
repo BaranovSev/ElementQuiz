@@ -28,7 +28,9 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var elementIcon: ElementIconView!
     
     // MARK: - Variables
-    let fixedElementList: [ChemicalElementModel] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+//    let fixedElementList: [ChemicalElementModelJSON] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+    var dataElementList: [ChemicalElementModel]?
     var dataSource: ElementQuizDataSource?
     var elementList: [ChemicalElementModel] = []
     var currentElementIndex = 0

@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
+		FDA997452B29D79C004C9761 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA997442B29D79C004C9761 /* DataManager.swift */; };
 		FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A692B234E31004BC16E /* Colors.swift */; };
 		FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */; };
-		FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */; };
+		FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */; };
+		FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */; };
+		FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */; };
+		FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
 		FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */; };
@@ -45,9 +49,13 @@
 /* Begin PBXFileReference section */
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
+		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FDB03A692B234E31004BC16E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizDataSource.swift; sourceTree = "<group>"; };
-		FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModel.swift; sourceTree = "<group>"; };
+		FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +110,9 @@
 		FDB03A6B2B25F845004BC16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDB03A6F2B25F8E5004BC16E /* Models */,
+				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
+				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,7 +120,6 @@
 		FDB03A6C2B25F890004BC16E /* ElementQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */,
 			);
 			path = ElementQuiz;
@@ -120,7 +128,9 @@
 		FDB03A6F2B25F8E5004BC16E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */,
+				FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */,
+				FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */,
+				FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +158,7 @@
 		FDD3C1652AFA6E7A0031336C /* ElementQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				FDA997442B29D79C004C9761 /* DataManager.swift */,
 				FDB03A6B2B25F845004BC16E /* ViewControllers */,
 				FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */,
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
@@ -159,6 +170,7 @@
 				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
 				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FD56C06C2B1FACAD007AB130 /* Views */,
+				FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -312,14 +324,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */,
+				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
+				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
+				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
 				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
 				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
+				FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
+				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +678,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */,
+			);
+			currentVersion = FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FDD3C15B2AFA6E7A0031336C /* Project object */;
 }

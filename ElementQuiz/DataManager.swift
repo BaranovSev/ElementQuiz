@@ -1,0 +1,73 @@
+//
+//  DataManager.swift
+//  ElementQuiz
+//
+//  Created by Stepan Baranov on 13.12.2023.
+//
+
+import UIKit
+import CoreData
+
+final class DataManager {
+    enum OrderedCases: String {
+        case number
+        case category
+        case phase
+        case symbol
+        case atomicMass = "atomicMass"
+        case period
+    }
+    
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    static let shared = DataManager()
+    
+    func fetchElements(orderedBy value: OrderedCases? = nil) -> [ChemicalElementModel] {
+        let attribute = value ?? .number
+        let sort = NSSortDescriptor(key: attribute.rawValue, ascending: true)
+        let request = ChemicalElementModel.fetchRequest()
+        request.sortDescriptors = [sort]
+
+        do {
+            var data = try context.fetch(request)
+            if data.isEmpty {
+                let elementsJSON: [ChemicalElementModelJSON] = Bundle.main.decode(file: "PeriodicTableJSON.json")
+                saveElements(from: elementsJSON)
+                data = try context.fetch(request)
+            }
+            
+            return data
+        } catch {
+            fatalError("failure to get data from storage: \(error)")
+        }
+    }
+    
+    private func saveElements(from elementsJSON: [ChemicalElementModelJSON]) {
+        for element in elementsJSON {
+            let newElement = ChemicalElementModel(context: self.context)
+            newElement.name = element.name
+            newElement.latinName = element.latinName
+            newElement.atomicMass = element.atomicMass
+            newElement.symbol = element.symbol
+            newElement.boil = "\(element.boil)"
+            newElement.number = Int16(element.number)
+            newElement.period = Int16(element.period)
+            newElement.group = Int16(element.group)
+            newElement.category = element.category
+            newElement.discoveredBy = element.discoveredBy
+            newElement.namedBy = element.namedBy
+            newElement.summary = element.summary
+            newElement.phase = element.phase
+            
+            do {
+                try self.context.save()
+            } catch {
+                fatalError("failure to save context \(error)")
+            }
+        }
+    }
+    
+    private init() {
+        
+    }
+
+}

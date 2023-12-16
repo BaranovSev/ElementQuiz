@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChemicalElementModel" representedClassName=".ChemicalElementModel" syncable="YES">
+        <attribute name="atomicMass" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="boil" optional="YES" attributeType="String"/>
+        <attribute name="category" attributeType="String"/>
+        <attribute name="discoveredBy" optional="YES" attributeType="String"/>
+        <attribute name="group" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="latinName" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="namedBy" optional="YES" attributeType="String"/>
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="period" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phase" attributeType="String"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="symbol" attributeType="String"/>
+    </entity>
+</model>
