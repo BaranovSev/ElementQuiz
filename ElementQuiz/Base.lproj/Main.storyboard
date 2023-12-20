@@ -57,14 +57,6 @@
                                     <action selector="switchModes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Phc-od-RAW"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlD-zs-2XB">
-                                <rect key="frame" x="125" y="406" width="140" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PC4-HR-KPB"/>
-                                </connections>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-2g-wp1" customClass="ElementIconView" customModule="ElementQuiz" customModuleProvider="target">
                                 <rect key="frame" x="125" y="168" width="140" height="140"/>
                                 <subviews>
@@ -112,22 +104,68 @@
                                     <outlet property="symbolLabel" destination="MmL-sT-K8M" id="pGI-jd-Q8v"/>
                                 </connections>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-Wk-RQC">
+                                <rect key="frame" x="20" y="530.33333333333337" width="350" height="194.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-Ph-cJy">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="37.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wAD-XE-hUd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gur-lI-Y9l">
+                                        <rect key="frame" x="0.0" y="52.333333333333258" width="350" height="37.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vP6-tZ-lTZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-LQ-sbP">
+                                        <rect key="frame" x="0.0" y="104.66666666666663" width="350" height="37.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enA-p0-4sk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0In-8N-7Wh">
+                                        <rect key="frame" x="0.0" y="157" width="350" height="37.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyN-10-q9h"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nAO-mI-vgM" firstAttribute="top" secondItem="Ogk-2g-wp1" secondAttribute="bottom" constant="50" id="35C-vF-b4f"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="trailing" secondItem="Ogk-2g-wp1" secondAttribute="trailing" id="8ot-T5-M5f"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GNN-hu-64q"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="leading" secondItem="Ogk-2g-wp1" secondAttribute="leading" id="NRp-Cx-3E0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="efJ-Wk-RQC" secondAttribute="bottom" constant="20" id="NMB-Jz-JEC"/>
                             <constraint firstItem="Ogk-2g-wp1" firstAttribute="top" secondItem="0kI-Ms-Gta" secondAttribute="bottom" constant="70" id="RyT-EA-nd9"/>
                             <constraint firstItem="Ogk-2g-wp1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U5G-7k-iRV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="efJ-Wk-RQC" secondAttribute="trailing" constant="20" id="eRY-cm-UKR"/>
                             <constraint firstItem="9J6-OU-ntT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mOP-P5-m2M"/>
+                            <constraint firstItem="efJ-Wk-RQC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="naq-Gf-TGe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAO-mI-vgM" secondAttribute="trailing" constant="10" id="okl-oa-Zcj"/>
-                            <constraint firstItem="rlD-zs-2XB" firstAttribute="top" secondItem="nAO-mI-vgM" secondAttribute="bottom" constant="20" id="qEI-RT-lTl"/>
                             <constraint firstItem="nAO-mI-vgM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="sXC-O5-A6b"/>
                             <constraint firstItem="0kI-Ms-Gta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="tek-zY-roV"/>
                             <constraint firstItem="0kI-Ms-Gta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u66-cy-fUN"/>
+                            <constraint firstItem="efJ-Wk-RQC" firstAttribute="top" secondItem="9J6-OU-ntT" secondAttribute="bottom" constant="40" id="wcb-Ph-haH"/>
                             <constraint firstItem="9J6-OU-ntT" firstAttribute="top" secondItem="nAO-mI-vgM" secondAttribute="bottom" constant="70" id="yuw-b6-bPq"/>
                         </constraints>
                     </view>
@@ -137,7 +175,10 @@
                         <outlet property="modeSelector" destination="0kI-Ms-Gta" id="TtV-Xo-2H0"/>
                         <outlet property="nextButton" destination="tie-Ae-qhj" id="S57-Bm-e8c"/>
                         <outlet property="showAnswerButton" destination="ACP-UA-auU" id="nvZ-3q-cgc"/>
-                        <outlet property="textField" destination="rlD-zs-2XB" id="TA3-xb-Dxk"/>
+                        <outletCollection property="answerButtons" destination="0In-8N-7Wh" collectionClass="NSMutableArray" id="qKj-cs-iJa"/>
+                        <outletCollection property="answerButtons" destination="xEY-LQ-sbP" collectionClass="NSMutableArray" id="iBd-q6-vVi"/>
+                        <outletCollection property="answerButtons" destination="Gur-lI-Y9l" collectionClass="NSMutableArray" id="x7b-lI-n6i"/>
+                        <outletCollection property="answerButtons" destination="aIN-Ph-cJy" collectionClass="NSMutableArray" id="nmO-5n-Itu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

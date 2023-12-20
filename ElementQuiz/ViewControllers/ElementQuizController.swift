@@ -22,10 +22,10 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     // MARK: - @IBOutlets
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var modeSelector: UISegmentedControl!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var showAnswerButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var elementIcon: ElementIconView!
+    @IBOutlet var answerButtons: [UIButton]!
     
     // MARK: - Variables
     let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
@@ -87,13 +87,20 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
         refreshUI()
     }
     
+    @IBAction func answerBtnPressed(_ sender: UIButton) {
+        guard let userAnswer = sender.titleLabel?.text?.lowercased() else { return }
+        answerBtnShouldReturn(answer: userAnswer)
+    }
+    
     // MARK: - Functions
     private func updateFlashCardUI(_ elementName: String) {
+        for button in answerButtons {
+            button.isHidden = true
+        }
+
         showAnswerButton.isHidden = false
         nextButton.isEnabled = true
         nextButton.setTitle("Next Element", for: .normal)
-        textField.isHidden = true
-        textField.resignFirstResponder()
         modeSelector.selectedSegmentIndex = 0
         
         if state == .answer {
@@ -105,19 +112,33 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     
     private func updateQuizUI(_ elementName: String) {
         modeSelector.selectedSegmentIndex = 1
-        // Keyboard and tehtfield
-        textField.isHidden = false
+        
+        // Answer buttons
         switch state {
         case .question:
-            textField.isEnabled = true
-            textField.text = ""
-            textField.becomeFirstResponder()
+            var names: Set<String> = [elementName]
+            
+            while (names.count < 4) {
+                names.insert(fixedElementList.randomElement()!.name)
+            }
+            
+            let randomNames: [String] = names.shuffled()
+            var localIndex = 0
+            for button in answerButtons {
+                button.isHidden = false
+                button.isEnabled = true
+                button.setTitle(randomNames[localIndex], for: .normal)
+                localIndex += 1
+            }
+            
         case .answer:
-            textField.isEnabled = false
-            textField.resignFirstResponder()
+            for button in answerButtons {
+                button.isEnabled = false
+            }
         case .score:
-            textField.isHidden = true
-            textField.resignFirstResponder()
+            for button in answerButtons {
+                button.isHidden = true
+            }
         }
         
         // Answer label
@@ -191,11 +212,10 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
         elementList = fixedElementList.shuffled()
     }
     
-    // MARK: - UITextFieldDelegate methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let textFieldContents = textField.text!
+    // MARK: - UITextFieldDelegate methods / Main logic when answer button pressed
+    func answerBtnShouldReturn(answer: String){
         
-        if textFieldContents.lowercased() == elementList[currentElementIndex].name.lowercased() {
+        if answer == elementList[currentElementIndex].name.lowercased() {
             answerIsCorrect = true
             correctAnswerCount += 1
         } else {
@@ -205,8 +225,6 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
         state = .answer
         
         refreshUI()
-        
-        return true
     }
     
     // MARK: - Alert
