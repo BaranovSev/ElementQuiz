@@ -14,5 +14,10 @@
         <attribute name="phase" attributeType="String"/>
         <attribute name="summary" attributeType="String"/>
         <attribute name="symbol" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="learnedChemicalElements" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="learnedChemicalElements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChemicalElementModel" inverseName="user" inverseEntity="ChemicalElementModel"/>
     </entity>
 </model>

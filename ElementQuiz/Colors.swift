@@ -23,5 +23,6 @@ struct CustomColors {
     static let unknownMetalloid = UIColor(named: "unknownMetalloid") ?? UIColor.white
     static let unknownpPostTransitionMetal = UIColor(named: "unknownPostTransitionMetal") ?? UIColor.white
     static let unknownTransitionMetal = UIColor(named: "unknownTransitionMetal") ?? UIColor.white
+    static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
 }
 

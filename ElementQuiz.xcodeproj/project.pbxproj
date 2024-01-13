@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
+		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
 		FDA997452B29D79C004C9761 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA997442B29D79C004C9761 /* DataManager.swift */; };
+		FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */; };
+		FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */; };
+		FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */; };
+		FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */; };
+		FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */; };
 		FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A692B234E31004BC16E /* Colors.swift */; };
 		FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */; };
 		FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */; };
 		FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */; };
 		FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */; };
+		FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA190A2B385A5500747B81 /* StartViewController.swift */; };
 		FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
@@ -50,11 +57,17 @@
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
+		FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircleProgressBar+DisplayItem.swift"; sourceTree = "<group>"; };
+		FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDataSource.swift; sourceTree = "<group>"; };
 		FDB03A692B234E31004BC16E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizDataSource.swift; sourceTree = "<group>"; };
 		FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDBA190A2B385A5500747B81 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -78,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +117,8 @@
 			children = (
 				FDA774532B1F70D200DF7D8C /* ElementIconView.swift */,
 				FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */,
+				FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */,
+				FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
+				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
@@ -121,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */,
+				FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -128,6 +146,8 @@
 		FDB03A6F2B25F8E5004BC16E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */,
+				FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */,
 				FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */,
 				FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */,
 				FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */,
@@ -161,6 +181,7 @@
 				FDA997442B29D79C004C9761 /* DataManager.swift */,
 				FDB03A6B2B25F845004BC16E /* ViewControllers */,
 				FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */,
+				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
 				FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */,
 				FDB03A692B234E31004BC16E /* Colors.swift */,
@@ -168,7 +189,6 @@
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
-				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FD56C06C2B1FACAD007AB130 /* Views */,
 				FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */,
 			);
@@ -208,6 +228,9 @@
 			dependencies = (
 			);
 			name = ElementQuiz;
+			packageProductDependencies = (
+				FDA1FE122B3CCA47001D9F14 /* SnapKit */,
+			);
 			productName = ElementQuiz;
 			productReference = FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */;
 			productType = "com.apple.product-type.application";
@@ -280,6 +303,9 @@
 				Base,
 			);
 			mainGroup = FDD3C15A2AFA6E7A0031336C;
+			packageReferences = (
+				FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FDD3C1642AFA6E7A0031336C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -325,18 +351,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
+				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
+				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
+				FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
 				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
+				FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */,
 				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
 				FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
+				FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */,
 				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
+				FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +710,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDA1FE122B3CCA47001D9F14 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */ = {

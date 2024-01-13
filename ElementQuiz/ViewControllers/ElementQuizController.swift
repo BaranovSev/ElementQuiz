@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 enum Mode {
     case flashCard
@@ -24,8 +25,13 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var modeSelector: UISegmentedControl!
     @IBOutlet weak var showAnswerButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var elementIcon: ElementIconView!
     @IBOutlet var answerButtons: [UIButton]!
+    
+    // MARK: - UI Elements
+    private lazy var elementIcon: ElementIconView = {
+        var elementIcon = ElementIconView(displayItem: (dataSource?.elementToDisplayItem(fixedElementList[currentElementIndex]))!)
+        return elementIcon
+    }()
     
     // MARK: - Variables
     let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
@@ -53,6 +59,8 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user = DataManager.shared.fetchUser()
+        print(user)
         setUp()
         mode = .flashCard
     }
@@ -180,6 +188,21 @@ final class ElementQuizController: UIViewController, UITextFieldDelegate {
     
     private func setUp() {
         dataSource = ElementQuizDataSource()
+        view.addSubview(elementIcon)
+        layout()
+    }
+    
+    func layout() {
+        elementIcon.snp.makeConstraints { make in
+            make.top.equalTo(modeSelector.snp.bottom).offset(70)
+            make.height.equalTo(140)
+            make.width.equalTo(140)
+            make.centerX.equalToSuperview()
+        }
+        
+        answerLabel.snp.makeConstraints { make in
+            make.top.equalTo(elementIcon.snp.bottom).offset(50)
+        }
     }
     
     private func refreshUI() {

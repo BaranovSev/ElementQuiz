@@ -21,6 +21,29 @@ final class DataManager {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static let shared = DataManager()
     
+    func fetchUser() -> User {
+        let request = User.fetchRequest()
+        
+        do {
+            let data = try context.fetch(request)
+            let user = data.first ?? User(context: context)
+            return user
+        } catch {
+            fatalError("Current user is missing")
+        }
+    }
+    
+    func saveUserData(from user: User) {
+        let data = User(context: self.context)
+        data.id = user.id
+        data.learnedChemicalElements = user.learnedChemicalElements
+        do {
+            try self.context.save()
+        } catch {
+            fatalError("failure to save context \(error)")
+        }
+    }
+    
     func fetchElements(orderedBy value: OrderedCases? = nil) -> [ChemicalElementModel] {
         let attribute = value ?? .number
         let sort = NSSortDescriptor(key: attribute.rawValue, ascending: true)

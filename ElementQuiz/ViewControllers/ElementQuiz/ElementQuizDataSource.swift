@@ -39,16 +39,8 @@ final class ElementQuizDataSource {
             return CustomColors.postTransitionMetal
         case "transition metal":
             return CustomColors.transitionMetal
-        case "unknown, but predicted to be an alkali metal":
-            return CustomColors.unknownAlkaliMetal
-        case "unknown, predicted to be noble gas":
-            return CustomColors.unknownNobleGas
-        case "unknown, probably metalloid":
-            return CustomColors.unknownMetalloid
-        case "unknown, probably post-transition metal":
-            return CustomColors.unknownpPostTransitionMetal
-        case "unknown, probably transition metal":
-            return CustomColors.unknownTransitionMetal
+        case "unknown":
+            return CustomColors.unknownElement
         default:
             return UIColor.black
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o58-5y-eau">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nAO-mI-vgM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Answer Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nAO-mI-vgM">
                                 <rect key="frame" x="10" y="358" width="370" height="28"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-OU-ntT">
-                                <rect key="frame" x="38" y="456" width="314" height="34.333333333333314"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-OU-ntT">
+                                <rect key="frame" x="38" y="456" width="314" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-UA-auU">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="34.333333333333336"/>
@@ -57,55 +57,8 @@
                                     <action selector="switchModes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Phc-od-RAW"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-2g-wp1" customClass="ElementIconView" customModule="ElementQuiz" customModuleProvider="target">
-                                <rect key="frame" x="125" y="168" width="140" height="140"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmL-sT-K8M">
-                                        <rect key="frame" x="9.6666666666666643" y="46.666666666666657" width="120.66666666666669" height="46.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-Gu-ls4">
-                                        <rect key="frame" x="73.666666666666657" y="10" width="56.333333333333343" height="24"/>
-                                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcI-SC-E9f">
-                                        <rect key="frame" x="73.666666666666657" y="106" width="56.333333333333343" height="24"/>
-                                        <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.01666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="MmL-sT-K8M" firstAttribute="centerY" secondItem="Ogk-2g-wp1" secondAttribute="centerY" id="A3f-m7-urZ"/>
-                                    <constraint firstAttribute="height" constant="140" id="G8z-KE-Yhg"/>
-                                    <constraint firstItem="vcI-SC-E9f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ogk-2g-wp1" secondAttribute="leading" constant="10" id="R9o-K1-tjv"/>
-                                    <constraint firstAttribute="trailing" secondItem="vcI-SC-E9f" secondAttribute="trailing" constant="10" id="RKC-qW-8hg"/>
-                                    <constraint firstAttribute="width" constant="140" id="fde-R8-vja"/>
-                                    <constraint firstItem="zgc-Gu-ls4" firstAttribute="top" secondItem="Ogk-2g-wp1" secondAttribute="top" constant="10" id="i1x-dN-SYb"/>
-                                    <constraint firstAttribute="trailing" secondItem="zgc-Gu-ls4" secondAttribute="trailing" constant="10" id="lQD-An-Ttq"/>
-                                    <constraint firstItem="MmL-sT-K8M" firstAttribute="centerX" secondItem="Ogk-2g-wp1" secondAttribute="centerX" id="mx0-NO-Juu"/>
-                                    <constraint firstItem="zgc-Gu-ls4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ogk-2g-wp1" secondAttribute="leading" constant="10" id="qzb-Sd-Y0I"/>
-                                    <constraint firstAttribute="bottom" secondItem="vcI-SC-E9f" secondAttribute="bottom" constant="10" id="sVh-hI-bZP"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="atomicMassLabel" destination="vcI-SC-E9f" id="yop-4D-lsh"/>
-                                    <outlet property="elementNumberLabel" destination="zgc-Gu-ls4" id="tgH-ON-Msh"/>
-                                    <outlet property="symbolLabel" destination="MmL-sT-K8M" id="pGI-jd-Q8v"/>
-                                </connections>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-Wk-RQC">
-                                <rect key="frame" x="20" y="530.33333333333337" width="350" height="194.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-Wk-RQC">
+                                <rect key="frame" x="20" y="530.33333333333326" width="350" height="194.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-Ph-cJy">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="37.333333333333336"/>
@@ -118,7 +71,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gur-lI-Y9l">
-                                        <rect key="frame" x="0.0" y="52.333333333333258" width="350" height="37.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="52.333333333333371" width="350" height="37.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
@@ -128,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-LQ-sbP">
-                                        <rect key="frame" x="0.0" y="104.66666666666663" width="350" height="37.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="104.66666666666674" width="350" height="37.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
@@ -154,10 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nAO-mI-vgM" firstAttribute="top" secondItem="Ogk-2g-wp1" secondAttribute="bottom" constant="50" id="35C-vF-b4f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="efJ-Wk-RQC" secondAttribute="bottom" constant="20" id="NMB-Jz-JEC"/>
-                            <constraint firstItem="Ogk-2g-wp1" firstAttribute="top" secondItem="0kI-Ms-Gta" secondAttribute="bottom" constant="70" id="RyT-EA-nd9"/>
-                            <constraint firstItem="Ogk-2g-wp1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U5G-7k-iRV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="efJ-Wk-RQC" secondAttribute="trailing" constant="20" id="eRY-cm-UKR"/>
                             <constraint firstItem="9J6-OU-ntT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mOP-P5-m2M"/>
                             <constraint firstItem="efJ-Wk-RQC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="naq-Gf-TGe"/>
@@ -171,7 +121,6 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="nAO-mI-vgM" id="fUv-5P-QKD"/>
-                        <outlet property="elementIcon" destination="Ogk-2g-wp1" id="QBb-RY-OCw"/>
                         <outlet property="modeSelector" destination="0kI-Ms-Gta" id="TtV-Xo-2H0"/>
                         <outlet property="nextButton" destination="tie-Ae-qhj" id="S57-Bm-e8c"/>
                         <outlet property="showAnswerButton" destination="ACP-UA-auU" id="nvZ-3q-cgc"/>
@@ -184,6 +133,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="4"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="81y-ao-TWv">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" id="o58-5y-eau" customClass="StartViewController" customModule="ElementQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zE9-x0-VrH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MQJ-ps-51t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVF-Uz-OYG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-820" y="4"/>
         </scene>
     </scenes>
     <resources>

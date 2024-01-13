@@ -6,11 +6,31 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ElementIconView: UIView {
-    @IBOutlet weak var symbolLabel: UILabel!
-    @IBOutlet weak var elementNumberLabel: UILabel!
-    @IBOutlet weak var atomicMassLabel: UILabel!
+    private var dataSource: ElementQuizDataSource?
+
+    lazy var elementNumberLabel: UILabel = {
+        var label = UILabel()
+        label.font = UIFont(name: "Hoefler Text", size: 24)
+        addSubview(label)
+        return label
+    }()
+
+    lazy var symbolLabel: UILabel  = {
+        var label = UILabel()
+        label.font = UIFont(name: "Menlo Bold", size: 40)
+        addSubview(label)
+        return label
+    }()
+
+    lazy var atomicMassLabel: UILabel =  {
+        var label = UILabel()
+        label.font = UIFont(name: "Hoefler Text", size: 24)
+        addSubview(label)
+        return label
+    }()
     
     var displayItem: DisplayItem? {
         didSet {
@@ -41,10 +61,26 @@ private extension ElementIconView {
     }
     
     func setup() {
+        layer.cornerRadius = 15
+
         layout()
     }
     
     func layout() {
         //constraints
+        
+        elementNumberLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(10)
+        }
+        
+        symbolLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        atomicMassLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-10)
+        }
     }
 }
