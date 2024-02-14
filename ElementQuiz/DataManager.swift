@@ -71,7 +71,12 @@ final class DataManager {
             newElement.latinName = element.latinName
             newElement.atomicMass = element.atomicMass
             newElement.symbol = element.symbol
-            newElement.boil = "\(element.boil)"
+            if let boil = element.boil {
+                newElement.boil = "\(boil)"
+            } else {
+                newElement.boil = nil
+            }
+            
             newElement.number = Int16(element.number)
             newElement.period = Int16(element.period)
             newElement.group = Int16(element.group)

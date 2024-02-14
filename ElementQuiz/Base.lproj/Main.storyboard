@@ -134,6 +134,21 @@
             </objects>
             <point key="canvasLocation" x="53" y="4"/>
         </scene>
+        <!--Element Info View Controller-->
+        <scene sceneID="q9t-Iq-fNe">
+            <objects>
+                <viewController id="7Wh-Uh-0ol" customClass="ElementInfoViewController" customModule="ElementQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JSc-Dm-01e">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SQX-eU-gGJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJ4-uU-Ch8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="25"/>
+        </scene>
         <!--Start View Controller-->
         <scene sceneID="81y-ao-TWv">
             <objects>

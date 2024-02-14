@@ -26,3 +26,34 @@ struct CustomColors {
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
 }
 
+extension CustomColors {
+    static func choseColor(_ category: String) -> UIColor {
+        switch category {
+        case "actinide":
+            return CustomColors.actinide
+        case "alkali metal":
+            return CustomColors.alkaliMetal
+        case "alkaline earth metal":
+            return CustomColors.alkalineEarthMetal
+        case "diatomic nonmetal":
+            return CustomColors.diatomicNonmetal
+        case "lanthanide":
+            return CustomColors.lanthanide
+        case "metalloid":
+            return CustomColors.metalloid
+        case "noble gas":
+            return CustomColors.nobleGas
+        case "polyatomic nonmetal":
+            return CustomColors.polyatomicNonmetal
+        case "post-transition metal":
+            return CustomColors.postTransitionMetal
+        case "transition metal":
+            return CustomColors.transitionMetal
+        case "unknown":
+            return CustomColors.unknownElement
+        default:
+            return UIColor.black
+        }
+    }
+}
+

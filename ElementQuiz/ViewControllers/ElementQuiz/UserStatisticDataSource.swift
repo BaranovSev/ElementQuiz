@@ -17,7 +17,7 @@ final class UserStatisticDataSource {
         }
         
         func createViewModelForCategory(_ categoryName: String) {
-            let categoryInfo = [choseColorFor(categiry: categoryName) : percentageOfprogress(categoryName)]
+            let categoryInfo = [choseColorFor(category: categoryName) : percentageOfprogress(categoryName)]
             elementsCategoryArray.append(categoryInfo)
         }
         
@@ -37,8 +37,8 @@ final class UserStatisticDataSource {
     }
     
 
-    private func choseColorFor(categiry: String) -> UIColor {
-        switch categiry {
+    private func choseColorFor(category: String) -> UIColor {
+        switch category {
         case "actinide":
             return CustomColors.actinide
         case "alkali metal":

@@ -90,6 +90,7 @@ final class StartViewController: UIViewController {
         button.backgroundColor = .purple
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(Self.showElementInfoViewController), for: .touchUpInside)
         return button
     }()
     
@@ -224,3 +225,14 @@ private extension StartViewController {
         currentElement = elementsToLearn.shuffled().first!
     }
 }
+
+// MARK: - Show another controllers
+
+private extension StartViewController {
+    @objc func showElementInfoViewController() {
+        let vc = ElementInfoViewController()
+        vc.currentElement = currentElement
+        self.present(vc, animated: true, completion: nil)
+    }
+}
+

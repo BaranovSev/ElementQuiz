@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInfoViewController.swift; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
+				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
@@ -369,6 +372,7 @@
 				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
 				FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */,
+				FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
