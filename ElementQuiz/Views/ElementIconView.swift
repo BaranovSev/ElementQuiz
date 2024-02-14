@@ -67,8 +67,6 @@ private extension ElementIconView {
     }
     
     func layout() {
-        //constraints
-        
         elementNumberLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-10)
             make.top.equalToSuperview().offset(10)

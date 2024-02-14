@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-
 final class ElementInfoViewController: UIViewController {
     // MARK: - Properties
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
