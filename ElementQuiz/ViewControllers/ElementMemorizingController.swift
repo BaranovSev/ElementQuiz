@@ -619,7 +619,7 @@ private extension ElementMemorizingController {
         case .categoryQuestion:
             return currentElement.category
         case .densityQuestion:
-            return currentElement.density ?? "none"
+            return currentElement.density ?? "unknown"
         case .periodQuestion:
             return String(currentElement.period)
         case .groupQuestion:
