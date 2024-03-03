@@ -149,6 +149,21 @@
             </objects>
             <point key="canvasLocation" x="1062" y="25"/>
         </scene>
+        <!--Element Memorizing Controller-->
+        <scene sceneID="Dgp-oB-6WP">
+            <objects>
+                <viewController storyboardIdentifier="ElementMemorizingController" id="lx6-pn-mcr" customClass="ElementMemorizingController" customModule="ElementQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZmB-n7-m3J">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aPt-zy-5Ah"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAY-n8-TDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="25"/>
+        </scene>
         <!--Start View Controller-->
         <scene sceneID="81y-ao-TWv">
             <objects>

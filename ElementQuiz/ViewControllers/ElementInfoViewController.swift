@@ -70,6 +70,7 @@ final class ElementInfoViewController: UIViewController {
         button.backgroundColor = .purple
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(Self.showElementMemorizingController), for: .touchUpInside)
         return button
     }()
 
@@ -159,9 +160,18 @@ private extension ElementInfoViewController {
         if let boilText: String = currentElement.boil  {
             let boil = Float(boilText) != nil ? Float(boilText) : nil
             if let boil = boil {
-                descriptionTextView.text += "\nBoil temperature: \(boilText) K / \(boil - 273.15) C"
+                descriptionTextView.text += "\nBoil temperature: \(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
             }
         }
+    }
+}
+
+private extension ElementInfoViewController {
+    @objc func showElementMemorizingController() {
+        guard let currentElement = currentElement else { return }
+        let vc = ElementMemorizingController(fixedElementList: fixedElementList, currentElement: currentElement)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

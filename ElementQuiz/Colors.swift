@@ -24,6 +24,7 @@ struct CustomColors {
     static let unknownpPostTransitionMetal = UIColor(named: "unknownPostTransitionMetal") ?? UIColor.white
     static let unknownTransitionMetal = UIColor(named: "unknownTransitionMetal") ?? UIColor.white
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
+    static let lightPurple = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
 }
 
 extension CustomColors {

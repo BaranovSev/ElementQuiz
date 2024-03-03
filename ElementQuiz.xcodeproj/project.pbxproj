@@ -23,6 +23,7 @@
 		FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */; };
 		FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */; };
 		FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA190A2B385A5500747B81 /* StartViewController.swift */; };
+		FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */; };
 		FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
@@ -70,6 +71,7 @@
 		FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FDBA190A2B385A5500747B81 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMemorizingController.swift; sourceTree = "<group>"; };
 		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
 				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
+				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
@@ -367,6 +370,7 @@
 				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
 				FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
+				FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
 				FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */,
 				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,

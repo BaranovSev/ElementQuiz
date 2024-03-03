@@ -16,7 +16,6 @@ final class StartViewController: UIViewController {
     private var userDataSource: UserStatisticDataSource = UserStatisticDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let user: User = DataManager.shared.fetchUser()
-    private let color = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
     private var currentElement: ChemicalElementModel? {
         didSet {
             guard let currentElement = currentElement else { return }
@@ -64,7 +63,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = currentElement?.name
         label.font = UIFont(name: "Hoefler Text", size: 30)
-        label.textColor = UIColor(cgColor: color)
+        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
         return label
     }()
     
@@ -72,7 +71,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = currentElement?.latinName
         label.font = UIFont(name: "Hoefler Text", size: 20)
-        label.textColor = UIColor(cgColor: color)
+        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
         return label
     }()
 
@@ -106,7 +105,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = "progress: \(learnedElements.count)/\(fixedElementList.count)"
         label.font = UIFont(name: "Hoefler Text", size: 15)
-        label.textColor = UIColor(cgColor: color)
+        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
         return label
     }()
     
@@ -114,10 +113,10 @@ final class StartViewController: UIViewController {
         var button = UIButton()
         button.setTitle("repeat", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 15)
-        button.setTitleColor(UIColor(cgColor: color), for: .normal)
+        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
         button.setTitleColor(.gray, for: .highlighted)
         button.backgroundColor = .white
-        button.layer.borderColor = color
+        button.layer.borderColor = CustomColors.lightPurple
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
