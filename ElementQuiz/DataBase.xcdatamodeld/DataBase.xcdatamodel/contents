@@ -4,9 +4,11 @@
         <attribute name="atomicMass" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="boil" optional="YES" attributeType="String"/>
         <attribute name="category" attributeType="String"/>
+        <attribute name="density" optional="YES" attributeType="String"/>
         <attribute name="discoveredBy" optional="YES" attributeType="String"/>
         <attribute name="group" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="latinName" attributeType="String"/>
+        <attribute name="melt" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="namedBy" optional="YES" attributeType="String"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

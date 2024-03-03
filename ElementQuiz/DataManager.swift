@@ -77,6 +77,18 @@ final class DataManager {
                 newElement.boil = nil
             }
             
+            if let melt = element.melt {
+                newElement.melt = "\(melt)"
+            } else {
+                newElement.melt = nil
+            }
+            
+            if let density = element.density {
+                newElement.density = "\(density)"
+            } else {
+                newElement.density = nil
+            }
+            
             newElement.number = Int16(element.number)
             newElement.period = Int16(element.period)
             newElement.group = Int16(element.group)

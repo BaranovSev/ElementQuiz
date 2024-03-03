@@ -20,6 +20,8 @@ extension ChemicalElementModel {
     @NSManaged public var latinName: String
     @NSManaged public var atomicMass: Double
     @NSManaged public var boil: String?
+    @NSManaged public var melt: String?
+    @NSManaged public var density: String?
     @NSManaged public var symbol: String
     @NSManaged public var number: Int16
     @NSManaged public var period: Int16

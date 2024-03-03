@@ -160,8 +160,19 @@ private extension ElementInfoViewController {
         if let boilText: String = currentElement.boil  {
             let boil = Float(boilText) != nil ? Float(boilText) : nil
             if let boil = boil {
-                descriptionTextView.text += "\nBoil temperature: \(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
+                descriptionTextView.text += "\nBoil temperature: \(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C" + "\n"
             }
+        }
+        
+        if let meltText: String = currentElement.melt  {
+            let melt = Float(meltText) != nil ? Float(meltText) : nil
+            if let melt = melt {
+                descriptionTextView.text += "\nMelt temperature: \(meltText) K / " + String(format: "%.2f", melt - 273.15) + " C" + "\n"
+            }
+        }
+        
+        if let densityText: String = currentElement.density  {
+            descriptionTextView.text += "\nDensity: \(densityText) g/cm3"
         }
     }
 }

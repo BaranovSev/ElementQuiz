@@ -14,13 +14,13 @@ private enum QuestionAbout {
     case commonNameQuestion
     case atomicMassQuestion
     case orderNumberQuestion
-    case categotyQuestion
-//    case densityQuestion
+    case categoryQuestion
+    case densityQuestion
     case periodQuestion
     case groupQuestion
     case phaseQuestion
     case boilingPointQuestion
-//    case meltPoinQuestion
+    case meltQuestion
 }
 
 final class ElementMemorizingController: UIViewController {
@@ -40,17 +40,20 @@ final class ElementMemorizingController: UIViewController {
 //TODO: implement different visualisation for same question, used buttons pressed, buttons drags & other UI elements
     private let fixedSequenceOfQuestions: [QuestionAbout] = [
         .atomicMassQuestion,
-//        .latinNameQuestion,
-//        .commonNameQuestion,
-//        .orderNumberQuestion,
-//        .categotyQuestion,
-//        .periodQuestion,
-//        .groupQuestion,
-//        .phaseQuestion,
-//        .boilingPointQuestion
+        .latinNameQuestion,
+        .commonNameQuestion,
+        .orderNumberQuestion,
+        .densityQuestion,
+        .categoryQuestion,
+        .meltQuestion,
+        .periodQuestion,
+        .groupQuestion,
+        .phaseQuestion,
+        .boilingPointQuestion
     ]
     
     private var sequenceOfQuestions: [QuestionAbout] = []
+    private var missmatchedQuestions: Set <QuestionAbout> = []
     
     init(fixedElementList: [ChemicalElementModel], currentElement: ChemicalElementModel) {
         self.fixedElementList = fixedElementList
@@ -92,7 +95,6 @@ final class ElementMemorizingController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.isHidden = true
-        button.addTarget(self, action: #selector(Self.next(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -107,7 +109,6 @@ final class ElementMemorizingController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(Self.backToMainViewController), for: .touchUpInside)
-//        button.isHidden = true
         return button
     }()
     
@@ -123,7 +124,7 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 1", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
         button.layer.borderColor = CustomColors.lightPurple
@@ -136,7 +137,7 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 2", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
         button.layer.borderColor = CustomColors.lightPurple
@@ -149,7 +150,7 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 3", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
         button.layer.borderColor = CustomColors.lightPurple
@@ -162,7 +163,7 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 4", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
         button.layer.borderColor = CustomColors.lightPurple
@@ -182,6 +183,7 @@ final class ElementMemorizingController: UIViewController {
     private func updateQuizUI(_ element: ChemicalElementModel) {
         // Answer buttons
         let answerButtons = [smallButton1, smallButton2, smallButton3, smallButton4]
+        
         switch state {
         case .question:
             let variants: Set<String> = getVariantsOfAnswers()
@@ -191,13 +193,17 @@ final class ElementMemorizingController: UIViewController {
             for button in answerButtons {
                 button.isHidden = false
                 button.isEnabled = true
+                button.backgroundColor = .white
                 button.setTitle(randomVariants[localIndex], for: .normal)
                 button.addTarget(self, action: #selector(Self.answerBtnPressed(_:)), for: .touchUpInside)
                 localIndex += 1
             }
-            
         case .answer:
+            let currentCorrectAnswer = getCorrectAnswer()
             for button in answerButtons {
+                if button.titleLabel?.text == currentCorrectAnswer {
+                    button.backgroundColor = .green.withAlphaComponent(0.7)
+                }
                 button.isEnabled = false
             }
         case .score:
@@ -213,11 +219,7 @@ final class ElementMemorizingController: UIViewController {
             questionLabel.text = getVariantsOfQuestion()
         case .answer:
             if answerIsCorrect {
-                questionLabel.textAlignment = .center
-                questionLabel.text = "Correct!"
-            } else {
                 questionLabel.textAlignment = .justified
-                questionLabel.text = "❌  Correct answer:  " + getCorrectAnswer()
             }
         case .score:
             //TODO: new controller with result
@@ -226,31 +228,28 @@ final class ElementMemorizingController: UIViewController {
         }
         
         // BIG Button
-        if currentQuestionIndex == sequenceOfQuestions.count - 1 {
-            bigButton.setTitle("Show score", for: .normal)
-        } else {
-            bigButton.setTitle("Next", for: .normal)
-        }
-        
         switch state {
         case .question:
             bigButton.isHidden = true
             bigButton.isEnabled = false
         case .answer:
-            bigButton.isHidden = false
-            bigButton.isEnabled = true
-            bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
-            bigButton.addTarget(self, action: #selector(Self.next(_:)), for: .touchUpInside)
+            let delayInSeconds = 3.8
+            let delay = DispatchTime.now() + delayInSeconds
+
+            DispatchQueue.main.asyncAfter(deadline: delay) {
+                self.next()
+            }
         case .score:
+        // TODO: show score controller
+            bigButton.isHidden = false
             bigButton.isEnabled = true
             if elementSuccessfullyLearned() {
                 bigButton.setTitle("Congrats!", for: .normal)
-                bigButton.removeTarget(self, action: #selector(Self.next(_:)), for: .touchUpInside)
+                bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
                 //TODO: save element to DB & show main screen or salutte screen
 //                bigButton.addTarget(self, action: #selector(Self.), for: .touchUpInside)
             } else {
                 bigButton.setTitle("Try again", for: .normal)
-                bigButton.removeTarget(self, action: #selector(Self.next(_:)), for: .touchUpInside)
                 bigButton.addTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
             }
         }
@@ -269,7 +268,6 @@ final class ElementMemorizingController: UIViewController {
         }
     }
     
-    
     private func refreshUI() {
         updateQuizUI(currentElement)
     }
@@ -281,6 +279,7 @@ final class ElementMemorizingController: UIViewController {
         correctAnswerCount = 0
         additionalQuestionPoints = 5
         sequenceOfQuestions = fixedSequenceOfQuestions
+        missmatchedQuestions = []
     }
     
     private func setupQuestionSequens() {
@@ -295,9 +294,14 @@ final class ElementMemorizingController: UIViewController {
     @objc func answerBtnPressed(_ sender: UIButton) {
         guard let userAnswer = sender.titleLabel?.text else { return }
         answerBtnShouldReturn(answer: userAnswer)
+        if answerIsCorrect {
+            sender.backgroundColor = .green.withAlphaComponent(0.7)
+        } else {
+            sender.backgroundColor = .red.withAlphaComponent(0.7)
+        }
     }
     
-    @objc func next(_ sender: UIButton) {
+    private func next() {
         if currentQuestionIndex + 1 < sequenceOfQuestions.count {
             currentQuestionIndex += 1
             state = .question
@@ -309,18 +313,15 @@ final class ElementMemorizingController: UIViewController {
     }
     
     @objc func backToMainViewController() {
-        
         print("BACK TO MAIN")
     }
     
-    func answerBtnShouldReturn(answer: String){
+    func answerBtnShouldReturn(answer: String) {
         checkAnswer(answer)
         
         state = .answer
         refreshUI()
     }
-    
-
 }
 
 private extension ElementMemorizingController {
@@ -413,98 +414,47 @@ private extension ElementMemorizingController {
     }
     
     private func addQuestionIfNeeded() {
+        if (sequenceOfQuestions.count - currentQuestionIndex) == 1 && additionalQuestionPoints > 1 {
+            additionalQuestionPoints = 1
+        }
+       
+        if (sequenceOfQuestions.count - currentQuestionIndex) == 2 && additionalQuestionPoints > 2{
+            additionalQuestionPoints = 2
+        }
+ 
         if additionalQuestionPoints > 0 {
             additionalQuestionPoints -= 1
             sequenceOfQuestions.append(sequenceOfQuestions[currentQuestionIndex])
         }
     }
     
+    private func saveToMissmathcedQuestions(_ question: QuestionAbout) {
+        missmatchedQuestions.insert(question)
+    }
+    
+    private func deleteFromMissmathcedQuestions(_ question: QuestionAbout) {
+        missmatchedQuestions.remove(question)
+    }
+        
     private func checkAnswer(_ answer: String) {
-        switch sequenceOfQuestions[currentQuestionIndex] {
-        case .latinNameQuestion:
-            if answer == currentElement.latinName {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .commonNameQuestion:
-            if answer == currentElement.name {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .atomicMassQuestion:
-            if answer == String(format: "%.3f", currentElement.atomicMass) {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .orderNumberQuestion:
-            if answer == String(currentElement.number) {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .categotyQuestion:
-            if answer == currentElement.category {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .periodQuestion:
-            if answer == String(currentElement.period) {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .groupQuestion:
-            if answer == String(currentElement.group) {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .phaseQuestion:
-            if answer == currentElement.phase {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
-        case .boilingPointQuestion:
-            var currentElementBoil = ""
-            
-            if let boilText = currentElement.boil {
-                let boil = Float(boilText) != nil ? Float(boilText) : nil
-                if let boil = boil {
-                    currentElementBoil = "\(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
-                } else {
-                    fatalError("can't change string to float from boil of the element when answerBtnShouldReturn() run")
-                }
-            } else {
-                currentElementBoil = "none"
-            }
-            if answer == currentElementBoil {
-                answerIsCorrect = true
-                correctAnswerCount += 1
-            } else {
-                answerIsCorrect = false
-                addQuestionIfNeeded()
-            }
+        let correctAnswer = getCorrectAnswer()
+        
+        func success() {
+            answerIsCorrect = true
+            correctAnswerCount += 1
+            deleteFromMissmathcedQuestions(sequenceOfQuestions[currentQuestionIndex])
+        }
+        
+        func failure() {
+            answerIsCorrect = false
+            addQuestionIfNeeded()
+            saveToMissmathcedQuestions(sequenceOfQuestions[currentQuestionIndex])
+        }
+        
+        if answer == correctAnswer {
+            success()
+        } else {
+            failure()
         }
     }
     
@@ -534,10 +484,26 @@ private extension ElementMemorizingController {
                 variants.insert(String(fixedElementList.randomElement()!.number))
             }
             return variants
-        case .categotyQuestion:
+        case .categoryQuestion:
             var variants: Set<String> = [currentElement.category]
             while (variants.count < 4) {
                 variants.insert(fixedElementList.randomElement()!.category)
+            }
+            return variants
+        case .densityQuestion:
+            var variants: Set<String> = []
+            if let densityText = currentElement.density {
+                variants.insert("\(densityText)")
+            } else {
+                variants.insert("unknown")
+            }
+            
+            while (variants.count < 4) {
+                if let densityText = fixedElementList.randomElement()!.density {
+                    variants.insert("\(densityText)")
+                } else {
+                    variants.insert("unknown")
+                }
             }
             return variants
         case .periodQuestion:
@@ -584,6 +550,32 @@ private extension ElementMemorizingController {
                 }
             }
             return variants
+        case .meltQuestion:
+            var variants: Set<String> = []
+            if let meltText = currentElement.melt {
+                let melt = Float(meltText) != nil ? Float(meltText) : nil
+                if let melt = melt {
+                    variants.insert("\(meltText) K / " + String(format: "%.2f", melt - 273.15) + " C")
+                } else {
+                    fatalError("can't change string to float from melt of the element when getVariantsOfAnswers() run (for correct answer)")
+                }
+            } else {
+                variants.insert("none")
+            }
+            
+            while (variants.count < 4) {
+                if let meltRandomElementText = fixedElementList.randomElement()!.melt {
+                    let melt = Float(meltRandomElementText) != nil ? Float(meltRandomElementText) : nil
+                    if let melt = melt {
+                        variants.insert("\(meltRandomElementText) K / " + String(format: "%.2f", melt - 273.15) + " C")
+                    } else {
+                        fatalError("can't change string to float from melt of the element when getVariantsOfAnswers() run")
+                    }
+                } else {
+                    variants.insert("none")
+                }
+            }
+            return variants
         }
     }
     
@@ -597,8 +589,10 @@ private extension ElementMemorizingController {
             return "The atomic mass of this element is equal to"
         case .orderNumberQuestion:
             return "Order number of this element in the periodic table is"
-        case .categotyQuestion:
+        case .categoryQuestion:
             return "This element categorized as"
+        case .densityQuestion:
+            return "The density of this element in \ng/cm3 is equal to"
         case .periodQuestion:
             return "The period number of an element is"
         case .groupQuestion:
@@ -607,6 +601,8 @@ private extension ElementMemorizingController {
             return "Phase of this element is"
         case .boilingPointQuestion:
             return "Boiling point of this element is equal to"
+        case .meltQuestion:
+            return "Melting point of this element is equal to"
         }
     }
     
@@ -617,60 +613,45 @@ private extension ElementMemorizingController {
         case .commonNameQuestion:
             return currentElement.name
         case .atomicMassQuestion:
-            return "the atomic mass of this element is equal to " + String(format: "%.3f", currentElement.atomicMass)
+            return String(format: "%.3f", currentElement.atomicMass)
         case .orderNumberQuestion:
-            return "number \(currentElement.number) in periodic table"
-        case .categotyQuestion:
+            return String(currentElement.number)
+        case .categoryQuestion:
             return currentElement.category
+        case .densityQuestion:
+            return currentElement.density ?? "none"
         case .periodQuestion:
-            return "period of this element is " + String(currentElement.period)
+            return String(currentElement.period)
         case .groupQuestion:
-            return "this element belongs to group number " + String(currentElement.group)
+            return String(currentElement.group)
         case .phaseQuestion:
-            return "the ordinary phase of this element is " + currentElement.phase
+            return currentElement.phase
         case .boilingPointQuestion:
             var resultString = ""
             if let boilText = currentElement.boil {
                 let boil = Float(boilText) != nil ? Float(boilText) : nil
                 if let boil = boil {
-                    resultString = "boil temperature is \(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
+                    resultString = "\(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
                 } else {
                     fatalError("can't change string to float from boil of the element when getCorrectAnswer() run")
                 }
             } else {
-                resultString = "this element doesn't have boil temperature"
+                resultString = "none"
+            }
+            return resultString
+        case .meltQuestion:
+            var resultString = ""
+            if let meltText = currentElement.melt {
+                let melt = Float(meltText) != nil ? Float(meltText) : nil
+                if let melt = melt {
+                    resultString = "\(meltText) K / " + String(format: "%.2f", melt - 273.15) + " C"
+                } else {
+                    fatalError("can't change string to float from melt of the element when getCorrectAnswer() run")
+                }
+            } else {
+                resultString = "none"
             }
             return resultString
         }
     }
 }
-
-
-
-
-/*
- 
- ДОБАВИТЬ: density (g/cm3), melt (nil!!!) in C / K
- отдельный экран для статистики
- Type of question  граф оформление вопроса
- 
- Добавление вопроса на который был дан неправильный ответ + базу еще раз перемешанную добавить
- - если вопросов 5 - попыток 5
- если вопррос 1 попытка 1 а не 5
- 
- Менее 60%  кнопка Try Again и кнопка Later + 2 невидимы
- 
- Сохранять сессии пользователя и его неудачные ответы пользователя и давать ему возможность провести работу над ошибками
- Не заставлять клацать кнопку некст, вместо этого подсвечивать зеленым правильный вариант ответа (и красным неправильный если он выбран)
- отдельный контроллер для финального экрана со всякими статистиками:
- 
- - сегодня элементов
- - Вы ответили на вопросов из
- - точность в процентах средняя по всем элементам?
- 
- - лучше чем 60 % пользователей...
- - столько то элементов их этой группы выучено
- - вы изучили периодическую таблицу на n%
- 
- 
- */

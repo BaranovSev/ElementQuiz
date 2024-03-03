@@ -13,6 +13,8 @@ struct ChemicalElementModelJSON: Codable {
 //    let nameRu: String
     let atomicMass: Double
     let boil: Double?
+    let melt: Double?
+    let density: Double?
     let symbol: String
     let number: Int
     let period: Int
@@ -32,6 +34,7 @@ struct ChemicalElementModelJSON: Codable {
         case atomicMass = "atomic_mass"
         case symbol
         case boil
+        case melt
         case number
         case period
         case group
@@ -40,6 +43,7 @@ struct ChemicalElementModelJSON: Codable {
         case namedBy = "named_by"
         case summary
         case phase
+        case density
     }
 
     init(from decoder: Decoder) throws {
@@ -49,6 +53,8 @@ struct ChemicalElementModelJSON: Codable {
 //        self.nameRu = try container.decode(String.self, forKey: .nameRu)
         self.atomicMass = try container.decode(Double.self, forKey: .atomicMass)
         self.boil = try container.decode(Double?.self, forKey: .boil)
+        self.melt = try container.decode(Double?.self, forKey: .melt)
+        self.density = try container.decode(Double?.self, forKey: .density)
         self.symbol = try container.decode(String.self, forKey: .symbol)
         self.number = try container.decode(Int.self, forKey: .number)
         self.period = try container.decode(Int.self, forKey: .period)
