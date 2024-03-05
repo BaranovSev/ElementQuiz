@@ -152,6 +152,10 @@ private extension ElementInfoViewController {
         }
         
         descriptionTextView.text += "\n" + currentElement.summary + "\n"
+        if let appearance = currentElement.appearance {
+            descriptionTextView.text += "\n" + "Appearance: " + appearance + "\n"
+        }
+        
         descriptionTextView.text += "\nAtomic mass: " + String(currentElement.atomicMass) + "\n"
         descriptionTextView.text += "\nPeriod: " + String(currentElement.period) + "\n"
         descriptionTextView.text += "\nGroup: " + String(currentElement.group) + "\n"
@@ -172,7 +176,53 @@ private extension ElementInfoViewController {
         }
         
         if let densityText: String = currentElement.density  {
-            descriptionTextView.text += "\nDensity: \(densityText) g/cm3"
+            descriptionTextView.text += "\nDensity: \(densityText) g/cm3" + "\n"
+        }
+        
+        if let molarHeatText: String = currentElement.molarHeat  {
+            let molarHeat = Float(molarHeatText) != nil ? Float(molarHeatText) : nil
+            if let molarHeat = molarHeat {
+                descriptionTextView.text += "\nMolar heat: \(molarHeat) J/(mol·K)" + "\n"
+            }
+        }
+        
+        descriptionTextView.text += "\n" + "Electronic configuration" + "\n"
+        descriptionTextView.text += "\n" + currentElement.electronConfiguration + "\n"
+        descriptionTextView.text += "\n" + currentElement.electronConfigurationSemantic + "\n"
+        if let electronAffinityText: String = currentElement.electronAffinity  {
+            let electronAffinity = Float(electronAffinityText) != nil ? Float(electronAffinityText) : nil
+            if let electronAffinity = electronAffinity {
+                descriptionTextView.text += "\nElectron affinity: \(electronAffinity) kJ/mol" + "\n"
+            }
+        }
+        
+        if let electronegativityPaulingText: String = currentElement.electronegativityPauling  {
+            let electronegativityPauling = Float(electronegativityPaulingText) != nil ? Float(electronegativityPaulingText) : nil
+            if let electronegativityPauling = electronegativityPauling {
+                descriptionTextView.text += "\nElectronegativity by Pauling: \(electronegativityPauling)" + "\n"
+            }
+        }
+        
+        if currentElement.shells.isEmpty != true {
+            descriptionTextView.text += "\nShells: "
+            var shellsText: [String] = []
+            for shell in currentElement.shells {
+                shellsText.append(String(shell))
+            }
+            
+            descriptionTextView.text += shellsText.joined(separator: ", ")
+            descriptionTextView.text += "\n"
+        }
+
+        if currentElement.ionizationEnergies.isEmpty != true {
+            descriptionTextView.text += "\nIonization energies: \n"
+            var ionizationEnergiesText: [String] = []
+            for item in currentElement.ionizationEnergies {
+                ionizationEnergiesText.append(String(item))
+            }
+            
+            descriptionTextView.text += ionizationEnergiesText.joined(separator: ", \n")
+            descriptionTextView.text += "\n"
         }
     }
 }

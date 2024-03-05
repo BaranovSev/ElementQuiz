@@ -83,10 +83,22 @@ final class DataManager {
                 newElement.melt = nil
             }
             
+            if let molarHeat = element.molarHeat {
+                newElement.molarHeat = "\(molarHeat)"
+            } else {
+                newElement.molarHeat = nil
+            }
+            
             if let density = element.density {
                 newElement.density = "\(density)"
             } else {
                 newElement.density = nil
+            }
+            
+            if let appearance = element.appearance {
+                newElement.appearance = appearance
+            } else {
+                newElement.appearance = nil
             }
             
             newElement.number = Int16(element.number)
@@ -97,6 +109,27 @@ final class DataManager {
             newElement.namedBy = element.namedBy
             newElement.summary = element.summary
             newElement.phase = element.phase
+            newElement.block = element.block
+            newElement.xpos = Int16(element.xpos)
+            newElement.ypos = Int16(element.ypos)
+            newElement.wxpos = Int16(element.wxpos)
+            newElement.wypos = Int16(element.wypos)
+            newElement.shells = element.shells
+            newElement.electronConfiguration = element.electronConfiguration
+            newElement.electronConfigurationSemantic = element.electronConfigurationSemantic
+            if let electronAffinity = element.electronAffinity {
+                newElement.electronAffinity = "\(electronAffinity)"
+            } else {
+                newElement.electronAffinity = nil
+            }
+            
+            if let electronegativityPauling = element.electronegativityPauling {
+                newElement.electronegativityPauling = "\(electronegativityPauling)"
+            } else {
+                newElement.electronegativityPauling = nil
+            }
+            
+            newElement.ionizationEnergies = element.ionizationEnergies
             
             do {
                 try self.context.save()

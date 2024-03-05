@@ -14,7 +14,9 @@ struct ChemicalElementModelJSON: Codable {
     let atomicMass: Double
     let boil: Double?
     let melt: Double?
+    let molarHeat: Double?
     let density: Double?
+    let appearance: String?
     let symbol: String
     let number: Int
     let period: Int
@@ -24,6 +26,12 @@ struct ChemicalElementModelJSON: Codable {
     let namedBy: String?
     let summary: String
     let phase: String
+    let block: String
+    let xpos, ypos, wxpos, wypos: Int
+    let shells: [Int]
+    let electronConfiguration, electronConfigurationSemantic: String
+    let electronAffinity, electronegativityPauling: Double?
+    let ionizationEnergies: [Double]
 
     static let items: [ChemicalElementModelJSON] = Bundle.main.decode(file: "PeriodicTableJSON.json")
 
@@ -44,6 +52,15 @@ struct ChemicalElementModelJSON: Codable {
         case summary
         case phase
         case density
+        case molarHeat = "molar_heat"
+        case xpos, ypos, wxpos, wypos, shells
+        case electronConfiguration = "electron_configuration"
+        case electronConfigurationSemantic = "electron_configuration_semantic"
+        case electronAffinity = "electron_affinity"
+        case electronegativityPauling = "electronegativity_pauling"
+        case ionizationEnergies = "ionization_energies"
+        case block
+        case appearance
     }
 
     init(from decoder: Decoder) throws {
@@ -54,7 +71,9 @@ struct ChemicalElementModelJSON: Codable {
         self.atomicMass = try container.decode(Double.self, forKey: .atomicMass)
         self.boil = try container.decode(Double?.self, forKey: .boil)
         self.melt = try container.decode(Double?.self, forKey: .melt)
+        self.molarHeat = try container.decode(Double?.self, forKey: .molarHeat)
         self.density = try container.decode(Double?.self, forKey: .density)
+        self.appearance = try container.decode(String?.self, forKey: .appearance)
         self.symbol = try container.decode(String.self, forKey: .symbol)
         self.number = try container.decode(Int.self, forKey: .number)
         self.period = try container.decode(Int.self, forKey: .period)
@@ -64,6 +83,17 @@ struct ChemicalElementModelJSON: Codable {
         self.namedBy = try container.decode(String?.self, forKey: .namedBy)
         self.summary = try container.decode(String.self, forKey: .summary)
         self.phase = try container.decode(String.self, forKey: .phase)
+        self.block = try container.decode(String.self, forKey: .block)
+        self.xpos = try container.decode(Int.self, forKey: .xpos)
+        self.ypos = try container.decode(Int.self, forKey: .ypos)
+        self.wxpos = try container.decode(Int.self, forKey: .wxpos)
+        self.wypos = try container.decode(Int.self, forKey: .wypos)
+        self.shells = try container.decode([Int].self, forKey: .shells)
+        self.electronConfiguration = try container.decode(String.self, forKey: .electronConfiguration)
+        self.electronConfigurationSemantic = try container.decode(String.self, forKey: .electronConfigurationSemantic)
+        self.electronAffinity = try container.decode(Double?.self, forKey: .electronAffinity)
+        self.electronegativityPauling = try container.decode(Double?.self, forKey: .electronegativityPauling)
+        self.ionizationEnergies = try container.decode([Double].self, forKey: .ionizationEnergies)
     }
 }
 

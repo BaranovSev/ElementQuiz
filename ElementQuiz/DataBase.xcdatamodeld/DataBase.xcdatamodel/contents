@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ChemicalElementModel" representedClassName=".ChemicalElementModel" syncable="YES">
+        <attribute name="appearance" optional="YES" attributeType="String"/>
         <attribute name="atomicMass" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="block" attributeType="String"/>
         <attribute name="boil" optional="YES" attributeType="String"/>
         <attribute name="category" attributeType="String"/>
         <attribute name="density" optional="YES" attributeType="String"/>
         <attribute name="discoveredBy" optional="YES" attributeType="String"/>
+        <attribute name="electronAffinity" optional="YES" attributeType="String"/>
+        <attribute name="electronConfiguration" attributeType="String"/>
+        <attribute name="electronConfigurationSemantic" attributeType="String"/>
+        <attribute name="electronegativityPauling" optional="YES" attributeType="String"/>
         <attribute name="group" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ionizationEnergies" attributeType="Transformable" customClassName="[Double]"/>
         <attribute name="latinName" attributeType="String"/>
         <attribute name="melt" optional="YES" attributeType="String"/>
+        <attribute name="molarHeat" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="namedBy" optional="YES" attributeType="String"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="period" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="phase" attributeType="String"/>
+        <attribute name="shells" attributeType="Transformable" customClassName="[Int]"/>
         <attribute name="summary" attributeType="String"/>
         <attribute name="symbol" attributeType="String"/>
+        <attribute name="wxpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="xpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="learnedChemicalElements" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">

@@ -19,9 +19,11 @@ extension ChemicalElementModel {
     @NSManaged public var name: String
     @NSManaged public var latinName: String
     @NSManaged public var atomicMass: Double
-    @NSManaged public var boil: String?
-    @NSManaged public var melt: String?
-    @NSManaged public var density: String?
+    @NSManaged public var boil: String? // real Double?
+    @NSManaged public var melt: String? // real Double?
+    @NSManaged public var molarHeat: String? // real Double?
+    @NSManaged public var density: String? // real Double?
+    @NSManaged public var appearance: String?
     @NSManaged public var symbol: String
     @NSManaged public var number: Int16
     @NSManaged public var period: Int16
@@ -31,6 +33,12 @@ extension ChemicalElementModel {
     @NSManaged public var namedBy: String?
     @NSManaged public var summary: String
     @NSManaged public var phase: String
+    @NSManaged public var block: String
+    @NSManaged public var xpos, ypos, wxpos, wypos: Int16
+    @NSManaged public var shells: [Int]
+    @NSManaged public var electronConfiguration, electronConfigurationSemantic: String
+    @NSManaged public var electronAffinity, electronegativityPauling: String? // real Double?
+    @NSManaged public var ionizationEnergies: [Double]
 
 }
 
