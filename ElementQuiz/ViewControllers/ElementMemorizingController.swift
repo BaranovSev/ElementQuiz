@@ -32,7 +32,7 @@ final class ElementMemorizingController: UIViewController {
             print(state)
         }
     }
-    var answerIsCorrect = false
+    var answerIsCorrect: Bool? = nil
     var correctAnswerCount = 0
     var currentQuestionIndex = 0
     var additionalQuestionPoints = 5
@@ -218,7 +218,7 @@ final class ElementMemorizingController: UIViewController {
             questionLabel.textAlignment = .justified
             questionLabel.text = getVariantsOfQuestion()
         case .answer:
-            if answerIsCorrect {
+            if answerIsCorrect == true {
                 questionLabel.textAlignment = .justified
             }
         case .score:
@@ -275,7 +275,7 @@ final class ElementMemorizingController: UIViewController {
     private func setupQuiz() {
         state = .question
         currentQuestionIndex = 0
-        answerIsCorrect = false
+        answerIsCorrect = nil
         correctAnswerCount = 0
         additionalQuestionPoints = 5
         sequenceOfQuestions = fixedSequenceOfQuestions
@@ -294,9 +294,9 @@ final class ElementMemorizingController: UIViewController {
     @objc func answerBtnPressed(_ sender: UIButton) {
         guard let userAnswer = sender.titleLabel?.text else { return }
         answerBtnShouldReturn(answer: userAnswer)
-        if answerIsCorrect {
+        if answerIsCorrect == true {
             sender.backgroundColor = .green.withAlphaComponent(0.7)
-        } else {
+        } else if answerIsCorrect == false {
             sender.backgroundColor = .red.withAlphaComponent(0.7)
         }
     }
