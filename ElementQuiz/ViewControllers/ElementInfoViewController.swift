@@ -177,6 +177,8 @@ private extension ElementInfoViewController {
         
         if let densityText: String = currentElement.density  {
             descriptionTextView.text += "\nDensity: \(densityText) g/cm3" + "\n"
+        } else {
+            descriptionTextView.text += "\nDensity: unknown" + "\n"
         }
         
         if let molarHeatText: String = currentElement.molarHeat  {
@@ -184,6 +186,28 @@ private extension ElementInfoViewController {
             if let molarHeat = molarHeat {
                 descriptionTextView.text += "\nMolar heat: \(molarHeat) J/(mol·K)" + "\n"
             }
+        }
+        
+        if currentElement.valency.isEmpty != true {
+            descriptionTextView.text += "\nValency: "
+            var valencyText: [String] = []
+            for valency in currentElement.valency {
+                valencyText.append(toRoman(valency))
+            }
+            
+            descriptionTextView.text += valencyText.joined(separator: ", ")
+            descriptionTextView.text += "\n"
+        }
+        
+        if currentElement.oxidationDegree.isEmpty != true {
+            descriptionTextView.text += "\nOxidation degree: "
+            var oxidationText: [String] = []
+            for oxidation in currentElement.oxidationDegree {
+                oxidationText.append(String(oxidation))
+            }
+            
+            descriptionTextView.text += oxidationText.joined(separator: ", ")
+            descriptionTextView.text += "\n"
         }
         
         descriptionTextView.text += "\n" + "Electronic configuration" + "\n"
@@ -233,6 +257,49 @@ private extension ElementInfoViewController {
         let vc = ElementMemorizingController(fixedElementList: fixedElementList, currentElement: currentElement)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+}
+
+// MARK: Helpers
+private extension ElementInfoViewController {
+    private func toRoman(_ valency: Int) -> String {
+        var result = ""
+        if valency == 0 {
+            result = "O"
+        }
+
+        if valency == 1 {
+            result = "I"
+        }
+
+        if valency == 2 {
+            result = "II"
+        }
+
+        if valency == 3 {
+            result = "III"
+        }
+
+        if valency == 4 {
+            result = "IV"
+        }
+
+        if valency == 5 {
+            result = "V"
+        }
+
+        if valency == 6 {
+            result = "VI"
+        }
+
+        if valency == 7 {
+            result = "VII"
+        }
+
+        if valency == 8 {
+            result = "VIII"
+        }
+        return result
     }
 }
 

@@ -130,6 +130,8 @@ final class DataManager {
             }
             
             newElement.ionizationEnergies = element.ionizationEnergies
+            newElement.valency = element.valency
+            newElement.oxidationDegree = element.oxidationDegree
             
             do {
                 try self.context.save()

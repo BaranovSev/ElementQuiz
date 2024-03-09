@@ -13,18 +13,20 @@
         <attribute name="electronConfigurationSemantic" attributeType="String"/>
         <attribute name="electronegativityPauling" optional="YES" attributeType="String"/>
         <attribute name="group" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="ionizationEnergies" attributeType="Transformable" customClassName="[Double]"/>
+        <attribute name="ionizationEnergies" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
         <attribute name="latinName" attributeType="String"/>
         <attribute name="melt" optional="YES" attributeType="String"/>
         <attribute name="molarHeat" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="namedBy" optional="YES" attributeType="String"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="oxidationDegree" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]."/>
         <attribute name="period" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="phase" attributeType="String"/>
-        <attribute name="shells" attributeType="Transformable" customClassName="[Int]"/>
+        <attribute name="shells" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]"/>
         <attribute name="summary" attributeType="String"/>
         <attribute name="symbol" attributeType="String"/>
+        <attribute name="valency" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]"/>
         <attribute name="wxpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="xpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

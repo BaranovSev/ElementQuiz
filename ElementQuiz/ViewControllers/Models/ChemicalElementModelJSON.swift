@@ -32,6 +32,8 @@ struct ChemicalElementModelJSON: Codable {
     let electronConfiguration, electronConfigurationSemantic: String
     let electronAffinity, electronegativityPauling: Double?
     let ionizationEnergies: [Double]
+    let valency: [Int]
+    let oxidationDegree: [Int]
 
     static let items: [ChemicalElementModelJSON] = Bundle.main.decode(file: "PeriodicTableJSON.json")
 
@@ -61,6 +63,8 @@ struct ChemicalElementModelJSON: Codable {
         case ionizationEnergies = "ionization_energies"
         case block
         case appearance
+        case valency
+        case oxidationDegree = "oxidation_degree"
     }
 
     init(from decoder: Decoder) throws {
@@ -94,6 +98,8 @@ struct ChemicalElementModelJSON: Codable {
         self.electronAffinity = try container.decode(Double?.self, forKey: .electronAffinity)
         self.electronegativityPauling = try container.decode(Double?.self, forKey: .electronegativityPauling)
         self.ionizationEnergies = try container.decode([Double].self, forKey: .ionizationEnergies)
+        self.valency = try container.decode([Int].self, forKey: .valency)
+        self.oxidationDegree = try container.decode([Int].self, forKey: .oxidationDegree)
     }
 }
 

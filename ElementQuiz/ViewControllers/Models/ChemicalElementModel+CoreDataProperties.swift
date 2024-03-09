@@ -39,6 +39,8 @@ extension ChemicalElementModel {
     @NSManaged public var electronConfiguration, electronConfigurationSemantic: String
     @NSManaged public var electronAffinity, electronegativityPauling: String? // real Double?
     @NSManaged public var ionizationEnergies: [Double]
+    @NSManaged public var valency: [Int]
+    @NSManaged public var oxidationDegree: [Int]
 
 }
 
