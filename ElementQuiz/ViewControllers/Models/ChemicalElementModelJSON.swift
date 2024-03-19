@@ -27,7 +27,7 @@ struct ChemicalElementModelJSON: Codable {
     let summary: String
     let phase: String
     let block: String
-    let xpos, ypos, wxpos, wypos: Int
+    let xpos, ypos, wxpos, wypos, cxpos, cypos: Int
     let shells: [Int]
     let electronConfiguration, electronConfigurationSemantic: String
     let electronAffinity, electronegativityPauling: Double?
@@ -55,7 +55,7 @@ struct ChemicalElementModelJSON: Codable {
         case phase
         case density
         case molarHeat = "molar_heat"
-        case xpos, ypos, wxpos, wypos, shells
+        case xpos, ypos, wxpos, wypos, cxpos, cypos, shells
         case electronConfiguration = "electron_configuration"
         case electronConfigurationSemantic = "electron_configuration_semantic"
         case electronAffinity = "electron_affinity"
@@ -92,6 +92,8 @@ struct ChemicalElementModelJSON: Codable {
         self.ypos = try container.decode(Int.self, forKey: .ypos)
         self.wxpos = try container.decode(Int.self, forKey: .wxpos)
         self.wypos = try container.decode(Int.self, forKey: .wypos)
+        self.cxpos = try container.decode(Int.self, forKey: .cxpos)
+        self.cypos = try container.decode(Int.self, forKey: .cypos)
         self.shells = try container.decode([Int].self, forKey: .shells)
         self.electronConfiguration = try container.decode(String.self, forKey: .electronConfiguration)
         self.electronConfigurationSemantic = try container.decode(String.self, forKey: .electronConfigurationSemantic)

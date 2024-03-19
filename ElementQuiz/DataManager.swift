@@ -114,6 +114,8 @@ final class DataManager {
             newElement.ypos = Int16(element.ypos)
             newElement.wxpos = Int16(element.wxpos)
             newElement.wypos = Int16(element.wypos)
+            newElement.cxpos = Int16(element.cxpos)
+            newElement.cypos = Int16(element.cypos)
             newElement.shells = element.shells
             newElement.electronConfiguration = element.electronConfiguration
             newElement.electronConfigurationSemantic = element.electronConfigurationSemantic

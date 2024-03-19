@@ -25,6 +25,10 @@ struct CustomColors {
     static let unknownTransitionMetal = UIColor(named: "unknownTransitionMetal") ?? UIColor.white
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
     static let lightPurple = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
+    static let sblock = UIColor(named: "sblock") ?? UIColor.white
+    static let pblock = UIColor(named: "pblock") ?? UIColor.white
+    static let dblock = UIColor(named: "dblock") ?? UIColor.white
+    static let fblock = UIColor(named: "fblock") ?? UIColor.white
 }
 
 extension CustomColors {
@@ -52,6 +56,14 @@ extension CustomColors {
             return CustomColors.transitionMetal
         case "unknown":
             return CustomColors.unknownElement
+        case "s":
+            return CustomColors.sblock
+        case "p":
+            return CustomColors.pblock
+        case "d":
+            return CustomColors.dblock
+        case "f":
+            return CustomColors.fblock
         default:
             return UIColor.black
         }

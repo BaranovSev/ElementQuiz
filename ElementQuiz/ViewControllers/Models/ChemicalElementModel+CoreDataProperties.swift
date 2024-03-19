@@ -34,7 +34,7 @@ extension ChemicalElementModel {
     @NSManaged public var summary: String
     @NSManaged public var phase: String
     @NSManaged public var block: String
-    @NSManaged public var xpos, ypos, wxpos, wypos: Int16
+    @NSManaged public var xpos, ypos, wxpos, wypos, cxpos, cypos: Int16
     @NSManaged public var shells: [Int]
     @NSManaged public var electronConfiguration, electronConfigurationSemantic: String
     @NSManaged public var electronAffinity, electronegativityPauling: String? // real Double?

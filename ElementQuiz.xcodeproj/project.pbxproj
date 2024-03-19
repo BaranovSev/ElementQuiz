@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */; };
+		FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */; };
+		FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInfoViewController.swift; sourceTree = "<group>"; };
+		FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
+		FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableCellView.swift; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */,
 				FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */,
 				FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */,
+				FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
 				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
 				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
+				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
@@ -358,12 +364,14 @@
 			files = (
 				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
 				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
+				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
 				FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */,
+				FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
 				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
 				FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */,
