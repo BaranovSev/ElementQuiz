@@ -17,7 +17,7 @@ final class UserStatisticDataSource {
         }
         
         func createViewModelForCategory(_ categoryName: String) {
-            let categoryInfo = [choseColorFor(category: categoryName) : percentageOfprogress(categoryName)]
+            let categoryInfo = [CustomColors.choseColor(categoryName) : percentageOfprogress(categoryName)]
             elementsCategoryArray.append(categoryInfo)
         }
         
@@ -35,36 +35,4 @@ final class UserStatisticDataSource {
         
         return CircleProgressBar.DisplayItem(array: elementsCategoryArray)
     }
-    
-
-    private func choseColorFor(category: String) -> UIColor {
-        switch category {
-        case "actinide":
-            return CustomColors.actinide
-        case "alkali metal":
-            return CustomColors.alkaliMetal
-        case "alkaline earth metal":
-            return CustomColors.alkalineEarthMetal
-        case "diatomic nonmetal":
-            return CustomColors.diatomicNonmetal
-        case "lanthanide":
-            return CustomColors.lanthanide
-        case "metalloid":
-            return CustomColors.metalloid
-        case "noble gas":
-            return CustomColors.nobleGas
-        case "polyatomic nonmetal":
-            return CustomColors.polyatomicNonmetal
-        case "post-transition metal":
-            return CustomColors.postTransitionMetal
-        case "transition metal":
-            return CustomColors.transitionMetal
-        case "unknown":
-            return CustomColors.unknownElement
-        default:
-            return UIColor.black
-        }
-    }
-    
-
 }

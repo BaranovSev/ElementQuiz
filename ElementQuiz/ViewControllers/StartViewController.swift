@@ -13,7 +13,6 @@ final class StartViewController: UIViewController {
     // MARK: - Properties
     private var timer: Timer?
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
-    private var userDataSource: UserStatisticDataSource = UserStatisticDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let user: User = DataManager.shared.fetchUser()
     private var currentElement: ChemicalElementModel? {
@@ -121,11 +120,6 @@ final class StartViewController: UIViewController {
         button.layer.cornerRadius = 10
         return button
     }()
-    
-    private lazy var userStatisticProgress: CircleProgressBar = {
-        let circleProgressBar = CircleProgressBar(displayItem: userDataSource.infoToDisplayItem(learned: learnedElements, total: fixedElementList))
-            return circleProgressBar
-    }()
 
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -149,7 +143,6 @@ final class StartViewController: UIViewController {
         scrollView.addSubview(horizontalStack)
         horizontalStack.addSubview(smallLabel)
         horizontalStack.addSubview(smallButton)
-        scrollView.addSubview(userStatisticProgress)
     }
     
     private func layout() {
@@ -202,13 +195,6 @@ final class StartViewController: UIViewController {
             make.height.lessThanOrEqualToSuperview()
             make.width.greaterThanOrEqualTo(75)
             make.centerY.equalToSuperview()
-        }
-        
-        userStatisticProgress.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(horizontalStack.snp.bottom)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(410*userStatisticProgress.sizeIncrement)
-            make.width.equalTo(410*userStatisticProgress.sizeIncrement)
         }
     }
 }

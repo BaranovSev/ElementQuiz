@@ -38,6 +38,7 @@
 		FDD3C17E2AFA6E7B0031336C /* ElementQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C17D2AFA6E7B0031336C /* ElementQuizTests.swift */; };
 		FDD3C1882AFA6E7B0031336C /* ElementQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */; };
 		FDD3C18A2AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */; };
+		FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		FDD3C1832AFA6E7B0031336C /* ElementQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElementQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITests.swift; sourceTree = "<group>"; };
 		FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
 				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
 				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
+				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 			);
@@ -365,6 +368,7 @@
 				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
 				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
 				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
+				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
