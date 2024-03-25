@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 
-final class StartViewController: UIViewController {
+final class StartViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     // MARK: - Properties
     private var timer: Timer?
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
@@ -120,6 +120,20 @@ final class StartViewController: UIViewController {
         button.layer.cornerRadius = 10
         return button
     }()
+    
+    private lazy var collectionOfTools: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 150, height: 100)
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        return collectionView
+    }()
 
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -143,11 +157,15 @@ final class StartViewController: UIViewController {
         scrollView.addSubview(horizontalStack)
         horizontalStack.addSubview(smallLabel)
         horizontalStack.addSubview(smallButton)
+        scrollView.addSubview(collectionOfTools)
     }
     
     private func layout() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
         }
 
         elementIcon.snp.makeConstraints { make in
@@ -196,6 +214,14 @@ final class StartViewController: UIViewController {
             make.width.greaterThanOrEqualTo(75)
             make.centerY.equalToSuperview()
         }
+        
+        collectionOfTools.snp.makeConstraints { make in
+            make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(40)
+            make.width.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(150)
+        }
     }
 }
 
@@ -221,3 +247,74 @@ private extension StartViewController {
     }
 }
 
+// MARK: - CollectionView data source protocol
+extension StartViewController {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let categories: [String] = Array(Set(fixedElementList.map({ $0.category })))
+        let count = categories.count
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let categories: [String] = Array(Set(fixedElementList.map({ $0.category }))).sorted()
+        let string = categories[indexPath.row]
+        let color = CustomColors.choseColor(string)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        
+        cell.layer.backgroundColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        cell.subviews.forEach { $0.removeFromSuperview() }
+        
+        let parentView = UIView()
+        parentView.layer.cornerRadius = 10
+        parentView.layer.borderWidth = 2.0
+        parentView.layer.borderColor = CustomColors.lightPurple
+        
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Avenir", size: 20)
+        label.minimumScaleFactor = 0.5
+        label.text = String(categories[indexPath.row])
+        label.textColor = .black
+        
+        let infoColor = UIView()
+        infoColor.backgroundColor = color
+        infoColor.layer.cornerRadius = 4
+        
+        cell.addSubview(parentView)
+        parentView.addSubview(label)
+        parentView.addSubview(infoColor)
+        
+        parentView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview().offset(-10)
+            make.width.equalToSuperview().offset(-10)
+        }
+        
+        infoColor.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
+            make.height.equalTo(15)
+            make.width.equalTo(15)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.top.equalTo(infoColor.snp.bottom).offset(5)
+            make.width.equalToSuperview().offset(-15)
+            make.bottom.lessThanOrEqualToSuperview().offset(-5)
+            make.centerX.equalToSuperview()
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let categories: [String] = Array(Set(fixedElementList.map({ $0.category }))).sorted()
+        let string = categories[indexPath.row]
+        let vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: string)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
+    }
+
+}

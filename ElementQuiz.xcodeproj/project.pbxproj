@@ -11,6 +11,7 @@
 		FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */; };
 		FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
+		FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
 		FDA997452B29D79C004C9761 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA997442B29D79C004C9761 /* DataManager.swift */; };
@@ -63,6 +64,7 @@
 		FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
 		FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableCellView.swift; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
+		FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTestViewController.swift; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
 				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
 				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
+				FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */,
 				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
 				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
@@ -373,6 +376,7 @@
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
+				FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */,
 				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
 				FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */,
 				FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */,

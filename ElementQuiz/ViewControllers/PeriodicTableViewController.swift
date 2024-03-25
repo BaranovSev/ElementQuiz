@@ -143,7 +143,6 @@ final class PeriodicTableViewController: UIViewController {
     
     private func layout() {
         scrollView.snp.makeConstraints { make in
-//            make.
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
