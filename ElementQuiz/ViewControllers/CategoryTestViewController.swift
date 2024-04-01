@@ -137,8 +137,10 @@ final class CategoryTestViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(backAction))
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.navigationBar.backgroundColor = .white
+        backButton.tintColor = .black
         
         setupQuestionSequens()
         setUp()

@@ -108,9 +108,32 @@ final class StatisticViewControler: UIViewController {
         return label
     }()
     
+    private lazy var shareButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
+        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
+        button.backgroundColor = .white
+        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderWidth = 3
+        button.layer.cornerRadius = 30
+        button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
+        button.imageView?.snp.makeConstraints { make in
+            make.height.equalToSuperview().offset(-19)
+            make.width.equalToSuperview().offset(-15)
+            make.center.equalToSuperview()
+        }
+        return button
+    }()
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.navigationBar.backgroundColor = .white
+        backButton.tintColor = .black
+        
         setup()
         addSubViews()
         layout()
@@ -132,6 +155,7 @@ final class StatisticViewControler: UIViewController {
         scrollView.addSubview(inAdditionLabel)
         scrollView.addSubview(countOfBigGamesLabel)
         scrollView.addSubview(bigGamesWinsLabel)
+        scrollView.addSubview(shareButton)
     }
     
     private func layout() {
@@ -203,6 +227,13 @@ final class StatisticViewControler: UIViewController {
             make.top.equalTo(countOfBigGamesLabel.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
         }
+        
+        shareButton.snp.makeConstraints { make in
+            make.top.equalTo(bigGamesWinsLabel.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(60)
+            make.width.equalTo(60)
+        }
     }
     
     private func setup() {
@@ -270,5 +301,28 @@ final class StatisticViewControler: UIViewController {
             
             categoriesViews.append(cell)
         }
+    }
+    
+    @objc private func shareAction() {
+        var resultToShare = "Hey everyone! I just wanted to share a major milestone in my journey of learning chemical elements."
+        if countOfMemorizingsLabel.text != "0" {
+            resultToShare += "I have successfully memorized \(String(describing: countOfLearnedElementsLabel.text)) elements in the periodic table"
+        }
+        
+        if countOfBigGamesLabel.text != "0" {
+            resultToShare += "and played \(String(describing: countOfBigGamesLabel.text)) Big Games."
+        }
+        
+        resultToShare += "I am so proud of my progress and would love to invite you to join me in this exciting journey of learning. Let's explore the world of chemistry together and unlock the wonders of the chemical elements! 🧪🔬📚 #ChemistrySuccess #PeriodicTableGoals #JoinMe"
+        let share = UIActivityViewController(
+            activityItems: [resultToShare],
+            applicationActivities: nil
+        )
+        share.overrideUserInterfaceStyle = .dark
+        present(share, animated: true, completion: nil)
+    }
+    
+    @objc func backAction() {
+        self.dismiss(animated: true)
     }
 }

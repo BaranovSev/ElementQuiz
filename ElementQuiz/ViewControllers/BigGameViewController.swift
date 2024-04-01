@@ -177,6 +177,8 @@ final class BigGameViewController: UIViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.navigationBar.backgroundColor = .white
+        backButton.tintColor = .black
         
         setupQuestionSequens()
         setUp()

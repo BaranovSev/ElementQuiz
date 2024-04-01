@@ -135,6 +135,23 @@ final class StartViewController: UIViewController {
 
         return collectionView
     }()
+    
+    private lazy var statisticsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "person") ?? UIImage(), for: .normal)
+        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
+        button.backgroundColor = .white
+        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderWidth = 3
+        button.layer.cornerRadius = 35
+        button.addTarget(self, action: #selector(Self.showStatisticsViewController), for: .touchUpInside)
+        button.imageView?.snp.makeConstraints { make in
+            make.height.equalToSuperview().offset(-19)
+            make.width.equalToSuperview().offset(-15)
+            make.center.equalToSuperview()
+        }
+        return button
+    }()
 
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -160,6 +177,7 @@ final class StartViewController: UIViewController {
         horizontalStack.addSubview(smallLabel)
         horizontalStack.addSubview(smallButton)
         scrollView.addSubview(collectionView)
+        view.addSubview(statisticsButton)
     }
     
     private func layout() {
@@ -224,6 +242,13 @@ final class StartViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.height.equalTo(150)
         }
+        
+        statisticsButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
+            make.height.equalTo(70)
+            make.width.equalTo(70)
+        }
     }
 }
 
@@ -246,6 +271,13 @@ private extension StartViewController {
         let vc = ElementInfoViewController()
         vc.currentElement = currentElement
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func showStatisticsViewController() {
+        let vc = StatisticViewControler()
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
 }
 
