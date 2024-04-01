@@ -1,13 +1,18 @@
 //
-//  ElementMemorizingController.swift
+//  BigGameViewController.swift
 //  ElementQuiz
 //
-//  Created by Stepan Baranov on 26.02.2024.
+//  Created by Stepan Baranov on 28.03.2024.
 //
 
 
 import UIKit
 import SnapKit
+
+private enum Mode {
+    case flashCard
+    case quiz
+}
 
 private enum State {
     case question
@@ -15,66 +20,83 @@ private enum State {
     case score
 }
 
-final class ElementMemorizingController: UIViewController {
-    // MARK: - Properties
-    private let fixedElementList: [ChemicalElementModel]
-    private let currentElement: ChemicalElementModel
-    private var state: State = .question {
+enum QuestionAbout: String {
+    case latinNameQuestion = "latin name"
+    case commonNameQuestion = "common name"
+    case atomicMassQuestion = "atomic mass"
+    case orderNumberQuestion = "order number"
+    case categoryQuestion = "category"
+    case densityQuestion = "density"
+    case periodQuestion = "period"
+    case groupQuestion = "group"
+    case phaseQuestion = "phase"
+    case boilingPointQuestion = "boiling point"
+    case meltQuestion = "melting point"
+    static var allValues: [String] {
+        return [
+            latinNameQuestion.rawValue,
+            commonNameQuestion.rawValue,
+            atomicMassQuestion.rawValue,
+            orderNumberQuestion.rawValue,
+            categoryQuestion.rawValue,
+            densityQuestion.rawValue,
+            periodQuestion.rawValue,
+            groupQuestion.rawValue,
+            phaseQuestion.rawValue,
+            boilingPointQuestion.rawValue,
+            meltQuestion.rawValue
+        ]
+    }
+}
+
+final class BigGameViewController: UIViewController {
+    
+    private var fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+    private var shuffledElementList: [ChemicalElementModel] = []
+    private var dataSource:  ElementQuizDataSource? = ElementQuizDataSource()
+    private var sequenceOfQuestions: [QuestionAbout] = []
+    private var currentElementIndex = 0
+    private var currentQuestionIndex = 0
+    private var answerIsCorrect: Bool? = nil
+    private var correctAnswerCount = 0
+    private var state: State = .question
+    private var typeOfGame: QuestionAbout {
         didSet {
-            print(state)
+            currentElementIndex = 0
+            currentQuestionIndex = 0
         }
     }
-    var answerIsCorrect: Bool? = nil
-    var correctAnswerCount = 0
-    var currentQuestionIndex = 0
-    var additionalQuestionPoints = 5
-
-//TODO: implement different visualisation for same question, used buttons pressed, buttons drags & other UI elements
-    private let fixedSequenceOfQuestions: [QuestionAbout] = [
-        .atomicMassQuestion,
-        .latinNameQuestion,
-        .commonNameQuestion,
-        .orderNumberQuestion,
-        .densityQuestion,
-        .categoryQuestion,
-        .meltQuestion,
-        .periodQuestion,
-        .groupQuestion,
-        .phaseQuestion,
-        .boilingPointQuestion
-    ]
     
-    private var sequenceOfQuestions: [QuestionAbout] = []
-    private var missmatchedQuestions: Set <QuestionAbout> = []
-    
-    init(fixedElementList: [ChemicalElementModel], currentElement: ChemicalElementModel) {
-        self.fixedElementList = fixedElementList
-        self.currentElement = currentElement
-        super.init(nibName: nil, bundle: nil)
+    private var fixedSequenceOfQuestions: [QuestionAbout] {
+        Array(repeating: typeOfGame, count: fixedElementList.count)
     }
     
+    private var currentElement: ChemicalElementModel {
+        shuffledElementList[currentQuestionIndex]
+    }
+    
+    init(fixedElementList: [ChemicalElementModel], dataSource: ElementQuizDataSource, typeOfGame: QuestionAbout) {
+        self.fixedElementList = fixedElementList
+        self.dataSource = dataSource
+        self.typeOfGame = typeOfGame
+        super.init(nibName: nil, bundle: nil)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - UI Properties
-    
-    private lazy var elementSymbolLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 50)
-        label.textAlignment = .center
-        label.layer.masksToBounds = true
-        label.layer.borderWidth = 4
-        label.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        label.layer.cornerRadius = 15.0
-        label.text = currentElement.symbol
-        return label
+
+    // MARK: - UI Elements
+    private lazy var elementIcon: ElementIconView = {
+        var elementIcon = ElementIconView(displayItem: (dataSource?.elementToDisplayItem(fixedElementList[currentElementIndex]))!)
+        return elementIcon
     }()
     
     private lazy var questionLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 24)
+        label.font = UIFont(name: "Hoefler Text", size: 27)
         label.numberOfLines = 2
+        label.textAlignment = .center
         return label
     }()
 
@@ -87,20 +109,6 @@ final class ElementMemorizingController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.isHidden = true
-        return button
-    }()
-    
-    private lazy var laterButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("Later", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 25)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
-        button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(Self.backToMainViewController), for: .touchUpInside)
         return button
     }()
     
@@ -167,6 +175,9 @@ final class ElementMemorizingController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
+        self.navigationItem.leftBarButtonItem = backButton
+        
         setupQuestionSequens()
         setUp()
     }
@@ -178,6 +189,13 @@ final class ElementMemorizingController: UIViewController {
         
         switch state {
         case .question:
+            guard let dataSource = dataSource else {
+                return
+            }
+            
+            elementIcon.displayItem = dataSource.elementToDisplayItem(currentElement)
+            specialChangesForElementIcon()
+            
             let variants: Set<String> = getVariantsOfAnswers()
             
             let randomVariants: [String] = variants.shuffled()
@@ -207,11 +225,11 @@ final class ElementMemorizingController: UIViewController {
         
         switch state {
         case .question:
-            questionLabel.textAlignment = .justified
+            questionLabel.textAlignment = .center
             questionLabel.text = getVariantsOfQuestion()
         case .answer:
             if answerIsCorrect == true {
-                questionLabel.textAlignment = .justified
+                questionLabel.textAlignment = .center
             }
         case .score:
             //TODO: new controller with result
@@ -235,33 +253,13 @@ final class ElementMemorizingController: UIViewController {
         // TODO: show score controller
             bigButton.isHidden = false
             bigButton.isEnabled = true
-            if elementSuccessfullyLearned() {
-                bigButton.setTitle("Congrats!", for: .normal)
-                bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
-                //TODO: save element to DB & show main screen or salutte screen
-//                bigButton.addTarget(self, action: #selector(Self.), for: .touchUpInside)
-            } else {
-                bigButton.setTitle("Try again", for: .normal)
-                bigButton.addTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
-            }
-        }
-        
-        switch state {
-        case .question:
-            laterButton.isHidden = true
-        case .answer:
-            laterButton.isHidden = true
-        case .score:
-            if elementSuccessfullyLearned() {
-                laterButton.isHidden = true
-            } else {
-                laterButton.isHidden = false
-            }
+            bigButton.setTitle("Show result", for: .normal)
+            bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
         }
     }
     
     private func refreshUI() {
-        updateQuizUI(currentElement)
+        updateQuizUI(fixedElementList[currentElementIndex])
     }
 
     private func setupQuiz() {
@@ -269,13 +267,12 @@ final class ElementMemorizingController: UIViewController {
         currentQuestionIndex = 0
         answerIsCorrect = nil
         correctAnswerCount = 0
-        additionalQuestionPoints = 5
         sequenceOfQuestions = fixedSequenceOfQuestions
-        missmatchedQuestions = []
     }
     
     private func setupQuestionSequens() {
         sequenceOfQuestions = fixedSequenceOfQuestions
+        shuffledElementList = fixedElementList.shuffled()
     }
     
     @objc func newGame() {
@@ -293,8 +290,12 @@ final class ElementMemorizingController: UIViewController {
         }
     }
     
+    @objc func backAction() {
+        self.dismiss(animated: true)
+    }
+    
     private func next() {
-        if currentQuestionIndex + 1 < sequenceOfQuestions.count {
+        if currentQuestionIndex + 1 < fixedElementList.count {
             currentQuestionIndex += 1
             state = .question
         } else {
@@ -314,15 +315,29 @@ final class ElementMemorizingController: UIViewController {
         state = .answer
         refreshUI()
     }
+    
+    private func specialChangesForElementIcon() {
+        switch typeOfGame {
+        case .atomicMassQuestion:
+            elementIcon.atomicMassLabel.isHidden = true
+        case .orderNumberQuestion:
+            elementIcon.elementNumberLabel.isHidden = true
+        case .categoryQuestion:
+            elementIcon.backgroundColor = .white
+        default :
+            elementIcon.atomicMassLabel.isHidden = false
+            elementIcon.elementNumberLabel.isHidden = false
+        }
+    }
 }
 
-private extension ElementMemorizingController {
+// MARK: UI methods
+private extension BigGameViewController {
     private func setUp() {
         view.backgroundColor = .white
-        view.addSubview(elementSymbolLabel)
+        view.addSubview(elementIcon)
         view.addSubview(questionLabel)
         view.addSubview(bigButton)
-        view.addSubview(laterButton)
         view.addSubview(verticalStack)
         verticalStack.addSubview(smallButton1)
         verticalStack.addSubview(smallButton2)
@@ -333,7 +348,7 @@ private extension ElementMemorizingController {
     }
     
     private func layout() {
-        elementSymbolLabel.snp.makeConstraints { make in
+        elementIcon.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(120)
             make.centerX.equalToSuperview()
             make.height.equalTo(150)
@@ -341,7 +356,7 @@ private extension ElementMemorizingController {
         }
         
         questionLabel.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(elementSymbolLabel.snp.bottom).offset(30)
+            make.top.lessThanOrEqualTo(elementIcon.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.centerX.equalToSuperview()
@@ -353,13 +368,6 @@ private extension ElementMemorizingController {
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.width.equalTo(200)
-        }
-        
-        laterButton.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(30)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(40)
-            make.width.equalTo(120)
         }
         
         verticalStack.snp.makeConstraints { make in
@@ -399,38 +407,8 @@ private extension ElementMemorizingController {
     }
 }
 
-// MARK: - Helpers
-private extension ElementMemorizingController {
-    private func elementSuccessfullyLearned() -> Bool {
-        Float(correctAnswerCount)/Float(sequenceOfQuestions.count) >= 0.6
-    }
-    
-    private func addQuestionIfNeeded() {
-        if (sequenceOfQuestions.count - currentQuestionIndex) == 1 && additionalQuestionPoints > 1 {
-            additionalQuestionPoints = 1
-        }
-        
-        if (sequenceOfQuestions.count - currentQuestionIndex) == 2 && additionalQuestionPoints > 2{
-            additionalQuestionPoints = 2
-        }
-        
-        if additionalQuestionPoints > 0 {
-            additionalQuestionPoints -= 1
-            sequenceOfQuestions.append(sequenceOfQuestions[currentQuestionIndex])
-        }
-    }
-    
-    private func saveToMissmathcedQuestions(_ question: QuestionAbout) {
-        missmatchedQuestions.insert(question)
-    }
-    
-    private func deleteFromMissmathcedQuestions(_ question: QuestionAbout) {
-        missmatchedQuestions.remove(question)
-    }
-}
-
 //MARK: - GameProtocol
-extension ElementMemorizingController: GameProtocol {
+extension BigGameViewController: GameProtocol {
     func getVariantsOfAnswers() -> Set<String> {
         switch sequenceOfQuestions[currentQuestionIndex] {
         case .latinNameQuestion:
@@ -634,13 +612,10 @@ extension ElementMemorizingController: GameProtocol {
         func success() {
             answerIsCorrect = true
             correctAnswerCount += 1
-            deleteFromMissmathcedQuestions(sequenceOfQuestions[currentQuestionIndex])
         }
         
         func failure() {
             answerIsCorrect = false
-            addQuestionIfNeeded()
-            saveToMissmathcedQuestions(sequenceOfQuestions[currentQuestionIndex])
         }
         
         if answer == correctAnswer {
@@ -650,3 +625,4 @@ extension ElementMemorizingController: GameProtocol {
         }
     }
 }
+

@@ -8,132 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Element Quiz Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ElementQuizController" customModule="ElementQuiz" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Answer Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="nAO-mI-vgM">
-                                <rect key="frame" x="10" y="358" width="370" height="28"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-OU-ntT">
-                                <rect key="frame" x="38" y="456" width="314" height="34.333333333333371"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-UA-auU">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Show Answer">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5as-gU-pRM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-Ae-qhj">
-                                        <rect key="frame" x="187" y="0.0" width="127" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Next Element">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ne0-ce-ei2"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0kI-Ms-Gta">
-                                <rect key="frame" x="103.66666666666669" y="67" width="183" height="32"/>
-                                <segments>
-                                    <segment title="Flash Cards"/>
-                                    <segment title="Quiz"/>
-                                </segments>
-                                <connections>
-                                    <action selector="switchModes:" destination="BYZ-38-t0r" eventType="valueChanged" id="Phc-od-RAW"/>
-                                </connections>
-                            </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-Wk-RQC">
-                                <rect key="frame" x="20" y="530.33333333333326" width="350" height="194.33333333333337"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIN-Ph-cJy">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="37.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wAD-XE-hUd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gur-lI-Y9l">
-                                        <rect key="frame" x="0.0" y="52.333333333333371" width="350" height="37.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vP6-tZ-lTZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-LQ-sbP">
-                                        <rect key="frame" x="0.0" y="104.66666666666674" width="350" height="37.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enA-p0-4sk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0In-8N-7Wh">
-                                        <rect key="frame" x="0.0" y="157" width="350" height="37.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZyN-10-q9h"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="efJ-Wk-RQC" secondAttribute="bottom" constant="20" id="NMB-Jz-JEC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="efJ-Wk-RQC" secondAttribute="trailing" constant="20" id="eRY-cm-UKR"/>
-                            <constraint firstItem="9J6-OU-ntT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mOP-P5-m2M"/>
-                            <constraint firstItem="efJ-Wk-RQC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="naq-Gf-TGe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAO-mI-vgM" secondAttribute="trailing" constant="10" id="okl-oa-Zcj"/>
-                            <constraint firstItem="nAO-mI-vgM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="sXC-O5-A6b"/>
-                            <constraint firstItem="0kI-Ms-Gta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="tek-zY-roV"/>
-                            <constraint firstItem="0kI-Ms-Gta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u66-cy-fUN"/>
-                            <constraint firstItem="efJ-Wk-RQC" firstAttribute="top" secondItem="9J6-OU-ntT" secondAttribute="bottom" constant="40" id="wcb-Ph-haH"/>
-                            <constraint firstItem="9J6-OU-ntT" firstAttribute="top" secondItem="nAO-mI-vgM" secondAttribute="bottom" constant="70" id="yuw-b6-bPq"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="answerLabel" destination="nAO-mI-vgM" id="fUv-5P-QKD"/>
-                        <outlet property="modeSelector" destination="0kI-Ms-Gta" id="TtV-Xo-2H0"/>
-                        <outlet property="nextButton" destination="tie-Ae-qhj" id="S57-Bm-e8c"/>
-                        <outlet property="showAnswerButton" destination="ACP-UA-auU" id="nvZ-3q-cgc"/>
-                        <outletCollection property="answerButtons" destination="0In-8N-7Wh" collectionClass="NSMutableArray" id="qKj-cs-iJa"/>
-                        <outletCollection property="answerButtons" destination="xEY-LQ-sbP" collectionClass="NSMutableArray" id="iBd-q6-vVi"/>
-                        <outletCollection property="answerButtons" destination="Gur-lI-Y9l" collectionClass="NSMutableArray" id="x7b-lI-n6i"/>
-                        <outletCollection property="answerButtons" destination="aIN-Ph-cJy" collectionClass="NSMutableArray" id="nmO-5n-Itu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="53" y="4"/>
-        </scene>
         <!--Element Info View Controller-->
         <scene sceneID="q9t-Iq-fNe">
             <objects>
@@ -179,6 +53,21 @@
             </objects>
             <point key="canvasLocation" x="-820" y="4"/>
         </scene>
+        <!--Big Game View Controller-->
+        <scene sceneID="KWm-3G-fq0">
+            <objects>
+                <viewController id="0ru-bU-0tI" customClass="BigGameViewController" customModule="ElementQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aGz-PJ-ObN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ulp-h9-mSe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewi-at-gH3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="25"/>
+        </scene>
         <!--Periodic Table View Controller-->
         <scene sceneID="1io-os-292">
             <objects>
@@ -207,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nba-eg-Bvv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="713"/>
+            <point key="canvasLocation" x="1092" y="719"/>
         </scene>
         <!--Statistic View Controler-->
         <scene sceneID="cxU-wS-HcU">

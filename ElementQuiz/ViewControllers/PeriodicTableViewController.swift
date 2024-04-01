@@ -8,10 +8,17 @@
 import UIKit
 import SnapKit
 
-enum PeriodicTableMode {
-    case short
-    case wide
-    case classic
+enum PeriodicTableMode: String {
+    case short = "short"
+    case wide = "wide"
+    case classic = "classic"
+    static var allValues: [String] {
+        return [
+            short.rawValue,
+            wide.rawValue,
+            classic.rawValue
+        ]
+    }
 }
 
 enum OptionalPropertyForCell {
@@ -20,8 +27,9 @@ enum OptionalPropertyForCell {
 }
 
 final class PeriodicTableViewController: UIViewController {
-    private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
-    private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+    private let dataSource: ElementQuizDataSource //= ElementQuizDataSource()
+    private let fixedElementList: [ChemicalElementModel] //= DataManager.shared.fetchElements()
+    private let stateOfTableMode: PeriodicTableMode
     private let spacing = 3
     private var optionalPropertiesForCell: OptionalPropertyForCell = .valency
     private var scale = 1.0 {
@@ -39,16 +47,6 @@ final class PeriodicTableViewController: UIViewController {
     private var scaledSizeOfCell: Int {
         Int(Double(sizeOfCell) * scale)
     }
-    
-    private var stateOfTableMode: PeriodicTableMode {
-        if switcher.isOn {
-            return .short
-        } else {
-            return .classic
-        }
-    }
-    
-    //TODO: save state of type of periodic table & scale / maby position also need to save..?
 
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
@@ -58,17 +56,24 @@ final class PeriodicTableViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var switcher: UISwitch = {
-        var switcher = UISwitch()
-        switcher.isEnabled = true
-        switcher.isOn = true
-        switcher.addTarget(self, action: #selector(Self.swapPeriodicTable), for: .valueChanged)
-        return switcher
-    }()
+    init(dataSource: ElementQuizDataSource, fixedElementList: [ChemicalElementModel], stateOfTableMode: PeriodicTableMode) {
+        self.dataSource = dataSource
+        self.fixedElementList = fixedElementList
+        self.stateOfTableMode = stateOfTableMode
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(backAction))
+        self.navigationItem.leftBarButtonItem = backButton
+        
         addSubViews()
         layout()
         swapPeriodicTable()
@@ -138,7 +143,6 @@ final class PeriodicTableViewController: UIViewController {
     
     private func addSubViews() {
         view.addSubview(scrollView)
-        view.addSubview(switcher)
     }
     
     private func layout() {
@@ -147,13 +151,6 @@ final class PeriodicTableViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-        }
-        
-        switcher.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-125)
-            make.trailing.equalToSuperview().offset(-125)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
         }
     }
     
@@ -267,6 +264,10 @@ final class PeriodicTableViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func backAction() {
+        self.dismiss(animated: true)
     }
 }
 

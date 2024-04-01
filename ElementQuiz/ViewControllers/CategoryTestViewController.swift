@@ -8,8 +8,10 @@
 import UIKit
 import SnapKit
 
-private enum QuestionAbout {
-    case categoryQuestion
+private enum State {
+    case question
+    case answer
+    case score
 }
 
 final class CategoryTestViewController: UIViewController {
@@ -345,9 +347,25 @@ private extension CategoryTestViewController {
     }
 }
 
-// MARK: - Helpers
-private extension CategoryTestViewController {
-    private func checkAnswer(_ answer: String) {
+//MARK: -GameProtocol
+extension CategoryTestViewController: GameProtocol {
+    func getVariantsOfAnswers() -> Set<String> {
+            var variants: Set<String> = [correctElements[currentQuestionIndex].name]
+            while (variants.count < 4) {
+                variants.insert(incorrectElements.randomElement()!.name)
+            }
+            return variants
+    }
+    
+    func getVariantsOfQuestion() -> String {
+        return "Chose element from \n\(self.currentCategory) category"
+    }
+    
+    func getCorrectAnswer() -> String {
+        return correctElements[currentQuestionIndex].name
+    }
+    
+    func checkAnswer(_ answer: String) {
         let correctAnswer = getCorrectAnswer()
         
         func success() {
@@ -363,33 +381,6 @@ private extension CategoryTestViewController {
             success()
         } else {
             failure()
-        }
-    }
-    
-    private func getVariantsOfAnswers() -> Set<String> {
-        switch sequenceOfQuestions[currentQuestionIndex] {
-        
-        case .categoryQuestion:
-            var variants: Set<String> = [correctElements[currentQuestionIndex].name]
-            while (variants.count < 4) {
-                variants.insert(incorrectElements.randomElement()!.name)
-            }
-            return variants
-        }
-    }
-    
-    private func getVariantsOfQuestion() -> String {
-        switch sequenceOfQuestions[currentQuestionIndex] {
-        case .categoryQuestion:
-            return "Chose element from \n\(self.currentCategory) category"
-        }
-    }
-    
-    private func getCorrectAnswer() -> String {
-        switch sequenceOfQuestions[currentQuestionIndex] {
-        case .categoryQuestion:
-            return correctElements[currentQuestionIndex].name
-
         }
     }
 }

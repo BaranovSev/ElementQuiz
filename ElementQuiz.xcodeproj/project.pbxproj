@@ -26,13 +26,14 @@
 		FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */; };
 		FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */; };
 		FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA190A2B385A5500747B81 /* StartViewController.swift */; };
+		FDC64C9E2BB59378000DFE20 /* gameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */; };
+		FDC64CA02BB59FC8000DFE20 /* BigGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */; };
 		FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */; };
 		FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
 		FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */; };
 		FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */; };
-		FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */; };
 		FDD3C16E2AFA6E7A0031336C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16C2AFA6E7A0031336C /* Main.storyboard */; };
 		FDD3C1702AFA6E7B0031336C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */; };
 		FDD3C1732AFA6E7B0031336C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */; };
@@ -78,6 +79,8 @@
 		FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FDBA190A2B385A5500747B81 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameProtocol.swift; sourceTree = "<group>"; };
+		FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGameViewController.swift; sourceTree = "<group>"; };
 		FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMemorizingController.swift; sourceTree = "<group>"; };
 		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizController.swift; sourceTree = "<group>"; };
 		FDD3C16D2AFA6E7A0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDD3C1722AFA6E7B0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -139,15 +141,16 @@
 		FDB03A6B2B25F845004BC16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
 				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
 				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
 				FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */,
 				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
 				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
+				FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
+				FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
+				FDC64C9E2BB59378000DFE20 /* gameProtocol.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */,
@@ -381,10 +385,10 @@
 				FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */,
 				FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
-				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
 				FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */,
 				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
 				FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */,
+				FDC64CA02BB59FC8000DFE20 /* BigGameViewController.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
 				FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
