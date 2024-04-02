@@ -304,16 +304,20 @@ final class StatisticViewControler: UIViewController {
     }
     
     @objc private func shareAction() {
-        var resultToShare = "Hey everyone! I just wanted to share a major milestone in my journey of learning chemical elements."
+        var resultToShare = "Hey everyone! I just wanted to share a major milestone in my journey of learning chemical elements.\n"
         if countOfMemorizingsLabel.text != "0" {
             resultToShare += "I have successfully memorized \(String(describing: countOfLearnedElementsLabel.text)) elements in the periodic table"
         }
         
-        if countOfBigGamesLabel.text != "0" {
-            resultToShare += "and played \(String(describing: countOfBigGamesLabel.text)) Big Games."
+        if countOfBigGamesLabel.text != "0" && countOfMemorizingsLabel.text != "0" {
+            resultToShare += " and played \(String(describing: countOfBigGamesLabel.text)) Big Games."
+        } else if countOfBigGamesLabel.text != "0" && countOfMemorizingsLabel.text == "0" {
+            resultToShare += "I've successfully passed \(String(describing: countOfBigGamesLabel.text)) Big Games."
+        } else if countOfBigGamesLabel.text == "0" && countOfMemorizingsLabel.text != "0" {
+            resultToShare += "."
         }
         
-        resultToShare += "I am so proud of my progress and would love to invite you to join me in this exciting journey of learning. Let's explore the world of chemistry together and unlock the wonders of the chemical elements! 🧪🔬📚 #ChemistrySuccess #PeriodicTableGoals #JoinMe"
+        resultToShare += "\nI am so proud of my progress and would love to invite you to join me in this exciting journey of learning. Let's explore the world of chemistry together and unlock the wonders of the chemical elements!\n 🧪🔬📚 #ChemistrySuccess #PeriodicTableGoals #JoinMe"
         let share = UIActivityViewController(
             activityItems: [resultToShare],
             applicationActivities: nil
