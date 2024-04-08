@@ -29,6 +29,8 @@ final class StatisticViewControler: UIViewController {
         label.font = UIFont(name: "Hoefler Text", size: 50)
         label.textColor = .black
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -44,6 +46,8 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 50)
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -65,6 +69,8 @@ final class StatisticViewControler: UIViewController {
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textColor = .black
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -80,6 +86,8 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -90,6 +98,8 @@ final class StatisticViewControler: UIViewController {
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textColor = .black
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -105,6 +115,8 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -129,7 +141,7 @@ final class StatisticViewControler: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.backgroundColor = .white
         backButton.tintColor = .black
@@ -179,6 +191,7 @@ final class StatisticViewControler: UIViewController {
         chemicalElementsLabel.snp.makeConstraints { make in
             make.top.equalTo(countOfLearnedElementsLabel.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
+            make.width.equalTo(view.safeAreaLayoutGuide.snp.width).offset(-15)
         }
         
         userStatisticProgress.snp.makeConstraints { make in
@@ -193,7 +206,8 @@ final class StatisticViewControler: UIViewController {
         for view in categoriesViews {
             view.snp.makeConstraints { make in
                 make.top.equalTo(previousElement.snp.bottom).offset(25)
-                make.leading.equalToSuperview().offset(15)
+                make.centerX.equalToSuperview()
+                make.width.equalToSuperview().offset(-30)
             }
             previousElement = view
         }
@@ -293,6 +307,7 @@ final class StatisticViewControler: UIViewController {
                 
                 label.snp.makeConstraints { make in
                     make.leading.equalTo(infoColor.snp.trailing).offset(5)
+                    make.trailing.equalToSuperview().offset(5)
                     make.centerY.equalToSuperview()
                 }
                 

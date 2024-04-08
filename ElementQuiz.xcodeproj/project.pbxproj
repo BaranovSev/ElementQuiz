@@ -10,13 +10,16 @@
 		FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */; };
 		FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */; };
 		FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */; };
+		FD5458BB2BC2E59A00ABB64A /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */; };
+		FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDB832BBD858800C77650 /* SearchViewController.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
 		FDA997452B29D79C004C9761 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA997442B29D79C004C9761 /* DataManager.swift */; };
 		FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */; };
 		FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */; };
+		FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */; };
 		FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */; };
 		FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */; };
 		FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */; };
@@ -64,12 +67,15 @@
 		FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInfoViewController.swift; sourceTree = "<group>"; };
 		FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
 		FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableCellView.swift; sourceTree = "<group>"; };
+		FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTestViewController.swift; sourceTree = "<group>"; };
+		FD8FDB832BBD858800C77650 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
 		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 		FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircleProgressBar+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDataSource.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
 				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
 				FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */,
+				FD8FDB832BBD858800C77650 /* SearchViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 				FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */,
@@ -206,6 +213,8 @@
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
 				FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */,
 				FDB03A692B234E31004BC16E /* Colors.swift */,
+				FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */,
+				FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */,
 				FDD3C1742AFA6E7B0031336C /* Info.plist */,
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
@@ -373,7 +382,9 @@
 			files = (
 				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
 				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
+				FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */,
 				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
+				FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */,
 				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
@@ -391,6 +402,7 @@
 				FDC64CA02BB59FC8000DFE20 /* BigGameViewController.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
 				FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */,
+				FD5458BB2BC2E59A00ABB64A /* Int+extensions.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
 				FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */,
 				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,

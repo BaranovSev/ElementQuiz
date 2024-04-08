@@ -262,7 +262,7 @@
         "name_ru": "Углерод",
         "valency": [2, 3, 4],
         "oxidation_degree": [-4, -3, -2, -1, 0, 1, 2, 3, 4],
-        "appearance": null,
+        "appearance": "graphite: black, metallic-looking; diamond: clear",
         "atomic_mass": 12.011,
         "boil": null,
         "category": "polyatomic nonmetal",

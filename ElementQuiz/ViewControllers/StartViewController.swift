@@ -289,6 +289,7 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
         let typeOfQuestions = QuestionAbout.allValues
         collectionViewStructure = [
             ["Periodic table" : periodicTableStyles],
+            ["Tools" : ["Search table"]],
             ["Category tests" : categories],
             ["Big games" : typeOfQuestions]
         ]
@@ -324,12 +325,17 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
             periodicCell.configureCell(typeOfTable: string)
             cell = periodicCell
         } else if indexPath.section == 1 {
+            //This is an ordinary cell with single label at the center
+            let periodicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeriodicTableCollectionViewCell", for: indexPath) as! PeriodicTableCollectionViewCell
+            periodicCell.configureCell(typeOfTable: string)
+            cell = periodicCell
+        } else if indexPath.section == 2 {
             let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             let color = CustomColors.choseColor(string)
             categoryCell.configureCell(category: string, color: color)
             categoryCell.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
             cell = categoryCell
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             let bigGameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BigGameCollectionViewCell", for: indexPath) as! BigGameCollectionViewCell
             bigGameCell.configureCell(typeOfGame: string)
             cell = bigGameCell
@@ -337,7 +343,6 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
         
         return cell
     }
-    //        cell.subviews.forEach { $0.removeFromSuperview() }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let section = collectionViewStructure[indexPath.section].keys.joined()
@@ -350,8 +355,10 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
         if indexPath.section == 0 {
             vc = PeriodicTableViewController(dataSource: dataSource, fixedElementList: fixedElementList, stateOfTableMode: PeriodicTableMode(rawValue: string) ?? PeriodicTableMode.classic)
         } else if indexPath.section == 1 {
-            vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: string)
+            vc = SearchViewController(dataSource: dataSource, fixedElementList: fixedElementList)
         } else if indexPath.section == 2 {
+            vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: string)
+        } else if indexPath.section == 3 {
             vc = BigGameViewController(fixedElementList: fixedElementList, dataSource: dataSource, typeOfGame: QuestionAbout(rawValue: string) ?? QuestionAbout.atomicMassQuestion)
         }
         
@@ -372,6 +379,10 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
         }
         return header
     }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: 100, height: 100) 
+//    }
 }
 
 private final class CategoryCollectionViewCell: UICollectionViewCell {

@@ -192,7 +192,7 @@ private extension ElementInfoViewController {
             descriptionTextView.text += "\nValency: "
             var valencyText: [String] = []
             for valency in currentElement.valency {
-                valencyText.append(toRoman(valency))
+                valencyText.append(valency.toRoman())
             }
             
             descriptionTextView.text += valencyText.joined(separator: ", ")
@@ -259,48 +259,3 @@ private extension ElementInfoViewController {
         self.present(vc, animated: true, completion: nil)
     }
 }
-
-// MARK: Helpers
-private extension ElementInfoViewController {
-    private func toRoman(_ valency: Int) -> String {
-        var result = ""
-        if valency == 0 {
-            result = "O"
-        }
-
-        if valency == 1 {
-            result = "I"
-        }
-
-        if valency == 2 {
-            result = "II"
-        }
-
-        if valency == 3 {
-            result = "III"
-        }
-
-        if valency == 4 {
-            result = "IV"
-        }
-
-        if valency == 5 {
-            result = "V"
-        }
-
-        if valency == 6 {
-            result = "VI"
-        }
-
-        if valency == 7 {
-            result = "VII"
-        }
-
-        if valency == 8 {
-            result = "VIII"
-        }
-        return result
-    }
-}
-
-

@@ -71,7 +71,7 @@ final class PeriodicTableViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.backgroundColor = .white
         backButton.tintColor = .black
@@ -581,7 +581,7 @@ private extension PeriodicTableViewController {
             if valency.isEmpty != true {
                 var valencyText: [String] = []
                 for i in valency {
-                    valencyText.append(toRoman(i))
+                    valencyText.append(i.toRoman())
                 }
                 
                 resultString += valencyText.joined(separator: ", ") + "\n"
@@ -601,49 +601,3 @@ private extension PeriodicTableViewController {
         return resultString
     }
 }
-
-// MARK: Helpers
-private extension PeriodicTableViewController {
-    private func toRoman(_ valency: Int) -> String {
-        var result = ""
-        if valency == 0 {
-            result = "O"
-        }
-
-        if valency == 1 {
-            result = "I"
-        }
-
-        if valency == 2 {
-            result = "II"
-        }
-
-        if valency == 3 {
-            result = "III"
-        }
-
-        if valency == 4 {
-            result = "IV"
-        }
-
-        if valency == 5 {
-            result = "V"
-        }
-
-        if valency == 6 {
-            result = "VI"
-        }
-
-        if valency == 7 {
-            result = "VII"
-        }
-
-        if valency == 8 {
-            result = "VIII"
-        }
-        return result
-    }
-}
-
-
-
