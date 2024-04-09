@@ -8,56 +8,6 @@
 import UIKit
 import SnapKit
 
-enum ElementParameters: String {
-    case atomicMass = "Atomic mass"
-    case density = "Density"
-    case category = "Category"
-    case latinName = "Latin name"
-    case phase = "Phase"
-    case valency = "Valency"
-    case boilTemperature = "Boil temperature"
-    case meltTemperature = "Melt temperature"
-    case molarHeat = "Molar heat"
-    case group = "Group"
-    case period = "Period"
-    case elecrtonAffinity = "Electron affinity"
-    case electronegativityByPauling = "Elecronegativity by Pauling"
-    case oxidationDegree = "Oxidation degree"
-    case elecronConfiguration = "Electron configuration"
-    case elecronConfigurationSemantic = "Electron configuration (semantic)"
-    case shells = "Shells"
-    case ionizationEnergies = "Ionization energies"
-    case discovered = "Discovered"
-    case named = "Named"
-    case appearance = "Appearance"
-    
-    static var allValues: [String] {
-        return [
-            self.atomicMass.rawValue,
-            self.density.rawValue,
-            self.category.rawValue,
-            self.latinName.rawValue,
-            self.phase.rawValue,
-            self.valency.rawValue,
-            self.boilTemperature.rawValue,
-            self.meltTemperature.rawValue,
-            self.molarHeat.rawValue,
-            self.group.rawValue,
-            self.period.rawValue,
-            self.elecrtonAffinity.rawValue,
-            self.electronegativityByPauling.rawValue,
-            self.oxidationDegree.rawValue,
-            self.elecronConfiguration.rawValue,
-            self.elecronConfigurationSemantic.rawValue,
-            self.shells.rawValue,
-            self.ionizationEnergies.rawValue,
-            self.discovered.rawValue,
-            self.named.rawValue,
-            self.appearance.rawValue
-        ]
-    }
-}
-
 private enum OrderCases {
     case ascending
     case descending
@@ -73,10 +23,10 @@ private let unchosenCircleImages = ["circle.dotted", "circle.dashed", "circle"]
 final class SearchViewController: UIViewController {
     private let dataSource: ElementQuizDataSource
     private let fixedElementList: [ChemicalElementModel]
-    var userSelectedOptionalParameter: ElementParameters = .atomicMass {
+    var userSelectedOptionalParameter: ElementParameters = .phase {
         didSet {
             refreshTableView()
-            self.navigationItem.title = userSelectedOptionalParameter.rawValue
+            self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
         }
     }
     private var userSelectedOrder: OrderCases = .unordered {
@@ -92,13 +42,21 @@ final class SearchViewController: UIViewController {
     private lazy var textField: UITextField = {
         let field = UITextField()
         field.borderStyle = .roundedRect
-        field.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        field.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         field.textColor = UIColor.black
         field.textAlignment = .justified
         field.placeholder = "search"
         field.autocorrectionType = .no
         field.keyboardType = .asciiCapable
         return field
+    }()
+    
+    private lazy var clearButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "plus")?.rotate(radians: .pi/4)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(Self.clearButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     private lazy var presetsMenuButton: UIButton = {
@@ -144,9 +102,7 @@ final class SearchViewController: UIViewController {
         switcher.addTarget(self, action: #selector(Self.refreshTableView), for: .touchUpInside)
         return switcher
     }()
-    
-    // selected chosenElements.count from fixedElementList.count tab to hide show , infoLabel swap to another parameter of elements. enum? search by parameter or all visible text on cell? add sort btn 0-9 9-0 ascendin descending only for value. image name config func
-    
+        
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellForElement.reusableIdentifier)
@@ -173,7 +129,7 @@ final class SearchViewController: UIViewController {
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
         
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationItem.title = userSelectedOptionalParameter.rawValue
+        self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationController?.navigationBar.backgroundColor = .white
         backButton.tintColor = .black
@@ -187,6 +143,7 @@ final class SearchViewController: UIViewController {
     
     private func addSubViews() {
         view.addSubview(textField)
+        view.addSubview(clearButton)
         view.addSubview(switcher)
         view.addSubview(countLabel)
         view.addSubview(orderButton)
@@ -201,6 +158,17 @@ final class SearchViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.height.equalTo(50)
         }
+        
+        clearButton.snp.makeConstraints { make in
+            make.centerY.equalTo(textField)
+            make.trailing.equalTo(textField.snp.trailing)
+            make.height.equalTo(textField.snp.height)
+            make.width.equalTo(textField.snp.height)
+        }
+        
+        clearButton.imageView?.snp.makeConstraints({ make in
+            make.center.equalToSuperview()
+        })
         
         presetsMenuButton.snp.makeConstraints { make in
             make.centerY.equalTo(switcher)
@@ -323,7 +291,7 @@ final class SearchViewController: UIViewController {
             } else {
                 result = "unknown"
             }
-        case .boilTemperature:
+        case .boil:
             if let boilText: String = currentElement.boil  {
                 let boil = Float(boilText) != nil ? Float(boilText) : nil
                 if let boil = boil {
@@ -332,7 +300,7 @@ final class SearchViewController: UIViewController {
             } else {
                 result = " - - - "
             }
-        case .meltTemperature:
+        case .melt:
             if let meltText: String = currentElement.melt  {
                 let melt = Float(meltText) != nil ? Float(meltText) : nil
                 if let melt = melt {
@@ -363,7 +331,7 @@ final class SearchViewController: UIViewController {
             } else {
                 result = " - - - "
             }
-        case .electronegativityByPauling:
+        case .electronegativityPauling:
             if let electronegativityPaulingText: String = currentElement.electronegativityPauling  {
                 let electronegativityPauling = Float(electronegativityPaulingText) != nil ? Float(electronegativityPaulingText) : nil
                 if let electronegativityPauling = electronegativityPauling {
@@ -439,6 +407,10 @@ final class SearchViewController: UIViewController {
     @objc func backAction() {
         self.dismiss(animated: true)
     }
+    @objc func clearButtonTapped() {
+        textField.text = ""
+        refreshTableView()
+    }
     
     @objc func showSettings() {
         let vc = ParametersButtonViewController(delegate: self)
@@ -449,25 +421,34 @@ final class SearchViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if let text = textField.text {
-            print(text)
-        }
-        
+        refreshTableView()
         return true
     }
 }
 
-//MARK: - SearchViewController calculated properties aka helpers
+//MARK: - SearchViewController filtering functions
 extension SearchViewController {
-    private var elementListFiltered: [ChemicalElementModel] {
+    private var elementListSwitchFiltered: [ChemicalElementModel] {
         get {
             switcher.isOn ? fixedElementList.filter{ chosenElements.contains($0.symbol)} : fixedElementList
         }
     }
     
+    private func filterBySearchTableView(with searchText: String, byParameter parameter: ElementParameters, elementsList: [ChemicalElementModel]) -> [ChemicalElementModel] {
+//        let parameter: String = parameter.rawValue
+        return elementsList.filter { $0.phase.lowercased().contains(searchText.lowercased()) }
+    }
+    
+    private func filteredElementsList() -> [ChemicalElementModel]{
+        var elementList = userSelectedOrder != .unordered ? sortedElementsList : elementListSwitchFiltered
+        if let searchText = textField.text, !searchText.isEmpty, searchText.trimmingCharacters(in: .whitespaces) != "" {
+            elementList = filterBySearchTableView(with: searchText, byParameter: userSelectedOptionalParameter, elementsList: elementList)
+        }
+        return elementList
+    }
+    
     private var sortedElementsList: [ChemicalElementModel] {
-        return elementListFiltered.sorted(by: { a, b in
+        return elementListSwitchFiltered.sorted(by: { a, b in
             
             func customSorting<T: Comparable>(_ a: T, _ b: T) -> Bool {
                 var result: Bool = false
@@ -492,9 +473,9 @@ extension SearchViewController {
                 return customSorting(a.phase, b.phase)
             case .valency:
                 return customSorting(a.valency.count, b.valency.count)
-            case .boilTemperature:
+            case .boil:
                 return customSorting(Double(a.boil ?? "-9999999") ?? 0 , Double(b.boil ?? "-9999999") ?? 0)
-            case .meltTemperature:
+            case .melt:
                 return customSorting(Double(a.melt ?? "-9999999") ?? 0 , Double(b.melt ?? "-9999999") ?? 0)
             case .molarHeat:
                 return customSorting(Double(a.molarHeat ?? "-9999999") ?? 0 , Double(b.molarHeat ?? "-9999999") ?? 0)
@@ -504,7 +485,7 @@ extension SearchViewController {
                 return customSorting(a.period, b.period)
             case .elecrtonAffinity:
                 return customSorting(Double(a.electronAffinity ?? "-9999999") ?? 0 , Double(b.electronAffinity ?? "-9999999") ?? 0)
-            case .electronegativityByPauling:
+            case .electronegativityPauling:
                 return customSorting(Double(a.electronegativityPauling ?? "-9999999") ?? 0 , Double(b.electronegativityPauling ?? "-9999999") ?? 0)
             case .oxidationDegree:
                 return customSorting(a.oxidationDegree.count, b.oxidationDegree.count)
@@ -528,16 +509,12 @@ extension SearchViewController {
 }
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let elementList = userSelectedOrder != .unordered ? sortedElementsList : elementListFiltered
-        return elementList.count
+        return filteredElementsList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellForElement(style: .default, reuseIdentifier: CellForElement.reusableIdentifier)
-        let elementListFiltered = self.elementListFiltered
-        let elementList = userSelectedOrder != .unordered ? sortedElementsList : elementListFiltered
-
-//        TODO: filtering all the elements by info & btn show selected only
+        let elementList = filteredElementsList()
         let element = elementList[indexPath.row]
         let info = informationAbout(selected: userSelectedOptionalParameter, for: element)
         let color = CustomColors.choseColor(element.category)
@@ -553,18 +530,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let elementListFiltered = self.elementListFiltered
-        let elementList = userSelectedOrder != .unordered ? sortedElementsList : elementListFiltered
+        let elementList = filteredElementsList()
         let element = elementList[indexPath.row]
         let info = informationAbout(selected: userSelectedOptionalParameter, for: element)
         let vc = UpscaledTextViewController()
-        vc.configure(elementName: element.name, parameter: userSelectedOptionalParameter, info: info)
+        vc.configure(elementName: element.name, parameter: userSelectedOptionalParameter.descriptionHumanReadable(), info: info)
         self.present(vc, animated: true, completion: nil)
     }
 }
 
 //MARK: - Cell for element
-final class CellForElement: UITableViewCell {
+final private class CellForElement: UITableViewCell {
     private let parentView: UIView = UIView()
     private let elementNumberLabel: UILabel = UILabel()
     private let symbolLabel: UILabel = UILabel()
@@ -790,7 +766,9 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellWithLabel(style: .default, reuseIdentifier: CellWithLabel.reusableIdentifier)
         let parameter = parameters[indexPath.row]
-        cell.configure(info: parameter)
+        if let parameter = ElementParameters(rawValue: parameters[indexPath.row])?.descriptionHumanReadable() {
+            cell.configure(info: parameter)
+        }
         return cell
     }
     
@@ -954,9 +932,9 @@ final class UpscaledTextViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    func configure(elementName: String, parameter: ElementParameters, info: String) {
+    func configure(elementName: String, parameter: String, info: String) {
         labelName.text = elementName
-        labelParameter.text = parameter.rawValue
+        labelParameter.text = parameter
         descriptionTextView.text = info
     }
     

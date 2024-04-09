@@ -47,3 +47,100 @@ extension ChemicalElementModel {
 extension ChemicalElementModel : Identifiable {
 
 }
+
+enum ElementParameters: String {
+    case atomicMass = "atomicMass"
+    case density = "density"
+    case category = "category"
+    case latinName = "latinName"
+    case phase = "phase"
+    case valency = "valency"
+    case boil = "boil"
+    case melt = "melt"
+    case molarHeat = "molarHeat"
+    case group = "group"
+    case period = "period"
+    case elecrtonAffinity = "electronAffinity"
+    case electronegativityPauling = "electronegativityPauling"
+    case oxidationDegree = "oxidationDegre"
+    case elecronConfiguration = "elecronConfiguration"
+    case elecronConfigurationSemantic = "elecronConfigurationSemantic"
+    case shells = "shells"
+    case ionizationEnergies = "ionizationEnergies"
+    case discovered = "discovered"
+    case named = "named"
+    case appearance = "appearance"
+    
+    static var allValues: [String] {
+        return [
+            self.atomicMass.rawValue,
+            self.density.rawValue,
+            self.category.rawValue,
+            self.latinName.rawValue,
+            self.phase.rawValue,
+            self.valency.rawValue,
+            self.boil.rawValue,
+            self.melt.rawValue,
+            self.molarHeat.rawValue,
+            self.group.rawValue,
+            self.period.rawValue,
+            self.elecrtonAffinity.rawValue,
+            self.electronegativityPauling.rawValue,
+            self.oxidationDegree.rawValue,
+            self.elecronConfiguration.rawValue,
+            self.elecronConfigurationSemantic.rawValue,
+            self.shells.rawValue,
+            self.ionizationEnergies.rawValue,
+            self.discovered.rawValue,
+            self.named.rawValue,
+            self.appearance.rawValue
+        ]
+    }
+    
+    func descriptionHumanReadable() -> String {
+        switch self {
+        case .atomicMass:
+            return "Atomic mass"
+        case .density:
+            return "Density"
+        case .category:
+            return "Category"
+        case .latinName:
+            return "Latin name"
+        case .phase:
+            return "Phase"
+        case .valency:
+            return "Valency"
+        case .boil:
+            return "Boil temperature"
+        case .melt:
+            return "Melt temperature"
+        case .molarHeat:
+            return "Molar heat"
+        case .group:
+            return "Group"
+        case .period:
+            return "Period"
+        case .elecrtonAffinity:
+            return "Electron affinity"
+        case .electronegativityPauling:
+            return "Elecronegativity by Pauling"
+        case .oxidationDegree:
+            return "Oxidation degree"
+        case .elecronConfiguration:
+            return "Electron configuration"
+        case .elecronConfigurationSemantic:
+            return "Electron configuration (semantic)"
+        case .shells:
+            return "Shells"
+        case .ionizationEnergies:
+            return "Ionization energies"
+        case .discovered:
+            return "Discovered"
+        case .named:
+            return "Named"
+        case .appearance:
+            return "Appearance"
+        }
+    }
+}
