@@ -44,6 +44,7 @@
 		FDD3C1882AFA6E7B0031336C /* ElementQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */; };
 		FDD3C18A2AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */; };
 		FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */; };
+		FDF64D3E2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITests.swift; sourceTree = "<group>"; };
 		FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuButtonVC + Protocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
 				FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */,
 				FD8FDB832BBD858800C77650 /* SearchViewController.swift */,
+				FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 				FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */,
@@ -387,6 +390,7 @@
 				FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */,
 				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
+				FDF64D3E2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
 				FDC64C9E2BB59378000DFE20 /* gameProtocol.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,

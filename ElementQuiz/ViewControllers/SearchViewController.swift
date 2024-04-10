@@ -383,6 +383,8 @@ final class SearchViewController: UIViewController {
             result = currentElement.namedBy ?? " - - - "
         case .appearance:
             result = currentElement.appearance ?? " - - - "
+        case .block:
+            result = currentElement.block
         }
         
         return result
@@ -413,8 +415,15 @@ final class SearchViewController: UIViewController {
     }
     
     @objc func showSettings() {
-        let vc = ParametersButtonViewController(delegate: self)
+        let vc = ParametersButtonViewController(delegate: self, parameters: ElementParameters.allValues)
         self.present(vc, animated: true, completion: nil)
+    }
+}
+
+//MARK: - ParametersButtonDelegate
+extension SearchViewController: ParametersButtonDelegate {
+    func didChangeParameter(parameter: ElementParameters) {
+        self.userSelectedOptionalParameter = parameter
     }
 }
 
@@ -436,7 +445,55 @@ extension SearchViewController {
     
     private func filterBySearchTableView(with searchText: String, byParameter parameter: ElementParameters, elementsList: [ChemicalElementModel]) -> [ChemicalElementModel] {
 //        let parameter: String = parameter.rawValue
+        //TODO: - handle search with Int, Array & other type of properties
         return elementsList.filter { $0.phase.lowercased().contains(searchText.lowercased()) }
+        
+//        switch parameter {
+//        case .atomicMass:
+//            return
+//        case .density:
+//            return
+//        case .category:
+//            return
+//        case .latinName:
+//            return
+//        case .phase:
+//            return
+//        case .valency:
+//            return
+//        case .boil:
+//            return
+//        case .melt:
+//            return
+//        case .molarHeat:
+//            return
+//        case .group:
+//            return
+//        case .period:
+//            return
+//        case .elecrtonAffinity:
+//            return
+//        case .electronegativityPauling:
+//            return
+//        case .oxidationDegree:
+//            return
+//        case .elecronConfiguration:
+//            return
+//        case .elecronConfigurationSemantic:
+//            return
+//        case .shells:
+//            return
+//        case .ionizationEnergies:
+//            return
+//        case .discovered:
+//            return
+//        case .named:
+//            return
+//        case .appearance:
+//            return
+//        case .block:
+//            return
+//        }
     }
     
     private func filteredElementsList() -> [ChemicalElementModel]{
@@ -503,6 +560,8 @@ extension SearchViewController {
                 return customSorting(a.namedBy ?? "" , b.namedBy ?? "")
             case .appearance:
                 return customSorting(a.appearance ?? "" , b.appearance ?? "")
+            case .block:
+                return customSorting(a.block, b.block)
             }
         })
     }
@@ -666,8 +725,7 @@ final private class CellForElement: UITableViewCell {
         infoLabel.text = info
         infoColorView.backgroundColor = color
         separateView.backgroundColor = color
-        //TODO: white or colored
-        parentView.backgroundColor = .white //color.withAlphaComponent(0.1)
+        parentView.backgroundColor = .white
         
         button.imageView?.tintColor = color
         choseIconForButton(symbol)
@@ -690,149 +748,10 @@ final private class CellForElement: UITableViewCell {
         }
         choseIconForButton(string)
     }
-    // TODO: Button was tapped change image fill & add/delete to set
-}
-
-//MARK: - ParametersButtonViewController
-final class ParametersButtonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let parameters = ElementParameters.allValues
-    private let delegate: SearchViewController
-    private lazy var label: UILabel = {
-        var label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 30)
-        label.textColor = .black
-        label.textAlignment = .justified
-        return label
-    }()
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellWithLabel.reusableIdentifier)
-        tableView.rowHeight = 60
-        tableView.separatorStyle = .none
-        return tableView
-    }()
-    
-    init(delegate: SearchViewController) {
-        self.delegate = delegate
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: Lifecycle methods
-    override func viewDidLoad() {
-        setup()
-        addSubViews()
-        layout()
-    }
-    
-    private func addSubViews() {
-        view.addSubview(label)
-        view.addSubview(tableView)
-    }
-    
-    private func layout() {
-        label.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(15)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(15)
-        }
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(10)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            make.bottom.equalToSuperview()
-        }
-    }
-    
-    private func setup() {
-        view.backgroundColor = .white
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        label.text = "Select parameter to show:"
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ElementParameters.allValues.count
-    }
-        
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CellWithLabel(style: .default, reuseIdentifier: CellWithLabel.reusableIdentifier)
-        let parameter = parameters[indexPath.row]
-        if let parameter = ElementParameters(rawValue: parameters[indexPath.row])?.descriptionHumanReadable() {
-            cell.configure(info: parameter)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parameter = parameters[indexPath.row]
-        delegate.userSelectedOptionalParameter = ElementParameters(rawValue: parameter) ?? .category
-        self.dismiss(animated: true)
-    }
-}
-
-//MARK: - cell for parameter table view menu controller
-final private class CellWithLabel: UITableViewCell {
-    private let parentView: UIView = UIView()
-    private let infoLabel: UILabel = UILabel()
-    static let reusableIdentifier = "CellWithLabel"
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
-        addSubViews()
-        layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        infoLabel.font = UIFont(name: "Avenir", size: 25)
-        infoLabel.minimumScaleFactor = 0.35
-        infoLabel.adjustsFontSizeToFitWidth = true
-        infoLabel.textAlignment = .justified
-        infoLabel.numberOfLines = 2
-        
-        parentView.layer.borderWidth = 2
-        parentView.layer.cornerRadius = 4
-        parentView.layer.borderColor = CustomColors.lightPurple
-    }
-    
-    private func addSubViews() {
-        contentView.addSubview(parentView)
-        parentView.addSubview(infoLabel)
-    }
-    
-    private func layout() {
-        parentView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.height.equalToSuperview().offset(-10)
-            make.width.equalToSuperview().offset(-10)
-        }
-        
-        infoLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-    }
-    
-    func configure(info: String) {
-        infoLabel.text = info
-    }
 }
 
 //MARK: - UpscaledTextViewController
 final class UpscaledTextViewController: UIViewController {
-    let parameters = ElementParameters.allValues
     private lazy var labelName: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Avenir", size: 35)

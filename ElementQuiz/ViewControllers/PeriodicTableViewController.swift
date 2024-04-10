@@ -31,7 +31,20 @@ final class PeriodicTableViewController: UIViewController {
     private let fixedElementList: [ChemicalElementModel] //= DataManager.shared.fetchElements()
     private let stateOfTableMode: PeriodicTableMode
     private let spacing = 3
-    private var optionalPropertiesForCell: OptionalPropertyForCell = .valency
+    private let parametersForMenuButton = [ElementParameters.valency.rawValue,
+                                           ElementParameters.density.rawValue,
+                                           ElementParameters.oxidationDegree.rawValue,
+                                           ElementParameters.boil.rawValue,
+                                           ElementParameters.melt.rawValue,
+                                           ElementParameters.shells.rawValue,
+                                           ElementParameters.block.rawValue
+    ]
+    var optionalPropertiesForCell: ElementParameters = .valency {
+        didSet {
+            swapPeriodicTable()
+            refreshNavigationItemTitle()
+        }
+    }
     private var scale = 1.0 {
         didSet {
             if scale > 1.7 {
@@ -72,16 +85,24 @@ final class PeriodicTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
         self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationController?.navigationBar.backgroundColor = .white
         backButton.tintColor = .black
+        settingsButton.tintColor = .black
+
         
-        
+        refreshNavigationItemTitle()
         addSubViews()
         layout()
         swapPeriodicTable()
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         view.addGestureRecognizer(pinchGesture)
+    }
+    
+    private func refreshNavigationItemTitle() {
+        self.navigationItem.title = stateOfTableMode.rawValue + " | " + self.optionalPropertiesForCell.descriptionHumanReadable().lowercased()
     }
     
     // MARK: - Private Methods
@@ -97,7 +118,7 @@ final class PeriodicTableViewController: UIViewController {
                         return CustomColors.choseColor(element.block)
                     }
                 }()
-                let optionalProperty = getOptionalProperty(valency: element.valency, density: element.density)
+                let optionalProperty = informationAbout(selected: optionalPropertiesForCell, for: element)
                 let elementIcon = PeriodicTableCellView(symbol: element.symbol,
                                                         number: element.number,
                                                         name: element.name,
@@ -289,6 +310,11 @@ private extension PeriodicTableViewController {
     func showElementInfoViewController(_ element: ChemicalElementModel) {
         let vc = ElementInfoViewController()
         vc.currentElement = element
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func showSettings() {
+        let vc = ParametersButtonViewController (delegate: self, parameters: parametersForMenuButton)
         self.present(vc, animated: true, completion: nil)
     }
 }
@@ -574,30 +600,180 @@ private extension UIScrollView {
 }
 
 // MARK: Helpers
-private extension PeriodicTableViewController {
-    func getOptionalProperty(valency: [Int], density: String?) -> String {
-        var resultString = ""
-        if optionalPropertiesForCell == .valency {
-            if valency.isEmpty != true {
+//private extension PeriodicTableViewController {
+//    func getOptionalProperty(valency: [Int], density: String?) -> String {
+//        var resultString = ""
+//        if optionalPropertiesForCell == .valency {
+//            if valency.isEmpty != true {
+//                var valencyText: [String] = []
+//                for i in valency {
+//                    valencyText.append(i.toRoman())
+//                }
+//
+//                resultString += valencyText.joined(separator: ", ") + "\n"
+//            } else {
+//                resultString += "Valency: unknown" + "\n"
+//            }
+//        }
+//
+//        if optionalPropertiesForCell == .density {
+//            if let density = density {
+//                resultString += "Density: \(density) g/cm3" + "\n"
+//            } else {
+//                resultString += "Density: unknown" + "\n"
+//            }
+//        }
+//
+//        if optionalPropertiesForCell == .oxidationDegree {
+//            if oxidationDegree.isEmpty != true {
+//                var oxidationText: [String] = []
+//                for oxidation in oxidationDegree {
+//                    oxidationText.append(String(oxidation))
+//                }
+//
+//                resultString = oxidationText.joined(separator: ", ")
+//            } else {
+//                resultString = " - - - "
+//            }
+//        }
+//
+//        return resultString
+//    }
+//}
+
+extension PeriodicTableViewController {
+    private func informationAbout(selected parameter: ElementParameters, for currentElement: ChemicalElementModel) -> String {
+        var result = ""
+        switch parameter {
+        case .atomicMass:
+            result = String(currentElement.atomicMass)
+        case .density:
+            if let densityText: String = currentElement.density  {
+                result = "\(densityText) g/cm3"
+            } else {
+                result = "unknown"
+            }
+        case .category:
+            result = currentElement.category
+        case .latinName:
+            result = currentElement.latinName
+        case .phase:
+            result = currentElement.phase
+        case .valency:
+            if currentElement.valency.isEmpty != true {
                 var valencyText: [String] = []
-                for i in valency {
-                    valencyText.append(i.toRoman())
+                for valency in currentElement.valency {
+                    valencyText.append(valency.toRoman())
                 }
                 
-                resultString += valencyText.joined(separator: ", ") + "\n"
+                result = valencyText.joined(separator: ", ")
             } else {
-                resultString += "Valency: unknown" + "\n"
+                result = "unknown"
             }
+        case .boil:
+            if let boilText: String = currentElement.boil  {
+                let boil = Float(boilText) != nil ? Float(boilText) : nil
+                if let boil = boil {
+                    result += "\(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C"
+                }
+            } else {
+                result = " - - - "
+            }
+        case .melt:
+            if let meltText: String = currentElement.melt  {
+                let melt = Float(meltText) != nil ? Float(meltText) : nil
+                if let melt = melt {
+                    result += "\(meltText) K / " + String(format: "%.2f", melt - 273.15) + " C"
+                }
+            } else {
+                result = " - - - "
+            }
+        case .molarHeat:
+            if let molarHeatText: String = currentElement.molarHeat  {
+                let molarHeat = Float(molarHeatText) != nil ? Float(molarHeatText) : nil
+                if let molarHeat = molarHeat {
+                    result = "\(molarHeat) J/(mol·K)"
+                }
+            } else {
+                result = " - - - "
+            }
+        case .group:
+            result = String(currentElement.group)
+        case .period:
+            result = String(currentElement.period)
+        case .elecrtonAffinity:
+            if let electronAffinityText: String = currentElement.electronAffinity  {
+                let electronAffinity = Float(electronAffinityText) != nil ? Float(electronAffinityText) : nil
+                if let electronAffinity = electronAffinity {
+                    result = "\(electronAffinity) kJ/mol"
+                }
+            } else {
+                result = " - - - "
+            }
+        case .electronegativityPauling:
+            if let electronegativityPaulingText: String = currentElement.electronegativityPauling  {
+                let electronegativityPauling = Float(electronegativityPaulingText) != nil ? Float(electronegativityPaulingText) : nil
+                if let electronegativityPauling = electronegativityPauling {
+                    result = "\(electronegativityPauling)"
+                }
+            } else {
+                result = " - - - "
+            }
+        case .oxidationDegree:
+            if currentElement.oxidationDegree.isEmpty != true {
+                var oxidationText: [String] = []
+                for oxidation in currentElement.oxidationDegree {
+                    oxidationText.append(String(oxidation))
+                }
+                
+                result = oxidationText.joined(separator: ", ")
+            } else {
+                result = " - - - "
+            }
+        case .elecronConfiguration:
+            result = currentElement.electronConfiguration
+        case .elecronConfigurationSemantic:
+            result = currentElement.electronConfigurationSemantic
+        case .shells:
+            if currentElement.shells.isEmpty != true {
+                var shellsText: [String] = []
+                for shell in currentElement.shells {
+                    shellsText.append(String(shell))
+                }
+                
+                result = shellsText.joined(separator: ", ")
+            } else {
+                result = "unknown"
+            }
+        case .ionizationEnergies:
+            if currentElement.ionizationEnergies.isEmpty != true {
+                var ionizationEnergiesText: [String] = []
+                for item in currentElement.ionizationEnergies {
+                    ionizationEnergiesText.append(String(item))
+                }
+                
+                result = ionizationEnergiesText.joined(separator: ", ")
+            } else {
+                result = " - - - "
+            }
+        case .discovered:
+            result = currentElement.discoveredBy ?? " - - - "
+        case .named:
+            result = currentElement.namedBy ?? " - - - "
+        case .appearance:
+            result = currentElement.appearance ?? " - - - "
+        case .block:
+            result = currentElement.block
         }
         
-        if optionalPropertiesForCell == .density {
-            if let density = density {
-                resultString += "Density: \(density) g/cm3" + "\n"
-            } else {
-                resultString += "Density: unknown" + "\n"
-            }
-        }
-        
-        return resultString
+        return result
     }
 }
+
+//MARK: - ParametersButtonDelegate
+extension PeriodicTableViewController: ParametersButtonDelegate {
+    func didChangeParameter(parameter: ElementParameters) {
+        self.optionalPropertiesForCell = parameter
+    }
+}
+

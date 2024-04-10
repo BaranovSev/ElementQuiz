@@ -54,6 +54,7 @@ enum ElementParameters: String {
     case category = "category"
     case latinName = "latinName"
     case phase = "phase"
+    case block = "block"
     case valency = "valency"
     case boil = "boil"
     case melt = "melt"
@@ -78,6 +79,7 @@ enum ElementParameters: String {
             self.category.rawValue,
             self.latinName.rawValue,
             self.phase.rawValue,
+            self.block.rawValue,
             self.valency.rawValue,
             self.boil.rawValue,
             self.melt.rawValue,
@@ -141,6 +143,8 @@ enum ElementParameters: String {
             return "Named"
         case .appearance:
             return "Appearance"
+        case .block:
+            return "Block"
         }
     }
 }
