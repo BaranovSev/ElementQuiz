@@ -85,7 +85,6 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellWithLabel(style: .default, reuseIdentifier: CellWithLabel.reusableIdentifier)
-        let parameter = parameters[indexPath.row]
         if let parameter = ElementParameters(rawValue: parameters[indexPath.row])?.descriptionHumanReadable() {
             cell.configure(info: parameter)
         }

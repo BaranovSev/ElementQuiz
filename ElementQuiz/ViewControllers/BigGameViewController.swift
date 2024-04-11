@@ -99,18 +99,6 @@ final class BigGameViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-
-    private lazy var bigButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Next", for: .normal)
-        button.setTitle("Lets start!", for: .highlighted)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        button.isHidden = true
-        return button
-    }()
     
     private lazy var verticalStack: UIStackView = {
         var stack = UIStackView()
@@ -227,23 +215,7 @@ final class BigGameViewController: UIViewController {
         
         switch state {
         case .question:
-            questionLabel.textAlignment = .center
             questionLabel.text = getVariantsOfQuestion()
-        case .answer:
-            if answerIsCorrect == true {
-                questionLabel.textAlignment = .center
-            }
-        case .score:
-            //TODO: new controller with result
-            questionLabel.textAlignment = .center
-            questionLabel.text = "Game result: \(correctAnswerCount) from \(sequenceOfQuestions.count)"
-        }
-        
-        // BIG Button
-        switch state {
-        case .question:
-            bigButton.isHidden = true
-            bigButton.isEnabled = false
         case .answer:
             let delayInSeconds = 3.8
             let delay = DispatchTime.now() + delayInSeconds
@@ -252,11 +224,8 @@ final class BigGameViewController: UIViewController {
                 self.next()
             }
         case .score:
-        // TODO: show score controller
-            bigButton.isHidden = false
-            bigButton.isEnabled = true
-            bigButton.setTitle("Show result", for: .normal)
-            bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
+            //TODO: new controller with result
+            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: typeOfGame.rawValue)
         }
     }
     
@@ -275,11 +244,6 @@ final class BigGameViewController: UIViewController {
     private func setupQuestionSequens() {
         sequenceOfQuestions = fixedSequenceOfQuestions
         shuffledElementList = fixedElementList.shuffled()
-    }
-    
-    @objc func newGame() {
-        setupQuiz()
-        refreshUI()
     }
     
     @objc func answerBtnPressed(_ sender: UIButton) {
@@ -305,10 +269,6 @@ final class BigGameViewController: UIViewController {
         }
 
         refreshUI()
-    }
-    
-    @objc func backToMainViewController() {
-        print("BACK TO MAIN")
     }
     
     func answerBtnShouldReturn(answer: String) {
@@ -339,7 +299,6 @@ private extension BigGameViewController {
         view.backgroundColor = .white
         view.addSubview(elementIcon)
         view.addSubview(questionLabel)
-        view.addSubview(bigButton)
         view.addSubview(verticalStack)
         verticalStack.addSubview(smallButton1)
         verticalStack.addSubview(smallButton2)
@@ -365,17 +324,10 @@ private extension BigGameViewController {
             make.height.greaterThanOrEqualTo(40)
         }
         
-        bigButton.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(200)
-        }
-        
         verticalStack.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(70)
-            make.leading.equalTo(bigButton.snp_leadingMargin).offset(-50)
-            make.trailing.equalTo(bigButton.snp_trailingMargin).offset(50)
+            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(70)
+            make.leading.equalTo(questionLabel.snp_leadingMargin).offset(20)
+            make.trailing.equalTo(questionLabel.snp_trailingMargin).offset(-20)
             make.bottom.equalToSuperview().offset(20)
         }
         
@@ -628,3 +580,15 @@ extension BigGameViewController: GameProtocol {
     }
 }
 
+// MARK: - ShowCongratulationProtocol
+extension BigGameViewController: ShowCongratulationProtocol {
+    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
+        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
+    func selfDismiss() {
+        self.dismiss(animated: false)
+    }
+}

@@ -94,7 +94,7 @@ final class ElementInfoViewController: UIViewController {
     
     private func layout() {
         elementIcon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.lessThanOrEqualToSuperview().offset(50)
             make.height.equalTo(140)
             make.width.equalTo(140)
             make.centerX.equalToSuperview()
@@ -119,16 +119,16 @@ final class ElementInfoViewController: UIViewController {
         }
         
         descriptionTextView.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(categoryLabel.snp.bottom).offset(25)
-            make.bottom.lessThanOrEqualTo(bigButton.snp.top).offset(25)
+            make.top.lessThanOrEqualTo(categoryLabel.snp.bottom).offset(10)
+            make.bottom.greaterThanOrEqualTo(bigButton.snp.top).offset(-4)
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.height.equalTo(420)
+            make.height.greaterThanOrEqualTo(Int(UIScreen.main.bounds.height * 0.3))
         }
 
         bigButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-40)
+            make.bottom.lessThanOrEqualToSuperview().offset(-30)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.width.equalTo(200)

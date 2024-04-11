@@ -62,17 +62,17 @@ final class CategoryTestViewController: UIViewController {
         return view
     }()
 
-    private lazy var bigButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Next", for: .normal)
-        button.setTitle("Lets start!", for: .highlighted)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        button.isHidden = true
-        return button
-    }()
+//    private lazy var bigButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Next", for: .normal)
+//        button.setTitle("Lets start!", for: .highlighted)
+//        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
+//        button.backgroundColor = .purple
+//        button.setTitleColor(.white, for: .normal)
+//        button.layer.cornerRadius = 15
+//        button.isHidden = true
+//        return button
+//    }()
     
     private lazy var verticalStack: UIStackView = {
         var stack = UIStackView()
@@ -182,24 +182,7 @@ final class CategoryTestViewController: UIViewController {
         
         switch state {
         case .question:
-            questionLabel.textAlignment = .center
             questionLabel.text = getVariantsOfQuestion()
-        case .answer:
-            if answerIsCorrect == true {
-                questionLabel.textAlignment = .center
-            }
-        case .score:
-            //TODO: new controller with result
-            questionLabel.textAlignment = .center
-            questionLabel.text = "Game result: \(correctAnswerCount) from \(sequenceOfQuestions.count)"
-        }
-        
-        
-        // BIG Button
-        switch state {
-        case .question:
-            bigButton.isHidden = true
-            bigButton.isEnabled = false
         case .answer:
             let delayInSeconds = 3.8
             let delay = DispatchTime.now() + delayInSeconds
@@ -208,11 +191,8 @@ final class CategoryTestViewController: UIViewController {
                 self.next()
             }
         case .score:
-        // TODO: show score controller
-            bigButton.isHidden = false
-            bigButton.isEnabled = true
-            bigButton.setTitle("Show result", for: .normal)
-            bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
+            //TODO: save result to DB
+            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: currentCategory)
         }
     }
     
@@ -231,11 +211,6 @@ final class CategoryTestViewController: UIViewController {
     
     private func setupQuestionSequens() {
         sequenceOfQuestions = fixedSequenceOfQuestions
-    }
-    
-    @objc func newGame() {
-        setupQuiz()
-        refreshUI()
     }
     
     @objc func answerBtnPressed(_ sender: UIButton) {
@@ -263,10 +238,6 @@ final class CategoryTestViewController: UIViewController {
         refreshUI()
     }
     
-    @objc func backToMainViewController() {
-        print("BACK TO MAIN")
-    }
-    
     func answerBtnShouldReturn(answer: String) {
         checkAnswer(answer)
         
@@ -280,7 +251,6 @@ private extension CategoryTestViewController {
         view.backgroundColor = .white
         view.addSubview(questionLabel)
         view.addSubview(coloredView)
-        view.addSubview(bigButton)
         view.addSubview(verticalStack)
         verticalStack.addSubview(smallButton1)
         verticalStack.addSubview(smallButton2)
@@ -305,17 +275,10 @@ private extension CategoryTestViewController {
             make.height.equalTo(5)
         }
         
-        bigButton.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(200)
-        }
-        
         verticalStack.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(70)
-            make.leading.equalTo(bigButton.snp_leadingMargin).offset(-50)
-            make.trailing.equalTo(bigButton.snp_trailingMargin).offset(50)
+            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(70)
+            make.leading.equalTo(questionLabel.snp_leadingMargin).offset(20)
+            make.trailing.equalTo(questionLabel.snp_trailingMargin).offset(-20)
             make.bottom.equalToSuperview().offset(20)
         }
         
@@ -384,5 +347,18 @@ extension CategoryTestViewController: GameProtocol {
         } else {
             failure()
         }
+    }
+}
+
+// MARK: - ShowCongratulationProtocol
+extension CategoryTestViewController: ShowCongratulationProtocol {
+    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
+        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
+    func selfDismiss() {
+        self.dismiss(animated: false)
     }
 }

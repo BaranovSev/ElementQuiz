@@ -19,29 +19,25 @@ final class ElementMemorizingController: UIViewController {
     // MARK: - Properties
     private let fixedElementList: [ChemicalElementModel]
     private let currentElement: ChemicalElementModel
-    private var state: State = .question {
-        didSet {
-            print(state)
-        }
-    }
-    var answerIsCorrect: Bool? = nil
-    var correctAnswerCount = 0
-    var currentQuestionIndex = 0
-    var additionalQuestionPoints = 5
+    private var state: State = .question
+    private var answerIsCorrect: Bool? = nil
+    private var correctAnswerCount = 0
+    private var currentQuestionIndex = 0
+    private var additionalQuestionPoints = 5
 
 //TODO: implement different visualisation for same question, used buttons pressed, buttons drags & other UI elements
     private let fixedSequenceOfQuestions: [QuestionAbout] = [
-        .atomicMassQuestion,
+//        .atomicMassQuestion,
         .latinNameQuestion,
-        .commonNameQuestion,
-        .orderNumberQuestion,
-        .densityQuestion,
-        .categoryQuestion,
-        .meltQuestion,
-        .periodQuestion,
-        .groupQuestion,
-        .phaseQuestion,
-        .boilingPointQuestion
+//        .commonNameQuestion,
+//        .orderNumberQuestion,
+//        .densityQuestion,
+//        .categoryQuestion,
+//        .meltQuestion,
+//        .periodQuestion,
+//        .groupQuestion,
+//        .phaseQuestion,
+//        .boilingPointQuestion
     ]
     
     private var sequenceOfQuestions: [QuestionAbout] = []
@@ -76,32 +72,6 @@ final class ElementMemorizingController: UIViewController {
         label.font = UIFont(name: "Hoefler Text", size: 24)
         label.numberOfLines = 2
         return label
-    }()
-
-    private lazy var bigButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Next", for: .normal)
-        button.setTitle("Lets start!", for: .highlighted)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        button.isHidden = true
-        return button
-    }()
-    
-    private lazy var laterButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("Later", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 25)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
-        button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(Self.backToMainViewController), for: .touchUpInside)
-        return button
     }()
     
     private lazy var verticalStack: UIStackView = {
@@ -213,23 +183,7 @@ final class ElementMemorizingController: UIViewController {
         
         switch state {
         case .question:
-            questionLabel.textAlignment = .justified
             questionLabel.text = getVariantsOfQuestion()
-        case .answer:
-            if answerIsCorrect == true {
-                questionLabel.textAlignment = .justified
-            }
-        case .score:
-            //TODO: new controller with result
-            questionLabel.textAlignment = .center
-            questionLabel.text = "Game result: \(correctAnswerCount) from \(sequenceOfQuestions.count)"
-        }
-        
-        // BIG Button
-        switch state {
-        case .question:
-            bigButton.isHidden = true
-            bigButton.isEnabled = false
         case .answer:
             let delayInSeconds = 3.8
             let delay = DispatchTime.now() + delayInSeconds
@@ -238,31 +192,8 @@ final class ElementMemorizingController: UIViewController {
                 self.next()
             }
         case .score:
-        // TODO: show score controller
-            bigButton.isHidden = false
-            bigButton.isEnabled = true
-            if elementSuccessfullyLearned() {
-                bigButton.setTitle("Congrats!", for: .normal)
-                bigButton.removeTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
-                //TODO: save element to DB & show main screen or salutte screen
-//                bigButton.addTarget(self, action: #selector(Self.), for: .touchUpInside)
-            } else {
-                bigButton.setTitle("Try again", for: .normal)
-                bigButton.addTarget(self, action: #selector(Self.newGame), for: .touchUpInside)
-            }
-        }
-        
-        switch state {
-        case .question:
-            laterButton.isHidden = true
-        case .answer:
-            laterButton.isHidden = true
-        case .score:
-            if elementSuccessfullyLearned() {
-                laterButton.isHidden = true
-            } else {
-                laterButton.isHidden = false
-            }
+            //TODO: save result in DB
+            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: element.name)
         }
     }
     
@@ -282,11 +213,6 @@ final class ElementMemorizingController: UIViewController {
     
     private func setupQuestionSequens() {
         sequenceOfQuestions = fixedSequenceOfQuestions
-    }
-    
-    @objc func newGame() {
-        setupQuiz()
-        refreshUI()
     }
     
     @objc func answerBtnPressed(_ sender: UIButton) {
@@ -310,10 +236,6 @@ final class ElementMemorizingController: UIViewController {
         refreshUI()
     }
     
-    @objc func backToMainViewController() {
-        print("BACK TO MAIN")
-    }
-    
     @objc func backAction() {
         self.dismiss(animated: true)
     }
@@ -326,13 +248,25 @@ final class ElementMemorizingController: UIViewController {
     }
 }
 
+// MARK: - ShowCongratulationProtocol
+extension ElementMemorizingController: ShowCongratulationProtocol {
+    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
+        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
+    func selfDismiss() {
+        self.dismiss(animated: false)
+    }
+}
+
+// MARK: - UI setup layout functions
 private extension ElementMemorizingController {
     private func setUp() {
         view.backgroundColor = .white
         view.addSubview(elementSymbolLabel)
         view.addSubview(questionLabel)
-        view.addSubview(bigButton)
-        view.addSubview(laterButton)
         view.addSubview(verticalStack)
         verticalStack.addSubview(smallButton1)
         verticalStack.addSubview(smallButton2)
@@ -358,24 +292,10 @@ private extension ElementMemorizingController {
             make.height.greaterThanOrEqualTo(40)
         }
         
-        bigButton.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(200)
-        }
-        
-        laterButton.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(30)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(40)
-            make.width.equalTo(120)
-        }
-        
         verticalStack.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(70)
-            make.leading.equalTo(bigButton.snp_leadingMargin).offset(-50)
-            make.trailing.equalTo(bigButton.snp_trailingMargin).offset(50)
+            make.top.lessThanOrEqualTo(questionLabel.snp.bottom).offset(70)
+            make.leading.equalTo(questionLabel.snp_leadingMargin).offset(20)
+            make.trailing.equalTo(questionLabel.snp_trailingMargin).offset(-20)
             make.bottom.equalToSuperview().offset(20)
         }
         
@@ -411,10 +331,6 @@ private extension ElementMemorizingController {
 
 // MARK: - Helpers
 private extension ElementMemorizingController {
-    private func elementSuccessfullyLearned() -> Bool {
-        Float(correctAnswerCount)/Float(sequenceOfQuestions.count) >= 0.6
-    }
-    
     private func addQuestionIfNeeded() {
         if (sequenceOfQuestions.count - currentQuestionIndex) == 1 && additionalQuestionPoints > 1 {
             additionalQuestionPoints = 1
