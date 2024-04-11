@@ -167,6 +167,12 @@ final class ElementMemorizingController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.navigationBar.backgroundColor = .white
+        backButton.tintColor = .black
+
         setupQuestionSequens()
         setUp()
     }
@@ -306,6 +312,10 @@ final class ElementMemorizingController: UIViewController {
     
     @objc func backToMainViewController() {
         print("BACK TO MAIN")
+    }
+    
+    @objc func backAction() {
+        self.dismiss(animated: true)
     }
     
     func answerBtnShouldReturn(answer: String) {

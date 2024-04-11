@@ -409,6 +409,7 @@ final class SearchViewController: UIViewController {
     @objc func backAction() {
         self.dismiss(animated: true)
     }
+    
     @objc func clearButtonTapped() {
         textField.text = ""
         refreshTableView()

@@ -255,7 +255,8 @@ private extension ElementInfoViewController {
     @objc func showElementMemorizingController() {
         guard let currentElement = currentElement else { return }
         let vc = ElementMemorizingController(fixedElementList: fixedElementList, currentElement: currentElement)
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
 }
