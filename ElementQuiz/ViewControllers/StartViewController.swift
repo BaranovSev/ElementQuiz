@@ -31,18 +31,11 @@ final class StartViewController: UIViewController {
     }
     
     private var learnedElements: [ChemicalElementModel] {
-        get {
-            guard let set = user.learnedChemicalElements as? Set<ChemicalElementModel> else {
-                return self.fixedElementList
-            }
-            return Array(set)
-        }
+        DataManager.shared.fetchLearnedElements()
     }
     
     private var elementsToLearn: [ChemicalElementModel] {
-        fixedElementList.filter {
-            !learnedElements.contains($0)
-        }
+        DataManager.shared.fetchElementsToLearn()
     }
     
     // MARK: - UI Properties
@@ -119,6 +112,7 @@ final class StartViewController: UIViewController {
         button.layer.borderColor = CustomColors.lightPurple
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(Self.showElementInfoViewControllerForRepeating), for: .touchUpInside)
         return button
     }()
     
@@ -160,6 +154,14 @@ final class StartViewController: UIViewController {
         addSubViews()
         startTimer()
         layout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        refresh()
+    }
+    
+    func refresh() {
+        smallLabel.text = "progress: \(learnedElements.count)/\(fixedElementList.count)"
     }
     
     deinit {
@@ -260,7 +262,12 @@ private extension StartViewController {
     }
     
     @objc func runEveryTenSeconds() {
-        currentElement = elementsToLearn.shuffled().first!
+        if let element = elementsToLearn.shuffled().first {
+            currentElement = element
+        } else {
+            currentElement = learnedElements.shuffled().first!
+            bigButton.setTitle("Repeat", for: .normal)
+        }
     }
 }
 
@@ -278,6 +285,14 @@ private extension StartViewController {
         let navController = UINavigationController(rootViewController: vc)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
+    }
+    
+    @objc func showElementInfoViewControllerForRepeating() {
+        if user.learnedChemicalElements.count != 0 {
+            let vc = ElementInfoViewController()
+            vc.currentElement = DataManager.shared.fetchElementToRepeat()
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
@@ -313,7 +328,6 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = collectionViewStructure[indexPath.section].keys.joined()
         let values = collectionViewStructure[indexPath.section].values.flatMap { $0 }
         let index = indexPath.row
         let string = values[index]
@@ -345,7 +359,6 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let section = collectionViewStructure[indexPath.section].keys.joined()
         let values = collectionViewStructure[indexPath.section].values.flatMap { $0 }
         let index = indexPath.row
         let string = values[index]
@@ -379,9 +392,9 @@ extension StartViewController:  UICollectionViewDataSource, UICollectionViewDele
         }
         return header
     }
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: 100, height: 100) 
+//        return CGSize(width: 100, height: 100)
 //    }
 }
 

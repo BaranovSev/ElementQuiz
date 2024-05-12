@@ -23,7 +23,8 @@ private let unchosenCircleImages = ["circle.dotted", "circle.dashed", "circle"]
 final class SearchViewController: UIViewController {
     private let dataSource: ElementQuizDataSource
     private let fixedElementList: [ChemicalElementModel]
-    var userSelectedOptionalParameter: ElementParameters = .phase {
+    private let user: User = DataManager.shared.fetchUser()
+    var userSelectedOptionalParameter: ElementParameters = .atomicMass {
         didSet {
             refreshTableView()
             self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
@@ -34,6 +35,27 @@ final class SearchViewController: UIViewController {
             self.refreshOrderButton()
             self.refreshTableView()
         }
+    }
+    
+    private func fetchElementsList() -> [ChemicalElementModel] {
+        var order: Bool? = nil
+        switch userSelectedOrder {
+        case .ascending:
+            order = true
+        case .descending:
+            order = false
+        case .unordered:
+            order = nil
+        }
+        
+        return DataManager.shared.fetchSortedAndFilteredElements(
+            defaultlyOrderedBy: .atomicMass,
+            userAttribute: userSelectedOptionalParameter,
+            isAscending: order,
+            searchText: textField.text,
+            togglePosition: switcher.isOn == true,
+            taggedElements: chosenElements
+        )
     }
     
     private lazy var presetsMenu = UIMenu(title: "Clear your table or append to current", children: presetsMenuElements)
@@ -141,6 +163,10 @@ final class SearchViewController: UIViewController {
         layout()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        updateUserInfo()
+    }
+    
     private func addSubViews() {
         view.addSubview(textField)
         view.addSubview(clearButton)
@@ -212,6 +238,7 @@ final class SearchViewController: UIViewController {
     private func setup() {
         textField.becomeFirstResponder()
         textField.delegate = self
+        textField.text = getUserSearchedText()
         
         countLabelUpdateText()
         
@@ -220,6 +247,9 @@ final class SearchViewController: UIViewController {
         
         configurePresetsMenuButton()
         refreshOrderButton()
+        
+        getOptionalParameter()
+        getUserSelectedElements()
     }
     
     private func configurePresetsMenuButton() {
@@ -269,11 +299,7 @@ final class SearchViewController: UIViewController {
         case .atomicMass:
             result = String(currentElement.atomicMass)
         case .density:
-            if let densityText: String = currentElement.density  {
-                result = "\(densityText) g/cm3"
-            } else {
-                result = "unknown"
-            }
+                result = currentElement.density != -1.0 ? "\(currentElement.density) g/cm3" : "unknown"
         case .category:
             result = currentElement.category
         case .latinName:
@@ -351,7 +377,7 @@ final class SearchViewController: UIViewController {
             } else {
                 result = " - - - "
             }
-        case .elecronConfiguration:
+        case .electronConfiguration:
             result = currentElement.electronConfiguration
         case .elecronConfigurationSemantic:
             result = currentElement.electronConfigurationSemantic
@@ -416,7 +442,7 @@ final class SearchViewController: UIViewController {
     }
     
     @objc func showSettings() {
-        let vc = ParametersButtonViewController(delegate: self, parameters: ElementParameters.allValues)
+        let vc = ParametersButtonViewController(delegate: self, parameters: ElementParameters.allValues.sorted())
         self.present(vc, animated: true, completion: nil)
     }
 }
@@ -424,6 +450,8 @@ final class SearchViewController: UIViewController {
 //MARK: - ParametersButtonDelegate
 extension SearchViewController: ParametersButtonDelegate {
     func didChangeParameter(parameter: ElementParameters) {
+        // do not swap
+        textField.text = ""
         self.userSelectedOptionalParameter = parameter
     }
 }
@@ -436,145 +464,36 @@ extension SearchViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: - SearchViewController filtering functions
+//MARK: - Work with user data
 extension SearchViewController {
-    private var elementListSwitchFiltered: [ChemicalElementModel] {
-        get {
-            switcher.isOn ? fixedElementList.filter{ chosenElements.contains($0.symbol)} : fixedElementList
-        }
+    private func getOptionalParameter() {
+        userSelectedOptionalParameter = ElementParameters(rawValue: user.searchTableOptionalParameter) ?? .atomicMass
     }
     
-    private func filterBySearchTableView(with searchText: String, byParameter parameter: ElementParameters, elementsList: [ChemicalElementModel]) -> [ChemicalElementModel] {
-//        let parameter: String = parameter.rawValue
-        //TODO: - handle search with Int, Array & other type of properties
-        return elementsList.filter { $0.phase.lowercased().contains(searchText.lowercased()) }
-        
-//        switch parameter {
-//        case .atomicMass:
-//            return
-//        case .density:
-//            return
-//        case .category:
-//            return
-//        case .latinName:
-//            return
-//        case .phase:
-//            return
-//        case .valency:
-//            return
-//        case .boil:
-//            return
-//        case .melt:
-//            return
-//        case .molarHeat:
-//            return
-//        case .group:
-//            return
-//        case .period:
-//            return
-//        case .elecrtonAffinity:
-//            return
-//        case .electronegativityPauling:
-//            return
-//        case .oxidationDegree:
-//            return
-//        case .elecronConfiguration:
-//            return
-//        case .elecronConfigurationSemantic:
-//            return
-//        case .shells:
-//            return
-//        case .ionizationEnergies:
-//            return
-//        case .discovered:
-//            return
-//        case .named:
-//            return
-//        case .appearance:
-//            return
-//        case .block:
-//            return
-//        }
+    private func getUserSelectedElements() {
+        chosenElements = user.searchTableSelectedElements
     }
     
-    private func filteredElementsList() -> [ChemicalElementModel]{
-        var elementList = userSelectedOrder != .unordered ? sortedElementsList : elementListSwitchFiltered
-        if let searchText = textField.text, !searchText.isEmpty, searchText.trimmingCharacters(in: .whitespaces) != "" {
-            elementList = filterBySearchTableView(with: searchText, byParameter: userSelectedOptionalParameter, elementsList: elementList)
-        }
-        return elementList
+    private func getUserSearchedText() -> String {
+        return user.searchTableSearchedText
     }
     
-    private var sortedElementsList: [ChemicalElementModel] {
-        return elementListSwitchFiltered.sorted(by: { a, b in
-            
-            func customSorting<T: Comparable>(_ a: T, _ b: T) -> Bool {
-                var result: Bool = false
-                if userSelectedOrder == OrderCases.ascending {
-                    result =  a < b
-                } else if userSelectedOrder == OrderCases.descending {
-                    result = a > b
-                }
-                return result
-            }
-            
-            switch userSelectedOptionalParameter {
-            case .atomicMass:
-                return customSorting(a.atomicMass, b.atomicMass)
-            case .density:
-                return customSorting(Double(a.density ?? "-9999999") ?? 0 , Double(b.density ?? "-9999999") ?? 0)
-            case .category:
-                return customSorting(a.category, b.category)
-            case .latinName:
-                return customSorting(a.latinName, b.latinName)
-            case .phase:
-                return customSorting(a.phase, b.phase)
-            case .valency:
-                return customSorting(a.valency.count, b.valency.count)
-            case .boil:
-                return customSorting(Double(a.boil ?? "-9999999") ?? 0 , Double(b.boil ?? "-9999999") ?? 0)
-            case .melt:
-                return customSorting(Double(a.melt ?? "-9999999") ?? 0 , Double(b.melt ?? "-9999999") ?? 0)
-            case .molarHeat:
-                return customSorting(Double(a.molarHeat ?? "-9999999") ?? 0 , Double(b.molarHeat ?? "-9999999") ?? 0)
-            case .group:
-                return customSorting(a.group, b.group)
-            case .period:
-                return customSorting(a.period, b.period)
-            case .elecrtonAffinity:
-                return customSorting(Double(a.electronAffinity ?? "-9999999") ?? 0 , Double(b.electronAffinity ?? "-9999999") ?? 0)
-            case .electronegativityPauling:
-                return customSorting(Double(a.electronegativityPauling ?? "-9999999") ?? 0 , Double(b.electronegativityPauling ?? "-9999999") ?? 0)
-            case .oxidationDegree:
-                return customSorting(a.oxidationDegree.count, b.oxidationDegree.count)
-            case .elecronConfiguration:
-                return customSorting(a.electronConfiguration, b.electronConfiguration)
-            case .elecronConfigurationSemantic:
-                return customSorting(a.electronConfigurationSemantic, b.electronConfigurationSemantic)
-            case .shells:
-                return customSorting(a.shells.count, b.shells.count)
-            case .ionizationEnergies:
-                return customSorting(a.ionizationEnergies.count, b.ionizationEnergies.count)
-            case .discovered:
-                return customSorting(a.discoveredBy ?? "" , b.discoveredBy ?? "")
-            case .named:
-                return customSorting(a.namedBy ?? "" , b.namedBy ?? "")
-            case .appearance:
-                return customSorting(a.appearance ?? "" , b.appearance ?? "")
-            case .block:
-                return customSorting(a.block, b.block)
-            }
-        })
+    private func updateUserInfo() {
+        user.searchTableOptionalParameter = userSelectedOptionalParameter.rawValue
+        user.searchTableSelectedElements = chosenElements
+        user.searchTableSearchedText = textField.text ?? ""
+        DataManager.shared.saveUserData(from: user)
     }
 }
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredElementsList().count
+        return fetchElementsList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellForElement(style: .default, reuseIdentifier: CellForElement.reusableIdentifier)
-        let elementList = filteredElementsList()
+        let elementList = fetchElementsList()
         let element = elementList[indexPath.row]
         let info = informationAbout(selected: userSelectedOptionalParameter, for: element)
         let color = CustomColors.choseColor(element.category)
@@ -590,7 +509,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let elementList = filteredElementsList()
+        let elementList = fetchElementsList()
         let element = elementList[indexPath.row]
         let info = informationAbout(selected: userSelectedOptionalParameter, for: element)
         let vc = UpscaledTextViewController()

@@ -21,14 +21,10 @@ enum PeriodicTableMode: String {
     }
 }
 
-enum OptionalPropertyForCell {
-    case valency
-    case density
-}
-
 final class PeriodicTableViewController: UIViewController {
-    private let dataSource: ElementQuizDataSource //= ElementQuizDataSource()
-    private let fixedElementList: [ChemicalElementModel] //= DataManager.shared.fetchElements()
+    private let dataSource: ElementQuizDataSource
+    private let fixedElementList: [ChemicalElementModel]
+    private let user: User = DataManager.shared.fetchUser()
     private let stateOfTableMode: PeriodicTableMode
     private let spacing = 3
     private let parametersForMenuButton = [ElementParameters.valency.rawValue,
@@ -39,6 +35,7 @@ final class PeriodicTableViewController: UIViewController {
                                            ElementParameters.shells.rawValue,
                                            ElementParameters.block.rawValue
     ]
+
     var optionalPropertiesForCell: ElementParameters = .valency {
         didSet {
             swapPeriodicTable()
@@ -92,13 +89,18 @@ final class PeriodicTableViewController: UIViewController {
         backButton.tintColor = .black
         settingsButton.tintColor = .black
 
-        
         refreshNavigationItemTitle()
         addSubViews()
         layout()
         swapPeriodicTable()
+        getScaleParameterForTable()
+        getOptionalParameterForState()
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         view.addGestureRecognizer(pinchGesture)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        updateUserInfo()
     }
     
     private func refreshNavigationItemTitle() {
@@ -314,7 +316,7 @@ private extension PeriodicTableViewController {
     }
     
     @objc func showSettings() {
-        let vc = ParametersButtonViewController (delegate: self, parameters: parametersForMenuButton)
+        let vc = ParametersButtonViewController (delegate: self, parameters: parametersForMenuButton.sorted())
         self.present(vc, animated: true, completion: nil)
     }
 }
@@ -411,11 +413,11 @@ private extension PeriodicTableViewController {
     func resizeScrollViewContentSize() {
         switch stateOfTableMode {
         case .short:
-            scrollView.contentSize = CGSize(width: 18 * scaledSizeOfCell + 200, height: 10 * scaledSizeOfCell + 200)
+            scrollView.contentSize = CGSize(width: 18 * scaledSizeOfCell + Int(Double(200) * scale) , height: 10 * scaledSizeOfCell + 200)
         case .wide:
-            scrollView.contentSize = CGSize(width: 32 * scaledSizeOfCell + 200 , height: 8 * scaledSizeOfCell + 200)
+            scrollView.contentSize = CGSize(width: 32 * scaledSizeOfCell + Int(Double(200) * scale) , height: 8 * scaledSizeOfCell + 200)
         case .classic:
-            scrollView.contentSize = CGSize(width: 14 * scaledSizeOfCell + 200 , height: 14 * scaledSizeOfCell + 200)
+            scrollView.contentSize = CGSize(width: 14 * scaledSizeOfCell + Int(Double(200) * scale) , height: 14 * scaledSizeOfCell + 200)
         }
     }
 }
@@ -599,48 +601,6 @@ private extension UIScrollView {
     }
 }
 
-// MARK: Helpers
-//private extension PeriodicTableViewController {
-//    func getOptionalProperty(valency: [Int], density: String?) -> String {
-//        var resultString = ""
-//        if optionalPropertiesForCell == .valency {
-//            if valency.isEmpty != true {
-//                var valencyText: [String] = []
-//                for i in valency {
-//                    valencyText.append(i.toRoman())
-//                }
-//
-//                resultString += valencyText.joined(separator: ", ") + "\n"
-//            } else {
-//                resultString += "Valency: unknown" + "\n"
-//            }
-//        }
-//
-//        if optionalPropertiesForCell == .density {
-//            if let density = density {
-//                resultString += "Density: \(density) g/cm3" + "\n"
-//            } else {
-//                resultString += "Density: unknown" + "\n"
-//            }
-//        }
-//
-//        if optionalPropertiesForCell == .oxidationDegree {
-//            if oxidationDegree.isEmpty != true {
-//                var oxidationText: [String] = []
-//                for oxidation in oxidationDegree {
-//                    oxidationText.append(String(oxidation))
-//                }
-//
-//                resultString = oxidationText.joined(separator: ", ")
-//            } else {
-//                resultString = " - - - "
-//            }
-//        }
-//
-//        return resultString
-//    }
-//}
-
 extension PeriodicTableViewController {
     private func informationAbout(selected parameter: ElementParameters, for currentElement: ChemicalElementModel) -> String {
         var result = ""
@@ -648,8 +608,8 @@ extension PeriodicTableViewController {
         case .atomicMass:
             result = String(currentElement.atomicMass)
         case .density:
-            if let densityText: String = currentElement.density  {
-                result = "\(densityText) g/cm3"
+            if currentElement.density != -1.0 {
+                result = "\(currentElement.density) g/cm3"
             } else {
                 result = "unknown"
             }
@@ -730,7 +690,7 @@ extension PeriodicTableViewController {
             } else {
                 result = " - - - "
             }
-        case .elecronConfiguration:
+        case .electronConfiguration:
             result = currentElement.electronConfiguration
         case .elecronConfigurationSemantic:
             result = currentElement.electronConfigurationSemantic
@@ -774,6 +734,47 @@ extension PeriodicTableViewController {
 extension PeriodicTableViewController: ParametersButtonDelegate {
     func didChangeParameter(parameter: ElementParameters) {
         self.optionalPropertiesForCell = parameter
+    }
+}
+
+//MARK: - Work with user data
+extension PeriodicTableViewController {
+    private func getOptionalParameterForState() {
+        switch stateOfTableMode {
+        case .wide:
+            self.optionalPropertiesForCell = ElementParameters(rawValue: user.wideTableOptionalParameter) ?? .valency
+        case .short:
+            self.optionalPropertiesForCell = ElementParameters(rawValue: user.shortTableOptionalParameter) ?? .valency
+        case .classic:
+            self.optionalPropertiesForCell =  ElementParameters(rawValue: user.classicTableOptionalParameter) ?? .valency
+        }
+    }
+    
+    private func updateUserInfo() {
+        switch stateOfTableMode {
+        case .wide:
+            user.wideTableOptionalParameter = optionalPropertiesForCell.rawValue
+            user.wideTableScaleParameter = scale
+        case .short:
+            user.shortTableOptionalParameter = optionalPropertiesForCell.rawValue
+            user.shortTableScaleParameter = scale
+        case .classic:
+            user.classicTableOptionalParameter = optionalPropertiesForCell.rawValue
+            user.classicTableScaleParameter = scale
+        }
+        
+        DataManager.shared.saveUserData(from: user)
+    }
+    
+    private func getScaleParameterForTable() {
+        switch stateOfTableMode {
+        case .wide:
+            self.scale = user.wideTableScaleParameter
+        case .short:
+            self.scale = user.shortTableScaleParameter
+        case .classic:
+            self.scale = user.classicTableScaleParameter
+        }
     }
 }
 

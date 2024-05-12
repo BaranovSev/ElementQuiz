@@ -17,26 +17,23 @@ extension User {
     }
 
     @NSManaged public var id: UUID?
-    @NSManaged public var learnedChemicalElements: NSSet?
-
+    @NSManaged public var learnedChemicalElements: [String:Date]
+    @NSManaged public var wideTableOptionalParameter: String
+    @NSManaged public var shortTableOptionalParameter: String
+    @NSManaged public var classicTableOptionalParameter: String
+    @NSManaged public var searchTableOptionalParameter: String
+    @NSManaged public var wideTableScaleParameter: Double
+    @NSManaged public var shortTableScaleParameter: Double
+    @NSManaged public var classicTableScaleParameter: Double
+    @NSManaged public var searchTableSelectedElements: Set<String>
+    @NSManaged public var searchTableSearchedText: String
+    @NSManaged public var countMemorizings: Int
+    @NSManaged public var countMemorizingQuestions: Int
+    @NSManaged public var countBigGames: Int
+    @NSManaged public var countBigGamesQuestions: Int
 }
 
-// MARK: Generated accessors for learnedChemicalElements
-extension User {
 
-    @objc(addLearnedChemicalElementsObject:)
-    @NSManaged public func addToLearnedChemicalElements(_ value: ChemicalElementModel)
-
-    @objc(removeLearnedChemicalElementsObject:)
-    @NSManaged public func removeFromLearnedChemicalElements(_ value: ChemicalElementModel)
-
-    @objc(addLearnedChemicalElements:)
-    @NSManaged public func addToLearnedChemicalElements(_ values: NSSet)
-
-    @objc(removeLearnedChemicalElements:)
-    @NSManaged public func removeFromLearnedChemicalElements(_ values: NSSet)
-
-}
 
 extension User : Identifiable {
 

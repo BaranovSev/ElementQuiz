@@ -61,18 +61,6 @@ final class CategoryTestViewController: UIViewController {
         view.backgroundColor = CustomColors.choseColor(currentCategory)
         return view
     }()
-
-//    private lazy var bigButton: UIButton = {
-//        let button = UIButton()
-//        button.setTitle("Next", for: .normal)
-//        button.setTitle("Lets start!", for: .highlighted)
-//        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-//        button.backgroundColor = .purple
-//        button.setTitleColor(.white, for: .normal)
-//        button.layer.cornerRadius = 15
-//        button.isHidden = true
-//        return button
-//    }()
     
     private lazy var verticalStack: UIStackView = {
         var stack = UIStackView()
@@ -148,6 +136,13 @@ final class CategoryTestViewController: UIViewController {
     
     // MARK: - Private Methods
     private func updateQuizUI(_ element: ChemicalElementModel) {
+        switch state {
+        case .question, .score:
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+        case .answer:
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }
+        
         // Answer buttons
         let answerButtons = [smallButton1, smallButton2, smallButton3, smallButton4]
         

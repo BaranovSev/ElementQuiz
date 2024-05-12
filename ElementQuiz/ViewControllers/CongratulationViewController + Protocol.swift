@@ -101,22 +101,39 @@ final class CongratulationViewController: UIViewController {
     
     private func setup() {
         view.backgroundColor = .white
-        congratulationLabel.text = [
-            "Well done!",
-            "Congratulations!",
-            "Great job!",
-            "Keep up the good work!",
-            "Awesome achievement!",
-            "Bravo!",
-            "Fantastic progress!",
-            "Outstanding performance!",
-            "Superb effort!",
-            "You nailed it!"
-        ].shuffled().first
+        let goodResult: Bool = Double(correctAnswers) / Double(totalQuestions) >= 0.6
+        
+        if goodResult == true {
+            congratulationLabel.text = [
+                "Well done!",
+                "Congratulations!",
+                "Great job!",
+                "Keep up the good work!",
+                "Awesome achievement!",
+                "Bravo!",
+                "Fantastic progress!",
+                "Outstanding performance!",
+                "Superb effort!",
+                "You nailed it!"
+            ].shuffled().first
+        } else {
+            congratulationLabel.text = [
+                "We believe in you",
+                "Keep practicing",
+                "Keep learning",
+                "Give it another shot",
+                "Keep improving"
+            ].shuffled().first
+        }
+
         
         switch delegate {
         case _ as ElementMemorizingController:
-            youLearnedLabel.text = "You learned all about\n\(describeOfSense)\nand correctly answered"
+            if goodResult == true {
+                youLearnedLabel.text = "You learned all about\n\(describeOfSense)\nand correctly answered"
+            } else {
+                youLearnedLabel.text = "We recommend revisiting\nthe \(describeOfSense) study again\nYou correctly answered"
+            }
             countOfLearnedElementsLabel.text = "\(correctAnswers)"
             chemicalElementsLabel.text = "from \(totalQuestions) questions"
         case _ as CategoryTestViewController:
@@ -197,9 +214,6 @@ final class CongratulationViewController: UIViewController {
         let screenBounds = UIScreen.main.bounds
         let screenWidth = screenBounds.width
         let screenHeight = screenBounds.height
-        createLayer(at: CGPoint(x: 0, y: -20))
-        createLayer(at: CGPoint(x: Int(screenWidth)/2, y: -20))
-        createLayer(at: CGPoint(x: Int(screenWidth), y: -20))
         createLayer(at: CGPoint(x: 0, y: Int(screenHeight) + 10))
         createLayer(at: CGPoint(x: Int(screenWidth)/2, y: Int(screenHeight) + 10))
         createLayer(at: CGPoint(x: Int(screenWidth), y: Int(screenHeight) + 10))

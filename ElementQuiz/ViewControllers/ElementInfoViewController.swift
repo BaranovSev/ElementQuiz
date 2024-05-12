@@ -175,8 +175,8 @@ private extension ElementInfoViewController {
             }
         }
         
-        if let densityText: String = currentElement.density  {
-            descriptionTextView.text += "\nDensity: \(densityText) g/cm3" + "\n"
+        if currentElement.density != -1.0 {
+            descriptionTextView.text += "\nDensity: \(currentElement.density) g/cm3" + "\n"
         } else {
             descriptionTextView.text += "\nDensity: unknown" + "\n"
         }

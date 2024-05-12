@@ -22,7 +22,7 @@ extension ChemicalElementModel {
     @NSManaged public var boil: String? // real Double?
     @NSManaged public var melt: String? // real Double?
     @NSManaged public var molarHeat: String? // real Double?
-    @NSManaged public var density: String? // real Double?
+    @NSManaged public var density: Double
     @NSManaged public var appearance: String?
     @NSManaged public var symbol: String
     @NSManaged public var number: Int16
@@ -63,8 +63,8 @@ enum ElementParameters: String {
     case period = "period"
     case elecrtonAffinity = "electronAffinity"
     case electronegativityPauling = "electronegativityPauling"
-    case oxidationDegree = "oxidationDegre"
-    case elecronConfiguration = "elecronConfiguration"
+    case oxidationDegree = "oxidationDegree"
+    case electronConfiguration = "electronConfiguration"
     case elecronConfigurationSemantic = "elecronConfigurationSemantic"
     case shells = "shells"
     case ionizationEnergies = "ionizationEnergies"
@@ -89,7 +89,7 @@ enum ElementParameters: String {
             self.elecrtonAffinity.rawValue,
             self.electronegativityPauling.rawValue,
             self.oxidationDegree.rawValue,
-            self.elecronConfiguration.rawValue,
+            self.electronConfiguration.rawValue,
             self.elecronConfigurationSemantic.rawValue,
             self.shells.rawValue,
             self.ionizationEnergies.rawValue,
@@ -129,7 +129,7 @@ enum ElementParameters: String {
             return "Elecronegativity by Pauling"
         case .oxidationDegree:
             return "Oxidation degree"
-        case .elecronConfiguration:
+        case .electronConfiguration:
             return "Electron configuration"
         case .elecronConfigurationSemantic:
             return "Electron configuration (semantic)"

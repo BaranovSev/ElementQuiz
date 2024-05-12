@@ -8,7 +8,7 @@
         <attribute name="category" attributeType="String"/>
         <attribute name="cxpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="cypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="density" optional="YES" attributeType="String"/>
+        <attribute name="density" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="discoveredBy" optional="YES" attributeType="String"/>
         <attribute name="electronAffinity" optional="YES" attributeType="String"/>
         <attribute name="electronConfiguration" attributeType="String"/>
@@ -33,10 +33,22 @@
         <attribute name="wypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="xpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="ypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="learnedChemicalElements" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="classicTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="classicTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="countBigGames" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countBigGamesQuestions" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countMemorizingQuestions" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countMemorizings" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="learnedChemicalElements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChemicalElementModel" inverseName="user" inverseEntity="ChemicalElementModel"/>
+        <attribute name="learnedChemicalElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Date]"/>
+        <attribute name="searchTableOptionalParameter" attributeType="String" defaultValueString="atomicMass"/>
+        <attribute name="searchTableSearchedText" attributeType="String" defaultValueString=""/>
+        <attribute name="searchTableSelectedElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;String&gt;"/>
+        <attribute name="shortTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="shortTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="wideTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="wideTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
     </entity>
 </model>

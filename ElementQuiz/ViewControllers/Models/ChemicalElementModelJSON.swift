@@ -15,7 +15,7 @@ struct ChemicalElementModelJSON: Codable {
     let boil: Double?
     let melt: Double?
     let molarHeat: Double?
-    let density: Double?
+    let density: Double
     let appearance: String?
     let symbol: String
     let number: Int
@@ -76,7 +76,7 @@ struct ChemicalElementModelJSON: Codable {
         self.boil = try container.decode(Double?.self, forKey: .boil)
         self.melt = try container.decode(Double?.self, forKey: .melt)
         self.molarHeat = try container.decode(Double?.self, forKey: .molarHeat)
-        self.density = try container.decode(Double?.self, forKey: .density)
+        self.density = (try? container.decode(Double.self, forKey: .density)) ?? -1.0
         self.appearance = try container.decode(String?.self, forKey: .appearance)
         self.symbol = try container.decode(String.self, forKey: .symbol)
         self.number = try container.decode(Int.self, forKey: .number)

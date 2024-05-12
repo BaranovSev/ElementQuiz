@@ -15,10 +15,7 @@ final class StatisticViewControler: UIViewController {
     private let user: User = DataManager.shared.fetchUser()
     private var learnedElements: [ChemicalElementModel] {
         get {
-            guard let set = user.learnedChemicalElements as? Set<ChemicalElementModel> else {
-                return self.fixedElementList
-            }
-            return Array(set)
+            DataManager.shared.fetchLearnedElements()
         }
     }
     
@@ -53,7 +50,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
-        scrollView.contentSize = CGSize(width: 200, height: 1000)
+        scrollView.contentSize = CGSize(width: 200, height: 1500)
         scrollView.backgroundColor = .white
         scrollView.accessibilityScroll(.down)
         return scrollView
@@ -91,7 +88,14 @@ final class StatisticViewControler: UIViewController {
         return label
     }()
     
-    //with more than N questions
+    private lazy var memorizingQuestionsCountLabel: UILabel = {
+        var label = UILabel()
+        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        return label
+    }()
     
     private lazy var inAdditionLabel: UILabel = {
         var label = UILabel()
@@ -114,6 +118,15 @@ final class StatisticViewControler: UIViewController {
     private lazy var bigGamesWinsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.textAlignment = .justified
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        return label
+    }()
+    
+    private lazy var bigGamesQuestionsCountLabel: UILabel = {
+        var label = UILabel()
+        label.font = UIFont(name: "Hoefler Text", size: 20)
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -164,9 +177,11 @@ final class StatisticViewControler: UIViewController {
         scrollView.addSubview(totallyPassedLabel)
         scrollView.addSubview(countOfMemorizingsLabel)
         scrollView.addSubview(memorizingLabel)
+        scrollView.addSubview(memorizingQuestionsCountLabel)
         scrollView.addSubview(inAdditionLabel)
         scrollView.addSubview(countOfBigGamesLabel)
         scrollView.addSubview(bigGamesWinsLabel)
+        scrollView.addSubview(bigGamesQuestionsCountLabel)
         scrollView.addSubview(shareButton)
     }
     
@@ -227,8 +242,13 @@ final class StatisticViewControler: UIViewController {
             make.centerX.equalToSuperview()
         }
         
+        memorizingQuestionsCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(memorizingLabel.snp.bottom).offset(15)
+            make.centerX.equalToSuperview()
+        }
+        
         inAdditionLabel.snp.makeConstraints { make in
-            make.top.equalTo(memorizingLabel.snp.bottom).offset(35)
+            make.top.equalTo(memorizingQuestionsCountLabel.snp.bottom).offset(35)
             make.centerX.equalToSuperview()
         }
         
@@ -242,8 +262,13 @@ final class StatisticViewControler: UIViewController {
             make.centerX.equalToSuperview()
         }
         
+        bigGamesQuestionsCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(bigGamesWinsLabel.snp.bottom).offset(15)
+            make.centerX.equalToSuperview()
+        }
+        
         shareButton.snp.makeConstraints { make in
-            make.top.equalTo(bigGamesWinsLabel.snp.bottom).offset(35)
+            make.top.equalTo(bigGamesQuestionsCountLabel.snp.bottom).offset(35)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.width.equalTo(60)
@@ -259,15 +284,23 @@ final class StatisticViewControler: UIViewController {
         
         totallyPassedLabel.text = "Totally passed"
         // TODO: counOfMemorizings change to real
-        let counOfMemorizings = 10
-        countOfMemorizingsLabel.text = String(counOfMemorizings)
-        memorizingLabel.text = counOfMemorizings != 1 ? "memorizings" : "memorizing"
+        let countOfMemorizings = user.countMemorizings
+        let countMemorizingQuestions = user.countMemorizingQuestions
+        countOfMemorizingsLabel.text = String(countOfMemorizings)
+        memorizingLabel.text = countOfMemorizings != 1 ? "memorizings" : "memorizing"
+        if countMemorizingQuestions > 0 {
+            memorizingQuestionsCountLabel.text = "with more than \(countMemorizingQuestions) questions"
+        }
         
-        inAdditionLabel.text = "In addition with"
+        inAdditionLabel.text = "In addition"
         // TODO: counOfBigGames change to real
-        let countOfBigGames = 10
+        let countOfBigGames = user.countBigGames
+        let countBigGameQuestions = user.countBigGamesQuestions
         countOfBigGamesLabel.text = String(countOfBigGames)
         bigGamesWinsLabel.text = countOfBigGames != 1 ? "big games wins" : "big game wins"
+        if countBigGameQuestions > 0 {
+            bigGamesQuestionsCountLabel.text = "with over \(countBigGameQuestions) questions"
+        }
     }
     
     private func addDescriptionCell() {

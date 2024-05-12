@@ -55,6 +55,7 @@ final class BigGameViewController: UIViewController {
     private var shuffledElementList: [ChemicalElementModel] = []
     private var dataSource:  ElementQuizDataSource? = ElementQuizDataSource()
     private var sequenceOfQuestions: [QuestionAbout] = []
+    private let user: User = DataManager.shared.fetchUser()
     private var currentElementIndex = 0
     private var currentQuestionIndex = 0
     private var answerIsCorrect: Bool? = nil
@@ -172,8 +173,21 @@ final class BigGameViewController: UIViewController {
         setUp()
     }
     
+    private func saveResultOfGame() {
+        user.countBigGames += 1
+        user.countBigGamesQuestions += sequenceOfQuestions.count
+        DataManager.shared.saveUserData(from: user)
+    }
+    
     // MARK: - Private Methods
     private func updateQuizUI(_ element: ChemicalElementModel) {
+        switch state {
+        case .question, .score:
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+        case .answer:
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }
+        
         // Answer buttons
         let answerButtons = [smallButton1, smallButton2, smallButton3, smallButton4]
         
@@ -225,6 +239,7 @@ final class BigGameViewController: UIViewController {
             }
         case .score:
             //TODO: new controller with result
+            saveResultOfGame()
             showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: typeOfGame.rawValue)
         }
     }
@@ -397,15 +412,16 @@ extension BigGameViewController: GameProtocol {
             return variants
         case .densityQuestion:
             var variants: Set<String> = []
-            if let densityText = currentElement.density {
-                variants.insert("\(densityText)")
+            if currentElement.density != -1.0 {
+                variants.insert(String(currentElement.density))
             } else {
                 variants.insert("unknown")
             }
             
             while (variants.count < 4) {
-                if let densityText = fixedElementList.randomElement()!.density {
-                    variants.insert("\(densityText)")
+                let randomElementDensity = fixedElementList.randomElement()!.density
+                if randomElementDensity != -1.0 {
+                    variants.insert(String(randomElementDensity))
                 } else {
                     variants.insert("unknown")
                 }
@@ -524,7 +540,7 @@ extension BigGameViewController: GameProtocol {
         case .categoryQuestion:
             return currentElement.category
         case .densityQuestion:
-            return currentElement.density ?? "unknown"
+            return currentElement.density != -1.0 ? String(currentElement.density) : "unknown"
         case .periodQuestion:
             return String(currentElement.period)
         case .groupQuestion:

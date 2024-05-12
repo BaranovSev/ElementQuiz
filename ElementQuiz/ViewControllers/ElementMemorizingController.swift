@@ -19,11 +19,13 @@ final class ElementMemorizingController: UIViewController {
     // MARK: - Properties
     private let fixedElementList: [ChemicalElementModel]
     private let currentElement: ChemicalElementModel
+    private let user: User = DataManager.shared.fetchUser()
     private var state: State = .question
     private var answerIsCorrect: Bool? = nil
     private var correctAnswerCount = 0
     private var currentQuestionIndex = 0
     private var additionalQuestionPoints = 5
+    private var delegate: StartViewController? = nil
 
 //TODO: implement different visualisation for same question, used buttons pressed, buttons drags & other UI elements
     private let fixedSequenceOfQuestions: [QuestionAbout] = [
@@ -149,6 +151,13 @@ final class ElementMemorizingController: UIViewController {
     
     // MARK: - Private Methods
     private func updateQuizUI(_ element: ChemicalElementModel) {
+        switch state {
+        case .question, .score:
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+        case .answer:
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }
+        
         // Answer buttons
         let answerButtons = [smallButton1, smallButton2, smallButton3, smallButton4]
         
@@ -192,9 +201,19 @@ final class ElementMemorizingController: UIViewController {
                 self.next()
             }
         case .score:
-            //TODO: save result in DB
+            saveResultOfGame()
             showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: element.name)
         }
+    }
+    
+    private func saveResultOfGame() {
+        if Double(correctAnswerCount) / Double(sequenceOfQuestions.count) > 0.6 {
+            user.learnedChemicalElements.updateValue(Date(), forKey: currentElement.symbol)
+        }
+        
+        user.countMemorizings += 1
+        user.countMemorizingQuestions += sequenceOfQuestions.count
+        DataManager.shared.saveUserData(from: user)
     }
     
     private func refreshUI() {
@@ -391,15 +410,16 @@ extension ElementMemorizingController: GameProtocol {
             return variants
         case .densityQuestion:
             var variants: Set<String> = []
-            if let densityText = currentElement.density {
-                variants.insert("\(densityText)")
+            if currentElement.density != -1.0 {
+                variants.insert("\(currentElement.density)")
             } else {
                 variants.insert("unknown")
             }
             
             while (variants.count < 4) {
-                if let densityText = fixedElementList.randomElement()!.density {
-                    variants.insert("\(densityText)")
+                let randomElementDensity = fixedElementList.randomElement()!.density
+                if randomElementDensity != -1.0 {
+                    variants.insert(String(randomElementDensity))
                 } else {
                     variants.insert("unknown")
                 }
@@ -518,7 +538,7 @@ extension ElementMemorizingController: GameProtocol {
         case .categoryQuestion:
             return currentElement.category
         case .densityQuestion:
-            return currentElement.density ?? "unknown"
+            return currentElement.density != -1.0 ? String(currentElement.density) : "unknown"
         case .periodQuestion:
             return String(currentElement.period)
         case .groupQuestion:
