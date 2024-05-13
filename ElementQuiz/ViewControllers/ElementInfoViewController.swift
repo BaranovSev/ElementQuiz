@@ -13,6 +13,7 @@ final class ElementInfoViewController: UIViewController {
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let color = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
+    var delegate: StartViewController? = nil
     var currentElement: ChemicalElementModel? {
         didSet {
             guard let currentElement = currentElement else { return }
@@ -80,6 +81,10 @@ final class ElementInfoViewController: UIViewController {
         setup()
         addSubViews()
         layout()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.refresh()
     }
     
     // MARK: - Private Methods

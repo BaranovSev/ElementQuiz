@@ -277,6 +277,7 @@ private extension StartViewController {
     @objc func showElementInfoViewController() {
         let vc = ElementInfoViewController()
         vc.currentElement = currentElement
+        vc.delegate = self
         self.present(vc, animated: true, completion: nil)
     }
     
