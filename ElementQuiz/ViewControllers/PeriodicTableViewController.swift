@@ -415,9 +415,9 @@ private extension PeriodicTableViewController {
         case .short:
             scrollView.contentSize = CGSize(width: 18 * scaledSizeOfCell + Int(Double(200) * scale) , height: 10 * scaledSizeOfCell + 200)
         case .wide:
-            scrollView.contentSize = CGSize(width: 32 * scaledSizeOfCell + Int(Double(200) * scale) , height: 8 * scaledSizeOfCell + 200)
+            scrollView.contentSize = CGSize(width: 32 * scaledSizeOfCell + Int(Double(200) * scale) + 100 , height: 8 * scaledSizeOfCell + 200)
         case .classic:
-            scrollView.contentSize = CGSize(width: 14 * scaledSizeOfCell + Int(Double(200) * scale) , height: 14 * scaledSizeOfCell + 200)
+            scrollView.contentSize = CGSize(width: 14 * scaledSizeOfCell + Int(Double(200) * scale) , height: 14 * scaledSizeOfCell + 210)
         }
     }
 }
