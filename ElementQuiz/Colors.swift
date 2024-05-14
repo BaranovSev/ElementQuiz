@@ -18,11 +18,8 @@ struct CustomColors {
     static let polyatomicNonmetal = UIColor(named: "polyatomicNonmetal") ?? UIColor.white
     static let postTransitionMetal = UIColor(named: "postTransitionMetal") ?? UIColor.white
     static let transitionMetal = UIColor(named: "transitionMetal") ?? UIColor.white
-    static let unknownAlkaliMetal = UIColor(named: "unknownAlkaliMetal") ?? UIColor.white
-    static let unknownNobleGas = UIColor(named: "unknownNobleGas") ?? UIColor.white
-    static let unknownMetalloid = UIColor(named: "unknownMetalloid") ?? UIColor.white
-    static let unknownpPostTransitionMetal = UIColor(named: "unknownPostTransitionMetal") ?? UIColor.white
-    static let unknownTransitionMetal = UIColor(named: "unknownTransitionMetal") ?? UIColor.white
+    static let nonmetal = UIColor(named: "nonmetal") ?? UIColor.white
+    static let halogen = UIColor(named: "halogen") ?? UIColor.white
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
     static let lightPurple = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
     static let sblock = UIColor(named: "sblock") ?? UIColor.white
@@ -56,6 +53,10 @@ extension CustomColors {
             return CustomColors.transitionMetal
         case "unknown":
             return CustomColors.unknownElement
+        case "nonmetal":
+            return CustomColors.nonmetal
+        case "halogen":
+            return CustomColors.halogen
         case "s":
             return CustomColors.sblock
         case "p":

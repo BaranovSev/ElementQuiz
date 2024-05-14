@@ -9,14 +9,16 @@ import UIKit
 import SnapKit
 
 enum PeriodicTableMode: String {
-    case short = "short"
-    case wide = "wide"
+    case short = "short poliatomic"
+    case wide = "wide poliatomic"
     case classic = "classic"
+    case standard = "standard"
     static var allValues: [String] {
         return [
             short.rawValue,
             wide.rawValue,
-            classic.rawValue
+            classic.rawValue,
+            standard.rawValue
         ]
     }
 }
@@ -109,11 +111,27 @@ final class PeriodicTableViewController: UIViewController {
     
     // MARK: - Private Methods
     private func addCellsOfElements() {
-        let listOfElementsForTable = stateOfTableMode != .classic ? fixedElementList : fixedElementList.dropLast(1)
+        let listOfElementsForTable = stateOfTableMode != .classic && stateOfTableMode != .standard ? fixedElementList : fixedElementList.dropLast(2)
         for element in listOfElementsForTable {
             lazy var elementIcon: PeriodicTableCellView = {
                 let color: UIColor = {
                     switch stateOfTableMode {
+                    case .standard:
+                        if [1, 6, 7, 8, 15, 16, 34].contains(element.number) {
+                            return CustomColors.nonmetal
+                        } else if [118].contains(element.number) {
+                            return CustomColors.nobleGas
+                        } else if [84].contains(element.number) {
+                            return CustomColors.metalloid
+                        } else if [9, 17, 35, 53, 85, 117].contains(element.number) {
+                            return CustomColors.halogen
+                        } else if [113, 114, 115, 116].contains(element.number) {
+                            return CustomColors.postTransitionMetal
+                        } else if [109, 110, 111].contains(element.number) {
+                            return CustomColors.transitionMetal
+                        } else {
+                            return CustomColors.choseColor(element.category)
+                        }
                     case .short, .wide:
                         return CustomColors.choseColor(element.category)
                     case .classic:
@@ -219,10 +237,18 @@ final class PeriodicTableViewController: UIViewController {
         }
         
         switch stateOfTableMode {
-        case .short, .wide:
+        case .short, .wide, .standard:
             var categories: Set<String> = []
             for element in fixedElementList {
                 categories.insert(element.category)
+            }
+            
+            if stateOfTableMode == .standard {
+                categories.remove("diatomic nonmetal")
+                categories.remove("polyatomic nonmetal")
+                categories.remove("unknown")
+                categories.insert("nonmetal")
+                categories.insert("halogen")
             }
             
             var x = 1
@@ -331,7 +357,7 @@ private extension PeriodicTableViewController {
         addGroupNumberCell()
         addCellsOfElements()
 
-        if stateOfTableMode == .short {
+        if stateOfTableMode == .short || stateOfTableMode == .standard {
             addEmptyCells()
         }
     }
@@ -360,7 +386,7 @@ private extension PeriodicTableViewController {
         if let cell = cell as? PeriodicTableCellView, let elementSymbol = cell.accessibilityValue {
             let element = fixedElementList.filter{ $0.symbol == elementSymbol }.first!
             switch stateOfTableMode {
-            case .short:
+            case .short, .standard:
                 x = Int(element.xpos)
                 y = Int(element.ypos)
             case .wide:
@@ -412,7 +438,7 @@ private extension PeriodicTableViewController {
     
     func resizeScrollViewContentSize() {
         switch stateOfTableMode {
-        case .short:
+        case .short, .standard:
             scrollView.contentSize = CGSize(width: 18 * scaledSizeOfCell + Int(Double(200) * scale) , height: 10 * scaledSizeOfCell + 200)
         case .wide:
             scrollView.contentSize = CGSize(width: 32 * scaledSizeOfCell + Int(Double(200) * scale) + 100 , height: 8 * scaledSizeOfCell + 200)
@@ -444,7 +470,7 @@ private extension PeriodicTableViewController {
     }
     
     private func addPeriodNumberCell() {
-        let periodNumbers = stateOfTableMode != .classic ? Array(1...8) : Array(1...7)
+        let periodNumbers = stateOfTableMode != .classic && stateOfTableMode != .standard ? Array(1...8) : Array(1...7)
         
         var x = 1
         let y = 0
@@ -489,7 +515,7 @@ private extension PeriodicTableViewController {
         var y = 1
         
         switch stateOfTableMode {
-        case .short:
+        case .short, .standard:
             let groupNumbers = Array(1...18)
             for number in groupNumbers {
                 let cell = returnCell(string: String(number))
@@ -747,6 +773,8 @@ extension PeriodicTableViewController {
             self.optionalPropertiesForCell = ElementParameters(rawValue: user.shortTableOptionalParameter) ?? .valency
         case .classic:
             self.optionalPropertiesForCell =  ElementParameters(rawValue: user.classicTableOptionalParameter) ?? .valency
+        case .standard:
+            self.optionalPropertiesForCell =  ElementParameters(rawValue: user.standardTableOptionalParameter) ?? .valency
         }
     }
     
@@ -761,6 +789,9 @@ extension PeriodicTableViewController {
         case .classic:
             user.classicTableOptionalParameter = optionalPropertiesForCell.rawValue
             user.classicTableScaleParameter = scale
+        case .standard:
+            user.standardTableOptionalParameter = optionalPropertiesForCell.rawValue
+            user.standardTableScaleParameter = scale
         }
         
         DataManager.shared.saveUserData(from: user)
@@ -774,6 +805,8 @@ extension PeriodicTableViewController {
             self.scale = user.shortTableScaleParameter
         case .classic:
             self.scale = user.classicTableScaleParameter
+        case .standard:
+            self.scale = user.standardTableScaleParameter
         }
     }
 }

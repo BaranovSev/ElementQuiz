@@ -46,10 +46,12 @@ final class DataManager {
         data.wideTableOptionalParameter = user.wideTableOptionalParameter
         data.shortTableOptionalParameter = user.shortTableOptionalParameter
         data.classicTableOptionalParameter = user.classicTableOptionalParameter
+        data.standardTableOptionalParameter = user.standardTableOptionalParameter
         data.searchTableOptionalParameter = user.searchTableOptionalParameter
         data.wideTableScaleParameter = user.wideTableScaleParameter
         data.shortTableScaleParameter = user.shortTableScaleParameter
         data.classicTableScaleParameter = user.classicTableScaleParameter
+        data.standardTableScaleParameter = user.standardTableScaleParameter
         data.searchTableSelectedElements = user.searchTableSelectedElements
         data.searchTableSearchedText = user.searchTableSearchedText
         data.countMemorizings = user.countMemorizings

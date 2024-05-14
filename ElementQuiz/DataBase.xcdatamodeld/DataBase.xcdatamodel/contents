@@ -48,6 +48,8 @@
         <attribute name="searchTableSelectedElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;String&gt;"/>
         <attribute name="shortTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="shortTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="standardTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="standardTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="wideTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="wideTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
     </entity>

@@ -6965,7 +6965,7 @@
             1
         ],
         "electron_configuration": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6 8s1",
-        "electron_configuration_semantic": "*[Uuo] 8s1",
+        "electron_configuration_semantic": "*[Ug] 8s1",
         "electron_affinity": 63.87,
         "electronegativity_pauling": 0.86,
         "ionization_energies": [],
@@ -6976,5 +6976,61 @@
             "attribution": "Chemical Elments A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com"
         },
         "block": "s"
-    }
+    },
+    {
+            "name": "Unbinilium",
+            "name_ru": "Унбинилий",
+            "valency": [2],
+            "oxidation_degree": [2],
+            "appearance": null,
+            "atomic_mass": 320,
+            "boil": 1973,
+            "category": "unknown",
+            "density": 7,
+            "discovered_by": "GSI Helmholtz Centre for Heavy Ion Research",
+            "melt": 953,
+            "molar_heat": null,
+            "named_by": null,
+            "number": 120,
+            "period": 8,
+            "group": 2,
+            "phase": "Solid",
+            "source": "https://simple.wikipedia.org/wiki/Unbinilium",
+            "bohr_model_image":null,
+            "bohr_model_3d":null,
+            "spectral_img": null,
+            "summary": "Unbinilium is a hypothetical (theoretical or imagined) element of the periodic table, so all specifications are approximate. It is also known as eka- radium. The name Unbinilium and the symbol Ubn are temporary IUPAC names (meaning 'one-two-zero-ium' in Latin). This name and symbol exists until a permanent name is decided and the element is discovered. It is expected to be a s-block element and an alkaline earth metal. It is the second element in the eighth period of the periodic table. This element has not been synthesized (obtained or discovered) yet. A German team at the GSI Helmholtz Centre for Heavy Ion Research attempted a research on 2011. Unbinilium is expected to be the last element that can be synthesized through current technology.",
+            "symbol": "Ubn",
+            "latin_name": "Unbinilium",
+            "xpos": 2,
+            "ypos": 8,
+            "wxpos": 2,
+            "wypos": 8,
+            "cxpos": 2,
+            "cypos": 12,
+            "shells": [
+                2,
+                8,
+                18,
+                32,
+                32,
+                18,
+                8,
+                2
+            ],
+            "electron_configuration": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6 8s2",
+            "electron_configuration_semantic": "*[Og] 8s2",
+            "electron_affinity": null,
+            "electronegativity_pauling": 0.91,
+            "ionization_energies": [
+                579
+            ],
+            "cpk-hex": null,
+            "image":{
+                "title": "No Image Found",
+                "url": "https://images-of-elements.com/s/transactinoid.png",
+                "attribution": "Chemical Elments A Virtual Museum under a Creative Commons Attribution 3.0 Unported License, source: https://images-of-elements.com"
+            },
+            "block": "s"
+        }
 ]
