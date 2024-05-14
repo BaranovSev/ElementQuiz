@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChemicalElementModel" representedClassName=".ChemicalElementModel" syncable="YES">
+        <attribute name="appearance" optional="YES" attributeType="String"/>
+        <attribute name="atomicMass" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="block" attributeType="String"/>
+        <attribute name="boil" optional="YES" attributeType="String"/>
+        <attribute name="category" attributeType="String"/>
+        <attribute name="cxpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="density" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="discoveredBy" optional="YES" attributeType="String"/>
+        <attribute name="electronAffinity" optional="YES" attributeType="String"/>
+        <attribute name="electronConfiguration" attributeType="String"/>
+        <attribute name="electronConfigurationSemantic" attributeType="String"/>
+        <attribute name="electronegativityPauling" optional="YES" attributeType="String"/>
+        <attribute name="group" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ionizationEnergies" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="latinName" attributeType="String"/>
+        <attribute name="melt" optional="YES" attributeType="String"/>
+        <attribute name="molarHeat" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="namedBy" optional="YES" attributeType="String"/>
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="oxidationDegree" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]."/>
+        <attribute name="period" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phase" attributeType="String"/>
+        <attribute name="shells" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="symbol" attributeType="String"/>
+        <attribute name="valency" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Int]"/>
+        <attribute name="wxpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="xpos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="classicTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="classicTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="countBigGames" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countBigGamesQuestions" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countMemorizingQuestions" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="countMemorizings" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="learnedChemicalElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Date]"/>
+        <attribute name="searchTableOptionalParameter" attributeType="String" defaultValueString="atomicMass"/>
+        <attribute name="searchTableSearchedText" attributeType="String" defaultValueString=""/>
+        <attribute name="searchTableSelectedElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;String&gt;"/>
+        <attribute name="shortTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="shortTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="standardTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="standardTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="wideTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
+        <attribute name="wideTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+    </entity>
+</model>

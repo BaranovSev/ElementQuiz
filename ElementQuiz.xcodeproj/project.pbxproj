@@ -7,22 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */; };
+		FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */; };
+		FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */; };
+		FD5458BB2BC2E59A00ABB64A /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
+		FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */; };
+		FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDB832BBD858800C77650 /* SearchViewController.swift */; };
+		FD91549E2BC8532B00209124 /* CongratulationViewController + Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */; };
+		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
 		FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA774532B1F70D200DF7D8C /* ElementIconView.swift */; };
+		FDA997452B29D79C004C9761 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA997442B29D79C004C9761 /* DataManager.swift */; };
+		FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */; };
+		FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */; };
+		FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */; };
+		FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */; };
+		FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */; };
+		FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */; };
 		FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A692B234E31004BC16E /* Colors.swift */; };
 		FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */; };
-		FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */; };
+		FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */; };
+		FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */; };
+		FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */; };
+		FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA190A2B385A5500747B81 /* StartViewController.swift */; };
+		FDC64C9E2BB59378000DFE20 /* gameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */; };
+		FDC64CA02BB59FC8000DFE20 /* BigGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */; };
+		FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */; };
+		FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */; };
 		FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */; };
 		FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */; };
 		FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */; };
 		FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */; };
-		FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */; };
 		FDD3C16E2AFA6E7A0031336C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16C2AFA6E7A0031336C /* Main.storyboard */; };
 		FDD3C1702AFA6E7B0031336C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */; };
 		FDD3C1732AFA6E7B0031336C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */; };
 		FDD3C17E2AFA6E7B0031336C /* ElementQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C17D2AFA6E7B0031336C /* ElementQuizTests.swift */; };
 		FDD3C1882AFA6E7B0031336C /* ElementQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */; };
 		FDD3C18A2AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */; };
+		FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */; };
+		FDF64D3E2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,17 +66,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInfoViewController.swift; sourceTree = "<group>"; };
+		FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
+		FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableCellView.swift; sourceTree = "<group>"; };
+		FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
+		FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTestViewController.swift; sourceTree = "<group>"; };
+		FD8FDB832BBD858800C77650 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CongratulationViewController + Protocol.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
+		FDA997442B29D79C004C9761 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
+		FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircleProgressBar+DisplayItem.swift"; sourceTree = "<group>"; };
+		FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDataSource.swift; sourceTree = "<group>"; };
 		FDB03A692B234E31004BC16E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizDataSource.swift; sourceTree = "<group>"; };
-		FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModel.swift; sourceTree = "<group>"; };
+		FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChemicalElementModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDBA190A2B385A5500747B81 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameProtocol.swift; sourceTree = "<group>"; };
+		FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGameViewController.swift; sourceTree = "<group>"; };
+		FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMemorizingController.swift; sourceTree = "<group>"; };
+		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElementQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizController.swift; sourceTree = "<group>"; };
 		FDD3C16D2AFA6E7A0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDD3C1722AFA6E7B0031336C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +106,8 @@
 		FDD3C1832AFA6E7B0031336C /* ElementQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElementQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3C1872AFA6E7B0031336C /* ElementQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITests.swift; sourceTree = "<group>"; };
 		FDD3C1892AFA6E7B0031336C /* ElementQuizUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuButtonVC + Protocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +141,9 @@
 			children = (
 				FDA774532B1F70D200DF7D8C /* ElementIconView.swift */,
 				FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */,
+				FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */,
+				FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */,
+				FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,8 +151,19 @@
 		FDB03A6B2B25F845004BC16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDB03A6F2B25F8E5004BC16E /* Models */,
+				FDBA190A2B385A5500747B81 /* StartViewController.swift */,
+				FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */,
+				FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */,
+				FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */,
+				FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */,
+				FDF4996B2BA9FA7E005D4D3C /* StatisticsViewController.swift */,
+				FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */,
+				FD8FDB832BBD858800C77650 /* SearchViewController.swift */,
+				FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */,
+				FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
+				FDB03A6F2B25F8E5004BC16E /* Models */,
+				FDC64C9D2BB59378000DFE20 /* gameProtocol.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,8 +171,8 @@
 		FDB03A6C2B25F890004BC16E /* ElementQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				FDD3C16A2AFA6E7A0031336C /* ElementQuizController.swift */,
 				FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */,
+				FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -120,7 +180,11 @@
 		FDB03A6F2B25F8E5004BC16E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FDCBF9E72B1DEF4200214599 /* ChemicalElementModel.swift */,
+				FDABAAE92B3B0F70007F423A /* User+CoreDataClass.swift */,
+				FDABAAEA2B3B0F70007F423A /* User+CoreDataProperties.swift */,
+				FDB03AB92B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift */,
+				FDB03ABA2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift */,
+				FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,17 +212,21 @@
 		FDD3C1652AFA6E7A0031336C /* ElementQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				FDA997442B29D79C004C9761 /* DataManager.swift */,
 				FDB03A6B2B25F845004BC16E /* ViewControllers */,
 				FDD3C1662AFA6E7A0031336C /* AppDelegate.swift */,
+				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FDD3C16F2AFA6E7B0031336C /* Assets.xcassets */,
 				FDCBF9EB2B1E1AAA00214599 /* Bundle+Extension.swift */,
 				FDB03A692B234E31004BC16E /* Colors.swift */,
+				FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */,
+				FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */,
 				FDD3C1742AFA6E7B0031336C /* Info.plist */,
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
-				FDD3C1682AFA6E7A0031336C /* SceneDelegate.swift */,
 				FD56C06C2B1FACAD007AB130 /* Views */,
+				FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */,
 			);
 			path = ElementQuiz;
 			sourceTree = "<group>";
@@ -196,6 +264,9 @@
 			dependencies = (
 			);
 			name = ElementQuiz;
+			packageProductDependencies = (
+				FDA1FE122B3CCA47001D9F14 /* SnapKit */,
+			);
 			productName = ElementQuiz;
 			productReference = FDD3C1632AFA6E7A0031336C /* ElementQuiz.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +339,9 @@
 				Base,
 			);
 			mainGroup = FDD3C15A2AFA6E7A0031336C;
+			packageReferences = (
+				FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FDD3C1642AFA6E7A0031336C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,15 +386,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCBF9E82B1DEF4200214599 /* ChemicalElementModel.swift in Sources */,
+				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
+				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
+				FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */,
+				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
+				FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */,
+				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
+				FD91549E2BC8532B00209124 /* CongratulationViewController + Protocol.swift in Sources */,
+				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
+				FDF64D3E2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift in Sources */,
 				FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */,
+				FDC64C9E2BB59378000DFE20 /* gameProtocol.swift in Sources */,
+				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
+				FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */,
+				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
+				FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */,
+				FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */,
 				FDA774542B1F70D200DF7D8C /* ElementIconView.swift in Sources */,
-				FDD3C16B2AFA6E7A0031336C /* ElementQuizController.swift in Sources */,
+				FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */,
 				FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */,
+				FDB03ABB2B263ED0004BC16E /* ChemicalElementModel+CoreDataClass.swift in Sources */,
+				FDC64CA02BB59FC8000DFE20 /* BigGameViewController.swift in Sources */,
 				FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */,
+				FDCB3FA92B8C99400055BF6B /* ElementMemorizingController.swift in Sources */,
+				FD5458BB2BC2E59A00ABB64A /* Int+extensions.swift in Sources */,
 				FDD3C1672AFA6E7A0031336C /* AppDelegate.swift in Sources */,
+				FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */,
+				FDA997452B29D79C004C9761 /* DataManager.swift in Sources */,
 				FDD3C1692AFA6E7A0031336C /* SceneDelegate.swift in Sources */,
+				FDABAAEB2B3B0F70007F423A /* User+CoreDataClass.swift in Sources */,
+				FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +758,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDA1FE122B3CCA47001D9F14 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA1FE112B3CCA47001D9F14 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */,
+			);
+			currentVersion = FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FDD3C15B2AFA6E7A0031336C /* Project object */;
 }
