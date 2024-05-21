@@ -67,7 +67,7 @@ final class SearchViewController: UIViewController {
         field.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         field.textColor = UIColor.black
         field.textAlignment = .justified
-        field.placeholder = "search"
+        field.placeholder = "  search  🔎"
         field.autocorrectionType = .no
         field.keyboardType = .asciiCapable
         return field

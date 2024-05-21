@@ -194,10 +194,8 @@ final class DataManager {
         var predicates: [NSPredicate] = []
         
         if togglePosition == true {
-            if !taggedElements.isEmpty {
-                let taggedPredicate = NSPredicate(format: "symbol IN %@", taggedElements)
-                predicates.append(taggedPredicate)
-            }
+            let taggedPredicate = NSPredicate(format: "symbol IN %@", taggedElements)
+            predicates.append(taggedPredicate)
         }
         
         if let searchText = searchText, !searchText.isEmpty, searchText.trimmingCharacters(in: .whitespaces) != "" {
