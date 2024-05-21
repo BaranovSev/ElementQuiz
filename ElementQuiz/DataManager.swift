@@ -201,9 +201,7 @@ final class DataManager {
         if let searchText = searchText, !searchText.isEmpty, searchText.trimmingCharacters(in: .whitespaces) != "" {
             var searchTextPredicate: NSPredicate {
                 switch userAttribute {
-                case .atomicMass:
-                    return NSPredicate(format: "\(userAttribute.rawValue) == %@", searchText)
-                case .density:
+                case .atomicMass, .density:
                     let searchTextDouble = Double(searchText) ?? 0.0
                     return NSPredicate(format: "\(userAttribute.rawValue) >= %lf AND \(userAttribute.rawValue) <= %lf", searchTextDouble - 0.5, searchTextDouble + 0.5)
                 case .period, .group:
