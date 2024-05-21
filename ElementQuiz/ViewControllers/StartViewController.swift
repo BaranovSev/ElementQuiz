@@ -8,6 +8,39 @@
 import UIKit
 import SnapKit
 
+private enum CollectionSections {
+    case periodicTable([String])
+    case tools([String])
+    case categoryTest([String])
+    case bigGames([String])
+    
+    var items: [String] {
+        switch self {
+        case .periodicTable(let items),
+                .tools(let items),
+                .categoryTest(let items),
+                .bigGames(let items):
+            return items
+        }
+    }
+    
+    var count: Int {
+        items.count
+    }
+    
+    var title: String {
+        switch self {
+        case .periodicTable(_):
+            return "Periodic tables 🧑🏼‍🔬"
+        case .tools(_):
+            return "Tools 🛠️"
+        case .categoryTest(_):
+            return "Category test 📚"
+        case .bigGames(_):
+            return "Big games 👑"
+        }
+    }
+}
 
 final class StartViewController: UIViewController {
     // MARK: - Properties
@@ -15,7 +48,7 @@ final class StartViewController: UIViewController {
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let user: User = DataManager.shared.fetchUser()
-    private var collectionViewStructure: [[String : [String]]] = []
+    private var collectionViewStructure: [CollectionSections] = []
     private var currentElement: ChemicalElementModel? {
         didSet {
             guard let currentElement = currentElement else { return }
@@ -41,7 +74,7 @@ final class StartViewController: UIViewController {
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
-        scrollView.contentSize = CGSize(width: 200, height: 1000)
+        scrollView.contentSize = CGSize(width: 200, height: 1250)
         scrollView.backgroundColor = .white
         scrollView.accessibilityScroll(.down)
         return scrollView
@@ -97,7 +130,7 @@ final class StartViewController: UIViewController {
     private lazy var smallLabel: UILabel = {
         var label = UILabel()
         label.text = "progress: \(learnedElements.count)/\(fixedElementList.count)"
-        label.font = UIFont(name: "Hoefler Text", size: 15)
+        label.font = UIFont(name: "Hoefler Text", size: 18)
         label.textColor = UIColor(cgColor: CustomColors.lightPurple)
         return label
     }()
@@ -105,7 +138,7 @@ final class StartViewController: UIViewController {
     private lazy var smallButton: UIButton = {
         var button = UIButton()
         button.setTitle("repeat", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 15)
+        button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 18)
         button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
         button.setTitleColor(.gray, for: .highlighted)
         button.backgroundColor = .white
@@ -117,13 +150,10 @@ final class StartViewController: UIViewController {
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 100)
-        layout.minimumLineSpacing = 0
-        layout.scrollDirection = .horizontal
+        let layout = UICollectionViewLayout()
         var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = true
         collectionView.dataSource = self
         collectionView.delegate = self
 
@@ -150,10 +180,10 @@ final class StartViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpForCollectionView()
         addSubViews()
         startTimer()
         layout()
+        setUpForCollectionView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -240,9 +270,7 @@ final class StartViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(40)
             make.width.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.height.equalTo(150)
+            make.height.equalToSuperview()
         }
         
         statisticsButton.snp.makeConstraints { make in
@@ -298,108 +326,202 @@ private extension StartViewController {
 }
 
 // MARK: - CollectionView data source protocol
-extension StartViewController:  UICollectionViewDataSource, UICollectionViewDelegate {
+extension StartViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     private func setUpForCollectionView() {
         let periodicTableStyles = PeriodicTableMode.allValues
         let categories: [String] = Array(Set(fixedElementList.map({ $0.category }))).sorted()
         let typeOfQuestions = QuestionAbout.allValues
-        collectionViewStructure = [
-            ["Periodic table" : periodicTableStyles],
-            ["Tools" : ["Search table"]],
-            ["Category tests" : categories],
-            ["Big games" : typeOfQuestions]
-        ]
-        
-        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
-        collectionView.register(PeriodicTableCollectionViewCell.self, forCellWithReuseIdentifier: "PeriodicTableCollectionViewCell")
-        collectionView.register(BigGameCollectionViewCell.self, forCellWithReuseIdentifier: "BigGameCollectionViewCell")
-        collectionView.register(CustomHeaderView.self, forSupplementaryViewOfKind: 	UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CustomHeaderView")
+        collectionViewStructure = [.periodicTable(periodicTableStyles),
+                                   .tools(["Search table"]),
+                                   .categoryTest(categories),
+                                   .bigGames(typeOfQuestions)]
+
+        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.reuseId)
+        collectionView.register(PeriodicTableCollectionViewCell.self, forCellWithReuseIdentifier: PeriodicTableCollectionViewCell.reuseId)
+        collectionView.register(BigGameCollectionViewCell.self, forCellWithReuseIdentifier: BigGameCollectionViewCell.reuseId)
+        collectionView.register(CustomHeaderView.self, forSupplementaryViewOfKind:     UICollectionView.elementKindSectionHeader, withReuseIdentifier: CustomHeaderView.reuseId)
+
+        collectionView.collectionViewLayout = createLayoutForCollectionView()
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        let numberOfSections = collectionViewStructure.count
-        
-        return numberOfSections
+        return collectionViewStructure.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = collectionViewStructure[section].values.joined().count
-        
-        return count
+        return collectionViewStructure[section].count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionViewStructure[indexPath.section] {
+        case .periodicTable(let types):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodicTableCollectionViewCell.reuseId, for: indexPath) as? PeriodicTableCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(typeOfTable: types[indexPath.row])
+            return cell
+        case .tools(let tools):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodicTableCollectionViewCell.reuseId, for: indexPath) as? PeriodicTableCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(typeOfTable: tools[indexPath.row])
+            return cell
+        case .categoryTest(let categories):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reuseId, for: indexPath) as? CategoryCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+
+            let color = CustomColors.choseColor(categories[indexPath.row])
+            cell.configureCell(category: categories[indexPath.row], color: color)
+            return cell
+        case .bigGames(let questionTypes):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigGameCollectionViewCell.reuseId, for: indexPath) as? BigGameCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(typeOfGame: questionTypes[indexPath.row])
+            return cell
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let values = collectionViewStructure[indexPath.section].values.flatMap { $0 }
-        let index = indexPath.row
-        let string = values[index]
-
-        var cell: UICollectionViewCell = UICollectionViewCell()
-            
-        if indexPath.section == 0 {
-            let periodicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeriodicTableCollectionViewCell", for: indexPath) as! PeriodicTableCollectionViewCell
-            periodicCell.configureCell(typeOfTable: string)
-            cell = periodicCell
-        } else if indexPath.section == 1 {
-            //This is an ordinary cell with single label at the center
-            let periodicCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeriodicTableCollectionViewCell", for: indexPath) as! PeriodicTableCollectionViewCell
-            periodicCell.configureCell(typeOfTable: string)
-            cell = periodicCell
-        } else if indexPath.section == 2 {
-            let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            let color = CustomColors.choseColor(string)
-            categoryCell.configureCell(category: string, color: color)
-            categoryCell.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-            cell = categoryCell
-        } else if indexPath.section == 3 {
-            let bigGameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BigGameCollectionViewCell", for: indexPath) as! BigGameCollectionViewCell
-            bigGameCell.configureCell(typeOfGame: string)
-            cell = bigGameCell
-        }
-        
-        return cell
-    }
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let values = collectionViewStructure[indexPath.section].values.flatMap { $0 }
-        let index = indexPath.row
-        let string = values[index]
-
         var vc: UIViewController = UIViewController()
         
-        if indexPath.section == 0 {
-            vc = PeriodicTableViewController(dataSource: dataSource, fixedElementList: fixedElementList, stateOfTableMode: PeriodicTableMode(rawValue: string) ?? PeriodicTableMode.classic)
-        } else if indexPath.section == 1 {
+        switch collectionViewStructure[indexPath.section] {
+        case .periodicTable(let types):
+            vc = PeriodicTableViewController(dataSource: dataSource, fixedElementList: fixedElementList, stateOfTableMode: PeriodicTableMode(rawValue: types[indexPath.row]) ?? PeriodicTableMode.classic)
+        case .tools(_):
             vc = SearchViewController(dataSource: dataSource, fixedElementList: fixedElementList)
-        } else if indexPath.section == 2 {
-            vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: string)
-        } else if indexPath.section == 3 {
-            vc = BigGameViewController(fixedElementList: fixedElementList, dataSource: dataSource, typeOfGame: QuestionAbout(rawValue: string) ?? QuestionAbout.atomicMassQuestion)
+        case .categoryTest(let categories):
+            vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: categories[indexPath.row])
+        case .bigGames(let questionTypes):
+            vc = BigGameViewController(fixedElementList: fixedElementList, dataSource: dataSource, typeOfGame: QuestionAbout(rawValue: questionTypes[indexPath.row]) ?? QuestionAbout.atomicMassQuestion)
         }
-        
+
         let navController = UINavigationController(rootViewController: vc)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        var header = UICollectionReusableView()
-        let section = collectionViewStructure[indexPath.section].keys.joined()
 
-        if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CustomHeaderView", for: indexPath) as! CustomHeaderView
-            headerView.configureHeadetText(text: section)
-            
-            header = headerView
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                         withReuseIdentifier: CustomHeaderView.reuseId,
+                                                                         for: indexPath) as! CustomHeaderView
+
+            header.configure(text: collectionViewStructure[indexPath.section].title)
+            return header
+        default:
+            return UICollectionReusableView()
         }
-        return header
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: 100, height: 100)
-//    }
 }
 
+//MARK: - Compositional layout for collectionView
+extension StartViewController {
+    private func createLayoutForCollectionView() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+            guard let self = self else { return nil }
+            let section = self.collectionViewStructure[sectionIndex]
+
+            switch section {
+            case .periodicTable(_):
+                return self.createPeriodicTableSection()
+            case .tools(_):
+                return self.createToolsSection()
+            case .categoryTest(_):
+                return self.createCategoryTestSection()
+            case .bigGames(_):
+                return self.createBigGameSection()
+            }
+        }
+    }
+
+    private func createLayoutSection(group: NSCollectionLayoutGroup,
+                                behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+                                interGroupSpacing: CGFloat,
+                                supplementaryItems: [NSCollectionLayoutBoundarySupplementaryItem]) -> NSCollectionLayoutSection {
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = behavior
+        section.interGroupSpacing = interGroupSpacing
+        section.boundarySupplementaryItems = supplementaryItems
+        return section
+    }
+
+    private func createPeriodicTableSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
+                                                            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18)),
+                                                       subitems: [item])
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 5.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        return section
+    }
+
+    private func createToolsSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99),
+                                                            heightDimension: .fractionalHeight(1)))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1)),
+                                                       subitems: [item])
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .none,
+                                          interGroupSpacing: 5.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        return section
+    }
+
+    private func createCategoryTestSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.32),
+                                                            heightDimension: .fractionalHeight(1)))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18)),
+                                                       subitems: [item])
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 0.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        return section
+    }
+
+    private func createBigGameSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalHeight(1)))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.15)),
+                                                       subitems: [item])
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .continuous,
+                                          interGroupSpacing: 5.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        return section
+    }
+
+    private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30.0)),
+              elementKind: UICollectionView.elementKindSectionHeader,
+              alignment: .top)
+    }
+}
+
+//MARK: - Cells
 private final class CategoryCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "CategoryCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
     let infoColor: UIView = UIView()
@@ -463,6 +585,7 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
 
 
 private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "PeriodicTableCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
     
@@ -483,7 +606,7 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
         parentView.layer.borderColor = CustomColors.lightPurple
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = UIFont(name: "Avenir", size: 20)
+        label.font = UIFont(name: "Avenir", size: 30)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
     }
@@ -514,6 +637,7 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
 }
 
 private final class BigGameCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "BigGameCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
     
@@ -565,11 +689,13 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
 }
 
 private final class CustomHeaderView: UICollectionReusableView {
+    static let reuseId = "CustomHeaderView"
     let label: UILabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        addSubViews()
         layout()
     }
     
@@ -578,11 +704,16 @@ private final class CustomHeaderView: UICollectionReusableView {
     }
     
     private func setup() {
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.numberOfLines = 3
-        label.font = UIFont(name: "Avenir", size: 30)
+        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
+    }
+    
+    private func addSubViews() {
+        addSubview(label)
     }
     
     private func layout() {
@@ -593,7 +724,7 @@ private final class CustomHeaderView: UICollectionReusableView {
         }
     }
     
-    func configureHeadetText(text: String) {
+    func configure(text: String) {
         label.text = text
     }
 }

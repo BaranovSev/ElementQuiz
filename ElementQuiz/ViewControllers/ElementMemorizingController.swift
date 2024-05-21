@@ -29,17 +29,17 @@ final class ElementMemorizingController: UIViewController {
 
 //TODO: implement different visualisation for same question, used buttons pressed, buttons drags & other UI elements
     private let fixedSequenceOfQuestions: [QuestionAbout] = [
-//        .atomicMassQuestion,
+        .atomicMassQuestion,
         .latinNameQuestion,
-//        .commonNameQuestion,
-//        .orderNumberQuestion,
-//        .densityQuestion,
-//        .categoryQuestion,
-//        .meltQuestion,
-//        .periodQuestion,
-//        .groupQuestion,
-//        .phaseQuestion,
-//        .boilingPointQuestion
+        .commonNameQuestion,
+        .orderNumberQuestion,
+        .densityQuestion,
+        .categoryQuestion,
+        .meltQuestion,
+        .periodQuestion,
+        .groupQuestion,
+        .phaseQuestion,
+        .boilingPointQuestion
     ]
     
     private var sequenceOfQuestions: [QuestionAbout] = []
