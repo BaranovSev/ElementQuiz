@@ -298,9 +298,9 @@ final class BigGameViewController: UIViewController {
     private func specialChangesForElementIcon() {
         switch typeOfGame {
         case .atomicMassQuestion:
-            elementIcon.atomicMassLabel.isHidden = true
+            elementIcon.atomicMassLabel.text = currentElement.name
         case .orderNumberQuestion:
-            elementIcon.elementNumberLabel.isHidden = true
+            elementIcon.elementNumberLabel.text = currentElement.name
         case .categoryQuestion:
             elementIcon.backgroundColor = .white
             elementIcon.layer.borderWidth = 4
