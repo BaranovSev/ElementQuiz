@@ -28,7 +28,8 @@ final class DataManager {
             let data = try context.fetch(request)
             let user = data.first ?? User(context: context)
             if user.id == nil {
-                user.id = UUID()
+                let defaultId = UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
+                user.id = defaultId
                 user.learnedChemicalElements = [:]
                 user.searchTableSelectedElements = []
             }
