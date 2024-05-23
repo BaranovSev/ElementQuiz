@@ -24,9 +24,17 @@ extension User {
     @NSManaged public var standardTableOptionalParameter: String
     @NSManaged public var searchTableOptionalParameter: String
     @NSManaged public var wideTableScaleParameter: Double
+    @NSManaged public var wideOffsetX: Float
+    @NSManaged public var wideOffsetY: Float
     @NSManaged public var shortTableScaleParameter: Double
+    @NSManaged public var shortOffsetX: Float
+    @NSManaged public var shortOffsetY: Float
     @NSManaged public var classicTableScaleParameter: Double
+    @NSManaged public var classicOffsetX: Float
+    @NSManaged public var classicOffsetY: Float
     @NSManaged public var standardTableScaleParameter: Double
+    @NSManaged public var standardOffsetX: Float
+    @NSManaged public var standardOffsetY: Float
     @NSManaged public var searchTableSelectedElements: Set<String>
     @NSManaged public var searchTableSearchedText: String
     @NSManaged public var countMemorizings: Int

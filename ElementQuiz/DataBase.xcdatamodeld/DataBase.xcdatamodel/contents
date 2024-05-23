@@ -35,6 +35,8 @@
         <attribute name="ypos" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="classicOffsetX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="classicOffsetY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="classicTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="classicTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="countBigGames" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -46,10 +48,16 @@
         <attribute name="searchTableOptionalParameter" attributeType="String" defaultValueString="atomicMass"/>
         <attribute name="searchTableSearchedText" attributeType="String" defaultValueString=""/>
         <attribute name="searchTableSelectedElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;String&gt;"/>
+        <attribute name="shortOffsetX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="shortOffsetY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="shortTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="shortTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="standardOffsetX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="standardOffsetY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="standardTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="standardTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="wideOffsetX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="wideOffsetY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="wideTableOptionalParameter" attributeType="String" defaultValueString="valency"/>
         <attribute name="wideTableScaleParameter" attributeType="Double" defaultValueString="1" usesScalarValueType="YES"/>
     </entity>

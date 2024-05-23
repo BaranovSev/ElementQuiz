@@ -49,9 +49,17 @@ final class DataManager {
         data.standardTableOptionalParameter = user.standardTableOptionalParameter
         data.searchTableOptionalParameter = user.searchTableOptionalParameter
         data.wideTableScaleParameter = user.wideTableScaleParameter
+        data.wideOffsetX = user.wideOffsetX
+        data.wideOffsetY = user.wideOffsetY
         data.shortTableScaleParameter = user.shortTableScaleParameter
+        data.shortOffsetX = user.shortOffsetX
+        data.shortOffsetY = user.shortOffsetY
         data.classicTableScaleParameter = user.classicTableScaleParameter
+        data.classicOffsetX = user.classicOffsetX
+        data.classicOffsetY = user.classicOffsetY
         data.standardTableScaleParameter = user.standardTableScaleParameter
+        data.standardOffsetX = user.standardOffsetX
+        data.standardOffsetY = user.standardOffsetY
         data.searchTableSelectedElements = user.searchTableSelectedElements
         data.searchTableSearchedText = user.searchTableSearchedText
         data.countMemorizings = user.countMemorizings

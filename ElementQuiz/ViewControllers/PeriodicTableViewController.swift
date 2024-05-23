@@ -96,6 +96,7 @@ final class PeriodicTableViewController: UIViewController {
         layout()
         swapPeriodicTable()
         getScaleParameterForTable()
+        getContentOffset()
         getOptionalParameterForState()
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         view.addGestureRecognizer(pinchGesture)
@@ -783,15 +784,23 @@ extension PeriodicTableViewController {
         case .wide:
             user.wideTableOptionalParameter = optionalPropertiesForCell.rawValue
             user.wideTableScaleParameter = scale
+            user.wideOffsetX = Float(scrollView.contentOffset.x)
+            user.wideOffsetY = Float(scrollView.contentOffset.y)
         case .short:
             user.shortTableOptionalParameter = optionalPropertiesForCell.rawValue
             user.shortTableScaleParameter = scale
+            user.shortOffsetX = Float(scrollView.contentOffset.x)
+            user.shortOffsetY = Float(scrollView.contentOffset.y)
         case .classic:
             user.classicTableOptionalParameter = optionalPropertiesForCell.rawValue
             user.classicTableScaleParameter = scale
+            user.classicOffsetX = Float(scrollView.contentOffset.x)
+            user.classicOffsetY = Float(scrollView.contentOffset.y)
         case .standard:
             user.standardTableOptionalParameter = optionalPropertiesForCell.rawValue
             user.standardTableScaleParameter = scale
+            user.standardOffsetX = Float(scrollView.contentOffset.x)
+            user.standardOffsetY = Float(scrollView.contentOffset.y)
         }
         
         DataManager.shared.saveUserData(from: user)
@@ -807,6 +816,26 @@ extension PeriodicTableViewController {
             self.scale = user.classicTableScaleParameter
         case .standard:
             self.scale = user.standardTableScaleParameter
+        }
+    }
+    
+    private func getContentOffset() {
+        func setOffset(x: Float, y: Float) {
+            let x = CGFloat(x)
+            let y = CGFloat(y)
+            self.scrollView.contentOffset.x = x
+            self.scrollView.contentOffset.y = y
+        }
+        
+        switch stateOfTableMode {
+        case .wide:
+            setOffset(x: user.wideOffsetX, y: user.wideOffsetY)
+        case .short:
+            setOffset(x: user.shortOffsetX, y: user.shortOffsetY)
+        case .classic:
+            setOffset(x: user.classicOffsetX, y: user.classicOffsetY)
+        case .standard:
+            setOffset(x: user.standardOffsetX, y: user.standardOffsetY)
         }
     }
 }
