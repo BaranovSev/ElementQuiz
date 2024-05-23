@@ -202,7 +202,7 @@ final class CategoryTestViewController: UIViewController {
         currentQuestionIndex = 0
         answerIsCorrect = nil
         correctAnswerCount = 0
-        sequenceOfQuestions = fixedSequenceOfQuestions
+        setupQuestionSequens()
         missmatchedQuestions = []
     }
     
@@ -309,7 +309,7 @@ private extension CategoryTestViewController {
     }
 }
 
-//MARK: -GameProtocol
+//MARK: - GameProtocol
 extension CategoryTestViewController: GameProtocol {
     func getVariantsOfAnswers() -> Set<String> {
             var variants: Set<String> = [correctElements[currentQuestionIndex].name]
