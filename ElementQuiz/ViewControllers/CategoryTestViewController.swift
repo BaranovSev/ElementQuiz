@@ -51,6 +51,8 @@ final class CategoryTestViewController: UIViewController {
     private lazy var questionLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 27)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
         label.textAlignment = .center
         return label

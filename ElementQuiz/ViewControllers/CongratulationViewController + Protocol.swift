@@ -96,14 +96,17 @@ final class CongratulationViewController: UIViewController {
         setup()
         addSubViews()
         layout()
-        showSalute()
     }
     
     private func setup() {
         view.backgroundColor = .white
         let goodResult: Bool = Double(correctAnswers) / Double(totalQuestions) >= 0.6
         
-        if goodResult == true {
+        if goodResult {
+            showSalute()
+        }
+        
+        if goodResult {
             congratulationLabel.text = [
                 "Well done!",
                 "Congratulations!",
@@ -129,7 +132,7 @@ final class CongratulationViewController: UIViewController {
         
         switch delegate {
         case _ as ElementMemorizingController:
-            if goodResult == true {
+            if goodResult {
                 youLearnedLabel.text = "You learned all about\n\(describeOfSense)\nand correctly answered"
             } else {
                 youLearnedLabel.text = "We recommend revisiting\nthe \(describeOfSense) study again\nYou correctly answered"
@@ -198,7 +201,7 @@ final class CongratulationViewController: UIViewController {
         layer.emitterPosition = point
      
         let cell = CAEmitterCell()
-        cell.scale = 0.13
+        cell.scale = 0.15
         cell.emissionRange = .pi * 2
         cell.lifetime = 20
         cell.birthRate = 100
