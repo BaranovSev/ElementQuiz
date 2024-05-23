@@ -303,6 +303,8 @@ final class BigGameViewController: UIViewController {
             elementIcon.elementNumberLabel.isHidden = true
         case .categoryQuestion:
             elementIcon.backgroundColor = .white
+            elementIcon.layer.borderWidth = 4
+            elementIcon.layer.borderColor = CustomColors.lightPurple
         default :
             elementIcon.atomicMassLabel.isHidden = false
             elementIcon.elementNumberLabel.isHidden = false
