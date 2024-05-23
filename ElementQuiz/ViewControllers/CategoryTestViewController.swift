@@ -312,19 +312,15 @@ private extension CategoryTestViewController {
 //MARK: - GameProtocol
 extension CategoryTestViewController: GameProtocol {
     func getVariantsOfAnswers() -> Set<String> {
-            var variants: Set<String> = [correctElements[currentQuestionIndex].name]
-            while (variants.count < 4) {
-                variants.insert(incorrectElements.randomElement()!.name)
-            }
-            return variants
+        QuestionFactory.getVariantsOfAnswersForCategoryTest(currentCorrectElement: correctElements[currentQuestionIndex], incorrectElements: incorrectElements)
     }
     
     func getVariantsOfQuestion() -> String {
-        return "Chose element from \n\(self.currentCategory) category"
+        QuestionFactory.getVariantsOfQuestionForCategoryTest(currentCategory: currentCategory)
     }
     
     func getCorrectAnswer() -> String {
-        return correctElements[currentQuestionIndex].name
+        QuestionFactory.getCorrectAnswerForCategoryTest(currentCorrectElement: correctElements[currentQuestionIndex])
     }
     
     func checkAnswer(_ answer: String) {
