@@ -65,7 +65,7 @@ enum ElementParameters: String {
     case electronegativityPauling = "electronegativityPauling"
     case oxidationDegree = "oxidationDegree"
     case electronConfiguration = "electronConfiguration"
-    case elecronConfigurationSemantic = "elecronConfigurationSemantic"
+    case electronConfigurationSemantic = "electronConfigurationSemantic"
     case shells = "shells"
     case ionizationEnergies = "ionizationEnergies"
     case discovered = "discovered"
@@ -90,7 +90,7 @@ enum ElementParameters: String {
             self.electronegativityPauling.rawValue,
             self.oxidationDegree.rawValue,
             self.electronConfiguration.rawValue,
-            self.elecronConfigurationSemantic.rawValue,
+            self.electronConfigurationSemantic.rawValue,
             self.shells.rawValue,
             self.ionizationEnergies.rawValue,
             self.discovered.rawValue,
@@ -131,7 +131,7 @@ enum ElementParameters: String {
             return "Oxidation degree"
         case .electronConfiguration:
             return "Electron configuration"
-        case .elecronConfigurationSemantic:
+        case .electronConfigurationSemantic:
             return "Electron configuration (semantic)"
         case .shells:
             return "Shells"

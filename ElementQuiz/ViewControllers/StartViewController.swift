@@ -152,6 +152,7 @@ final class StartViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
         collectionView.dataSource = self
@@ -247,7 +248,7 @@ final class StartViewController: UIViewController {
         }
 
         horizontalStack.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(40)
+            make.top.lessThanOrEqualTo(bigButton.snp.bottom).offset(25)
             make.leading.equalTo(bigButton.snp_leadingMargin).offset(-50)
             make.trailing.equalTo(bigButton.snp_trailingMargin).offset(50)
             make.height.equalTo(30)
@@ -268,7 +269,7 @@ final class StartViewController: UIViewController {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(40)
+            make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(25)
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
@@ -542,6 +543,7 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         parentView.layer.borderWidth = 2.0
         parentView.layer.borderColor = CustomColors.lightPurple
         label.textAlignment = .center
+        label.textColor = .black
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -605,6 +607,7 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
         parentView.layer.borderWidth = 2.0
         parentView.layer.borderColor = CustomColors.lightPurple
         label.textAlignment = .center
+        label.textColor = .black
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 30)
         label.minimumScaleFactor = 0.5
@@ -657,6 +660,7 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
         parentView.layer.borderWidth = 2.0
         parentView.layer.borderColor = CustomColors.lightPurple
         label.textAlignment = .center
+        label.textColor = .black
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5

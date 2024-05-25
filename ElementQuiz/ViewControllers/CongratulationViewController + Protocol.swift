@@ -60,6 +60,7 @@ final class CongratulationViewController: UIViewController {
     private lazy var chemicalElementsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 35)
+        label.textColor = .black
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5

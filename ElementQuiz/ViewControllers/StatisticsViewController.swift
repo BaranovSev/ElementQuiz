@@ -42,7 +42,8 @@ final class StatisticViewControler: UIViewController {
     private lazy var chemicalElementsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 50)
-        label.textAlignment = .justified
+        label.textAlignment = .center
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -75,6 +76,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 55)
         label.textAlignment = .center
+        label.textColor = .black
         label.textColor = UIColor(cgColor: CustomColors.lightPurple)
         return label
     }()
@@ -83,6 +85,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textAlignment = .justified
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -92,6 +95,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 20)
         label.textAlignment = .justified
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -119,6 +123,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
         label.textAlignment = .justified
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -128,6 +133,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 20)
         label.textAlignment = .justified
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -328,6 +334,7 @@ final class StatisticViewControler: UIViewController {
                 label.adjustsFontSizeToFitWidth = true
                 label.minimumScaleFactor = 0.5
                 label.textAlignment = .left
+                label.textColor = .black
                 cell.addSubview(infoColor)
                 cell.addSubview(label)
                 
@@ -353,15 +360,20 @@ final class StatisticViewControler: UIViewController {
     
     @objc private func shareAction() {
         var resultToShare = "Hey everyone! I just wanted to share a major milestone in my journey of learning chemical elements.\n"
-        if countOfMemorizingsLabel.text != "0" {
-            resultToShare += "I have successfully memorized \(String(describing: countOfLearnedElementsLabel.text)) elements in the periodic table"
+        switch user.countMemorizings {
+        case 0:
+        resultToShare += ""
+        case 1:
+            resultToShare += "I have successfully memorized \(String(user.learnedChemicalElements.count)) element with symbol \(user.learnedChemicalElements.first!.key) in the periodic table"
+        default:
+            resultToShare += "I have successfully memorized \(String(user.learnedChemicalElements.count)) elements in the periodic table"
         }
         
-        if countOfBigGamesLabel.text != "0" && countOfMemorizingsLabel.text != "0" {
-            resultToShare += " and played \(String(describing: countOfBigGamesLabel.text)) Big Games."
-        } else if countOfBigGamesLabel.text != "0" && countOfMemorizingsLabel.text == "0" {
-            resultToShare += "I've successfully passed \(String(describing: countOfBigGamesLabel.text)) Big Games."
-        } else if countOfBigGamesLabel.text == "0" && countOfMemorizingsLabel.text != "0" {
+        if user.countBigGames != 0 && user.countMemorizings != 0 {
+            resultToShare += " and played \(String(user.countBigGames)) Big Games with more than \(user.countBigGamesQuestions) questions."
+        } else if user.countBigGames != 0 && user.countMemorizings == 0 {
+            resultToShare += "I've successfully passed \(String(user.countBigGames)) Big Games with more than \(user.countBigGamesQuestions) questions."
+        } else if user.countBigGames == 0 && user.countMemorizings != 0 {
             resultToShare += "."
         }
         

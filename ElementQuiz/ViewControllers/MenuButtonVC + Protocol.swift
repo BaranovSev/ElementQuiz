@@ -27,6 +27,7 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellWithLabel.reusableIdentifier)
+        tableView.backgroundColor = .white
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
         return tableView
@@ -121,8 +122,9 @@ final private class CellWithLabel: UITableViewCell {
         infoLabel.minimumScaleFactor = 0.35
         infoLabel.adjustsFontSizeToFitWidth = true
         infoLabel.textAlignment = .justified
+        infoLabel.textColor = .black
         infoLabel.numberOfLines = 2
-        
+        backgroundColor = .white
         parentView.layer.borderWidth = 2
         parentView.layer.cornerRadius = 4
         parentView.layer.borderColor = CustomColors.lightPurple

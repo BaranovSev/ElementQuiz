@@ -35,7 +35,11 @@ final class PeriodicTableViewController: UIViewController {
                                            ElementParameters.boil.rawValue,
                                            ElementParameters.melt.rawValue,
                                            ElementParameters.shells.rawValue,
-                                           ElementParameters.block.rawValue
+                                           ElementParameters.block.rawValue,
+                                           ElementParameters.electronegativityPauling.rawValue,
+                                           ElementParameters.elecrtonAffinity.rawValue,
+                                           ElementParameters.phase.rawValue,
+                                           ElementParameters.molarHeat.rawValue
     ]
 
     var optionalPropertiesForCell: ElementParameters = .valency {
@@ -88,6 +92,7 @@ final class PeriodicTableViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         backButton.tintColor = .black
         settingsButton.tintColor = .black
 
@@ -148,6 +153,9 @@ final class PeriodicTableViewController: UIViewController {
                                                         color: color
                 )
                 
+                if scale > 1.0 {
+                    elementIcon.optionalLabel.font = UIFont(name: "Menlo", size: 13 * scale * 0.9)
+                }
                 elementIcon.isUserInteractionEnabled = true
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
                 tapGesture.accessibilityValue = element.symbol
@@ -216,6 +224,7 @@ final class PeriodicTableViewController: UIViewController {
                 label.font = UIFont(name: "Menlo", size: 15 * (scale + 0.25))
                 label.adjustsFontSizeToFitWidth = true
                 label.minimumScaleFactor = 0.5
+                label.textColor = .black
                 label.textAlignment = .left
                 cell.addSubview(infoColor)
                 cell.addSubview(label)
@@ -457,6 +466,7 @@ private extension PeriodicTableViewController {
             label.text = string
             label.font = UIFont(name: "Menlo Bold", size: 20 * (scale + 0.25))
             label.adjustsFontSizeToFitWidth = true
+            label.textColor = .black
             label.minimumScaleFactor = 0.5
             label.textAlignment = .center
             cell.addSubview(label)
@@ -612,6 +622,8 @@ private extension PeriodicTableViewController {
             
             gesture.scale = 1.0
         }
+        
+    //TODO: anchor point
     }
 }
 
@@ -719,7 +731,7 @@ extension PeriodicTableViewController {
             }
         case .electronConfiguration:
             result = currentElement.electronConfiguration
-        case .elecronConfigurationSemantic:
+        case .electronConfigurationSemantic:
             result = currentElement.electronConfigurationSemantic
         case .shells:
             if currentElement.shells.isEmpty != true {

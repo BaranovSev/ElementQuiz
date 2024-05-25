@@ -67,7 +67,8 @@ final class SearchViewController: UIViewController {
         field.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         field.textColor = UIColor.black
         field.textAlignment = .justified
-        field.placeholder = "  search  🔎"
+        field.placeholder = " 🔎  search"
+        field.setPlaceholderColor(UIColor.darkGray)
         field.autocorrectionType = .no
         field.keyboardType = .asciiCapable
         return field
@@ -129,6 +130,7 @@ final class SearchViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellForElement.reusableIdentifier)
         tableView.rowHeight = 90
+        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -154,6 +156,7 @@ final class SearchViewController: UIViewController {
         self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         backButton.tintColor = .black
         settingsButton.tintColor = .black
         view.backgroundColor = .white
@@ -236,7 +239,6 @@ final class SearchViewController: UIViewController {
     }
     
     private func setup() {
-        textField.becomeFirstResponder()
         textField.delegate = self
         textField.text = getUserSearchedText()
         
@@ -379,7 +381,7 @@ final class SearchViewController: UIViewController {
             }
         case .electronConfiguration:
             result = currentElement.electronConfiguration
-        case .elecronConfigurationSemantic:
+        case .electronConfigurationSemantic:
             result = currentElement.electronConfigurationSemantic
         case .shells:
             if currentElement.shells.isEmpty != true {
@@ -460,6 +462,7 @@ extension SearchViewController: ParametersButtonDelegate {
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         refreshTableView()
+        textField.resignFirstResponder()
         return true
     }
 }
@@ -544,20 +547,24 @@ final private class CellForElement: UITableViewCell {
     
     private func setup() {
         selectionStyle = .none
+        contentView.backgroundColor = .white
         
         elementNumberLabel.font = UIFont(name: "Avenir", size: 15)
         symbolLabel.font = UIFont(name: "Avenir", size: 40)
         symbolLabel.textAlignment = .center
+        symbolLabel.textColor = .black
         
         nameLabel.font = UIFont(name: "Avenir", size: 15)
         nameLabel.textAlignment = .left
+        nameLabel.textColor = .black
         nameLabel.minimumScaleFactor = 0.5
         nameLabel.adjustsFontSizeToFitWidth = true
         
         infoLabel.font = UIFont(name: "Avenir", size: 25)
         infoLabel.minimumScaleFactor = 0.35
         infoLabel.adjustsFontSizeToFitWidth = true
-        infoLabel.textAlignment = .justified
+        infoLabel.textAlignment = .left
+        infoLabel.textColor = .black
         infoLabel.numberOfLines = 6
     }
     
@@ -769,6 +776,10 @@ final class UpscaledTextViewController: UIViewController {
     
     private func setup() {
         view.backgroundColor = .white
+        labelName.textColor = .black
+        labelParameter.textColor = .black
+        descriptionTextView.textColor = .black
+        descriptionTextView.backgroundColor = .white
     }
     
     func configure(elementName: String, parameter: String, info: String) {
@@ -794,3 +805,8 @@ final class UpscaledTextViewController: UIViewController {
     }
 }
 
+extension UITextField {
+    func setPlaceholderColor(_ color: UIColor) {
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder != nil ? self.placeholder! : "", attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+}

@@ -109,7 +109,6 @@ private extension PeriodicTableCellView {
 final class EmptyCell: UIView {
     lazy var label: UILabel = {
         let label = UILabel()
-        label.textColor = .black
         label.font = UIFont(name: "Menlo Bold", size: 15)
         label.textAlignment = .center
         addSubview(label)

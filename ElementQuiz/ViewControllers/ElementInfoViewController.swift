@@ -37,12 +37,14 @@ final class ElementInfoViewController: UIViewController {
     private lazy var localizedNameLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.textColor = .black
         return label
     }()
     
     private lazy var latinNameLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.textColor = .black
         return label
     }()
     
@@ -56,6 +58,7 @@ final class ElementInfoViewController: UIViewController {
         var label = UITextView()
         label.font = UIFont(name: "Hoefler Text", size: 20)
         label.textColor = .black
+        label.backgroundColor = .white
         label.textAlignment = .justified
         label.isEditable = false
         label.isSelectable = false
