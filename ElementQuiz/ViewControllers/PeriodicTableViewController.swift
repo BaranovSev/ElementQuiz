@@ -35,7 +35,11 @@ final class PeriodicTableViewController: UIViewController {
                                            ElementParameters.boil.rawValue,
                                            ElementParameters.melt.rawValue,
                                            ElementParameters.shells.rawValue,
-                                           ElementParameters.block.rawValue
+                                           ElementParameters.block.rawValue,
+                                           ElementParameters.electronegativityPauling.rawValue,
+                                           ElementParameters.elecrtonAffinity.rawValue,
+                                           ElementParameters.phase.rawValue,
+                                           ElementParameters.molarHeat.rawValue
     ]
 
     var optionalPropertiesForCell: ElementParameters = .valency {
@@ -148,6 +152,9 @@ final class PeriodicTableViewController: UIViewController {
                                                         color: color
                 )
                 
+                if scale > 1.0 {
+                    elementIcon.optionalLabel.font = UIFont(name: "Menlo", size: 13 * scale * 0.9)
+                }
                 elementIcon.isUserInteractionEnabled = true
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
                 tapGesture.accessibilityValue = element.symbol
