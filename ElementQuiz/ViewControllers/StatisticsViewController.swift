@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 final class StatisticViewControler: UIViewController {
-    //TODO: pass this properties from StartVC in init
     private let userDataSource: UserStatisticDataSource = UserStatisticDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let user: User = DataManager.shared.fetchUser()
@@ -51,7 +50,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
-        scrollView.contentSize = CGSize(width: 200, height: 1500)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1500)
         scrollView.backgroundColor = .white
         scrollView.accessibilityScroll(.down)
         return scrollView
@@ -64,7 +63,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var totallyPassedLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textColor = .black
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
@@ -83,7 +82,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var memorizingLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
@@ -93,7 +92,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var memorizingQuestionsCountLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
@@ -103,7 +102,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var inAdditionLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textColor = .black
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
@@ -121,7 +120,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var bigGamesWinsLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
@@ -131,7 +130,7 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var bigGamesQuestionsCountLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
@@ -289,7 +288,6 @@ final class StatisticViewControler: UIViewController {
         addDescriptionCell()
         
         totallyPassedLabel.text = "Totally passed"
-        // TODO: counOfMemorizings change to real
         let countOfMemorizings = user.countMemorizings
         let countMemorizingQuestions = user.countMemorizingQuestions
         countOfMemorizingsLabel.text = String(countOfMemorizings)
@@ -299,7 +297,6 @@ final class StatisticViewControler: UIViewController {
         }
         
         inAdditionLabel.text = "In addition"
-        // TODO: counOfBigGames change to real
         let countOfBigGames = user.countBigGames
         let countBigGameQuestions = user.countBigGamesQuestions
         countOfBigGamesLabel.text = String(countOfBigGames)

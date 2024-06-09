@@ -701,7 +701,7 @@ final class UpscaledTextViewController: UIViewController {
         var text = UITextView()
         text.font = UIFont(name: "Avenir", size: 27)
         text.textColor = .black
-        text.textAlignment = .justified
+//        text.textAlignment = .justified
         text.isEditable = false
         text.isSelectable = false
         return text
@@ -757,21 +757,21 @@ final class UpscaledTextViewController: UIViewController {
             make.leading.equalTo(labelName)
             make.trailing.equalTo(labelName)
         }
+        shareButton.snp.makeConstraints { make in
+            make.bottom.greaterThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(60)
+            make.width.equalTo(60)
+        }
         
         descriptionTextView.snp.makeConstraints { make in
             make.top.equalTo(labelParameter.snp.bottom).offset(10)
             make.leading.equalTo(labelName)
             make.trailing.equalTo(labelName)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-60)
+            make.bottom.equalTo(shareButton.snp.top).offset(-5)
         }
         
-        shareButton.snp.makeConstraints { make in
-            make.top.equalTo(descriptionTextView.snp.bottom)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
-            make.height.equalTo(60)
-            make.width.equalTo(60)
-        }
+
     }
     
     private func setup() {

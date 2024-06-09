@@ -13,13 +13,15 @@ private enum CollectionSections {
     case tools([String])
     case categoryTest([String])
     case bigGames([String])
+    case userStatistic([String])
     
     var items: [String] {
         switch self {
         case .periodicTable(let items),
                 .tools(let items),
                 .categoryTest(let items),
-                .bigGames(let items):
+                .bigGames(let items),
+                .userStatistic(let items):
             return items
         }
     }
@@ -31,13 +33,15 @@ private enum CollectionSections {
     var title: String {
         switch self {
         case .periodicTable(_):
-            return "Periodic tables 🧑🏼‍🔬"
+            return "Periodic tables 👨🏻‍🏫"
         case .tools(_):
             return "Tools 🛠️"
         case .categoryTest(_):
             return "Category test 📚"
         case .bigGames(_):
             return "Big games 👑"
+        case .userStatistic(_):
+            return "User statistic 📊"
         }
     }
 }
@@ -74,7 +78,7 @@ final class StartViewController: UIViewController {
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
-        scrollView.contentSize = CGSize(width: 200, height: 1250)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1250)
         scrollView.backgroundColor = .white
         scrollView.accessibilityScroll(.down)
         return scrollView
@@ -155,27 +159,11 @@ final class StartViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
+        collectionView.isScrollEnabled = false
         collectionView.dataSource = self
         collectionView.delegate = self
 
         return collectionView
-    }()
-    
-    private lazy var statisticsButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "person") ?? UIImage(), for: .normal)
-        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 3
-        button.layer.cornerRadius = 35
-        button.addTarget(self, action: #selector(Self.showStatisticsViewController), for: .touchUpInside)
-        button.imageView?.snp.makeConstraints { make in
-            make.height.equalToSuperview().offset(-19)
-            make.width.equalToSuperview().offset(-15)
-            make.center.equalToSuperview()
-        }
-        return button
     }()
 
     // MARK: - Lifecycle methods
@@ -210,7 +198,6 @@ final class StartViewController: UIViewController {
         horizontalStack.addSubview(smallLabel)
         horizontalStack.addSubview(smallButton)
         scrollView.addSubview(collectionView)
-        view.addSubview(statisticsButton)
     }
     
     private func layout() {
@@ -271,14 +258,8 @@ final class StartViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(25)
             make.width.equalToSuperview()
-            make.height.equalToSuperview()
-        }
-        
-        statisticsButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-10)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
-            make.height.equalTo(70)
-            make.width.equalTo(70)
+            make.height.equalTo(900)
+            make.bottom.equalToSuperview()
         }
     }
 }
@@ -335,11 +316,14 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
         collectionViewStructure = [.periodicTable(periodicTableStyles),
                                    .tools(["Search table"]),
                                    .categoryTest(categories),
-                                   .bigGames(typeOfQuestions)]
+                                   .bigGames(typeOfQuestions),
+                                   .userStatistic(["User"])]
 
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.reuseId)
         collectionView.register(PeriodicTableCollectionViewCell.self, forCellWithReuseIdentifier: PeriodicTableCollectionViewCell.reuseId)
+        collectionView.register(ToolsCollectionViewCell.self, forCellWithReuseIdentifier: ToolsCollectionViewCell.reuseId)
         collectionView.register(BigGameCollectionViewCell.self, forCellWithReuseIdentifier: BigGameCollectionViewCell.reuseId)
+        collectionView.register(UserStatisticCollectionViewCell.self, forCellWithReuseIdentifier: UserStatisticCollectionViewCell.reuseId)
         collectionView.register(CustomHeaderView.self, forSupplementaryViewOfKind:     UICollectionView.elementKindSectionHeader, withReuseIdentifier: CustomHeaderView.reuseId)
 
         collectionView.collectionViewLayout = createLayoutForCollectionView()
@@ -363,7 +347,7 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             cell.configureCell(typeOfTable: types[indexPath.row])
             return cell
         case .tools(let tools):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodicTableCollectionViewCell.reuseId, for: indexPath) as? PeriodicTableCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToolsCollectionViewCell.reuseId, for: indexPath) as? ToolsCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -385,6 +369,13 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             }
             cell.configureCell(typeOfGame: questionTypes[indexPath.row])
             return cell
+        case .userStatistic(let statistic):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserStatisticCollectionViewCell.reuseId, for: indexPath) as? UserStatisticCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(typeOfTable: statistic[indexPath.row])
+            return cell
         }
     }
     
@@ -400,6 +391,8 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: categories[indexPath.row])
         case .bigGames(let questionTypes):
             vc = BigGameViewController(fixedElementList: fixedElementList, dataSource: dataSource, typeOfGame: QuestionAbout(rawValue: questionTypes[indexPath.row]) ?? QuestionAbout.atomicMassQuestion)
+        case .userStatistic(_):
+            vc = StatisticViewControler()
         }
 
         let navController = UINavigationController(rootViewController: vc)
@@ -438,6 +431,8 @@ extension StartViewController {
                 return self.createCategoryTestSection()
             case .bigGames(_):
                 return self.createBigGameSection()
+            case .userStatistic(_):
+                return self.createUserStatisticSection()
             }
         }
     }
@@ -455,9 +450,9 @@ extension StartViewController {
 
     private func createPeriodicTableSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
-                                                            heightDimension: .fractionalHeight(1)))
+                                                            heightDimension: .fractionalHeight(0.9)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.15)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -487,7 +482,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.32),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.13)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -502,14 +497,34 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.15)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.10)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
                                           behavior: .continuous,
                                           interGroupSpacing: 5.0,
                                           supplementaryItems: [supplementaryHeaderItem()])
-        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 20, trailing: 10)
+        return section
+    }
+    
+    private func createUserStatisticSection() -> NSCollectionLayoutSection {
+        let containerWidth = UIScreen.main.bounds.width
+
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .absolute(containerWidth/3),
+                                                            heightDimension: .absolute(containerWidth/3)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150)),
+                                                       subitems: [item])
+        
+        let inset: CGFloat = 10
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: (containerWidth / 3) - inset, bottom: 0, trailing: (containerWidth / 3) - inset)
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .none,
+                                          interGroupSpacing: 5.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 20, leading: inset, bottom: 0, trailing: inset)
         return section
     }
 
@@ -590,6 +605,73 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
     static let reuseId = "PeriodicTableCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
+    let imageView: UIImageView = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+        addSubViews()
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
+        parentView.layer.cornerRadius = 10
+        parentView.layer.borderWidth = 2.0
+        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.layer.masksToBounds = true
+        label.textAlignment = .center
+        label.textColor = .black
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Avenir", size: 20)
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
+        imageView.contentMode = .scaleAspectFit
+    }
+    
+    private func addSubViews() {
+        contentView.addSubview(parentView)
+        parentView.addSubview(label)
+        parentView.addSubview(imageView)
+    }
+    
+    private func layout() {
+        parentView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview().offset(-10)
+            make.width.equalToSuperview().offset(-10)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.width.equalToSuperview().offset(-10)
+            make.height.equalTo(30)
+            make.top.equalTo(parentView.snp.top)
+//            make.bottom.lessThanOrEqualToSuperview().offset(-5)
+            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom)
+            make.width.equalTo(parentView.snp.width).offset(-10)
+            make.bottom.equalTo(parentView.snp.bottom).offset(-10)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    func configureCell(typeOfTable: String) {
+        label.text = typeOfTable
+        imageView.image = UIImage(named: typeOfTable) ?? UIImage()
+    }
+}
+
+private final class ToolsCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "ToolsTableCollectionViewCell"
+    let parentView: UIView = UIView()
+    let label: UILabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -609,7 +691,7 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = .black
         label.numberOfLines = 3
-        label.font = UIFont(name: "Avenir", size: 30)
+        label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
     }
@@ -689,6 +771,45 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
     
     func configureCell(typeOfGame: String) {
         label.text = typeOfGame
+    }
+}
+
+private final class UserStatisticCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "UserStatisticCollectionViewCell"
+    let imageView: UIImageView = UIImageView()
+    let userImage: UIImage = UIImage(named: "statistic") ?? UIImage()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+        addSubViews()
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
+        imageView.contentMode = .scaleToFill
+        imageView.image = userImage
+        imageView.layer.cornerRadius = ((UIScreen.main.bounds.width / 3) - 10) / 2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2.0
+        imageView.layer.borderColor = CustomColors.lightPurple
+    }
+    
+    private func addSubViews() {
+        contentView.addSubview(imageView)
+    }
+    
+    private func layout() {
+        imageView.snp.makeConstraints { make in
+            make.size.equalToSuperview()
+        }
+    }
+    
+    func configureCell(typeOfTable: String) {
     }
 }
 

@@ -50,13 +50,13 @@ final class ElementInfoViewController: UIViewController {
     
     private lazy var categoryLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 25)
+        label.font = UIFont(name: "Hoefler Text", size: 20)
         return label
     }()
     
     private lazy var descriptionTextView: UITextView = {
         var label = UITextView()
-        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.font = UIFont(name: "Avenir", size: 18)
         label.textColor = .black
         label.backgroundColor = .white
         label.textAlignment = .justified
