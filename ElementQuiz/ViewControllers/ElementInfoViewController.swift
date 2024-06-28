@@ -18,16 +18,17 @@ final class ElementInfoViewController: UIViewController {
         didSet {
             guard let currentElement = currentElement else { return }
             elementIcon.displayItem = ElementQuizDataSource().elementToDisplayItem(currentElement)
-            localizedNameLabel.text = currentElement.name
-            latinNameLabel.text = "latin: " + currentElement.latinName
-            categoryLabel.text = "category: " + currentElement.category
-            categoryLabel.textColor = CustomColors.choseColor(currentElement.category)
-            
-            setTextToDescriptionTextView()
         }
     }
     
     // MARK: - UI Properties
+    private lazy var scrollView: UIScrollView = {
+        var scrollView = UIScrollView(frame: view.bounds)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 4550)
+        scrollView.backgroundColor = .white
+        scrollView.accessibilityScroll(.down)
+        return scrollView
+    }()
     
     private lazy var elementIcon: ElementIconView = {
         var elementIcon = ElementIconView(displayItem: dataSource.elementToDisplayItem(currentElement ?? fixedElementList.first!))
@@ -54,17 +55,98 @@ final class ElementInfoViewController: UIViewController {
         return label
     }()
     
-    private lazy var descriptionTextView: UITextView = {
-        var label = UITextView()
-        label.font = UIFont(name: "Avenir", size: 18)
-        label.textColor = .black
-        label.backgroundColor = .white
-        label.textAlignment = .justified
-        label.isEditable = false
-        label.isSelectable = false
-        return label
+    private lazy var groupView: SquareInfoView = {
+        return SquareInfoView()
+    }()
+    
+    private lazy var periodView: SquareInfoView = {
+        return SquareInfoView()
+    }()
+    
+    private lazy var discoveredByView: BoxViewWithTextView = {
+        return BoxViewWithTextView()
+    }()
+    
+    private lazy var namedByView: BoxViewWithTextView = {
+        return BoxViewWithTextView()
+    }()
+    
+    private lazy var summaryView: BoxViewWithTextView = {
+        return BoxViewWithTextView()
     }()
 
+    private lazy var phaseView: PhaseView = {
+        return PhaseView()
+    }()
+    
+    private lazy var appearanceView: BoxViewWithTextView = {
+        return BoxViewWithTextView()
+    }()
+    
+    private lazy var atomicMassView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var densityView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var valencyView: PalleteView = {
+        return PalleteView()
+    }()
+    
+    private lazy var oxidationView: PalleteView = {
+        return PalleteView()
+    }()
+    
+    private lazy var boilView: TemperatureView = {
+        return TemperatureView()
+    }()
+    
+    private lazy var meltView: TemperatureView = {
+        return TemperatureView()
+    }()
+    
+    private lazy var molarHeatView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var electronConfigurationView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var electronConfigurationSemanticView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var electronAffinityView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var paulingView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+    
+    private lazy var shellsView: AccentBoxView = {
+        return AccentBoxView()
+    }()
+
+    private lazy var electronsView: SquareInfoView = {
+        return SquareInfoView()
+    }()
+    
+    private lazy var protonsView: SquareInfoView = {
+        return SquareInfoView()
+    }()
+    
+    private lazy var neutronsView: SquareInfoView = {
+        return SquareInfoView()
+    }()
+    
+    private lazy var ionizationView: BoxViewWithTextView = {
+        return BoxViewWithTextView()
+    }()
+    
     private lazy var bigButton: UIButton = {
         let button = UIButton()
         button.setTitle("Memorize", for: .normal)
@@ -92,15 +174,43 @@ final class ElementInfoViewController: UIViewController {
     
     // MARK: - Private Methods
     private func addSubViews() {
-        view.addSubview(elementIcon)
-        view.addSubview(localizedNameLabel)
-        view.addSubview(latinNameLabel)
-        view.addSubview(categoryLabel)
-        view.addSubview(descriptionTextView)
-        view.addSubview(bigButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(elementIcon)
+        scrollView.addSubview(localizedNameLabel)
+        scrollView.addSubview(latinNameLabel)
+        scrollView.addSubview(categoryLabel)
+        scrollView.addSubview(groupView)
+        scrollView.addSubview(periodView)
+        scrollView.addSubview(discoveredByView)
+        scrollView.addSubview(namedByView)
+        scrollView.addSubview(summaryView)
+        scrollView.addSubview(phaseView)
+        scrollView.addSubview(appearanceView)
+        scrollView.addSubview(atomicMassView)
+        scrollView.addSubview(densityView)
+        scrollView.addSubview(valencyView)
+        scrollView.addSubview(oxidationView)
+        scrollView.addSubview(boilView)
+        scrollView.addSubview(meltView)
+        scrollView.addSubview(molarHeatView)
+        scrollView.addSubview(electronConfigurationView)
+        scrollView.addSubview(electronConfigurationSemanticView)
+        scrollView.addSubview(electronAffinityView)
+        scrollView.addSubview(paulingView)
+        scrollView.addSubview(shellsView)
+        scrollView.addSubview(electronsView)
+        scrollView.addSubview(protonsView)
+        scrollView.addSubview(neutronsView)
+        scrollView.addSubview(ionizationView)
+        scrollView.addSubview(bigButton)
     }
     
     private func layout() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        
         elementIcon.snp.makeConstraints { make in
             make.top.lessThanOrEqualToSuperview().offset(50)
             make.height.equalTo(140)
@@ -126,16 +236,168 @@ final class ElementInfoViewController: UIViewController {
             make.height.equalTo(30)
         }
         
-        descriptionTextView.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(categoryLabel.snp.bottom).offset(10)
-            make.bottom.greaterThanOrEqualTo(bigButton.snp.top).offset(-4)
+        groupView.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.bottom).offset(20)
+            make.centerX.equalToSuperview().offset(-90)
+            make.height.equalTo(90)
+            make.width.equalTo(90)
+        }
+        
+        periodView.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.bottom).offset(20)
+            make.centerX.equalToSuperview().offset(90)
+            make.height.equalTo(groupView.snp.height)
+            make.width.equalTo(groupView.snp.width)
+        }
+        
+        discoveredByView.snp.makeConstraints { make in
+            make.top.equalTo(periodView.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-15)
-            make.height.greaterThanOrEqualTo(Int(UIScreen.main.bounds.height * 0.3))
+            make.width.equalTo(250)
+            make.height.greaterThanOrEqualTo(100)
+        }
+        
+        namedByView.snp.makeConstraints { make in
+            make.top.equalTo(discoveredByView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.greaterThanOrEqualTo(100)
+        }
+        
+        summaryView.snp.makeConstraints { make in
+            make.top.equalTo(namedByView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(scrollView.snp.width).offset(-20)
+            make.height.greaterThanOrEqualTo(250)
+        }
+                
+        phaseView.snp.makeConstraints { make in
+            make.top.equalTo(summaryView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(250)
+        }
+        
+        appearanceView.snp.makeConstraints { make in
+            make.top.equalTo(phaseView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.greaterThanOrEqualTo(100)
+        }
+
+        
+        atomicMassView.snp.makeConstraints { make in
+            make.top.equalTo(appearanceView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(100)
+        }
+        
+        densityView.snp.makeConstraints { make in
+            make.top.equalTo(atomicMassView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        valencyView.snp.makeConstraints { make in
+            make.top.equalTo(densityView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.equalTo(phaseView)
+        }
+        
+        oxidationView.snp.makeConstraints { make in
+            make.top.equalTo(valencyView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.equalTo(phaseView)
+        }
+        
+        boilView.snp.makeConstraints { make in
+            make.top.equalTo(oxidationView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.equalTo(phaseView)
+        }
+        
+        meltView.snp.makeConstraints { make in
+            make.top.equalTo(boilView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.equalTo(phaseView)
+        }
+        
+        molarHeatView.snp.makeConstraints { make in
+            make.top.equalTo(meltView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        electronConfigurationView.snp.makeConstraints { make in
+            make.top.equalTo(molarHeatView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.equalTo(phaseView)
+        }
+        
+        electronConfigurationSemanticView.snp.makeConstraints { make in
+            make.top.equalTo(electronConfigurationView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        electronAffinityView.snp.makeConstraints { make in
+            make.top.equalTo(electronConfigurationSemanticView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        paulingView.snp.makeConstraints { make in
+            make.top.equalTo(electronAffinityView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        shellsView.snp.makeConstraints { make in
+            make.top.equalTo(paulingView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(atomicMassView)
+            make.height.equalTo(atomicMassView)
+        }
+        
+        protonsView.snp.makeConstraints { make in
+            make.top.equalTo(shellsView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(90)
+        }
+        
+        electronsView.snp.makeConstraints { make in
+            make.top.equalTo(protonsView)
+            make.trailing.equalTo(protonsView.snp.leading).offset(-15)
+            make.height.width.equalTo(protonsView)
+        }
+        
+        neutronsView.snp.makeConstraints { make in
+            make.top.equalTo(protonsView)
+            make.leading.equalTo(protonsView.snp.trailing).offset(15)
+            make.height.width.equalTo(protonsView)
+        }
+        
+        
+        ionizationView.snp.makeConstraints { make in
+            make.top.equalTo(neutronsView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(phaseView)
+            make.height.greaterThanOrEqualTo(atomicMassView)
         }
 
         bigButton.snp.makeConstraints { make in
+            make.top.equalTo(ionizationView.snp.bottom).offset(40)
             make.bottom.lessThanOrEqualToSuperview().offset(-30)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
@@ -147,115 +409,109 @@ final class ElementInfoViewController: UIViewController {
 private extension ElementInfoViewController {
     func setup() {
         view.backgroundColor = .white
+        showInformation()
     }
     
-    func setTextToDescriptionTextView(){
+    func showInformation() {
         guard let currentElement = self.currentElement else { return }
-        if let discoveredText = currentElement.discoveredBy {
-            descriptionTextView.text += "\nDiscovered by: " + discoveredText + "\n"
-        }
         
-        if let namedText = currentElement.namedBy {
-            descriptionTextView.text += "\nNamed by: " + namedText + "\n"
-        }
+        localizedNameLabel.text = currentElement.name
+        latinNameLabel.text = "latin: " + currentElement.latinName
+        categoryLabel.text = "category: " + currentElement.category
+        categoryLabel.textColor = CustomColors.choseColor(currentElement.category)
         
-        descriptionTextView.text += "\n" + currentElement.summary + "\n"
-        if let appearance = currentElement.appearance {
-            descriptionTextView.text += "\n" + "Appearance: " + appearance + "\n"
-        }
+        let group = String(currentElement.group)
+        groupView.configure(color: .green.withAlphaComponent(0.2), labelOneText: "Group:", labelTwoText: group)
         
-        descriptionTextView.text += "\nAtomic mass: " + String(currentElement.atomicMass) + "\n"
-        descriptionTextView.text += "\nPeriod: " + String(currentElement.period) + "\n"
-        descriptionTextView.text += "\nGroup: " + String(currentElement.group) + "\n"
-        descriptionTextView.text += "\nPhase: " + currentElement.phase + "\n"
+        let period = String(currentElement.period)
+        periodView.configure(color: .red.withAlphaComponent(0.2), labelOneText: "Period:", labelTwoText: period)
         
+        let phase = currentElement.phase
+        phaseView.configure(phase: phase)
+        
+        let atomicMass = String(currentElement.atomicMass)
+        atomicMassView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Atomic mass", infoText: atomicMass)
+        
+        let density = currentElement.density != -1.0 ? String(currentElement.density) + " g/cm3" : "unknown"
+        densityView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Density", infoText: density)
+        
+        let valency = currentElement.valency
+        valencyView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, form: .square, toRoman: true, titleText: "Valency", infoText: valency)
+        
+        let oxidationDegree = currentElement.oxidationDegree
+        oxidationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, form: .round, toRoman: false, titleText: "Oxidation degree", infoText: oxidationDegree)
+        
+        var kelvinBoil: String = "- - -"
+        var celsiusBoil: String = "- - -"
+        var farenheitBoil: String = "- - -"
         if let boilText: String = currentElement.boil  {
             let boil = Float(boilText) != nil ? Float(boilText) : nil
             if let boil = boil {
-                descriptionTextView.text += "\nBoil temperature: \(boilText) K / " + String(format: "%.2f", boil - 273.15) + " C" + "\n"
+                kelvinBoil = "\(boilText) K"
+                celsiusBoil = String(format: "%.2f", boil - 273.15) + " C"
+                farenheitBoil = String(format: "%.2f", boil * 1,8 - 459,67) + " F"
             }
         }
         
+        boilView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Boil temperature", labelOneText: kelvinBoil, labelTwoText: celsiusBoil, labelThreeText: farenheitBoil, imageName: "boiling")
+        
+        var kelvinMelt: String = "- - -"
+        var celsiusMelt: String = "- - -"
+        var farenheitMelt: String = "- - -"
         if let meltText: String = currentElement.melt  {
             let melt = Float(meltText) != nil ? Float(meltText) : nil
             if let melt = melt {
-                descriptionTextView.text += "\nMelt temperature: \(meltText) K / " + String(format: "%.2f", melt - 273.15) + " C" + "\n"
+                kelvinMelt = "\(meltText) K"
+                celsiusMelt = String(format: "%.2f", melt - 273.15) + " C"
+                farenheitMelt = String(format: "%.2f", melt * 1,8 - 459,67) + " F"
             }
         }
         
-        if currentElement.density != -1.0 {
-            descriptionTextView.text += "\nDensity: \(currentElement.density) g/cm3" + "\n"
-        } else {
-            descriptionTextView.text += "\nDensity: unknown" + "\n"
-        }
+        meltView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Melt temperature", labelOneText: kelvinMelt, labelTwoText: celsiusMelt, labelThreeText: farenheitMelt, imageName: "melting")
         
-        if let molarHeatText: String = currentElement.molarHeat  {
-            let molarHeat = Float(molarHeatText) != nil ? Float(molarHeatText) : nil
-            if let molarHeat = molarHeat {
-                descriptionTextView.text += "\nMolar heat: \(molarHeat) J/(mol·K)" + "\n"
-            }
-        }
-        
-        if currentElement.valency.isEmpty != true {
-            descriptionTextView.text += "\nValency: "
-            var valencyText: [String] = []
-            for valency in currentElement.valency {
-                valencyText.append(valency.toRoman())
-            }
-            
-            descriptionTextView.text += valencyText.joined(separator: ", ")
-            descriptionTextView.text += "\n"
-        }
-        
-        if currentElement.oxidationDegree.isEmpty != true {
-            descriptionTextView.text += "\nOxidation degree: "
-            var oxidationText: [String] = []
-            for oxidation in currentElement.oxidationDegree {
-                oxidationText.append(String(oxidation))
-            }
-            
-            descriptionTextView.text += oxidationText.joined(separator: ", ")
-            descriptionTextView.text += "\n"
-        }
-        
-        descriptionTextView.text += "\n" + "Electronic configuration" + "\n"
-        descriptionTextView.text += "\n" + currentElement.electronConfiguration + "\n"
-        descriptionTextView.text += "\n" + currentElement.electronConfigurationSemantic + "\n"
-        if let electronAffinityText: String = currentElement.electronAffinity  {
-            let electronAffinity = Float(electronAffinityText) != nil ? Float(electronAffinityText) : nil
-            if let electronAffinity = electronAffinity {
-                descriptionTextView.text += "\nElectron affinity: \(electronAffinity) kJ/mol" + "\n"
-            }
-        }
-        
-        if let electronegativityPaulingText: String = currentElement.electronegativityPauling  {
-            let electronegativityPauling = Float(electronegativityPaulingText) != nil ? Float(electronegativityPaulingText) : nil
-            if let electronegativityPauling = electronegativityPauling {
-                descriptionTextView.text += "\nElectronegativity by Pauling: \(electronegativityPauling)" + "\n"
-            }
-        }
-        
-        if currentElement.shells.isEmpty != true {
-            descriptionTextView.text += "\nShells: "
-            var shellsText: [String] = []
-            for shell in currentElement.shells {
-                shellsText.append(String(shell))
-            }
-            
-            descriptionTextView.text += shellsText.joined(separator: ", ")
-            descriptionTextView.text += "\n"
-        }
 
-        if currentElement.ionizationEnergies.isEmpty != true {
-            descriptionTextView.text += "\nIonization energies: \n"
-            var ionizationEnergiesText: [String] = []
-            for item in currentElement.ionizationEnergies {
-                ionizationEnergiesText.append(String(item))
-            }
-            
-            descriptionTextView.text += ionizationEnergiesText.joined(separator: ", \n")
-            descriptionTextView.text += "\n"
-        }
+        let molarHeat = currentElement.molarHeat != nil ? String(currentElement.molarHeat!) + " J/(mol·K)" : "unknown"
+        molarHeatView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Molar heat capacity", infoText: molarHeat)
+        
+        let electronConfiguration = currentElement.electronConfiguration
+        electronConfigurationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Electron configuration", infoText: electronConfiguration)
+        
+        let electronConfigurationSemantic = currentElement.electronConfigurationSemantic
+        electronConfigurationSemanticView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Semantic configuration", infoText: electronConfigurationSemantic)
+        
+        let electronAffinity = currentElement.electronAffinity != nil ? String(currentElement.electronAffinity!) + " kJ/mol" : "- - -"
+        electronAffinityView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Electron affinity", infoText: electronAffinity)
+        
+        let electronegativityPauling = currentElement.electronegativityPauling != nil ? String(currentElement.electronegativityPauling!) : "- - -"
+        paulingView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Pauling electronegativity", infoText: electronegativityPauling)
+        
+        let shells = currentElement.shells.map({ String($0) }).joined(separator: ", ")
+        shellsView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Shells", infoText: shells)
+        
+        let electrons = currentElement.number
+        let protons = currentElement.number
+        let neutrons = Int16(round(currentElement.atomicMass)) - currentElement.number
+        
+        electronsView.configure(color: UIColor.blue.withAlphaComponent(0.2), labelOneText: "Electrons", labelTwoText: String(electrons))
+        protonsView.configure(color: UIColor.red.withAlphaComponent(0.2), labelOneText: "Protons", labelTwoText: String(protons))
+        neutronsView.configure(color: UIColor.orange.withAlphaComponent(0.2), labelOneText: "Neutrons", labelTwoText: String(neutrons))
+        
+        let ionizationEnergies: [Double] = currentElement.ionizationEnergies
+        let ionizationText: String = currentElement.ionizationEnergies.isEmpty != true ? ionizationEnergies.map({ String($0) }).joined(separator: "\n") : "- - -"
+        ionizationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Ionization energies", infoText: ionizationText)
+        
+        let discoveredBy = currentElement.discoveredBy ?? "- - -"
+        discoveredByView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Discovered by", infoText: discoveredBy)
+        
+        let namedBy = currentElement.namedBy ?? "- - -"
+        namedByView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Named by", infoText: namedBy)
+        
+        let summary = currentElement.summary
+        summaryView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Summary", infoText: summary, alignment: .justified)
+        
+        let appearance = currentElement.appearance ?? "- - -"
+        appearanceView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Appearance", infoText: appearance, alignment: appearance != "- - -" ? .justified : .center)
+        
     }
 }
 

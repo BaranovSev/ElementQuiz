@@ -68,8 +68,8 @@ enum ElementParameters: String {
     case electronConfigurationSemantic = "electronConfigurationSemantic"
     case shells = "shells"
     case ionizationEnergies = "ionizationEnergies"
-    case discovered = "discovered"
-    case named = "named"
+    case discovered = "discoveredBy"
+    case named = "namedBy"
     case appearance = "appearance"
     
     static var allValues: [String] {

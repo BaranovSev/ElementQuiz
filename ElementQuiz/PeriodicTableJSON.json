@@ -60,7 +60,7 @@
         "density": 0.1786,
         "discovered_by": "Pierre Janssen",
         "melt": 0.95,
-        "molar_heat": null,
+        "molar_heat": 20.78,
         "named_by": null,
         "number": 2,
         "period": 1,
