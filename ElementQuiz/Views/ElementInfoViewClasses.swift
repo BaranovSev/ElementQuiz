@@ -26,9 +26,9 @@ class SquareInfoView: UIView {
     func setup() {
         layer.cornerRadius = 15
         elementLabelOne.font = UIFont(name: "Hoefler Text", size: 20)
-        elementLabelOne.textColor = .black
+        elementLabelOne.textColor = CustomColors.softAppColor
         elementLabelTwo.font = UIFont(name: "Menlo Bold", size: 35)
-        elementLabelTwo.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        elementLabelTwo.textColor = CustomColors.softAppColor
         addSubViews()
         layout()
     }
@@ -77,16 +77,17 @@ class PhaseView: UIView {
     private func setup() {
         parentView.layer.cornerRadius = 10
         parentView.layer.borderWidth = 2.0
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.layer.borderColor = CustomColors.softAppColor.cgColor
+        parentView.backgroundColor = CustomColors.generalAppPhont
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont(name:"Menlo Bold", size: 30)
         label.text = "Phase"
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.softAppColor
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         phaseLabel.font = UIFont(name: "Menlo Bold", size: 35)
-        phaseLabel.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        phaseLabel.textColor = CustomColors.softAppColor
         phaseLabel.textAlignment = .center
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -153,16 +154,17 @@ class AccentBoxView: UIView {
     func setup() {
         layer.cornerRadius = 15
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
+//        titleLabel.numberOfLines = 2
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
-        titleLabel.textColor = .black
+        titleLabel.textColor = CustomColors.generalTextColor
         titleLabel.textAlignment = .center
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = .white
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
         infoLabel.font = UIFont(name: "Avenir", size: 20)
-        infoLabel.textColor = .black
+        infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.textAlignment = .center
         infoLabel.numberOfLines = 4
         infoLabel.adjustsFontSizeToFitWidth = true
@@ -242,19 +244,19 @@ class PalleteView: UIView {
     private func configureLayer() {
         layer.cornerRadius = 15
         layer.borderWidth = 2.0
-        backgroundColor = .white
+        backgroundColor = CustomColors.generalAppPhont
     }
     
     private func configureTitleLabel() {
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
-        titleLabel.textColor = .black
+        titleLabel.textColor = CustomColors.generalTextColor
         titleLabel.textAlignment = .center
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = .white
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
     }
     
     private func configureParentStack() {
@@ -272,7 +274,7 @@ class PalleteView: UIView {
             let label = UILabel()
             label.font = UIFont(name: "Avenir", size: 25)
             label.text = "unknown"
-            label.textColor = .black
+            label.textColor = CustomColors.generalTextColor
             label.textAlignment = .center
             parentStack.addArrangedSubview(label)
         }
@@ -284,13 +286,13 @@ class PalleteView: UIView {
     private func createLabel(for value: Int, form: Form, toRoman: Bool) -> UILabel {
         let label = UILabel()
         label.font = UIFont(name: "Avenir", size: 20)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         label.text = toRoman ? String(value.toRoman()) : String(value)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = (form == .square) ? 2 : 20
         label.layer.borderWidth = 2.0
-        label.layer.borderColor = CustomColors.lightPurple
+        label.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         if toRoman == false {
             if value == 0 {
                 label.backgroundColor = .white
@@ -406,12 +408,12 @@ class TemperatureView: UIView {
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
-        titleLabel.textColor = .black
+        titleLabel.textColor = CustomColors.generalTextColor
         titleLabel.textAlignment = .center
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = .white
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
     }
     
     private func configureVerticalStack() {
@@ -423,19 +425,19 @@ class TemperatureView: UIView {
     
     private func configureInnerLables() {
         labelOne.font = UIFont(name: "Avenir", size: 20)
-        labelOne.textColor = .black
+        labelOne.textColor = CustomColors.generalTextColor
         labelOne.textAlignment = .left
         labelOne.adjustsFontSizeToFitWidth = true
         labelOne.minimumScaleFactor = 0.5
         
         labelTwo.font = UIFont(name: "Avenir", size: 20)
-        labelTwo.textColor = .black
+        labelTwo.textColor = CustomColors.generalTextColor
         labelTwo.textAlignment = .left
         labelTwo.adjustsFontSizeToFitWidth = true
         labelTwo.minimumScaleFactor = 0.5
         
         labelThree.font = UIFont(name: "Avenir", size: 20)
-        labelThree.textColor = .black
+        labelThree.textColor = CustomColors.generalTextColor
         labelThree.textAlignment = .left
         labelThree.adjustsFontSizeToFitWidth = true
         labelThree.minimumScaleFactor = 0.5
@@ -479,7 +481,9 @@ class TemperatureView: UIView {
     
     func configure(titleBorderColor: CGColor, borderColor: CGColor, titleText: String, labelOneText: String, labelTwoText: String, labelThreeText: String, imageName: String) {
         titleLabel.layer.borderColor = titleBorderColor
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
         parentView.layer.borderColor = borderColor
+        parentView.backgroundColor = CustomColors.generalAppPhont
         titleLabel.text = " " + titleText + " "
         labelOne.text = labelOneText
         labelTwo.text = labelTwoText
@@ -508,16 +512,18 @@ class BoxViewWithTextView: UIView {
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
-        titleLabel.textColor = .black
+        titleLabel.textColor = CustomColors.generalTextColor
         titleLabel.textAlignment = .center
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = .white
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
         infoTextView.font = UIFont(name: "Avenir", size: 20)
-        infoTextView.textColor = .black
+        infoTextView.textColor = CustomColors.generalTextColor
         infoTextView.textAlignment = .center
         infoTextView.isScrollEnabled = false
+        infoTextView.backgroundColor = .clear
+        infoTextView.isEditable = false
         parentView.layer.cornerRadius = 10
         parentView.layer.borderWidth = 2.0
         parentView.layer.masksToBounds = true

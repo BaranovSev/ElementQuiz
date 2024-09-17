@@ -32,7 +32,7 @@ final class CongratulationViewController: UIViewController {
         label.textAlignment = .center
         label.minimumScaleFactor = 0.3
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -53,7 +53,7 @@ final class CongratulationViewController: UIViewController {
         label.textAlignment = .center
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -208,7 +208,7 @@ final class CongratulationViewController: UIViewController {
         cell.birthRate = 100
         cell.velocity = 10
         cell.contents = UIImage(named: "square-small")!.cgImage
-        cell.color = CustomColors.lightPurple
+        cell.color = CustomColors.secondaryAppColor.cgColor
         layer.emitterCells = [cell]
         
         view.layer.addSublayer(layer)

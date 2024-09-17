@@ -119,7 +119,7 @@ final class BigGameViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.softAppColor.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
@@ -132,7 +132,7 @@ final class BigGameViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.softAppColor.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
@@ -145,7 +145,7 @@ final class BigGameViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.softAppColor.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
@@ -158,7 +158,7 @@ final class BigGameViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.softAppColor.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
@@ -305,7 +305,7 @@ final class BigGameViewController: UIViewController {
         case .categoryQuestion:
             elementIcon.backgroundColor = .white
             elementIcon.layer.borderWidth = 4
-            elementIcon.layer.borderColor = CustomColors.lightPurple
+            elementIcon.layer.borderColor = CustomColors.secondaryAppColor.cgColor
             elementIcon.symbolLabel.textColor = .black
             elementIcon.atomicMassLabel.textColor = .black
             elementIcon.elementNumberLabel.textColor = .black

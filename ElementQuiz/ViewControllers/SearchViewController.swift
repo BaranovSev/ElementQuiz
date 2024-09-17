@@ -85,10 +85,10 @@ final class SearchViewController: UIViewController {
     private lazy var presetsMenuButton: UIButton = {
         let setupButton = UIButton()
         setupButton.setTitle("Presets", for: .normal)
-        let color = CustomColors.lightPurple
+        let color = CustomColors.secondaryAppColor
         
-        setupButton.setTitleColor(UIColor(cgColor: color), for: .normal)
-        setupButton.layer.borderColor = color
+        setupButton.setTitleColor(color, for: .normal)
+        setupButton.layer.borderColor = color.cgColor
         setupButton.backgroundColor = .white
 
         setupButton.layer.borderWidth = 2
@@ -101,11 +101,11 @@ final class SearchViewController: UIViewController {
     
     private lazy var orderButton: UIButton = {
         let button = UIButton()
-        let color = CustomColors.lightPurple
+        let color = CustomColors.secondaryAppColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 4
-        button.layer.borderColor = color
-        button.imageView?.tintColor = UIColor(cgColor: color)
+        button.layer.borderColor = color.cgColor
+        button.imageView?.tintColor = color
         button.addTarget(self, action: #selector(Self.orderButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -121,7 +121,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var switcher: UISwitch = {
         let switcher = UISwitch()
-        switcher.onTintColor = UIColor(cgColor: CustomColors.lightPurple)
+        switcher.onTintColor = CustomColors.secondaryAppColor
         switcher.addTarget(self, action: #selector(Self.refreshTableView), for: .touchUpInside)
         return switcher
     }()
@@ -285,7 +285,7 @@ final class SearchViewController: UIViewController {
         case .descending:
             orderButton.setImage(UIImage(systemName: "arrow.down"), for: .normal)
         case .unordered:
-            let image = UIImage(systemName: "arrow.left.arrow.right")?.rotate(radians: .pi/2)?.withTintColor(UIColor(cgColor: CustomColors.lightPurple))
+            let image = UIImage(systemName: "arrow.left.arrow.right")?.rotate(radians: .pi/2)?.withTintColor(CustomColors.secondaryAppColor)
             orderButton.setImage(image, for: .normal)
         }
     }
@@ -710,9 +710,9 @@ final class UpscaledTextViewController: UIViewController {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
-        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
+        button.tintColor = CustomColors.secondaryAppColor
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)

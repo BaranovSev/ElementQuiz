@@ -127,7 +127,7 @@ final private class CellWithLabel: UITableViewCell {
         backgroundColor = .white
         parentView.layer.borderWidth = 2
         parentView.layer.cornerRadius = 4
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
     }
     
     private func addSubViews() {

@@ -79,7 +79,7 @@ final class StartViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1250)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = CustomColors.generalAppPhont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -93,7 +93,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = currentElement?.name
         label.font = UIFont(name: "Hoefler Text", size: 30)
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -101,7 +101,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = currentElement?.latinName
         label.font = UIFont(name: "Hoefler Text", size: 20)
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
 
@@ -135,7 +135,7 @@ final class StartViewController: UIViewController {
         var label = UILabel()
         label.text = "progress: \(learnedElements.count)/\(fixedElementList.count)"
         label.font = UIFont(name: "Hoefler Text", size: 18)
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -143,10 +143,10 @@ final class StartViewController: UIViewController {
         var button = UIButton()
         button.setTitle("repeat", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 18)
-        button.setTitleColor(UIColor(cgColor: CustomColors.lightPurple), for: .normal)
+        button.setTitleColor(CustomColors.secondaryTextColor, for: .normal)
         button.setTitleColor(.gray, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.backgroundColor = .clear
+        button.layer.borderColor = CustomColors.secondaryTextColor.cgColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(Self.showElementInfoViewControllerForRepeating), for: .touchUpInside)
@@ -156,7 +156,7 @@ final class StartViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = CustomColors.generalAppPhont
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
         collectionView.isScrollEnabled = false
@@ -555,10 +555,11 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.layer.borderWidth = 2.0
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.backgroundColor = CustomColors.backgroundForCell
+//        parentView.layer.borderWidth = 2.0
+//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -620,11 +621,12 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.layer.borderWidth = 2.0
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.backgroundColor = CustomColors.backgroundForCell
+//        parentView.layer.borderWidth = 2.0
+//        parentView.layer.borderColor = CustomColors.backgroundForCell.cgColor
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -686,10 +688,11 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.layer.borderWidth = 2.0
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.backgroundColor = CustomColors.backgroundForCell
+//        parentView.layer.borderWidth = 2.0
+//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -739,10 +742,11 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.layer.borderWidth = 2.0
-        parentView.layer.borderColor = CustomColors.lightPurple
+        parentView.backgroundColor = CustomColors.backgroundForCell
+//        parentView.layer.borderWidth = 2.0
+//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -796,7 +800,7 @@ private final class UserStatisticCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = ((UIScreen.main.bounds.width / 3) - 10) / 2
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 2.0
-        imageView.layer.borderColor = CustomColors.lightPurple
+        imageView.layer.borderColor = CustomColors.backgroundForCell.cgColor
     }
     
     private func addSubViews() {
@@ -831,7 +835,7 @@ private final class CustomHeaderView: UICollectionReusableView {
     private func setup() {
         label.textAlignment = .left
         label.numberOfLines = 3
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true

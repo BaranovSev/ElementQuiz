@@ -21,11 +21,37 @@ struct CustomColors {
     static let nonmetal = UIColor(named: "nonmetal") ?? UIColor.white
     static let halogen = UIColor(named: "halogen") ?? UIColor.white
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
-    static let lightPurple = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
+//    static let lightPurple = UIColor(named: "lightPurple") ?? UIColor.white
     static let sblock = UIColor(named: "sblock") ?? UIColor.white
     static let pblock = UIColor(named: "pblock") ?? UIColor.white
     static let dblock = UIColor(named: "dblock") ?? UIColor.white
     static let fblock = UIColor(named: "fblock") ?? UIColor.white
+    
+//    theme colors
+    //dark blue theme
+    static private let phontColor = UIColor(named: "white_richBlack") ?? UIColor.white
+    static private let secondaryColor = UIColor(named: "lavender_black") ?? UIColor.white
+    static private let softColor = UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white
+    static private let mainColor = UIColor(named: "oxfordBlue_lavender") ?? UIColor.white
+    static private let forHeaders = UIColor(named: "charcoal_lavender") ?? UIColor.white
+    static private let textColor = UIColor(named: "black_white") ?? UIColor.white
+    static private let phontForCell = UIColor(named: "lavender_charcoal") ?? UIColor.white
+    
+    static let softAppColor = softColor
+    static let generalTextColor = mainColor
+    static let secondaryTextColor = forHeaders
+    static let generalAppPhont = phontColor
+    static let secondaryAppColor = phontColor
+    static let textAppColor = textColor
+    static let backgroundForCell = phontForCell
+    
+    //Absolute black
+//    static let generalAppPhont = secondaryColor
+//    static let backgroundForCell = phontColor
+    
+
+//    static let secondaryColor
+    
 }
 
 extension CustomColors {

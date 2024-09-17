@@ -12,7 +12,7 @@ final class ElementInfoViewController: UIViewController {
     // MARK: - Properties
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
-    private let color = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
+//    private let color = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
     var delegate: StartViewController? = nil
     var currentElement: ChemicalElementModel? {
         didSet {
@@ -25,7 +25,7 @@ final class ElementInfoViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 4550)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = CustomColors.generalAppPhont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -38,14 +38,14 @@ final class ElementInfoViewController: UIViewController {
     private lazy var localizedNameLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 30)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         return label
     }()
     
     private lazy var latinNameLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 20)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         return label
     }()
     
@@ -408,7 +408,7 @@ final class ElementInfoViewController: UIViewController {
 
 private extension ElementInfoViewController {
     func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         showInformation()
     }
     
@@ -421,10 +421,10 @@ private extension ElementInfoViewController {
         categoryLabel.textColor = CustomColors.choseColor(currentElement.category)
         
         let group = String(currentElement.group)
-        groupView.configure(color: .green.withAlphaComponent(0.2), labelOneText: "Group:", labelTwoText: group)
+        groupView.configure(color: UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0), labelOneText: "Group:", labelTwoText: group)
         
         let period = String(currentElement.period)
-        periodView.configure(color: .red.withAlphaComponent(0.2), labelOneText: "Period:", labelTwoText: period)
+        periodView.configure(color: UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0), labelOneText: "Period:", labelTwoText: period)
         
         let phase = currentElement.phase
         phaseView.configure(phase: phase)
@@ -492,9 +492,9 @@ private extension ElementInfoViewController {
         let protons = currentElement.number
         let neutrons = Int16(round(currentElement.atomicMass)) - currentElement.number
         
-        electronsView.configure(color: UIColor.blue.withAlphaComponent(0.2), labelOneText: "Electrons", labelTwoText: String(electrons))
-        protonsView.configure(color: UIColor.red.withAlphaComponent(0.2), labelOneText: "Protons", labelTwoText: String(protons))
-        neutronsView.configure(color: UIColor.orange.withAlphaComponent(0.2), labelOneText: "Neutrons", labelTwoText: String(neutrons))
+        electronsView.configure(color: UIColor(red: 0.8, green: 0.8, blue: 1.0, alpha: 1.0), labelOneText: "Electrons", labelTwoText: String(electrons))
+        protonsView.configure(color: UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0), labelOneText: "Protons", labelTwoText: String(protons))
+        neutronsView.configure(color: UIColor(red: 1.0, green: 0.9294, blue: 0.8, alpha: 1.0), labelOneText: "Neutrons", labelTwoText: String(neutrons))
         
         let ionizationEnergies: [Double] = currentElement.ionizationEnergies
         let ionizationText: String = currentElement.ionizationEnergies.isEmpty != true ? ionizationEnergies.map({ String($0) }).joined(separator: "\n") : "- - -"

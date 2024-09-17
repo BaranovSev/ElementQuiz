@@ -34,7 +34,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 75)
         label.textAlignment = .center
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -76,7 +76,7 @@ final class StatisticViewControler: UIViewController {
         label.font = UIFont(name: "Impact", size: 55)
         label.textAlignment = .center
         label.textColor = .black
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -114,7 +114,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 55)
         label.textAlignment = .center
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
@@ -141,9 +141,9 @@ final class StatisticViewControler: UIViewController {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
-        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
+        button.tintColor = CustomColors.secondaryAppColor
         button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
+        button.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
