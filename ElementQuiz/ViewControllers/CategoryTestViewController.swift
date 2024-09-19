@@ -52,7 +52,7 @@ final class CategoryTestViewController: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 27)
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -77,11 +77,11 @@ final class CategoryTestViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 1", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.softAppColor.cgColor
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -90,11 +90,11 @@ final class CategoryTestViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 2", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.softAppColor.cgColor
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -103,11 +103,11 @@ final class CategoryTestViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 3", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.softAppColor.cgColor
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -116,11 +116,11 @@ final class CategoryTestViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 4", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.softAppColor.cgColor
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -130,8 +130,8 @@ final class CategoryTestViewController: UIViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        backButton.tintColor = .black
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        backButton.tintColor = CustomColors.generalTextColor
         
         setupQuestionSequens()
         setUp()
@@ -158,8 +158,9 @@ final class CategoryTestViewController: UIViewController {
             for button in answerButtons {
                 button.isHidden = false
                 button.isEnabled = true
-                button.backgroundColor = .white
+                button.backgroundColor = CustomColors.backgroundForCell
                 button.setTitle(randomVariants[localIndex], for: .normal)
+                button.setTitleColor(CustomColors.generalTextColor, for: .normal)
                 button.addTarget(self, action: #selector(Self.answerBtnPressed(_:)), for: .touchUpInside)
                 localIndex += 1
             }
@@ -167,7 +168,8 @@ final class CategoryTestViewController: UIViewController {
             let currentCorrectAnswer = getCorrectAnswer()
             for button in answerButtons {
                 if button.titleLabel?.text == currentCorrectAnswer {
-                    button.backgroundColor = .green.withAlphaComponent(0.7)
+                    button.backgroundColor = CustomColors.greenCorrectAnswer
+                    button.setTitleColor(CustomColors.softAppColor, for: .normal)
                 }
                 button.isEnabled = false
             }
@@ -215,9 +217,9 @@ final class CategoryTestViewController: UIViewController {
         guard let userAnswer = sender.titleLabel?.text else { return }
         answerBtnShouldReturn(answer: userAnswer)
         if answerIsCorrect == true {
-            sender.backgroundColor = .green.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.greenCorrectAnswer
         } else if answerIsCorrect == false {
-            sender.backgroundColor = .red.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.redIncorrectAnswer
         }
     }
     
@@ -246,7 +248,7 @@ final class CategoryTestViewController: UIViewController {
 
 private extension CategoryTestViewController {
     private func setUp() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         view.addSubview(questionLabel)
         view.addSubview(coloredView)
         view.addSubview(verticalStack)

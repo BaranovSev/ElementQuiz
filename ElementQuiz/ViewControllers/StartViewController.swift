@@ -116,7 +116,7 @@ final class StartViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
+        button.backgroundColor = CustomColors.purple
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.showElementInfoViewController), for: .touchUpInside)
@@ -781,7 +781,7 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
 private final class UserStatisticCollectionViewCell: UICollectionViewCell {
     static let reuseId = "UserStatisticCollectionViewCell"
     let imageView: UIImageView = UIImageView()
-    let userImage: UIImage = UIImage(named: "statistic") ?? UIImage()
+    let userImage: UIImage = UIImage(named: "user_image") ?? UIImage()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -797,10 +797,9 @@ private final class UserStatisticCollectionViewCell: UICollectionViewCell {
     private func setup() {
         imageView.contentMode = .scaleToFill
         imageView.image = userImage
-        imageView.layer.cornerRadius = ((UIScreen.main.bounds.width / 3) - 10) / 2
+        imageView.layer.cornerRadius = (UIScreen.main.bounds.width / 3) / 2
         imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 2.0
-        imageView.layer.borderColor = CustomColors.backgroundForCell.cgColor
+        imageView.backgroundColor = CustomColors.backgroundForCell
     }
     
     private func addSubViews() {

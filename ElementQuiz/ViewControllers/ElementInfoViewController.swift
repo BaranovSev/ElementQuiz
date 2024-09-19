@@ -153,7 +153,7 @@ final class ElementInfoViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
+        button.backgroundColor = CustomColors.purple
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.showElementMemorizingController), for: .touchUpInside)

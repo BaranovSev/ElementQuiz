@@ -23,7 +23,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var youLearnedLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 50)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -42,7 +42,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 50)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -51,7 +51,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1500)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = CustomColors.generalAppPhont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -64,7 +64,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var totallyPassedLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -75,7 +75,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 55)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textColor = CustomColors.secondaryTextColor
         return label
     }()
@@ -84,7 +84,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -94,7 +94,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -103,7 +103,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var inAdditionLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .justified
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -122,7 +122,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -132,7 +132,7 @@ final class StatisticViewControler: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 20)
         label.textAlignment = .justified
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
@@ -141,9 +141,9 @@ final class StatisticViewControler: UIViewController {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
-        button.tintColor = CustomColors.secondaryAppColor
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.secondaryAppColor.cgColor
+        button.tintColor = CustomColors.generalTextColor
+        button.backgroundColor = CustomColors.generalAppPhont
+        button.layer.borderColor = CustomColors.generalTextColor.cgColor
         button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
@@ -161,8 +161,8 @@ final class StatisticViewControler: UIViewController {
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        backButton.tintColor = .black
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        backButton.tintColor = CustomColors.generalTextColor
         
         setup()
         addSubViews()
@@ -331,7 +331,7 @@ final class StatisticViewControler: UIViewController {
                 label.adjustsFontSizeToFitWidth = true
                 label.minimumScaleFactor = 0.5
                 label.textAlignment = .left
-                label.textColor = .black
+                label.textColor = CustomColors.generalTextColor
                 cell.addSubview(infoColor)
                 cell.addSubview(label)
                 

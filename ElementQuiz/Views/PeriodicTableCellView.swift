@@ -8,11 +8,14 @@
 import UIKit
 import SnapKit
 
+private let textColor = CustomColors.blackWhite
+
 final class PeriodicTableCellView: UIView {
     lazy var elementNumberLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 15)
         label.minimumScaleFactor = 0.1
+        label.textColor = textColor
         addSubview(label)
         return label
     }()
@@ -21,6 +24,7 @@ final class PeriodicTableCellView: UIView {
         var label = UILabel()
         label.font = UIFont(name: "Menlo Bold", size: 30)
         label.minimumScaleFactor = 0.1
+        label.textColor = textColor
         addSubview(label)
         return label
     }()
@@ -30,6 +34,7 @@ final class PeriodicTableCellView: UIView {
         label.font = UIFont(name: "Menlo", size: 15)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
+        label.textColor = textColor
         addSubview(label)
         return label
     }()
@@ -38,6 +43,7 @@ final class PeriodicTableCellView: UIView {
         var label = UILabel()
         label.font = UIFont(name: "Menlo", size: 13)
         label.minimumScaleFactor = 0.1
+        label.textColor = textColor
         addSubview(label)
         return label
     }()
@@ -47,6 +53,7 @@ final class PeriodicTableCellView: UIView {
         label.font = UIFont(name: "Menlo", size: 13)
         label.minimumScaleFactor = 0.1
         label.numberOfLines = 4
+        label.textColor = textColor
         addSubview(label)
         return label
     }()
@@ -111,6 +118,7 @@ final class EmptyCell: UIView {
         let label = UILabel()
         label.font = UIFont(name: "Menlo Bold", size: 15)
         label.textAlignment = .center
+        label.textColor = CustomColors.blackWhite
         addSubview(label)
         return label
     }()

@@ -18,16 +18,17 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     private let delegate: ParametersButtonDelegate
     private lazy var label: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 30)
-        label.textColor = .black
-        label.textAlignment = .justified
+        label.font = UIFont(name: "Impact", size: 40)
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = CustomColors.generalTextColor
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellWithLabel.reusableIdentifier)
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = CustomColors.generalAppPhont
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
         return tableView
@@ -60,7 +61,7 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
         label.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(15)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(15)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
         }
         
         tableView.snp.makeConstraints { make in
@@ -72,7 +73,7 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     }
     
     private func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -122,12 +123,13 @@ final private class CellWithLabel: UITableViewCell {
         infoLabel.minimumScaleFactor = 0.35
         infoLabel.adjustsFontSizeToFitWidth = true
         infoLabel.textAlignment = .justified
-        infoLabel.textColor = .black
+        infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.numberOfLines = 2
-        backgroundColor = .white
-        parentView.layer.borderWidth = 2
+        backgroundColor = CustomColors.generalAppPhont
+//        parentView.layer.borderWidth = 2
         parentView.layer.cornerRadius = 4
-        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
+        parentView.backgroundColor = CustomColors.backgroundForCell
+//        parentView.layer.borderColor = CustomColors.generalTextColor.cgColor
     }
     
     private func addSubViews() {

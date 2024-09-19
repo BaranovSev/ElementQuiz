@@ -291,18 +291,20 @@ class PalleteView: UIView {
         label.text = toRoman ? String(value.toRoman()) : String(value)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = (form == .square) ? 2 : 20
-        label.layer.borderWidth = 2.0
-        label.layer.borderColor = CustomColors.secondaryAppColor.cgColor
+//        label.layer.borderWidth = 2.0
+//        label.layer.borderColor = CustomColors.secondaryTextColor.cgColor
         if toRoman == false {
             if value == 0 {
-                label.backgroundColor = .white
+                label.backgroundColor = CustomColors.backgroundForCell
             } else if value < 0 {
-                label.backgroundColor = .red.withAlphaComponent(0.3)
+                label.backgroundColor = CustomColors.redLight
+                label.textColor = CustomColors.softAppColor
             } else {
-                label.backgroundColor = .green.withAlphaComponent(0.3)
+                label.backgroundColor = CustomColors.greenLight
+                label.textColor = CustomColors.softAppColor
             }
         } else {
-            label.backgroundColor = .white
+            label.backgroundColor = CustomColors.backgroundForCell
         }
         
         return label
