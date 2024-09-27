@@ -242,8 +242,8 @@ class PalleteView: UIView {
     }
     
     private func configureLayer() {
-        layer.cornerRadius = 15
-        layer.borderWidth = 2.0
+//        layer.cornerRadius = 15
+//        layer.borderWidth = 2.0
         backgroundColor = CustomColors.generalAppPhont
     }
     
@@ -311,7 +311,7 @@ class PalleteView: UIView {
     }
     
     private func addSubViews() {
-        let itemsInRow = 3
+        let itemsInRow = 5
         var horizontalStack: UIStackView?
         
         for (index, view) in views.enumerated() {
@@ -343,6 +343,7 @@ class PalleteView: UIView {
         parentStack.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(25)
             make.leading.trailing.equalToSuperview().inset(25)
+            make.bottom.equalToSuperview()
         }
         
         views.forEach { view in
@@ -351,6 +352,9 @@ class PalleteView: UIView {
                 make.width.equalTo(40)
             }
         }
+//        views.last!.snp.makeConstraints { make in
+//            make.bottom.equalToSuperview()
+//        }
     }
     
     func configure(titleBorderColor: CGColor, borderColor: CGColor, form: Form, toRoman: Bool, titleText: String, infoText: [Int]) {
@@ -426,19 +430,19 @@ class TemperatureView: UIView {
     }
     
     private func configureInnerLables() {
-        labelOne.font = UIFont(name: "Avenir", size: 20)
+        labelOne.font = UIFont(name: "Avenir", size: 30)
         labelOne.textColor = CustomColors.generalTextColor
         labelOne.textAlignment = .left
         labelOne.adjustsFontSizeToFitWidth = true
         labelOne.minimumScaleFactor = 0.5
         
-        labelTwo.font = UIFont(name: "Avenir", size: 20)
+        labelTwo.font = UIFont(name: "Avenir", size: 30)
         labelTwo.textColor = CustomColors.generalTextColor
         labelTwo.textAlignment = .left
         labelTwo.adjustsFontSizeToFitWidth = true
         labelTwo.minimumScaleFactor = 0.5
         
-        labelThree.font = UIFont(name: "Avenir", size: 20)
+        labelThree.font = UIFont(name: "Avenir", size: 30)
         labelThree.textColor = CustomColors.generalTextColor
         labelThree.textAlignment = .left
         labelThree.adjustsFontSizeToFitWidth = true
@@ -571,3 +575,85 @@ class BoxViewWithTextView: UIView {
         infoTextView.textAlignment = alignment ?? .center
     }
 }
+
+class HeaderWithText: UIView {
+    private let titleLabel: UILabel = UILabel()
+    private let infoTextView: UITextView = UITextView()
+    private let parentView: UIView = UIView()
+    
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        layer.cornerRadius = 15
+        titleLabel.font = UIFont(name: "Avenir", size: 20)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.5
+        titleLabel.textColor = CustomColors.generalTextColor
+        titleLabel.textAlignment = .justified
+        titleLabel.layer.masksToBounds = true
+//        titleLabel.layer.cornerRadius = 15
+//        titleLabel.layer.borderWidth = 2.0
+        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        infoTextView.font = UIFont(name: "Menlo Bold", size: 30)
+        infoTextView.textColor = CustomColors.generalTextColor
+        infoTextView.textAlignment = .center
+        infoTextView.isScrollEnabled = false
+        infoTextView.backgroundColor = .clear
+        infoTextView.isEditable = false
+        parentView.layer.cornerRadius = 10
+        parentView.layer.borderWidth = 2.0
+        parentView.layer.masksToBounds = true
+        addSubViews()
+        layout()
+    }
+    
+    private func addSubViews() {
+        addSubview(parentView)
+        addSubview(titleLabel)
+        addSubview(infoTextView)
+    }
+    
+    func layout() {
+        titleLabel.snp.makeConstraints { make in
+            make.width.lessThanOrEqualToSuperview().offset(15)
+            make.leading.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        
+        parentView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(titleLabel.snp_centerYWithinMargins)
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        infoTextView.snp.makeConstraints { make in
+            make.top.equalTo(parentView.snp.top).offset(20)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.centerY.equalTo(parentView).offset(titleLabel.bounds.height)
+            make.height.lessThanOrEqualTo(parentView.snp.height)
+        }
+    }
+    
+    func configure(titleBorderColor: CGColor, borderColor: CGColor, titleText: String, infoText: String, alignment: NSTextAlignment? = nil, infoIsBold: Bool? = true) {
+        titleLabel.layer.borderColor = titleBorderColor
+        parentView.layer.borderColor = borderColor
+        titleLabel.text = " " + titleText + " "
+        infoTextView.text = infoText
+        infoTextView.textAlignment = alignment ?? .center
+        if infoIsBold == false {
+            infoTextView.font = UIFont(name: "Avenir", size: 20)
+        }
+    }
+}
+

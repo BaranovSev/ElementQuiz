@@ -140,16 +140,16 @@ final class StatisticViewControler: UIViewController {
     
     private lazy var shareButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
+        button.setImage(UIImage(named: "plane") ?? UIImage(), for: .normal)
         button.tintColor = CustomColors.generalTextColor
-        button.backgroundColor = CustomColors.generalAppPhont
-        button.layer.borderColor = CustomColors.generalTextColor.cgColor
-        button.layer.borderWidth = 3
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.generalTextColor.cgColor
+//        button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
         button.imageView?.snp.makeConstraints { make in
-            make.height.equalToSuperview().offset(-19)
-            make.width.equalToSuperview().offset(-15)
+            make.height.equalToSuperview().offset(-5)
+            make.width.equalToSuperview().offset(-5)
             make.center.equalToSuperview()
         }
         return button
