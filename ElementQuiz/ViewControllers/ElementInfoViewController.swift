@@ -37,21 +37,27 @@ final class ElementInfoViewController: UIViewController {
     
     private lazy var localizedNameLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.font = UIFont(name: "Hoefler Text", size: 40)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
         return label
     }()
     
     private lazy var latinNameLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
         return label
     }()
     
     private lazy var categoryLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Hoefler Text", size: 20)
+        label.font = UIFont(name: "Hoefler Text", size: 30)
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
@@ -63,13 +69,11 @@ final class ElementInfoViewController: UIViewController {
         return SquareInfoView()
     }()
     
-    private lazy var discoveredByView: BoxViewWithTextView = {
-        return BoxViewWithTextView()
+    private lazy var discoveredByView: HeaderWithText? = {
+        return HeaderWithText()
     }()
     
-    private lazy var namedByView: BoxViewWithTextView = {
-        return BoxViewWithTextView()
-    }()
+    private lazy var namedByView: HeaderWithText? = nil
     
     private lazy var summaryView: BoxViewWithTextView = {
         return BoxViewWithTextView()
@@ -79,53 +83,39 @@ final class ElementInfoViewController: UIViewController {
         return PhaseView()
     }()
     
-    private lazy var appearanceView: BoxViewWithTextView = {
-        return BoxViewWithTextView()
+    private lazy var appearanceView: HeaderWithText? = nil
+    
+    private lazy var atomicMassView: HeaderWithText = {
+        return HeaderWithText()
     }()
     
-    private lazy var atomicMassView: AccentBoxView = {
-        return AccentBoxView()
+    private lazy var densityView: HeaderWithText = {
+        return HeaderWithText()
     }()
     
-    private lazy var densityView: AccentBoxView = {
-        return AccentBoxView()
-    }()
-    
-    private lazy var valencyView: PalleteView = {
-        return PalleteView()
-    }()
+    private lazy var valencyView: PalleteView? = nil
     
     private lazy var oxidationView: PalleteView = {
         return PalleteView()
     }()
     
-    private lazy var boilView: TemperatureView = {
-        return TemperatureView()
+    private lazy var boilView: TemperatureView? = nil
+    
+    private lazy var meltView: TemperatureView? = nil
+    
+    private lazy var molarHeatView: HeaderWithText? = nil
+    
+    private lazy var electronConfigurationView: HeaderWithText = {
+        return HeaderWithText()
     }()
     
-    private lazy var meltView: TemperatureView = {
-        return TemperatureView()
+    private lazy var electronConfigurationSemanticView: HeaderWithText = {
+        return HeaderWithText()
     }()
     
-    private lazy var molarHeatView: AccentBoxView = {
-        return AccentBoxView()
-    }()
+    private lazy var electronAffinityView: HeaderWithText? = nil
     
-    private lazy var electronConfigurationView: AccentBoxView = {
-        return AccentBoxView()
-    }()
-    
-    private lazy var electronConfigurationSemanticView: AccentBoxView = {
-        return AccentBoxView()
-    }()
-    
-    private lazy var electronAffinityView: AccentBoxView = {
-        return AccentBoxView()
-    }()
-    
-    private lazy var paulingView: AccentBoxView = {
-        return AccentBoxView()
-    }()
+    private lazy var paulingView: HeaderWithText? = nil
     
     private lazy var shellsView: AccentBoxView = {
         return AccentBoxView()
@@ -143,9 +133,7 @@ final class ElementInfoViewController: UIViewController {
         return SquareInfoView()
     }()
     
-    private lazy var ionizationView: BoxViewWithTextView = {
-        return BoxViewWithTextView()
-    }()
+    private lazy var ionizationView: BoxViewWithTextView? = nil
     
     private lazy var bigButton: UIButton = {
         let button = UIButton()
@@ -181,31 +169,67 @@ final class ElementInfoViewController: UIViewController {
         scrollView.addSubview(categoryLabel)
         scrollView.addSubview(groupView)
         scrollView.addSubview(periodView)
-        scrollView.addSubview(discoveredByView)
-        scrollView.addSubview(namedByView)
+        if let discoveredByView = discoveredByView {
+            scrollView.addSubview(discoveredByView)
+        }
+        
+        if let appearanceView = appearanceView {
+            scrollView.addSubview(appearanceView)
+        }
+        
+        if let namedByView = namedByView {
+            scrollView.addSubview(namedByView)
+        }
+        
         scrollView.addSubview(summaryView)
         scrollView.addSubview(phaseView)
-        scrollView.addSubview(appearanceView)
         scrollView.addSubview(atomicMassView)
         scrollView.addSubview(densityView)
-        scrollView.addSubview(valencyView)
+        
+        if let valencyView = valencyView {
+            scrollView.addSubview(valencyView)
+        }
+        
         scrollView.addSubview(oxidationView)
-        scrollView.addSubview(boilView)
-        scrollView.addSubview(meltView)
-        scrollView.addSubview(molarHeatView)
+        
+        if let boilView = boilView {
+            scrollView.addSubview(boilView)
+        }
+        
+        if let meltView = meltView {
+            scrollView.addSubview(meltView)
+        }
+        
+        if let molarHeatView = molarHeatView {
+            scrollView.addSubview(molarHeatView)
+        }
+        
         scrollView.addSubview(electronConfigurationView)
         scrollView.addSubview(electronConfigurationSemanticView)
-        scrollView.addSubview(electronAffinityView)
-        scrollView.addSubview(paulingView)
+        
+        if let electronAffinityView = electronAffinityView {
+            scrollView.addSubview(electronAffinityView)
+        }
+        
+        if let paulingView = paulingView {
+            scrollView.addSubview(paulingView)
+        }
         scrollView.addSubview(shellsView)
         scrollView.addSubview(electronsView)
         scrollView.addSubview(protonsView)
         scrollView.addSubview(neutronsView)
-        scrollView.addSubview(ionizationView)
+        
+        if let ionizationView = ionizationView {
+            scrollView.addSubview(ionizationView)
+        }
+        
         scrollView.addSubview(bigButton)
     }
     
     private func layout() {
+        let standardWidth = UIScreen.main.bounds.width - 20
+        var lastView: UIView = periodView
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.height.equalToSuperview()
@@ -219,21 +243,24 @@ final class ElementInfoViewController: UIViewController {
         }
 
         localizedNameLabel.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(elementIcon.snp.bottom).offset(15)
+            make.top.lessThanOrEqualTo(elementIcon.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
-            make.height.equalTo(30)
+            make.width.lessThanOrEqualTo(standardWidth)
+            make.height.greaterThanOrEqualTo(40)
         }
 
         latinNameLabel.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(localizedNameLabel.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
-            make.height.equalTo(20)
+            make.width.lessThanOrEqualTo(standardWidth)
+            make.height.greaterThanOrEqualTo(30)
         }
         
         categoryLabel.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(latinNameLabel.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
-            make.height.equalTo(30)
+            make.width.lessThanOrEqualTo(standardWidth)
+            make.height.greaterThanOrEqualTo(30)
         }
         
         groupView.snp.makeConstraints { make in
@@ -250,128 +277,162 @@ final class ElementInfoViewController: UIViewController {
             make.width.equalTo(groupView.snp.width)
         }
         
-        discoveredByView.snp.makeConstraints { make in
-            make.top.equalTo(periodView.snp.bottom).offset(30)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.greaterThanOrEqualTo(100)
-        }
-        
-        namedByView.snp.makeConstraints { make in
-            make.top.equalTo(discoveredByView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.greaterThanOrEqualTo(100)
-        }
-        
         summaryView.snp.makeConstraints { make in
-            make.top.equalTo(namedByView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
-            make.width.equalTo(scrollView.snp.width).offset(-20)
+            make.width.equalTo(standardWidth)
             make.height.greaterThanOrEqualTo(250)
+            lastView = summaryView
+        }
+
+        if let appearanceView = appearanceView {
+            appearanceView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(standardWidth)
+                make.height.greaterThanOrEqualTo(100)
+                lastView = appearanceView
+            }
+        }
+        
+        if let discoveredByView = discoveredByView {
+            discoveredByView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(standardWidth)
+                make.height.greaterThanOrEqualTo(100)
+                lastView = discoveredByView
+            }
+        }
+        
+        if let namedByView = namedByView {
+            namedByView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(standardWidth)
+                make.height.greaterThanOrEqualTo(100)
+                lastView = namedByView
+            }
         }
                 
         phaseView.snp.makeConstraints { make in
-            make.top.equalTo(summaryView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.equalTo(250)
+            make.width.equalTo(standardWidth)
+            make.height.equalTo(standardWidth)
+            lastView = phaseView
         }
-        
-        appearanceView.snp.makeConstraints { make in
-            make.top.equalTo(phaseView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.greaterThanOrEqualTo(100)
-        }
-
-        
+   
         atomicMassView.snp.makeConstraints { make in
-            make.top.equalTo(appearanceView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.width.equalTo(250)
+            make.width.equalTo(standardWidth)
             make.height.equalTo(100)
+            lastView = atomicMassView
         }
         
         densityView.snp.makeConstraints { make in
-            make.top.equalTo(atomicMassView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(atomicMassView)
             make.height.equalTo(atomicMassView)
+            lastView = densityView
         }
         
-        valencyView.snp.makeConstraints { make in
-            make.top.equalTo(densityView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(phaseView)
-            make.height.equalTo(phaseView)
+        if let valencyView = valencyView {
+            valencyView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(phaseView)
+                make.height.greaterThanOrEqualTo(100)
+                lastView = valencyView
+            }
         }
-        
+
         oxidationView.snp.makeConstraints { make in
-            make.top.equalTo(valencyView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(phaseView)
-            make.height.equalTo(phaseView)
+            make.height.greaterThanOrEqualTo(100)
+            lastView = oxidationView
         }
         
-        boilView.snp.makeConstraints { make in
-            make.top.equalTo(oxidationView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(phaseView)
-            make.height.equalTo(phaseView)
+        if let boilView = boilView {
+            boilView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(phaseView)
+                make.height.equalTo(phaseView)
+                lastView = boilView
+            }
         }
         
-        meltView.snp.makeConstraints { make in
-            make.top.equalTo(boilView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(phaseView)
-            make.height.equalTo(phaseView)
+        if let meltView = meltView {
+            meltView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(phaseView)
+                make.height.equalTo(phaseView)
+                lastView = meltView
+            }
         }
         
-        molarHeatView.snp.makeConstraints { make in
-            make.top.equalTo(meltView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(atomicMassView)
-            make.height.equalTo(atomicMassView)
+        if let molarHeatView = molarHeatView {
+            molarHeatView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(atomicMassView)
+                make.height.equalTo(atomicMassView)
+                lastView = molarHeatView
+            }
         }
         
         electronConfigurationView.snp.makeConstraints { make in
-            make.top.equalTo(molarHeatView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(phaseView)
-            make.height.equalTo(phaseView)
+            make.height.greaterThanOrEqualTo(100) //equalTo(phaseView)
+            lastView = electronConfigurationView
         }
         
         electronConfigurationSemanticView.snp.makeConstraints { make in
-            make.top.equalTo(electronConfigurationView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(atomicMassView)
             make.height.equalTo(atomicMassView)
+            lastView = electronConfigurationSemanticView
         }
         
-        electronAffinityView.snp.makeConstraints { make in
-            make.top.equalTo(electronConfigurationSemanticView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(atomicMassView)
-            make.height.equalTo(atomicMassView)
+        if let electronAffinityView = electronAffinityView {
+            electronAffinityView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(atomicMassView)
+                make.height.equalTo(atomicMassView)
+                lastView = electronAffinityView
+            }
         }
         
-        paulingView.snp.makeConstraints { make in
-            make.top.equalTo(electronAffinityView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(atomicMassView)
-            make.height.equalTo(atomicMassView)
+        if let paulingView = paulingView {
+            paulingView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(atomicMassView)
+                make.height.equalTo(atomicMassView)
+                lastView = paulingView
+            }
         }
         
         shellsView.snp.makeConstraints { make in
-            make.top.equalTo(paulingView.snp.bottom).offset(20)
+            make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(atomicMassView)
             make.height.equalTo(atomicMassView)
+            lastView = shellsView
         }
         
         protonsView.snp.makeConstraints { make in
-            make.top.equalTo(shellsView.snp.bottom).offset(30)
+            make.top.equalTo(lastView.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(90)
         }
@@ -386,18 +447,22 @@ final class ElementInfoViewController: UIViewController {
             make.top.equalTo(protonsView)
             make.leading.equalTo(protonsView.snp.trailing).offset(15)
             make.height.width.equalTo(protonsView)
+            lastView = neutronsView
         }
         
-        
-        ionizationView.snp.makeConstraints { make in
-            make.top.equalTo(neutronsView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(phaseView)
-            make.height.greaterThanOrEqualTo(atomicMassView)
+        if let ionizationView = ionizationView {
+            ionizationView.snp.makeConstraints { make in
+                make.top.equalTo(lastView.snp.bottom).offset(30)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(phaseView)
+                make.height.greaterThanOrEqualTo(atomicMassView)
+                lastView = ionizationView
+            }
         }
 
+
         bigButton.snp.makeConstraints { make in
-            make.top.equalTo(ionizationView.snp.bottom).offset(40)
+            make.top.equalTo(lastView.snp.bottom).offset(40)
             make.bottom.lessThanOrEqualToSuperview().offset(-30)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
@@ -436,7 +501,11 @@ private extension ElementInfoViewController {
         densityView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Density", infoText: density)
         
         let valency = currentElement.valency
-        valencyView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, form: .square, toRoman: true, titleText: "Valency", infoText: valency)
+        if !valency.isEmpty {
+            valencyView = PalleteView()
+            valencyView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, form: .square, toRoman: true, titleText: "Valency", infoText: valency)
+        }
+        
         
         let oxidationDegree = currentElement.oxidationDegree
         oxidationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, form: .round, toRoman: false, titleText: "Oxidation degree", infoText: oxidationDegree)
@@ -453,7 +522,10 @@ private extension ElementInfoViewController {
             }
         }
         
-        boilView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Boil temperature", labelOneText: kelvinBoil, labelTwoText: celsiusBoil, labelThreeText: farenheitBoil, imageName: "boiling")
+        if kelvinBoil != "- - -" {
+            boilView = TemperatureView()
+            boilView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Boil temperature", labelOneText: kelvinBoil, labelTwoText: celsiusBoil, labelThreeText: farenheitBoil, imageName: "boiling")
+        }
         
         var kelvinMelt: String = "- - -"
         var celsiusMelt: String = "- - -"
@@ -467,11 +539,17 @@ private extension ElementInfoViewController {
             }
         }
         
-        meltView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Melt temperature", labelOneText: kelvinMelt, labelTwoText: celsiusMelt, labelThreeText: farenheitMelt, imageName: "melting")
+        if kelvinMelt != "- - -" {
+            meltView = TemperatureView()
+            meltView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Melt temperature", labelOneText: kelvinMelt, labelTwoText: celsiusMelt, labelThreeText: farenheitMelt, imageName: "melting")
+        }
+
         
 
-        let molarHeat = currentElement.molarHeat != nil ? String(currentElement.molarHeat!) + " J/(mol·K)" : "unknown"
-        molarHeatView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Molar heat capacity", infoText: molarHeat)
+        if let molarHeat = currentElement.molarHeat {
+            molarHeatView = HeaderWithText()
+            molarHeatView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Molar heat capacity", infoText: String(molarHeat) + " J/(mol·K)")
+        }
         
         let electronConfiguration = currentElement.electronConfiguration
         electronConfigurationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Electron configuration", infoText: electronConfiguration)
@@ -479,11 +557,16 @@ private extension ElementInfoViewController {
         let electronConfigurationSemantic = currentElement.electronConfigurationSemantic
         electronConfigurationSemanticView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Semantic configuration", infoText: electronConfigurationSemantic)
         
-        let electronAffinity = currentElement.electronAffinity != nil ? String(currentElement.electronAffinity!) + " kJ/mol" : "- - -"
-        electronAffinityView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Electron affinity", infoText: electronAffinity)
+        if let electronAffinity = currentElement.electronAffinity {
+            electronAffinityView = HeaderWithText()
+            electronAffinityView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Electron affinity", infoText: String(electronAffinity) + " kJ/mol")
+        }
         
-        let electronegativityPauling = currentElement.electronegativityPauling != nil ? String(currentElement.electronegativityPauling!) : "- - -"
-        paulingView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Pauling electronegativity", infoText: electronegativityPauling)
+        if let electronegativityPauling = currentElement.electronegativityPauling {
+            paulingView = HeaderWithText()
+            paulingView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Pauling electronegativity", infoText: String(electronegativityPauling))
+        }
+
         
         let shells = currentElement.shells.map({ String($0) }).joined(separator: ", ")
         shellsView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Shells", infoText: shells)
@@ -497,20 +580,29 @@ private extension ElementInfoViewController {
         neutronsView.configure(color: UIColor(red: 1.0, green: 0.9294, blue: 0.8, alpha: 1.0), labelOneText: "Neutrons", labelTwoText: String(neutrons))
         
         let ionizationEnergies: [Double] = currentElement.ionizationEnergies
-        let ionizationText: String = currentElement.ionizationEnergies.isEmpty != true ? ionizationEnergies.map({ String($0) }).joined(separator: "\n") : "- - -"
-        ionizationView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Ionization energies", infoText: ionizationText)
+        if currentElement.ionizationEnergies.isEmpty != true {
+            ionizationView = BoxViewWithTextView()
+            let ionizationText: String =  ionizationEnergies.map({ String($0) }).joined(separator: "\n")
+            ionizationView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Ionization energies", infoText: ionizationText)
+        }
         
-        let discoveredBy = currentElement.discoveredBy ?? "- - -"
-        discoveredByView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Discovered by", infoText: discoveredBy)
+        if let discoveredBy = currentElement.discoveredBy {
+            discoveredByView = HeaderWithText()
+            discoveredByView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Discovered by", infoText: discoveredBy, infoIsBold: false)
+        }
         
-        let namedBy = currentElement.namedBy ?? "- - -"
-        namedByView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Named by", infoText: namedBy)
+        if let namedBy = currentElement.namedBy {
+            namedByView = HeaderWithText()
+            namedByView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Named by", infoText: namedBy, infoIsBold: false)
+        }
         
         let summary = currentElement.summary
         summaryView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Summary", infoText: summary, alignment: .justified)
         
-        let appearance = currentElement.appearance ?? "- - -"
-        appearanceView.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Appearance", infoText: appearance, alignment: appearance != "- - -" ? .justified : .center)
+        if let appearance = currentElement.appearance {
+            appearanceView = HeaderWithText()
+            appearanceView?.configure(titleBorderColor: CustomColors.choseColor(currentElement.category).cgColor, borderColor: UIColor.gray.cgColor, titleText: "Appearance", infoText: appearance, alignment: appearance != "- - -" ? .justified : .center, infoIsBold: false)
+        }
         
     }
 }
