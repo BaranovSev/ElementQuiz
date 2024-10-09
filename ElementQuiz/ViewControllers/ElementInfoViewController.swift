@@ -12,7 +12,6 @@ final class ElementInfoViewController: UIViewController {
     // MARK: - Properties
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
-//    private let color = CGColor(red: 0.3, green: 0.25, blue: 0.65, alpha: 0.7)
     var delegate: StartViewController? = nil
     var currentElement: ChemicalElementModel? {
         didSet {
@@ -391,7 +390,7 @@ final class ElementInfoViewController: UIViewController {
             make.top.equalTo(lastView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(phaseView)
-            make.height.greaterThanOrEqualTo(100) //equalTo(phaseView)
+            make.height.greaterThanOrEqualTo(100)
             lastView = electronConfigurationView
         }
         

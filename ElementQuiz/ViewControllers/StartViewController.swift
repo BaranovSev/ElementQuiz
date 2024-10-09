@@ -258,7 +258,7 @@ final class StartViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(25)
             make.width.equalToSuperview()
-            make.height.equalTo(900)
+            make.height.equalTo(UIScreen.main.bounds.width * 2.5)
             make.bottom.equalToSuperview()
         }
     }
@@ -351,7 +351,7 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             else {
                 return UICollectionViewCell()
             }
-            cell.configureCell(typeOfTable: tools[indexPath.row])
+            cell.configureCell(typeOfTable: tools[indexPath.row], imageName: tools[indexPath.row])
             return cell
         case .categoryTest(let categories):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reuseId, for: indexPath) as? CategoryCollectionViewCell
@@ -360,7 +360,10 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             }
 
             let color = CustomColors.choseColor(categories[indexPath.row])
-            cell.configureCell(category: categories[indexPath.row], color: color)
+            cell.configureCell(category: categories[indexPath.row],
+                               countOfElements: String(fixedElementList.filter {$0.category == categories[indexPath.row]}.count),
+                               color: color,
+                               imageName: "book_" + String(indexPath.row))
             return cell
         case .bigGames(let questionTypes):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigGameCollectionViewCell.reuseId, for: indexPath) as? BigGameCollectionViewCell
@@ -452,7 +455,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
                                                             heightDimension: .fractionalHeight(0.9)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.15)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.17)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -479,17 +482,17 @@ extension StartViewController {
     }
 
     private func createCategoryTestSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.32),
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.13)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
-                                          interGroupSpacing: 0.0,
+                                          interGroupSpacing: 5.0,
                                           supplementaryItems: [supplementaryHeaderItem()])
-        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
         return section
     }
 
@@ -497,7 +500,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalHeight(0.10)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.29), heightDimension: .fractionalHeight(0.15)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -538,9 +541,11 @@ extension StartViewController {
 //MARK: - Cells
 private final class CategoryCollectionViewCell: UICollectionViewCell {
     static let reuseId = "CategoryCollectionViewCell"
-    let parentView: UIView = UIView()
-    let label: UILabel = UILabel()
-    let infoColor: UIView = UIView()
+    private let parentView: UIView = UIView()
+    private let label: UILabel = UILabel()
+    private let countLabel: UILabel = UILabel()
+    private let infoColor: UIView = UIView()
+    private let booksImageView: UIImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -554,23 +559,30 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
-        parentView.layer.cornerRadius = 10
+        let corner = 10.0
+        parentView.layer.cornerRadius = corner
         parentView.backgroundColor = CustomColors.backgroundForCell
-//        parentView.layer.borderWidth = 2.0
-//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
-        label.textAlignment = .center
+        booksImageView.contentMode = .scaleAspectFit
+        booksImageView.clipsToBounds = true
+        label.textAlignment = .left
         label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
-        label.minimumScaleFactor = 0.5
-        label.adjustsFontSizeToFitWidth = true
-        infoColor.layer.cornerRadius = 4
+        infoColor.layer.cornerRadius = parentView.layer.cornerRadius
+        countLabel.font = UIFont(name: "Impact", size: 35)
+        countLabel.textAlignment = .center
+        countLabel.layer.masksToBounds = true
+        countLabel.layer.cornerRadius = 25
+        countLabel.textColor = CustomColors.generalTextColor
+        countLabel.backgroundColor = CustomColors.customWhite
     }
     
     private func addSubViews() {
         contentView.addSubview(parentView)
-        parentView.addSubview(label)
         parentView.addSubview(infoColor)
+        parentView.addSubview(booksImageView)
+        parentView.addSubview(label)
+        parentView.addSubview(countLabel)
     }
     
     private func layout() {
@@ -581,23 +593,39 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         }
         
         infoColor.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(10)
-            make.height.equalTo(15)
-            make.width.equalTo(15)
+            make.bottom.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(5)
+            make.width.equalToSuperview()
+        }
+        
+        booksImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(infoColor.snp.bottom).offset(-3)
+            make.right.equalToSuperview()
+            make.height.width.equalToSuperview().multipliedBy(0.6)
         }
         
         label.snp.makeConstraints { make in
-            make.top.equalTo(infoColor.snp.bottom).offset(5)
-            make.width.equalToSuperview().offset(-15)
-            make.bottom.lessThanOrEqualToSuperview().offset(-5)
-            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(5)
+            make.bottom.equalTo(booksImageView.snp.top).offset(2)
+        }
+        
+        countLabel.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+            make.top.greaterThanOrEqualTo(label.snp.bottom).offset(5)
+            make.bottom.greaterThanOrEqualTo(infoColor.snp.top).offset(-10)
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.greaterThanOrEqualTo(booksImageView.snp.leading)
         }
     }
     
-    func configureCell(category: String, color: UIColor) {
+    func configureCell(category: String, countOfElements: String, color: UIColor, imageName: String) {
         label.text = category
+        countLabel.text = countOfElements
         infoColor.backgroundColor = color
+        booksImageView.image = UIImage(named: imageName) ?? UIImage()
     }
 }
 
@@ -622,8 +650,6 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
     private func setup() {
         parentView.layer.cornerRadius = 10
         parentView.backgroundColor = CustomColors.backgroundForCell
-//        parentView.layer.borderWidth = 2.0
-//        parentView.layer.borderColor = CustomColors.backgroundForCell.cgColor
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
@@ -651,9 +677,7 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
             make.width.equalToSuperview().offset(-10)
             make.height.equalTo(30)
             make.top.equalTo(parentView.snp.top)
-//            make.bottom.lessThanOrEqualToSuperview().offset(-5)
             make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
         }
         
         imageView.snp.makeConstraints { make in
@@ -674,6 +698,7 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
     static let reuseId = "ToolsTableCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
+    let imageView: UIImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -689,8 +714,6 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
     private func setup() {
         parentView.layer.cornerRadius = 10
         parentView.backgroundColor = CustomColors.backgroundForCell
-//        parentView.layer.borderWidth = 2.0
-//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
@@ -702,6 +725,7 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
     private func addSubViews() {
         contentView.addSubview(parentView)
         parentView.addSubview(label)
+        parentView.addSubview(imageView)
     }
     
     private func layout() {
@@ -712,15 +736,22 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
         }
         
         label.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-15)
             make.bottom.lessThanOrEqualToSuperview().offset(-5)
-            make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalTo(imageView.snp.leading)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.height.equalToSuperview()
+            make.width.equalTo(imageView.snp.height)
+            make.trailing.equalToSuperview()
         }
     }
     
-    func configureCell(typeOfTable: String) {
+    func configureCell(typeOfTable: String, imageName: String) {
         label.text = typeOfTable
+        imageView.image = UIImage(named: imageName)
     }
 }
 
@@ -728,6 +759,7 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
     static let reuseId = "BigGameCollectionViewCell"
     let parentView: UIView = UIView()
     let label: UILabel = UILabel()
+    let secondaryLabel: UILabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -743,19 +775,28 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
     private func setup() {
         parentView.layer.cornerRadius = 10
         parentView.backgroundColor = CustomColors.backgroundForCell
-//        parentView.layer.borderWidth = 2.0
-//        parentView.layer.borderColor = CustomColors.secondaryAppColor.cgColor
         label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
+        
+        secondaryLabel.textAlignment = .center
+        secondaryLabel.textColor = CustomColors.generalTextColor
+        secondaryLabel.numberOfLines = 1
+        secondaryLabel.font = UIFont(name: "Avenir", size: 20)
+        secondaryLabel.minimumScaleFactor = 0.5
+        secondaryLabel.adjustsFontSizeToFitWidth = true
+        secondaryLabel.layer.masksToBounds = true
+        secondaryLabel.layer.cornerRadius = 10
+        secondaryLabel.backgroundColor = CustomColors.customWhite
     }
     
     private func addSubViews() {
         contentView.addSubview(parentView)
         parentView.addSubview(label)
+        parentView.addSubview(secondaryLabel)
     }
     
     private func layout() {
@@ -769,12 +810,46 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
             make.width.equalToSuperview().offset(-15)
             make.bottom.lessThanOrEqualToSuperview().offset(-5)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().offset(15)
+        }
+        
+        secondaryLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview().offset(-15)
+            make.bottom.lessThanOrEqualToSuperview().offset(-5)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
     
     func configureCell(typeOfGame: String) {
         label.text = typeOfGame
+        
+        switch typeOfGame {
+        case "latin name":
+            secondaryLabel.text = "🔤🏛️"
+        case "common name":
+            secondaryLabel.text = "🗣️🌎"
+        case "atomic mass":
+            secondaryLabel.text = "⚛️⚖️"
+        case "order number":
+            secondaryLabel.text = "🔢"
+        case "category":
+            secondaryLabel.text = "📚"
+        case "density":
+            secondaryLabel.text = "💎"
+        case "period":
+            secondaryLabel.text = "🪫⚡️🔋"
+        case "group":
+            secondaryLabel.text = "🗂️"
+        case "phase":
+            secondaryLabel.text = "🧱💧💨"
+        case "boiling point":
+            secondaryLabel.text = "🔥♨️🔥"
+        case "melting point":
+            secondaryLabel.text = "🌡️⬆️🫠"
+        default:
+            secondaryLabel.text = ""
+        }
     }
 }
 

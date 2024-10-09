@@ -80,8 +80,6 @@ final class CategoryTestViewController: UIViewController {
         button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = CustomColors.backgroundForCell
-//        button.layer.borderColor = CustomColors.softAppColor.cgColor
-//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -93,8 +91,6 @@ final class CategoryTestViewController: UIViewController {
         button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = CustomColors.backgroundForCell
-//        button.layer.borderColor = CustomColors.softAppColor.cgColor
-//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -106,8 +102,6 @@ final class CategoryTestViewController: UIViewController {
         button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = CustomColors.backgroundForCell
-//        button.layer.borderColor = CustomColors.softAppColor.cgColor
-//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -119,8 +113,6 @@ final class CategoryTestViewController: UIViewController {
         button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.backgroundColor = CustomColors.backgroundForCell
-//        button.layer.borderColor = CustomColors.softAppColor.cgColor
-//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()

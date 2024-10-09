@@ -46,16 +46,17 @@ struct CustomColors {
     static private let forHeaders = UIColor(named: "charcoal_lavender") ?? UIColor.white
     static private let oxfordBlueWhite = UIColor(named: "oxfordBlue_white") ?? UIColor.white
     static private let phontForCell = UIColor(named: "lavender_charcoal") ?? UIColor.white
+    static private let whiteCustomAlpha = UIColor(named: "white_with_alpha") ?? UIColor.white
     
     static let softAppColor = softColor
     static let generalTextColor = mainColor
     static let secondaryTextColor = forHeaders
     static let generalAppPhont = phontColor
 // TODO: - chose color for secondary
-    static let secondaryAppColor = UIColor.red //phontColor
     static let blackWhite = oxfordBlueWhite
     static let backgroundForCell = phontForCell
     static let gold = goldSoft
+    static let customWhite = whiteCustomAlpha
     
     //Absolute black
 //    static let generalAppPhont = secondaryColor

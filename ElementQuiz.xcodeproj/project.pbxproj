@@ -13,6 +13,8 @@
 		FD5458BB2BC2E59A00ABB64A /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */; };
 		FD56C06E2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */; };
 		FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */; };
+		FD7A10BE2CA851F600C25877 /* StringQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7A10BD2CA851F600C25877 /* StringQuotes.swift */; };
+		FD7A10C02CA8597700C25877 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7A10BF2CA8597700C25877 /* UITextView+extension.swift */; };
 		FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDB832BBD858800C77650 /* SearchViewController.swift */; };
 		FD91549E2BC8532B00209124 /* CongratulationViewController + Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
@@ -74,6 +76,8 @@
 		FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		FD56C06D2B1FACDD007AB130 /* ElementIconView+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ElementIconView+DisplayItem.swift"; sourceTree = "<group>"; };
 		FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTestViewController.swift; sourceTree = "<group>"; };
+		FD7A10BD2CA851F600C25877 /* StringQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringQuotes.swift; sourceTree = "<group>"; };
+		FD7A10BF2CA8597700C25877 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		FD8FDB832BBD858800C77650 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CongratulationViewController + Protocol.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				FDB03A692B234E31004BC16E /* Colors.swift */,
 				FD5458BA2BC2E59A00ABB64A /* Int+extensions.swift */,
 				FDAD240C2BC3E74B008B40D6 /* UIImage+extension.swift */,
+				FD7A10BF2CA8597700C25877 /* UITextView+extension.swift */,
+				FD7A10BD2CA851F600C25877 /* StringQuotes.swift */,
 				FDD3C1742AFA6E7B0031336C /* Info.plist */,
 				FDD3C1712AFA6E7B0031336C /* LaunchScreen.storyboard */,
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
@@ -395,9 +401,11 @@
 				FDB6BAB72BFFAD8C0091B90C /* QuestionFactory.swift in Sources */,
 				FDCBF9E82B1DEF4200214599 /* ChemicalElementModelJSON.swift in Sources */,
 				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
+				FD7A10BE2CA851F600C25877 /* StringQuotes.swift in Sources */,
 				FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */,
 				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
 				FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */,
+				FD7A10C02CA8597700C25877 /* UITextView+extension.swift in Sources */,
 				FDF4996C2BA9FA7E005D4D3C /* StatisticsViewController.swift in Sources */,
 				FD91549E2BC8532B00209124 /* CongratulationViewController + Protocol.swift in Sources */,
 				FDABAAEC2B3B0F70007F423A /* User+CoreDataProperties.swift in Sources */,
