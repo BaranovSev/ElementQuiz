@@ -61,10 +61,10 @@ final class ElementMemorizingController: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 50)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.layer.masksToBounds = true
         label.layer.borderWidth = 4
-        label.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        label.layer.borderColor = CustomColors.generalTextColor.cgColor
         label.layer.cornerRadius = 15.0
         label.text = currentElement.symbol
         return label
@@ -73,7 +73,7 @@ final class ElementMemorizingController: UIViewController {
     private lazy var questionLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 24)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
@@ -92,11 +92,9 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 1", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
         button.layer.cornerRadius = 10
         return button
     }()
@@ -105,11 +103,9 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 2", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
         button.layer.cornerRadius = 10
         return button
     }()
@@ -118,11 +114,9 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 3", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
         button.layer.cornerRadius = 10
         return button
     }()
@@ -131,11 +125,9 @@ final class ElementMemorizingController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 4", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
         button.layer.cornerRadius = 10
         return button
     }()
@@ -146,8 +138,8 @@ final class ElementMemorizingController: UIViewController {
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        backButton.tintColor = .black
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        backButton.tintColor = CustomColors.generalTextColor
 
         setupQuestionSequens()
         setUp()
@@ -174,8 +166,9 @@ final class ElementMemorizingController: UIViewController {
             for button in answerButtons {
                 button.isHidden = false
                 button.isEnabled = true
-                button.backgroundColor = .white
+                button.backgroundColor = CustomColors.backgroundForCell
                 button.setTitle(randomVariants[localIndex], for: .normal)
+                button.setTitleColor(CustomColors.generalTextColor, for: .normal)
                 button.addTarget(self, action: #selector(Self.answerBtnPressed(_:)), for: .touchUpInside)
                 localIndex += 1
             }
@@ -183,7 +176,8 @@ final class ElementMemorizingController: UIViewController {
             let currentCorrectAnswer = getCorrectAnswer()
             for button in answerButtons {
                 if button.titleLabel?.text == currentCorrectAnswer {
-                    button.backgroundColor = .green.withAlphaComponent(0.7)
+                    button.backgroundColor = CustomColors.greenCorrectAnswer
+                    button.setTitleColor(CustomColors.softAppColor, for: .normal)
                 }
                 button.isEnabled = false
             }
@@ -242,9 +236,9 @@ final class ElementMemorizingController: UIViewController {
         guard let userAnswer = sender.titleLabel?.text else { return }
         answerBtnShouldReturn(answer: userAnswer)
         if answerIsCorrect == true {
-            sender.backgroundColor = .green.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.greenCorrectAnswer
         } else if answerIsCorrect == false {
-            sender.backgroundColor = .red.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.redIncorrectAnswer
         }
     }
     
@@ -287,7 +281,7 @@ extension ElementMemorizingController: ShowCongratulationProtocol {
 // MARK: - UI setup layout functions
 private extension ElementMemorizingController {
     private func setUp() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         view.addSubview(elementSymbolLabel)
         view.addSubview(questionLabel)
         view.addSubview(verticalStack)

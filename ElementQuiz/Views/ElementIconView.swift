@@ -13,6 +13,7 @@ final class ElementIconView: UIView {
 
     lazy var elementNumberLabel: UILabel = {
         var label = UILabel()
+        label.textColor = CustomColors.softAppColor
         label.font = UIFont(name: "Hoefler Text", size: 24)
         addSubview(label)
         return label
@@ -20,6 +21,7 @@ final class ElementIconView: UIView {
 
     lazy var symbolLabel: UILabel  = {
         var label = UILabel()
+        label.textColor = CustomColors.softAppColor
         label.font = UIFont(name: "Menlo Bold", size: 40)
         addSubview(label)
         return label
@@ -27,6 +29,7 @@ final class ElementIconView: UIView {
 
     lazy var atomicMassLabel: UILabel =  {
         var label = UILabel()
+        label.textColor = CustomColors.softAppColor
         label.font = UIFont(name: "Hoefler Text", size: 24)
         addSubview(label)
         return label
