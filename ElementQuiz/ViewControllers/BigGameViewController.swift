@@ -97,7 +97,7 @@ final class BigGameViewController: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 27)
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -116,11 +116,11 @@ final class BigGameViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 1", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -129,11 +129,11 @@ final class BigGameViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 2", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -142,11 +142,11 @@ final class BigGameViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 3", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -155,11 +155,11 @@ final class BigGameViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Button 4", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 30)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(CustomColors.generalTextColor, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 2
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.softAppColor.cgColor
+//        button.layer.borderWidth = 2
         button.layer.cornerRadius = 10
         return button
     }()
@@ -169,8 +169,8 @@ final class BigGameViewController: UIViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        backButton.tintColor = .black
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        backButton.tintColor = CustomColors.generalTextColor
         
         setupQuestionSequens()
         setUp()
@@ -210,8 +210,9 @@ final class BigGameViewController: UIViewController {
             for button in answerButtons {
                 button.isHidden = false
                 button.isEnabled = true
-                button.backgroundColor = .white
+                button.backgroundColor = CustomColors.backgroundForCell
                 button.setTitle(randomVariants[localIndex], for: .normal)
+                button.setTitleColor(CustomColors.generalTextColor, for: .normal)
                 button.addTarget(self, action: #selector(Self.answerBtnPressed(_:)), for: .touchUpInside)
                 localIndex += 1
             }
@@ -219,7 +220,8 @@ final class BigGameViewController: UIViewController {
             let currentCorrectAnswer = getCorrectAnswer()
             for button in answerButtons {
                 if button.titleLabel?.text == currentCorrectAnswer {
-                    button.backgroundColor = .green.withAlphaComponent(0.7)
+                    button.backgroundColor = CustomColors.greenCorrectAnswer
+                    button.setTitleColor(CustomColors.softAppColor, for: .normal)
                 }
                 button.isEnabled = false
             }
@@ -268,9 +270,9 @@ final class BigGameViewController: UIViewController {
         guard let userAnswer = sender.titleLabel?.text else { return }
         answerBtnShouldReturn(answer: userAnswer)
         if answerIsCorrect == true {
-            sender.backgroundColor = .green.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.greenCorrectAnswer
         } else if answerIsCorrect == false {
-            sender.backgroundColor = .red.withAlphaComponent(0.7)
+            sender.backgroundColor = CustomColors.redIncorrectAnswer
         }
     }
     
@@ -303,12 +305,12 @@ final class BigGameViewController: UIViewController {
         case .orderNumberQuestion:
             elementIcon.elementNumberLabel.text = currentElement.name
         case .categoryQuestion:
-            elementIcon.backgroundColor = .white
+            elementIcon.backgroundColor = CustomColors.generalAppPhont
             elementIcon.layer.borderWidth = 4
-            elementIcon.layer.borderColor = CustomColors.lightPurple
-            elementIcon.symbolLabel.textColor = .black
-            elementIcon.atomicMassLabel.textColor = .black
-            elementIcon.elementNumberLabel.textColor = .black
+            elementIcon.layer.borderColor = CustomColors.softAppColor.cgColor
+            elementIcon.symbolLabel.textColor = CustomColors.softAppColor
+            elementIcon.atomicMassLabel.textColor = CustomColors.softAppColor
+            elementIcon.elementNumberLabel.textColor = CustomColors.softAppColor
         default :
             elementIcon.atomicMassLabel.isHidden = false
             elementIcon.elementNumberLabel.isHidden = false
@@ -319,7 +321,7 @@ final class BigGameViewController: UIViewController {
 // MARK: UI methods
 private extension BigGameViewController {
     private func setUp() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         view.addSubview(elementIcon)
         view.addSubview(questionLabel)
         view.addSubview(verticalStack)

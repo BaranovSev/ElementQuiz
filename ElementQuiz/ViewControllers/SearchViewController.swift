@@ -65,10 +65,10 @@ final class SearchViewController: UIViewController {
         let field = UITextField()
         field.borderStyle = .roundedRect
         field.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        field.textColor = UIColor.black
+        field.textColor = CustomColors.generalTextColor
         field.textAlignment = .justified
         field.placeholder = " 🔎  search"
-        field.setPlaceholderColor(UIColor.darkGray)
+        field.setPlaceholderColor(CustomColors.generalTextColor)
         field.autocorrectionType = .no
         field.keyboardType = .asciiCapable
         return field
@@ -85,11 +85,11 @@ final class SearchViewController: UIViewController {
     private lazy var presetsMenuButton: UIButton = {
         let setupButton = UIButton()
         setupButton.setTitle("Presets", for: .normal)
-        let color = CustomColors.lightPurple
+        let color = CustomColors.secondaryTextColor
         
-        setupButton.setTitleColor(UIColor(cgColor: color), for: .normal)
-        setupButton.layer.borderColor = color
-        setupButton.backgroundColor = .white
+        setupButton.setTitleColor(color, for: .normal)
+        setupButton.layer.borderColor = color.cgColor
+        setupButton.backgroundColor = CustomColors.generalAppPhont
 
         setupButton.layer.borderWidth = 2
         setupButton.layer.cornerRadius = 4
@@ -101,11 +101,11 @@ final class SearchViewController: UIViewController {
     
     private lazy var orderButton: UIButton = {
         let button = UIButton()
-        let color = CustomColors.lightPurple
+        let color = CustomColors.secondaryTextColor
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 4
-        button.layer.borderColor = color
-        button.imageView?.tintColor = UIColor(cgColor: color)
+        button.layer.borderColor = color.cgColor
+        button.imageView?.tintColor = color
         button.addTarget(self, action: #selector(Self.orderButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -113,7 +113,7 @@ final class SearchViewController: UIViewController {
     private lazy var countLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Avenir", size: 20)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
         return label
@@ -121,7 +121,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var switcher: UISwitch = {
         let switcher = UISwitch()
-        switcher.onTintColor = UIColor(cgColor: CustomColors.lightPurple)
+        switcher.onTintColor = CustomColors.secondaryTextColor
         switcher.addTarget(self, action: #selector(Self.refreshTableView), for: .touchUpInside)
         return switcher
     }()
@@ -130,7 +130,7 @@ final class SearchViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellForElement.reusableIdentifier)
         tableView.rowHeight = 90
-        tableView.backgroundColor = .white
+//        tableView.backgroundColor = CustomColors.generalAppPhont
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -155,11 +155,11 @@ final class SearchViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
         self.navigationItem.rightBarButtonItem = settingsButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        backButton.tintColor = .black
-        settingsButton.tintColor = .black
-        view.backgroundColor = .white
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
+        backButton.tintColor = CustomColors.generalTextColor
+        settingsButton.tintColor = CustomColors.generalTextColor
+        view.backgroundColor = CustomColors.generalAppPhont
         
         setup()
         addSubViews()
@@ -285,7 +285,7 @@ final class SearchViewController: UIViewController {
         case .descending:
             orderButton.setImage(UIImage(systemName: "arrow.down"), for: .normal)
         case .unordered:
-            let image = UIImage(systemName: "arrow.left.arrow.right")?.rotate(radians: .pi/2)?.withTintColor(UIColor(cgColor: CustomColors.lightPurple))
+            let image = UIImage(systemName: "arrow.left.arrow.right")?.rotate(radians: .pi/2)?.withTintColor(CustomColors.secondaryTextColor)
             orderButton.setImage(image, for: .normal)
         }
     }
@@ -547,16 +547,16 @@ final private class CellForElement: UITableViewCell {
     
     private func setup() {
         selectionStyle = .none
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = CustomColors.generalAppPhont
         
         elementNumberLabel.font = UIFont(name: "Avenir", size: 15)
         symbolLabel.font = UIFont(name: "Avenir", size: 40)
         symbolLabel.textAlignment = .center
-        symbolLabel.textColor = .black
+        symbolLabel.textColor = CustomColors.generalTextColor
         
         nameLabel.font = UIFont(name: "Avenir", size: 15)
         nameLabel.textAlignment = .left
-        nameLabel.textColor = .black
+        nameLabel.textColor = CustomColors.generalTextColor
         nameLabel.minimumScaleFactor = 0.5
         nameLabel.adjustsFontSizeToFitWidth = true
         
@@ -564,7 +564,7 @@ final private class CellForElement: UITableViewCell {
         infoLabel.minimumScaleFactor = 0.35
         infoLabel.adjustsFontSizeToFitWidth = true
         infoLabel.textAlignment = .left
-        infoLabel.textColor = .black
+        infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.numberOfLines = 6
     }
     
@@ -652,7 +652,8 @@ final private class CellForElement: UITableViewCell {
         infoLabel.text = info
         infoColorView.backgroundColor = color
         separateView.backgroundColor = color
-        parentView.backgroundColor = .white
+        //MARK: phont of cell
+        parentView.backgroundColor = CustomColors.generalAppPhont
         
         button.imageView?.tintColor = color
         choseIconForButton(symbol)
@@ -682,7 +683,7 @@ final class UpscaledTextViewController: UIViewController {
     private lazy var labelName: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Avenir", size: 35)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -692,7 +693,7 @@ final class UpscaledTextViewController: UIViewController {
     private lazy var labelParameter: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Avenir", size: 30)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         return label
     }()
@@ -700,7 +701,7 @@ final class UpscaledTextViewController: UIViewController {
     private lazy var descriptionTextView: UITextView = {
         var text = UITextView()
         text.font = UIFont(name: "Avenir", size: 27)
-        text.textColor = .black
+        text.textColor = CustomColors.generalTextColor
 //        text.textAlignment = .justified
         text.isEditable = false
         text.isSelectable = false
@@ -709,16 +710,16 @@ final class UpscaledTextViewController: UIViewController {
     
     private lazy var shareButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "paperplane") ?? UIImage(), for: .normal)
-        button.tintColor = UIColor(cgColor: CustomColors.lightPurple)
-        button.backgroundColor = .white
-        button.layer.borderColor = CustomColors.lightPurple
-        button.layer.borderWidth = 3
+        button.setImage(UIImage(named: "plane") ?? UIImage(), for: .normal)
+        button.tintColor = CustomColors.secondaryTextColor
+        button.backgroundColor = CustomColors.backgroundForCell
+//        button.layer.borderColor = CustomColors.secondaryTextColor.cgColor
+//        button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
         button.imageView?.snp.makeConstraints { make in
-            make.height.equalToSuperview().offset(-19)
-            make.width.equalToSuperview().offset(-15)
+            make.height.equalToSuperview().offset(-5)
+            make.width.equalToSuperview().offset(-5)
             make.center.equalToSuperview()
         }
         return button
@@ -775,11 +776,11 @@ final class UpscaledTextViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .white
-        labelName.textColor = .black
-        labelParameter.textColor = .black
-        descriptionTextView.textColor = .black
-        descriptionTextView.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
+        labelName.textColor = CustomColors.generalTextColor
+        labelParameter.textColor = CustomColors.generalTextColor
+        descriptionTextView.textColor = CustomColors.generalTextColor
+        descriptionTextView.backgroundColor = CustomColors.generalAppPhont
     }
     
     func configure(elementName: String, parameter: String, info: String) {

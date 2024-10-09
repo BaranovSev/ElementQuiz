@@ -32,14 +32,14 @@ final class CongratulationViewController: UIViewController {
         label.textAlignment = .center
         label.minimumScaleFactor = 0.3
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
     private lazy var youLearnedLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 35)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
@@ -53,14 +53,14 @@ final class CongratulationViewController: UIViewController {
         label.textAlignment = .center
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor(cgColor: CustomColors.lightPurple)
+        label.textColor = CustomColors.secondaryTextColor
         return label
     }()
     
     private lazy var chemicalElementsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 35)
-        label.textColor = .black
+        label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
@@ -72,7 +72,7 @@ final class CongratulationViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = .purple
+        button.backgroundColor = CustomColors.purple
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.dismissCurrentAndDelegateController), for: .touchUpInside)
@@ -100,7 +100,7 @@ final class CongratulationViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.generalAppPhont
         let goodResult: Bool = Double(correctAnswers) / Double(totalQuestions) >= 0.6
         
         if goodResult {
@@ -202,13 +202,13 @@ final class CongratulationViewController: UIViewController {
         layer.emitterPosition = point
      
         let cell = CAEmitterCell()
-        cell.scale = 0.15
+        cell.scale = 0.1
         cell.emissionRange = .pi * 2
         cell.lifetime = 20
-        cell.birthRate = 100
+        cell.birthRate = 7
         cell.velocity = 10
-        cell.contents = UIImage(named: "square-small")!.cgImage
-        cell.color = CustomColors.lightPurple
+        cell.contents = UIImage(named: "mystar")!.cgImage
+        cell.color = CustomColors.gold.cgColor
         layer.emitterCells = [cell]
         
         view.layer.addSublayer(layer)

@@ -68,7 +68,7 @@ final class PeriodicTableViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: 2000, height: 1200)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = CustomColors.generalAppPhont
         return scrollView
     }()
     
@@ -91,10 +91,10 @@ final class PeriodicTableViewController: UIViewController {
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItem = settingsButton
-        self.navigationController?.navigationBar.backgroundColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        backButton.tintColor = .black
-        settingsButton.tintColor = .black
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
+        backButton.tintColor = CustomColors.generalTextColor
+        settingsButton.tintColor = CustomColors.generalTextColor
 
         refreshNavigationItemTitle()
         addSubViews()
@@ -224,7 +224,7 @@ final class PeriodicTableViewController: UIViewController {
                 label.font = UIFont(name: "Menlo", size: 15 * (scale + 0.25))
                 label.adjustsFontSizeToFitWidth = true
                 label.minimumScaleFactor = 0.5
-                label.textColor = .black
+                label.textColor = CustomColors.generalTextColor
                 label.textAlignment = .left
                 cell.addSubview(infoColor)
                 cell.addSubview(label)
@@ -466,7 +466,7 @@ private extension PeriodicTableViewController {
             label.text = string
             label.font = UIFont(name: "Menlo Bold", size: 20 * (scale + 0.25))
             label.adjustsFontSizeToFitWidth = true
-            label.textColor = .black
+            label.textColor = CustomColors.generalTextColor
             label.minimumScaleFactor = 0.5
             label.textAlignment = .center
             cell.addSubview(label)
@@ -490,7 +490,7 @@ private extension PeriodicTableViewController {
             let cell = returnCell(string: String(number))
             if stateOfTableMode == .classic && (number == 4 || number == 5 || number == 6 || number == 7) {
                 let coloredView = UIView()
-                coloredView.backgroundColor = .lightGray
+                coloredView.backgroundColor = CustomColors.backgroundForCell //.lightGray
                 coloredView.layer.cornerRadius = 2
                 cell.addSubview(coloredView)
                 
@@ -547,7 +547,7 @@ private extension PeriodicTableViewController {
                 let cell = returnCell(string: String(number))
                 if number == 3 {
                     let coloredView = UIView()
-                    coloredView.backgroundColor = .lightGray
+                    coloredView.backgroundColor = CustomColors.backgroundForCell//.lightGray
                     coloredView.layer.cornerRadius = 2
                     cell.addSubview(coloredView)
                     
@@ -584,7 +584,7 @@ private extension PeriodicTableViewController {
 
                 if number == "VIII" {
                     let coloredView = UIView()
-                    coloredView.backgroundColor = .lightGray
+                    coloredView.backgroundColor = CustomColors.backgroundForCell//.lightGray
                     coloredView.layer.cornerRadius = 2
                     cell.addSubview(coloredView)
                     
