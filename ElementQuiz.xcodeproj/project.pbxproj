@@ -612,6 +612,7 @@
 				DEVELOPMENT_TEAM = Q4BLGJL5DZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ElementQuiz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mendelevi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Necessary for share results & chemical element info with contacts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -646,6 +647,7 @@
 				DEVELOPMENT_TEAM = Q4BLGJL5DZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ElementQuiz/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mendelevi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Necessary for share results & chemical element info with contacts";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
