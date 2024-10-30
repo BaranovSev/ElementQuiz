@@ -26,6 +26,7 @@
 		FDAE5EFA2B459DC1006C61B6 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */; };
 		FDAE5EFC2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */; };
 		FDAE5F002B45AD2C006C61B6 /* UserStatisticDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */; };
+		FDAEE3C72CD2797800113CA1 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAEE3C62CD2797800113CA1 /* LessonViewController.swift */; };
 		FDB03A6A2B234E31004BC16E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A692B234E31004BC16E /* Colors.swift */; };
 		FDB03A6E2B25F8BB004BC16E /* ElementQuizDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */; };
 		FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */; };
@@ -88,6 +89,7 @@
 		FDAE5EF92B459DC1006C61B6 /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 		FDAE5EFB2B45A881006C61B6 /* CircleProgressBar+DisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CircleProgressBar+DisplayItem.swift"; sourceTree = "<group>"; };
 		FDAE5EFF2B45AD2C006C61B6 /* UserStatisticDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatisticDataSource.swift; sourceTree = "<group>"; };
+		FDAEE3C62CD2797800113CA1 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 		FDB03A692B234E31004BC16E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB03A6D2B25F8BB004BC16E /* ElementQuizDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementQuizDataSource.swift; sourceTree = "<group>"; };
 		FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FD8FDB832BBD858800C77650 /* SearchViewController.swift */,
 				FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */,
 				FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */,
+				FDAEE3C62CD2797800113CA1 /* LessonViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
 				FDB03A6F2B25F8E5004BC16E /* Models */,
 				FDC64C9D2BB59378000DFE20 /* GameProtocol.swift */,
@@ -414,6 +417,7 @@
 				FDC64C9E2BB59378000DFE20 /* GameProtocol.swift in Sources */,
 				FDEDD9002C565B310029AB44 /* ElementInfoViewClasses.swift in Sources */,
 				FDB03AB82B263CA4004BC16E /* DataBase.xcdatamodeld in Sources */,
+				FDAEE3C72CD2797800113CA1 /* LessonViewController.swift in Sources */,
 				FDCBF9EC2B1E1AAA00214599 /* Bundle+Extension.swift in Sources */,
 				FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */,
 				FDB03ABC2B263ED0004BC16E /* ChemicalElementModel+CoreDataProperties.swift in Sources */,
