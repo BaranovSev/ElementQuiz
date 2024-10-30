@@ -250,7 +250,7 @@ final class StatisticViewControler: UIViewController {
             resultToShare += "."
         }
         
-        resultToShare += "\nI am so proud of my progress and would love to invite you to join me in this exciting journey of learning. Let's explore the world of chemistry together and unlock the wonders of the chemical elements!\n 🧪🔬📚 #ChemistrySuccess #PeriodicTableGoals #JoinMe"
+        resultToShare += "\nI am so proud of my progress and would love to invite you to join me in this exciting journey of learning. Let's explore the world of chemistry together and unlock the wonders of the chemical elements!\n 🧪🔬📚 #ChemistrySuccess #PeriodicTableGoals #JoinMe \nhttps://apps.apple.com/app/mendelevi/id6504156932"
         let share = UIActivityViewController(
             activityItems: [resultToShare],
             applicationActivities: nil

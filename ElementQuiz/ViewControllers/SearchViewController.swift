@@ -497,6 +497,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellForElement(style: .default, reuseIdentifier: CellForElement.reusableIdentifier)
         let elementList = fetchElementsList()
+        guard indexPath.row < elementList.count else {
+            return UITableViewCell()
+        }
+        
         let element = elementList[indexPath.row]
         let info = informationAbout(selected: userSelectedOptionalParameter, for: element)
         let color = CustomColors.choseColor(element.category)
