@@ -184,7 +184,7 @@ final class CategoryTestViewController: UIViewController {
             }
         case .score:
             //TODO: save result to DB
-            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: currentCategory)
+            showCongratulationViewController()
         }
     }
     
@@ -340,8 +340,9 @@ extension CategoryTestViewController: GameProtocol {
 
 // MARK: - ShowCongratulationProtocol
 extension CategoryTestViewController: ShowCongratulationProtocol {
-    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
-        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+    func showCongratulationViewController() {
+//        totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: currentCategory
+        let vc = CongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, delegate: self, describeOfSense: currentCategory)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }

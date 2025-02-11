@@ -40,6 +40,9 @@ private enum CollectionSections {
             return "Tools 🛠️"
         case .lessons(_):
             return "Lessons 📜"
+//TODO: case .reactions
+//        case .reactions(_):
+//            return "Reactions 🌋"
         case .categoryTest(_):
             return "Category test 📚"
         case .bigGames(_):
