@@ -130,7 +130,7 @@ final class SearchViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellForElement.reusableIdentifier)
         tableView.rowHeight = 90
-//        tableView.backgroundColor = CustomColors.generalAppPhont
+        tableView.backgroundColor = CustomColors.generalAppPhont
         tableView.separatorStyle = .none
         return tableView
     }()

@@ -1,0 +1,420 @@
+[
+    {
+        "number": 1.0,
+        "name": "Entry",
+        "lesson_image_name": "hello_romans",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Let's get to know each other"
+            },
+            {
+                "type": "image",
+                "value": "hello_romans"
+            },
+            {
+                "type": "text",
+                "value": "Welcome to Mendelevi - our chemistry application, and your friend in Science world!\nHere, you'll embark on an exciting journey to explore the fascinating chemistry world and chemical elements."
+            },
+            {
+                "type": "image",
+                "value": "laboratory_journey"
+            },
+            {
+                "type": "headerText",
+                "value": "Learning all chemical elements from the periodic table is possible!"
+            },
+            {
+                "type": "text",
+                "value": "To start learning a random element that our application has automatically selected for you from our collection of ancient scrolls, click on the big 'Learn' button on start screen and you will be taken to the infarmation screen with the all necessary information that we have prepared."
+            },
+            {
+                "type": "image",
+                "value": "scrolls"
+            },
+            {
+                "type": "text",
+                "value": "Here's what the 'Learn' button should look like. If you happen to notice it's not where it should be, please let us know, and we might just have to retrain our developers to become elephant trainers instead."
+            },
+            {
+                "type": "image",
+                "value": "learn_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Each element is presented with detailed information about its physical and chemical properties, the story behind its discovery, and additional reference details."
+            },
+            {
+                "type": "image",
+                "value": "single_scroll"
+            },
+            {
+                "type": "text",
+                "value": "Take your time, read thoughtfully. Try to associate what you read with something familiar to you, make notes, draw non-standard schemes. The more you understand, the less you will have to memorize, although undoubtedly memorize will come and a lot.  If you are trying to understand or memorize something, say it out loud."
+            },
+            {
+                "type": "image",
+                "value": "roman_learn"
+            },
+            {
+                "type": "text",
+                "value": "Once you have finished reading about a specific element, you'll have the opportunity to test your knowledge through a quiz, specially for that our designer draw another important button 'Memorize'."
+            },
+            {
+                "type": "image",
+                "value": "memorize_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Most importantly, relax, you are not in an exam, and we are not an angry supervisor who demands something from you. It is better to imagine that we are somewhere on the rostrum of the ancient Roman Colosseum discussing how flat our Earth is and how fast other planets revolve around it. The main thing to remember is that there are no final truths in science, and all great things start from small."
+            },
+            {
+                "type": "image",
+                "value": "romans_discussing"
+            },
+            {
+                "type": "text",
+                "value": "Our goal is to help you memorize the necessary information, so the correct answer will be highlighted in green and if you answered incorrectly, you will most likely see the same question in the same Memorizing session. In these questions, only one answer choice is correct. At the end of the session we will make sure to show your result."
+            },
+            {
+                "type": "image",
+                "value": "composite_stars"
+            },
+            {
+                "type": "text",
+                "value": "If the learned items counter has moved from 0, you are on the right way! Keep up the good work, but don't forget about practicing repetition. Especially for this purpose we did not remove the “repeat” button, when you click on it, a lesson is generated to repeat the most previously learned element. And remember that practice makes perfect!"
+            },
+            {
+                "type": "image",
+                "value": "counter"
+            },
+            {
+                "type": "image",
+                "value": "learned_elements_count"
+            },
+            {
+                "type": "headerText",
+                "value": "App sections"
+            },            {
+                "type": "headerText",
+                "value": "👨🏻‍🏫 🛠️ 📜 📚 👑 📊"
+            },
+            {
+                "type": "text",
+                "value": "At current stage in Mendelevi acessible next sections: «Periodic tables», «Tools», «Lessons», «Category test», «Big games», «User statistic»."
+            },
+            {
+                "type": "headerText",
+                "value": "Periodic tables 👨🏻‍🏫"
+            },
+            {
+                "type": "text",
+                "value": "Despite the fact that there are already more than 100 varieties of periodic tables, our application allows you to explore what we consider the four most important ones: “Short Polyatomic,” “Wide Polyatomic,” “Classic,” and “Standard.” As the application develops, we will add other types of periodic tables to this section."
+            },
+            {
+                "type": "image",
+                "value": "standard_table_example"
+            },
+            {
+                "type": "text",
+                "value": "(example of the standard representation of periodic table)"
+            },
+            {
+                "type": "text",
+                "value": "Each of the visual representations has its own settings for the table scale, during the change of which the displayed information about the item dynamically changes."
+            },
+            {
+                "type": "image",
+                "value": "element_sizes_example"
+            },
+            {
+                "type": "text",
+                "value": "As you can see when zooming in, the view is enhanced with additional information. These are optionally displayed item parameters that the user can select at any time."
+            },
+            {
+                "type": "image",
+                "value": "swap_parameters"
+            },
+            {
+                "type": "text",
+                "value": "Obviously try to scale the element size and swap the optional parameter later."
+            },
+            {
+                "type": "image",
+                "value": "phase_example"
+            },
+            {
+                "type": "text",
+                "value": "From optional parameter density to density for example."
+            },
+            {
+                "type": "image",
+                "value": "density_example"
+            },
+            {
+                "type": "text",
+                "value": "All views are interactive and have their own memory that memorizes the user's position on the table, as well as the selected optional parameter."
+            },
+            {
+                "type": "text",
+                "value": "So You can select any chemical element to memorize or repeating just in the table!"
+            },
+            {
+                "type": "image",
+                "value": "brain_process"
+            },
+            {
+                "type": "text",
+                "value": "The main thing is not to overdo it! We recommend memorizing from 2 to 5 new chemical elements per day, and the rest of the time to devote to repeating the studied ones."
+            },
+            {
+                "type": "text",
+                "value": "After successful memorization we will return you to the same position in the table."
+            },
+            {
+                "type": "headerText",
+                "value": "Tools 🛠️"
+            },
+            {
+                "type": "text",
+                "value": "This section contains useful tools for solving various chemical problems, easier information retrieval, etc."
+            },
+            {
+                "type": "image",
+                "value": "Search table"
+            },
+            {
+                "type": "text",
+                "value": "For example, our Search table gives you the ability to find items by their property values, it is a very flexible and practical tool that allows you to work with groups of items. At same time you can tag element an click the switcher button in the right up corner to show only selected elements"
+            },
+            {
+                "type": "text",
+                "value": "Ok, I'll show how to use it. Put the tag on two chekboxes near the elements that you wanna to choose."
+            },
+            {
+                "type": "image",
+                "value": "tag_chekbox_example"
+            },
+            {
+                "type": "text",
+                "value": "Then drag the switcher to the active state, there must only two elements lefts."
+            },
+            {
+                "type": "image",
+                "value": "switcher_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "After that, we want the only thing left on that list to be gases. So in search field, write «Gas» or just «G» and let's see what remains."
+            },
+            {
+                "type": "image",
+                "value": "search_example"
+            },
+            {
+                "type": "text",
+                "value": "Now you need to clean your search by pressing the cross button in a search field, then press «Presets» button and chose «clear all»"
+            },
+            {
+                "type": "text",
+                "value": "Ok, lets look on another situation. For example you wanna chose only polyatomic nonmetals. So press «Presets» button and chose «polyatomic nonmetals»"
+            },
+            {
+                "type": "image",
+                "value": "presets_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "Now imagine that you want to see the resulting list in order of, say, atomic mass ascending or descending. Chose optional parameter clicking «gear button» and chose atomic mass parameter, and click «order button»"
+            },
+            {
+                "type": "image",
+                "value": "order_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "Order button have three states:\n- unordered\n- ascending order\n- descending order"
+            },
+            {
+                "type": "text",
+                "value": "Try to click those button couple times after this lesson. And now lets look how our situation changed by pressing this button."
+            },
+            {
+                "type": "image",
+                "value": "descending_order_btn_clicked"
+            },
+            {
+                "type": "text",
+                "value": "Search tools also has a memory, so it remembers your chosen chemical elements that you tagged and selected and optional parameter to show."
+            },
+            {
+                "type": "text",
+                "value": "By the way, you can share some chemical properties of element to your contacts by pressing the element just in array and then pressing the share button. Try it!"
+            },
+            {
+                "type": "image",
+                "value": "plane_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Try it! Just send some useful info to your friends."
+            },
+            {
+                "type": "headerText",
+                "value": "Lessons 📜"
+            },
+            {
+                "type": "text",
+                "value": "This section contains educational materials on chemistry on different themes. These lectures feature interactive questions that help users better understand the content. We don't just ask questions, we teach you!"
+            },
+            {
+                "type": "image",
+                "value": "roman_lectorium"
+            },
+            {
+                "type": "text",
+                "value": "As part of the training, it is quite normal to ask questions and give wrong answers to them. Don't worry, in lectures you can answer until you have chosen all the correct answers, which can be one or more."
+            },
+            {
+                "type": "question",
+                "value" : {
+                    "text": "Have you figured out how to answer the questions?",
+                    "answers": [
+                        {
+                            "response": "Yes",
+                            "description": "This is one of the 'correct' answers, it green colored or have positive prompt. Are you sure it's all clear?",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "I'm not shure",
+                            "description": "Here more than one correct answer, try to press one more ansewr button. This button is red colored. All red colored answers are 'incorrect' or gave neagative prompt.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Absolutley",
+                            "description": "Great! After clicking all 'corrects' answers you can't tap other answers. And, wait a second, here must be some salutte!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "No",
+                            "description": "Even if you choose all the wrong options, the question will remain open until you give all the correct answers.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Category test 📚"
+            },
+            {
+                "type": "text",
+                "value": "In this section, you can test your knowledge of which chemical elements belong to the selected category."
+            },
+            {
+                "type": "image",
+                "value": "books_closet"
+            },
+            {
+                "type": "text",
+                "value": "As you might seen, each icon in section has it's own number and specific color. Each color represent category of elements from periodic table. For example orange color present diatomic nonmetals category, rather blue is nobel gases. But what about number on the icons..."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think this number represents?",
+                    "answers": [
+                        {
+                            "response": "Сount of questions",
+                            "description": "Yep, but not at all.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Number of correct answers for the previous session.",
+                            "description": "Good idea, we'll think about it, but for now we have a separate section named «User statistic» for it",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Number of chemicals elements per category.",
+                            "description": "Absolutley! And what does it's mean?",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Big games 👑"
+            },
+            {
+                "type": "text",
+                "value": "Come on, it's not that big... i guess. Just a little over 120 questions in all. The question asks for a specific property for each element on the periodic table."
+            },
+            {
+                "type": "image",
+                "value": "big_games_in_rome"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think about Big games?",
+                    "answers": [
+                        {
+                            "response": "It's so big! There so many questions...",
+                            "description": "No, it's not! If I could, the pyramid built in the name of Cleopatra would be big, and this number of questions is quite normal. We believe in your abilities, just give it a try!",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "I'll do that!",
+                            "description": "Yes you can! And remember that all great things start from small.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "User statistic 📊"
+            },
+            {
+                "type": "text",
+                "value": "We keep a tally of your general statistical information so that nothing is lost, it is not always very useful, but it is there and you can brag about it to your friends and colleagues."
+            },
+            {
+                "type": "image",
+                "value": "roman_with_counter"
+            },
+            {
+                "type": "text",
+                "value": "It shows how many elements from each category of chemical elements you have memorized, we will even try to draw a pie chart."
+            },
+            {
+                "type": "image",
+                "value": "roman_painter"
+            },
+            {
+                "type": "text",
+                "value": "What's more, we keep a tally of the completion of certain events and the number of questions passed, so check back here from time to time. Watching your own progress and seeing the results will motivate you to conquer new heights!"
+            },
+            {
+                "type": "headerText",
+                "value": "Afterwords"
+            },
+            {
+                "type": "image",
+                "value": "see_you_friend"
+            },
+            {
+                "type": "text",
+                "value": "At the end of the journey, the student outgrows his teacher. We hope it also happens to us. Please don't forget about us, okay? And write some feedback about our app after using it."
+            }
+        ],
+        "isCompleted": false
+    }
+]

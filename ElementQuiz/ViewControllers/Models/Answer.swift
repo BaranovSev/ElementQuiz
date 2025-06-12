@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Answer {
+final class Answer: Codable {
     var response: String   // Сам вариант ответа
     var description: String // Описание к варианту ответа
     var isCorrect: Bool     // Указывает, является ли ответ правильным
@@ -16,5 +16,18 @@ final class Answer {
         self.response = response
         self.description = description
         self.isCorrect = isCorrect
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case response
+        case description
+        case isCorrect
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.response = try container.decode(String.self, forKey: .response)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.isCorrect = try container.decode(Bool.self, forKey: .isCorrect)
     }
 }

@@ -6,79 +6,113 @@
 //
 
 import Foundation
-final class Lesson {
-    enum LessonContent {
-        case headerText(String)
-        case text(String)
-        case image(String)
-        case question(Question)
-    }
-    
-    let number: Int
+final class Lesson: Codable {
+    let number: Double
     let name: String
-    let structure: [LessonContent] // Массив, содержащий элементы урока
-    private var currentIndex: Int // Индекс текущего элемента, с которого был начат урок
-    private var isCompleted: Bool // Флаг завершенности урока
-    private let textOfLesson: [String]
-    private let imagesName: [String]
-    private let questions: [Question]
-    var questionsCount: Int {
-        return questions.count
-    }
+    let lessonImageName: String
+    let structure: [LessonContent]
+    private var isCompleted: Bool
     
-    init(number: Int, name: String, structure: [LessonContent], currentIndex: Int, isCompleted: Bool, textOfLesson: [String], imagesName: [String], questions: [Question]) {
+    init(number: Double, name: String, lessonImageName: String, structure: [LessonContent], isCompleted: Bool) {
         self.number = number
         self.name = name
+        self.lessonImageName = lessonImageName
         self.structure = structure
-        self.currentIndex = currentIndex
         self.isCompleted = isCompleted
-        self.textOfLesson = textOfLesson
-        self.imagesName = imagesName
-        self.questions = questions
     }
     
-    func nextElement() -> LessonContent? {
-        if currentIndex < structure.count {
-            let element = structure[currentIndex]
-            currentIndex += 1
-            return element
-        } else {
-            //TODO: true after clicking big button? in another func?
-            isCompleted = true
-            currentIndex = 0
-            return nil
-        }
+    enum CodingKeys: String, CodingKey {
+        case number
+        case name
+        case lessonImageName = "lesson_image_name"
+        case structure
+        case isCompleted
     }
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.number = try container.decode(Double.self, forKey: .number)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.lessonImageName = try container.decode(String.self, forKey: .lessonImageName)
+        self.structure = try container.decode([LessonContent].self, forKey: .structure)
+        self.isCompleted = try container.decode(Bool.self, forKey: .isCompleted)
+    }
+      
     func reset() {
-        currentIndex = 0
         isCompleted = false
     }
 }
 
-extension Lesson {
-    static func getMockLesson() -> Lesson {
-        let answer1 = Answer(response: "Ответ 1", description: "Это первый вариант ответа. Не правильный.", isCorrect: false)
-        let answer2 = Answer(response: "Ответ 2", description: "Это второй вариант ответа и он правильный.", isCorrect: true)
-        let answer3 = Answer(response: "Ответ 3", description: "Это третий вариант ответа и он правильный.", isCorrect: true)
-        let answer4 = Answer(response: "Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4, длинный, Ответ 4", description: "Это четвертый вариант ответа и он правильный... а еще он ОЧЕНЬ оооооооо ооооооооооооо ооооочень длинный, ну прям очень.", isCorrect: true)
-        let question1 = Question(text: "1Какой ответ правильный?", answers: [answer1, answer2])
-        let question2 = Question(text: "2Какой ответ правильный?", answers: [answer1, answer2])
-        let question3 = Question(text: "3Какой ответ правильный? Eще он ОЧЕНЬ оооооооооооооооооооооооооочень длинный, ну прям очень.", answers: [answer1, answer2, answer3, answer4])
-        let questions = [question1, question2, question3]
-        let textArray = ["textlong1 te xtlong1textlong1text long1textlong 1te xtlong1tex tlong1textl ong1textlong1te xtlong1 textlon g1textlon g1textlon g1textlong1 textlong1textl ong1textlong1tex tlong1textl ong1te xtlong1te xtlong1te xtlong1textlon g1textlong1textlo ng1textlong1text long1textlong1text long1textlong1 textlong1textlong 1textlong1textlong 1textlong1 textlong1te xtlong1textl ong1tex tlong1te xtlong1te xtlong1t extlon g1text long1t extlong 1textlon g1textl ong1text long1tex tlong1","textlong2","textlong3"]
-        let imageNamesArray = ["coin","caesar_games","coin"]
-        let lessonMockName = "MockName Name Name Name Name"
-        let mockStructure: [LessonContent] = [.headerText(lessonMockName), .text(textArray[0]), .image(imageNamesArray[0]), .text(textArray[1]), .image(imageNamesArray[1]), .text(textArray[2]), .image(imageNamesArray[2]), .question(questions[0]), .question(questions[1]), .question(questions[2])]
+enum LessonContent: Codable {
+    case headerText(String)
+    case text(String)
+    case image(String)
+    case question(Question)
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case value
+    }
+    
+    private enum ContentType: String, Codable {
+        case headerText
+        case text
+        case image
+        case question
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let type = try container.decode(ContentType.self, forKey: .type)
         
-        return Lesson(number: 1,
-                      name: lessonMockName,
-                      structure: mockStructure,
-                      currentIndex: 0,
-                      isCompleted: false,
-                      textOfLesson: textArray,
-                      imagesName: imageNamesArray,
-                      questions: questions
-        )
+        switch type {
+        case .headerText:
+            let value = try container.decode(String.self, forKey: .value)
+            self = .headerText(value)
+        case .text:
+            let value = try container.decode(String.self, forKey: .value)
+            self = .text(value)
+        case .image:
+            let value = try container.decode(String.self, forKey: .value)
+            self = .image(value)
+        case .question:
+            let value = try container.decode(Question.self, forKey: .value)
+            self = .question(value)
+        }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .headerText(let value):
+            try container.encode(ContentType.headerText, forKey: .type)
+            try container.encode(value, forKey: .value)
+        case .text(let value):
+            try container.encode(ContentType.text, forKey: .type)
+            try container.encode(value, forKey: .value)
+        case .image(let value):
+            try container.encode(ContentType.image, forKey: .type)
+            try container.encode(value, forKey: .value)
+        case .question(let value):
+            try container.encode(ContentType.question, forKey: .type)
+            try container.encode(value, forKey: .value)
+        }
+    }
+}
+
+extension Lesson {    
+    static func getMockLessonFromJSON() -> Lesson? {
+        guard let url = Bundle(for: self).url(forResource: "LessonsJSON", withExtension: "json") else {
+            fatalError("Couldn't find LessonsJSON.json")
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let lesson = try decoder.decode([Lesson].self, from: data)
+            return lesson[0]
+        } catch {
+            print("Error of loading or decoding data: \(error)")
+            return nil
+        }
     }
 }

@@ -10,7 +10,7 @@ import SnapKit
 
 
 final class LessonViewController: UIViewController {
-    private let lesson: Lesson = Lesson.getMockLesson()
+    private let lesson: Lesson = Lesson.getMockLessonFromJSON()!
     private var currentIndex = 0
     
     // MARK: - UI Properties
@@ -31,7 +31,7 @@ final class LessonViewController: UIViewController {
     
     private lazy var bigButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Memorize", for: .normal)
+        button.setTitle("Achieve", for: .normal)
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
@@ -137,8 +137,32 @@ final class LessonViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 15
         imageView.image = UIImage(named: imageName)
+        
+        if let image = UIImage(named: imageName) {
+            imageView.image = image.withRoundedCorners(inPercentageFromSmallestSide: 5)
+            let imageSize = image.size
+            let screenSize = UIScreen.main.bounds.size
+            
+            // Рассчитываем новый размер для ImageView
+            let aspectRatio = imageSize.width / imageSize.height
+            var newHeight: CGFloat
+            var newWidth: CGFloat
+            
+            if screenSize.width / screenSize.height > aspectRatio {
+                // Ширина экрана больше соотношения сторон изображения
+                newHeight = screenSize.height
+                newWidth = newHeight * aspectRatio
+            } else {
+                // Высота экрана больше соотношения сторон изображения
+                newWidth = screenSize.width
+                newHeight = newWidth / aspectRatio
+            }
+            
+            imageView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
+        }
+        
         return imageView
     }
     
