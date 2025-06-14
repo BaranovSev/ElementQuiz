@@ -58,6 +58,7 @@ final class StartViewController: UIViewController {
     private var timer: Timer?
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+    private let listOfLessons: [Lesson] = Lesson.getMockLessonsFromJSON()
     private let user: User = DataManager.shared.fetchUser()
     private var collectionViewStructure: [CollectionSections] = []
     private var currentElement: ChemicalElementModel? {
@@ -320,9 +321,10 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let periodicTableStyles = PeriodicTableMode.allValues
         let categories: [String] = Array(Set(fixedElementList.map({ $0.category }))).sorted()
         let typeOfQuestions = QuestionAbout.allValues
+        let lessonsNames: [String] = listOfLessons.map { $0.name }
         collectionViewStructure = [.periodicTable(periodicTableStyles),
                                    .tools(["Search table"]),
-                                   .lessons(["History", "Terminology", "General knowledge", "Difficult material"]),
+                                   .lessons(lessonsNames),
                                    .categoryTest(categories),
                                    .bigGames(typeOfQuestions),
                                    .userStatistic(["User"])]
@@ -367,7 +369,7 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             else {
                 return UICollectionViewCell()
             }
-            cell.configureCell(lessonName: lessons[indexPath.row])
+            cell.configureCell(lessonName: lessons[indexPath.row], lessonImageName: listOfLessons[indexPath.row].lessonImageName )
             return cell
         case .categoryTest(let categories):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reuseId, for: indexPath) as? CategoryCollectionViewCell
@@ -407,7 +409,7 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
         case .tools(_):
             vc = SearchViewController(dataSource: dataSource, fixedElementList: fixedElementList)
         case .lessons(_):
-            vc = LessonViewController()
+            vc = LessonViewController(lesson: listOfLessons[indexPath.row], headerText: "Lesson \(indexPath.row + 1)")
         case .categoryTest(let categories):
             vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: categories[indexPath.row])
         case .bigGames(let questionTypes):
@@ -848,9 +850,9 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(lessonName: String) {
+    func configureCell(lessonName: String, lessonImageName: String) {
         label.text = lessonName
-        imageView.image = UIImage(named: lessonName) ?? UIImage(named: "coin")
+        imageView.image = UIImage(named: lessonImageName) ?? UIImage(named: "coin")
     }
 }
 

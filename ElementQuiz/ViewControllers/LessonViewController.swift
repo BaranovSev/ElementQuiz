@@ -10,8 +10,8 @@ import SnapKit
 
 
 final class LessonViewController: UIViewController {
-    private let lesson: Lesson = Lesson.getMockLessonFromJSON()!
-    private var currentIndex = 0
+    private let lesson: Lesson
+    private let headerText: String
     
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
@@ -42,6 +42,16 @@ final class LessonViewController: UIViewController {
         return button
     }()
     
+    init(lesson: Lesson, headerText: String) {
+        self.lesson = lesson
+        self.headerText = headerText
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +63,7 @@ final class LessonViewController: UIViewController {
     
     private func setup() {
         view.backgroundColor = CustomColors.generalAppPhont
-        navigationItem.title = "Lesson #\(lesson.number)"
+        navigationItem.title = headerText
         
         let backButton = UIBarButtonItem(
             image: UIImage(systemName: "chevron.backward"),

@@ -101,18 +101,21 @@ enum LessonContent: Codable {
 }
 
 extension Lesson {    
-    static func getMockLessonFromJSON() -> Lesson? {
+    static func getMockLessonsFromJSON() -> [Lesson] {
         guard let url = Bundle(for: self).url(forResource: "LessonsJSON", withExtension: "json") else {
-            fatalError("Couldn't find LessonsJSON.json")
+            print("Couldn't find LessonsJSON.json")
+            return []
         }
+        
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let lesson = try decoder.decode([Lesson].self, from: data)
-            return lesson[0]
+            var lessons = try decoder.decode([Lesson].self, from: data)
+            lessons.sort { $0.number < $1.number }
+            return lessons
         } catch {
             print("Error of loading or decoding data: \(error)")
-            return nil
+            return []
         }
     }
 }
