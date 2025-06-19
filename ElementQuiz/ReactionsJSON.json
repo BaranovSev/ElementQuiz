@@ -395,7 +395,11 @@
             },
             {
                 "type": "text",
-                "value": "Just look on that Bismutum crystal."
+                "value": "Just look on that Bismutum crystal. And then look at a completely different pyrite crystal."
+            },
+            {
+                "type": "image",
+                "value": "pyrite_crystal"
             },
             {
                 "type": "headerText",
