@@ -16,6 +16,7 @@
 		FD675CDD2BB1851B00CB6F06 /* CategoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */; };
 		FD7A10BE2CA851F600C25877 /* StringQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7A10BD2CA851F600C25877 /* StringQuotes.swift */; };
 		FD7A10C02CA8597700C25877 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7A10BF2CA8597700C25877 /* UITextView+extension.swift */; };
+		FD88F0542DFDBFB900F73847 /* ReactionsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = FD88F0532DFDBFB900F73847 /* ReactionsJSON.json */; };
 		FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDB832BBD858800C77650 /* SearchViewController.swift */; };
 		FD91549E2BC8532B00209124 /* CongratulationViewController + Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */; };
 		FDA1FE132B3CCA47001D9F14 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FDA1FE122B3CCA47001D9F14 /* SnapKit */; };
@@ -85,6 +86,7 @@
 		FD675CDC2BB1851B00CB6F06 /* CategoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTestViewController.swift; sourceTree = "<group>"; };
 		FD7A10BD2CA851F600C25877 /* StringQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringQuotes.swift; sourceTree = "<group>"; };
 		FD7A10BF2CA8597700C25877 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
+		FD88F0532DFDBFB900F73847 /* ReactionsJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ReactionsJSON.json; sourceTree = "<group>"; };
 		FD8FDB832BBD858800C77650 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CongratulationViewController + Protocol.swift"; sourceTree = "<group>"; };
 		FDA774532B1F70D200DF7D8C /* ElementIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementIconView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				FDD3C16C2AFA6E7A0031336C /* Main.storyboard */,
 				FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */,
 				FD49F1642DEF44B20056D8DC /* LessonsJSON.json */,
+				FD88F0532DFDBFB900F73847 /* ReactionsJSON.json */,
 				FD56C06C2B1FACAD007AB130 /* Views */,
 				FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */,
 			);
@@ -393,6 +396,7 @@
 				FDD3C1702AFA6E7B0031336C /* Assets.xcassets in Resources */,
 				FDD3C16E2AFA6E7A0031336C /* Main.storyboard in Resources */,
 				FDCBF9EA2B1E0C0F00214599 /* PeriodicTableJSON.json in Resources */,
+				FD88F0542DFDBFB900F73847 /* ReactionsJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

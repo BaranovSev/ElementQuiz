@@ -12,6 +12,7 @@ private enum CollectionSections {
     case periodicTable([String])
     case tools([String])
     case lessons([String])
+    case reactions([String])
     case categoryTest([String])
     case bigGames([String])
     case userStatistic([String])
@@ -21,6 +22,7 @@ private enum CollectionSections {
         case .periodicTable(let items),
                 .tools(let items),
                 .lessons(let items),
+                .reactions(let items),
                 .categoryTest(let items),
                 .bigGames(let items),
                 .userStatistic(let items):
@@ -40,9 +42,8 @@ private enum CollectionSections {
             return "Tools 🛠️"
         case .lessons(_):
             return "Lessons 📜"
-//TODO: case .reactions
-//        case .reactions(_):
-//            return "Reactions 🌋"
+        case .reactions(_):
+            return "Reactions 🌋"
         case .categoryTest(_):
             return "Category test 📚"
         case .bigGames(_):
@@ -59,6 +60,7 @@ final class StartViewController: UIViewController {
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
     private let listOfLessons: [Lesson] = Lesson.getMockLessonsFromJSON()
+    private let listOfReactions: [Lesson] = Lesson.getMockReactionsFromJSON()
     private let user: User = DataManager.shared.fetchUser()
     private var collectionViewStructure: [CollectionSections] = []
     private var currentElement: ChemicalElementModel? {
@@ -266,7 +268,8 @@ final class StartViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.top.lessThanOrEqualTo(horizontalStack.snp.bottom).offset(25)
             make.width.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.width * 3)
+//            make.height.equalTo(UIScreen.main.bounds.width * 3)
+            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.width * 4)
             make.bottom.equalToSuperview()
         }
     }
@@ -322,9 +325,11 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let categories: [String] = Array(Set(fixedElementList.map({ $0.category }))).sorted()
         let typeOfQuestions = QuestionAbout.allValues
         let lessonsNames: [String] = listOfLessons.map { $0.name }
+        let reactionsNames: [String] = listOfReactions.map { $0.name }
         collectionViewStructure = [.periodicTable(periodicTableStyles),
                                    .tools(["Search table"]),
                                    .lessons(lessonsNames),
+                                   .reactions(reactionsNames),
                                    .categoryTest(categories),
                                    .bigGames(typeOfQuestions),
                                    .userStatistic(["User"])]
@@ -333,6 +338,7 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
         collectionView.register(PeriodicTableCollectionViewCell.self, forCellWithReuseIdentifier: PeriodicTableCollectionViewCell.reuseId)
         collectionView.register(ToolsCollectionViewCell.self, forCellWithReuseIdentifier: ToolsCollectionViewCell.reuseId)
         collectionView.register(LessonsCollectionViewCell.self, forCellWithReuseIdentifier: LessonsCollectionViewCell.reuseId)
+        collectionView.register(ReactionsCollectionViewCell.self, forCellWithReuseIdentifier: ReactionsCollectionViewCell.reuseId)
         collectionView.register(BigGameCollectionViewCell.self, forCellWithReuseIdentifier: BigGameCollectionViewCell.reuseId)
         collectionView.register(UserStatisticCollectionViewCell.self, forCellWithReuseIdentifier: UserStatisticCollectionViewCell.reuseId)
         collectionView.register(CustomHeaderView.self, forSupplementaryViewOfKind:     UICollectionView.elementKindSectionHeader, withReuseIdentifier: CustomHeaderView.reuseId)
@@ -370,6 +376,13 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 return UICollectionViewCell()
             }
             cell.configureCell(lessonName: lessons[indexPath.row], lessonImageName: listOfLessons[indexPath.row].lessonImageName )
+            return cell
+        case .reactions(let reactions):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReactionsCollectionViewCell.reuseId, for: indexPath) as? ReactionsCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(reactionName: reactions[indexPath.row], reactionImageName: listOfReactions[indexPath.row].lessonImageName)
             return cell
         case .categoryTest(let categories):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reuseId, for: indexPath) as? CategoryCollectionViewCell
@@ -410,6 +423,8 @@ extension StartViewController: UICollectionViewDataSource, UICollectionViewDeleg
             vc = SearchViewController(dataSource: dataSource, fixedElementList: fixedElementList)
         case .lessons(_):
             vc = LessonViewController(lesson: listOfLessons[indexPath.row], headerText: "Lesson \(indexPath.row + 1)")
+        case .reactions(_):
+            vc = LessonViewController(lesson: listOfReactions[indexPath.row], headerText: listOfReactions[indexPath.row].name)
         case .categoryTest(let categories):
             vc = CategoryTestViewController(fixedElementList: fixedElementList, currentCategory: categories[indexPath.row])
         case .bigGames(let questionTypes):
@@ -452,6 +467,8 @@ extension StartViewController {
                 return self.createToolsSection()
             case .lessons(_):
                 return self.createLessonsSection()
+            case.reactions(_):
+                return self.createReactionsSection()
             case .categoryTest(_):
                 return self.createCategoryTestSection()
             case .bigGames(_):
@@ -475,9 +492,9 @@ extension StartViewController {
 
     private func createPeriodicTableSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
-                                                            heightDimension: .fractionalHeight(0.9)))
+                                                            heightDimension: .fractionalHeight(1)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.14)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.09)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -489,25 +506,40 @@ extension StartViewController {
     }
 
     private func createToolsSection() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99),
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.08)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.05)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 5.0,
                                           supplementaryItems: [supplementaryHeaderItem()])
-        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
         return section
     }
     
     private func createLessonsSection() -> NSCollectionLayoutSection {        
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.98),
+                                                            heightDimension: .fractionalHeight(1)))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.2)),
+                                                       subitems: [item])
+
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 5.0,
+                                          supplementaryItems: [supplementaryHeaderItem()])
+        section.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        return section
+    }
+    
+    private func createReactionsSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.15)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.115)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -522,7 +554,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.49),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.15)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.115)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -537,7 +569,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.29), heightDimension: .fractionalHeight(0.12)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.29), heightDimension: .fractionalHeight(0.08)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -813,6 +845,70 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
         parentView.layer.cornerRadius = 10
         parentView.backgroundColor = CustomColors.backgroundForCell
         parentView.layer.masksToBounds = true
+        label.backgroundColor = CustomColors.backgroundForCell
+        label.textAlignment = .center
+        label.textColor = CustomColors.generalTextColor
+        label.numberOfLines = 3
+        label.font = UIFont(name: "Avenir", size: 20)
+        label.minimumScaleFactor = 0.8
+        label.adjustsFontSizeToFitWidth = true
+        imageView.contentMode = .scaleAspectFill
+    }
+    
+    private func addSubViews() {
+        contentView.addSubview(parentView)
+        parentView.addSubview(imageView)
+        parentView.addSubview(label)
+    }
+    
+    private func layout() {
+        parentView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview().offset(-10)
+            make.width.equalToSuperview().offset(-10)
+        }
+        
+        label.snp.makeConstraints { make in
+            make.width.equalTo(parentView.snp.width)
+            make.height.greaterThanOrEqualTo(30)
+            make.top.equalTo(parentView.snp.top)
+            make.centerX.equalToSuperview()
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom)
+            make.width.lessThanOrEqualTo(parentView.snp.width)
+            make.height.lessThanOrEqualTo(parentView.snp.height)
+        }
+    }
+    
+    func configureCell(lessonName: String, lessonImageName: String) {
+        label.text = lessonName
+        imageView.image = UIImage(named: lessonImageName) ?? UIImage(named: "coin")
+    }
+}
+
+private final class ReactionsCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "ReactionsCollectionViewCell"
+    let parentView: UIView = UIView()
+    let label: UILabel = UILabel()
+    let imageView: UIImageView = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+        addSubViews()
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
+        parentView.layer.cornerRadius = 10
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        parentView.layer.masksToBounds = true
         label.textAlignment = .center
         label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
@@ -850,9 +946,9 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(lessonName: String, lessonImageName: String) {
-        label.text = lessonName
-        imageView.image = UIImage(named: lessonImageName) ?? UIImage(named: "coin")
+    func configureCell(reactionName: String, reactionImageName: String) {
+        label.text = reactionName
+        imageView.image = UIImage(named: reactionImageName) ?? UIImage(named: "coin")
     }
 }
 

@@ -307,6 +307,42 @@
             },
             {
                 "type": "headerText",
+                "value": "Reactions 🌋"
+            },
+            {
+                "type": "text",
+                "value": "Of course, what kind of chemistry can you study without experiments and without carrying out chemical reactions?"
+            },
+            {
+                "type": "image",
+                "value": "lesson_one_romans_reaction"
+            },
+            {
+                "type": "text",
+                "value": "Although it is necessary to know the theoretical material, with personal participation comes a more visual understanding of what is happening and how it should be. And you must agree, it is much more interesting to observe the reaction live, and even more so to carry it out yourself.\nIn this section, you will do just that!"
+            },
+            {
+                "type": "question",
+                "value" : {
+                    "text": "Do you think you carry out chemical reactions in your daily life?",
+                    "answers": [
+                        {
+                            "response": "Yes",
+                            "description": "Wow, we're do that too!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "No",
+                            "description": "Even stirring sugar in tea is a dissolution reaction. In addition,if you don't eat sugar, your stomach oxidizes food under the action of hydrochloric acid and enzymes, so you are essentially a mobile laboratory yourself!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
                 "value": "Category test 📚"
             },
             {
@@ -413,6 +449,42 @@
             {
                 "type": "text",
                 "value": "At the end of the journey, the student outgrows his teacher. We hope it also happens to us. Please don't forget about us, okay? And write some feedback about our app after using it."
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 2.0,
+        "name": "Secondary",
+        "lesson_image_name": "romans_laboratory_slime_reaction",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Mock lesson"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 3.0,
+        "name": "Third lesson with long theme name Third lesson with long theme name",
+        "lesson_image_name": "roman_with_slime",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Mock lesson"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 4.0,
+        "name": "Lesson number four with long theme name",
+        "lesson_image_name": "roman_cleaner",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Mock lesson"
             }
         ],
         "isCompleted": false

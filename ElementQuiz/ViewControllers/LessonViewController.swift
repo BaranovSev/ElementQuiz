@@ -205,7 +205,8 @@ final class LessonViewController: UIViewController {
 // MARK: - ShowCongratulationProtocol
 extension LessonViewController: ShowCongratulationProtocol {
     func showCongratulationViewController() {
-        let vc = CongratulationViewController(delegate: self, describeOfSense: lesson.name, imageName: "coin")
+        let describeOfSense: String = headerText.contains("Lesson") ? "Passed \(headerText.lowercased()):\n\(lesson.name)" : "Studied reaction:\n\(lesson.name)"
+        let vc = CongratulationViewController(delegate: self, describeOfSense: describeOfSense, imageName: lesson.lessonImageName)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }

@@ -1,0 +1,357 @@
+[
+    {
+        "number": 1.0,
+        "name": "Creating Slime",
+        "lesson_image_name": "slime_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Slime"
+            },
+            {
+                "type": "image",
+                "value": "slime_green_image"
+            },
+            {
+                "type": "text",
+                "value": "Is a fun and popular DIY item that delights both kids and adults. Making slime can be viewed as a creative process that develops fine motor skills and imagination. Slime is made using a chemical reaction between a polymer (like PVA glue) and a thickener (like sodium tetraborate). This creates a Non-Newtonian fluid that behaves like a solid when hit hard and like a liquid when hit gently. In this topic, we will discuss the main components and steps involved in making slime, as well as some tips and recipes."
+            },
+            {
+                "type": "headerText",
+                "value": "History of Slime"
+            },
+            {
+                "type": "image",
+                "value": "roman_kid_with_slime"
+            },
+            {
+                "type": "text",
+                "value": "Slime was introduced in the 1976s as a toy for children. Over time, its popularity increased, especially due to social media, where users share their recipes and showcase unique types of slime. Slimes are easy to crumple with your hands, have a sticky surface and collect pet hair very well. By the way, this is exactly what slimes were created for — collecting lint and hair from clothes. But the thing turned out to be so funny that the children turned the slimes into a toy."
+            },
+            {
+                "type": "headerText",
+                "value": "Attention!"
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "text",
+                "value": "Borax (and other boron derivatives like sodium borate, sodium tetraborate or disodium tetraborate) is used to cross-link with the glue to create the rubbery substance. Overexposure to boron can irritate a person's skin, cause respiratory problems and lead to gastrointestinal bleeding if ingested."
+            },
+            {
+                "type": "headerText",
+                "value": "To make slime, you will need:"
+            },
+            {
+                "type": "text",
+                "value": "1. Glue — it’s best to use white or clear PVA glue.\n2. Borax or contact lens solution — for activating the slime.\n3. Water — to mix the components more easily.\n4. Colorants — to add color to your slime.\n5. Glitter, beads, stickers or aromatical oils and other additions — for decoration and creating unique textures and smells."
+            },
+            {
+                "type": "image",
+                "value": "romans_create_slime"
+            },
+            {
+                "type": "headerText",
+                "value": "Step one: Prepare the Mixture"
+            },
+            {
+                "type": "text",
+                "value": "- In a bowl, mix ½ cup of glue with ½ cup of water. Stir until you achieve a uniform consistency.\n- Add a few drops of colorant and mix well."
+            },
+            {
+                "type": "headerText",
+                "value": "Step two: Activate the Slime"
+            },
+            {
+                "type": "text",
+                "value": "- Gradually add the borax solution (or contact lens solution) to the mixture. Stir until clumps begin to form.\n- After this, continue kneading the mixture with your hands until it becomes elastic and stops sticking to your hands."
+            },
+            {
+                "type": "headerText",
+                "value": "Step three: Add Decorations"
+            },
+            {
+                "type": "text",
+                "value": "- If you want to make your slime unique, add glitter, beads, or other materials at this stage. Mix them into your slime right now!"
+            },
+            {
+                "type": "image",
+                "value": "slime_red_image"
+            },
+            {
+                "type": "headerText",
+                "value": "Tips"
+            },
+            {
+                "type": "text",
+                "value": "- If your slime turns out too sticky, add a bit more activator.\n- Store slime in an airtight container to prevent it from drying out.\n- Experiment with textures: try adding shaving cream for a fluffier slime or cornstarch for a thicker one."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "How many types of slime do you think there are?",
+                    "answers": [
+                        {
+                            "response": "1-3",
+                            "description": "nope, there are more",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "4-6",
+                            "description": "there are more",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "more than 7?",
+                            "description": "Actually, we don’t know ourselves, but we heard about: Classic, Clear, Butter, Fluffy, Crunchy, Glossie, Avalanche, Cloud",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "56",
+                            "description": "Wow, that's too many! There are probably fewer...",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "Well, if there are so many of them, then"
+            },
+            {
+                "type": "headerText",
+                "value": "Take one more recipe!\nSlime without Sodium Tetraborate."
+            },
+            {
+                "type": "text",
+                "value": "For that you'll need:\n- 60 ml PVA glue\n- 75 g starch\n- 150 ml water\n- Food coloring or slime dye (optional)"
+            },
+            {
+                "type": "image",
+                "value": "slime_orange_image"
+            },
+            {
+                "type": "headerText",
+                "value": "Instructions:"
+            },
+            {
+                "type": "text",
+                "value": "1. In a container, mix the starch and cold water. Stir well.\n2. Add the glue and optional coloring, mixing until you achieve a smooth consistency."
+            },
+            {
+                "type": "headerText",
+                "value": "Slime isn't just for kids!\nCleaning slime."
+            },
+            {
+                "type": "text",
+                "value": "A special slime recipe taken from the Reddit website will allow you to prepare a unique slime for cleaning hard-to-reach surfaces from dust. We certainly don't recommend using it to clean electronic devices. But, really, some of difficult textures like «pop it» or even like keyboard on your Mac (we didn't say that) can cleaned by this way."
+            },
+            {
+                "type": "image",
+                "value": "roman_cleaner"
+            },
+            {
+                "type": "headerText",
+                "value": "To make cleaning slime, you will need:"
+            },
+            {
+                "type": "text",
+                "value": "- 1 ½ cups warm water\n- ¼ cup borax laundry booster\n- 5 ounces white school glue (Polyvinyl Acetate type II)"
+            },
+            {
+                "type": "headerText",
+                "value": "Instructions:"
+            },
+            {
+                "type": "text",
+                "value": "1. In a paper cup, mix 1 cup warm water with the borax and stir until the borax is dissolved. Put the borax water aside.\n2. In a mixing bowl mix a half-cup of warm water, the glue and two drops of food coloring.\n3. Add the borax water.\n4. Stir until firm. It will start out as a gooey mess. Don't worry. It will firm up as you mix.\n5. Knead with your hands until it becomes a dry ball of ooze. This can take around five minutes."
+            },
+            {
+                "type": "headerText",
+                "value": "Careful!"
+            },
+            {
+                "type": "image",
+                "value": "roman_with_slime"
+            },
+            {
+                "type": "text",
+                "value": "If the slime is sticking to your hands or will not form into a ball; add a couple more tablespoons of borax.\nDo not use the cleaning slime if the slime won't roll into a ball (it could get stuck)."
+            },
+            {
+                "type": "headerText",
+                "value": "How to use it?"
+            },
+            {
+                "type": "text",
+                "value": "You need to knead a piece into a firm ball, then dab whatever you are trying to clean. Remember that slime is a Non-Newtonian fluid, so your movements must be quite fast and precise. Do not let the slime sit on any piece of cleaning texture for more than a second because it will start to ooze inside of it."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What ingredients from the list below are needed to make slime?",
+                    "answers": [
+                        {
+                            "response": "Glitter",
+                            "description": "It's an optional ingredient",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Glue",
+                            "description": "Aha! Maybe soon we'll teach you how to make glue at home!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Paint or dye",
+                            "description": "Actually, if we add some colored ingredient to cleaning slime it will be nice, but dirty... almost like using glitter...",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "romans_laboratory_slime_reaction"
+            },
+            {
+                "type": "text",
+                "value": "Creating slime is not only an entertaining activity but also an opportunity to express creativity. Try different recipes and find your unique combinations! Good luck in making your perfect slime!"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 2.0,
+        "name": "Growing a crystal",
+        "lesson_image_name": "crystal_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Who said you can only grow pets? Let's grow a real crystal!"
+            },
+            {
+                "type": "image",
+                "value": ""
+            },
+            {
+                "type": "text",
+                "value": ""
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Is this volcano is safe?",
+                    "answers": [
+                        {
+                            "response": "No",
+                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Yes",
+                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 3.0,
+        "name": "Volcano",
+        "lesson_image_name": "volcano_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Volcano at home. Now it's safe!"
+            },
+            {
+                "type": "image",
+                "value": ""
+            },
+            {
+                "type": "text",
+                "value": ""
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Is this volcano is safe?",
+                    "answers": [
+                        {
+                            "response": "No",
+                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Yes",
+                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "dinosaurs_and_volcano"
+            },
+            {
+                "type": "image",
+                "value": "dinosaurs_and_volcano_2"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 4.0,
+        "name": "Invisible ink",
+        "lesson_image_name": "invisible_ink_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "What do you new about privacy?"
+            },
+            {
+                "type": "image",
+                "value": ""
+            },
+            {
+                "type": "text",
+                "value": ""
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Is this volcano is safe?",
+                    "answers": [
+                        {
+                            "response": "No",
+                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Yes",
+                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            }
+        ],
+        "isCompleted": false
+    }
+]

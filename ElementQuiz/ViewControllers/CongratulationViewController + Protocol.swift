@@ -172,7 +172,8 @@ final class CongratulationViewController: UIViewController {
         }
         
         if let imageName = imageName {
-            imageView.image = UIImage(named: imageName)
+            guard let image = UIImage(named: imageName) else { return }
+            imageView.image = image.withRoundedCorners(inPercentageFromSmallestSide: 5)
             mainStackView.removeArrangedSubview(countOfLearnedElementsLabel)
             mainStackView.removeArrangedSubview(chemicalElementsLabel)
         } else {
@@ -198,7 +199,7 @@ final class CongratulationViewController: UIViewController {
             countOfLearnedElementsLabel.text = "\(correctAnswersText)"
             chemicalElementsLabel.text = "from \(totalQuestionsText) questions"
         case _ as LessonViewController:
-            youLearnedLabel.text = "\(describeOfSense) lection passed"
+            youLearnedLabel.text = "\(describeOfSense)"
         default:
             youLearnedLabel.text = "You answered"
             countOfLearnedElementsLabel.text = "\(correctAnswersText)"

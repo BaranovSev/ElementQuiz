@@ -118,4 +118,22 @@ extension Lesson {
             return []
         }
     }
+    
+    static func getMockReactionsFromJSON() -> [Lesson] {
+        guard let url = Bundle(for: self).url(forResource: "ReactionsJSON", withExtension: "json") else {
+            print("Couldn't find ReactionsJSON.json")
+            return []
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            var lessons = try decoder.decode([Lesson].self, from: data)
+            lessons.sort { $0.number < $1.number }
+            return lessons
+        } catch {
+            print("Error of loading or decoding data: \(error)")
+            return []
+        }
+    }
 }
