@@ -233,35 +233,342 @@
         "structure": [
             {
                 "type": "headerText",
-                "value": "Who said you can only grow pets? Let's grow a real crystal!"
+                "value": "Who said you can only grow plants?\nLet's grow a real crystal!"
             },
             {
                 "type": "image",
-                "value": ""
+                "value": "growing_crystal_1"
             },
             {
                 "type": "text",
-                "value": ""
+                "value": "To begin with, it would be a good idea to understand what a crystal is and what the crystallization process is."
+            },
+            {
+                "type": "text",
+                "value": "A crystal is a solid in which the atoms or molecules are arranged in a very specific, repeating pattern, forming a three-dimensional lattice. In simple terms, it is as if the building blocks (atoms) are laid out in a very neat, repeating pattern, rather than just scattered randomly."
+            },
+            {
+                "type": "text",
+                "value": "So according to the previous term, we can decide that Crystallization is the process of crystal formation from gases, solutions, melts or glasses.\nCrystallization is also referred to as the formation of crystals with a given structure from crystals of a different structure (polymorphic transformations) or the process of transition from a liquid state to a solid crystalline state. Due to crystallization, minerals and ice, tooth enamel and bones of living organisms are formed."
             },
             {
                 "type": "question",
                 "value": {
-                    "text": "Is this volcano is safe?",
+                    "text": "Here's how to explain it even more simply. Let's think abstractly... which of the above looks more like a crystal?",
                     "answers": [
                         {
-                            "response": "No",
-                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "response": "brick house",
+                            "description": "Each brick is an atom, and the whole house is a crystal. In the house, the bricks are laid in even rows, one above the other, creating a solid structure. Unlike liquids and gases, atoms in a crystal cannot move freely throughout the entire volume. So, bricks can't swap their places in the building. The brick house is a crystal in that case.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "pile of sand",
+                            "description": "Grains of sand are atoms, but they are scattered randomly, without forming any order. The grains can change places by themselves, and they don't touch each other tightly. Even if we take the individual grain... which is a solid, this is the single atom in that case, but not the structure itself.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Every crystal is a solid but not every solid is a crystall"
+            },
+            {
+                "type": "text",
+                "value": "However, solids can also exist in an amorphous state, where the atoms are arranged randomly, without a specific crystal structure. For example: glass, rubber, and plastics. But this is not a crystal!"
+            },
+            {
+                "type": "text",
+                "value": "Here is looks like quartz crystal cluster."
+            },
+            {
+                "type": "image",
+                "value": "rock_crystal"
+            },
+            {
+                "type": "headerText",
+                "value": "Interesting fact about romans:"
+            },
+            {
+                "type": "image",
+                "value": "roman_in_alps"
+            },
+            {
+                "type": "text",
+                "value": "Roman naturalist Pliny the Elder believed quartz to be water ice, permanently frozen after great lengths of time. He supported this idea by saying that quartz is found near glaciers in the Alps, but not on volcanic mountains, and that large quartz crystals were fashioned into spheres to cool the hands. This idea persisted until at least the 17th century. He also knew of the ability of quartz to split light into a spectrum."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think is the largest naturally occurring crystal that ever found?",
+                    "answers": [
+                        {
+                            "response": "quater kilo",
+                            "description": "It's almost my daily norm of sugar. By the way, sugar can be a crystal!",
                             "isCorrect": false
                         },
                         {
-                            "response": "Yes",
-                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "response": "half kilo",
+                            "description": "The largest diamond gem-quality rough diamond ever found, weighing 621.2 gramms (3,106 carats), and named The Cullinan Diamond. But not all crystals are diamonds, so this is not the biggest crystal.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "800 kilos",
+                            "description": "The largest diamond gem-quality rough diamond ever found, weighing 621.2 gramms (3,106 carats), and named The Cullinan Diamond. But not all crystals are diamonds, so this is not the biggest crystal.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "2.5 tonns",
+                            "description": "The largest amethyst geode in the world is the 'Empress of Uruguay', found in 2007 in the Artigas countries of northern Uruguay, a mining area known for producing the finest amethysts in the world. It weighs about 2.5 tons and is 3.27 meters high! More than 10,000 deep purple crystals formed in this geode.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "70 tonns",
+                            "description": "Trully, in 1961, a quartz crystal was discovered in Kazakhstan that weighed 70 tons, was 7.5 meters long and 1.6 meters in diameter. But this is not the biggest one.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "380 tonns",
+                            "description": "Yes, you're right! Its a crystal of beryl from Malakialina, Madagascar, 18 m (59 ft) long and 3.5 m (11 ft) in diameter, and weighing 380,000 kg (840,000 lb).",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "560 tonns",
+                            "description": "We would like to see one like this!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "How does the crystallization process work?"
+            },
+            {
+                "type": "text",
+                "value": "How do we create our own crystal?"
+            },
+            {
+                "type": "text",
+                "value": "Crystallization can occur by various routes including precipitation from solution, freezing of a liquid, or deposition from a gas. Attributes of the resulting crystal can depend largely on factors such as temperature, air pressure, cooling rate, or solute concentration."
+            },
+            {
+                "type": "text",
+                "value": "During the formation of crystals, a phase transition occurs, that is, the transition of matter from one thermodynamic phase to another. The formation of crystals from gases, solutions, melts, or glasses is a phase transition of the first kind, and crystallization during polymorphic transformations can be a phase transition of the second kind."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think can be attributed to crystallization processes?",
+                    "answers": [
+                        {
+                            "response": "snowfall",
+                            "description": "Yes, snowfall is indeed a crystallization process. It involves the formation of ice crystals from water vapor (gaseous state of water) in the atmosphere, where water molecules arrange themselves into a specific, repeating pattern, forming a crystalline structure.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "glass forming",
+                            "description": "It's amorphous state of Si, where the atoms are arranged randomly.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "ice freezing",
+                            "description": "Yes, the process of ice freezing is a type of crystallization. This transition is driven by a decrease in temperature, causing the water molecules to slow down and lock into the specific arrangement characteristic of ice.",
                             "isCorrect": true
                         }
                     ],
                     "userAnswered": false,
                     "userAnswer": []
                 }
+            },
+            {
+                "type": "text",
+                "value": "As you may noticed the crystallization process driven by thermodynamic properties. But here one more secret: it also depends from it's chemical properties. The shape of a crystal is determined by its internal atomic structure and the conditions under which it grows, such as temperature, pressure, and the presence of impurities."
+            },
+            {
+                "type": "image",
+                "value": "bismutum_crystal"
+            },
+            {
+                "type": "text",
+                "value": "Just look on that Bismutum crystal."
+            },
+            {
+                "type": "headerText",
+                "value": "Steps of crystallization:"
+            },
+            {
+                "type": "headerText",
+                "value": "Nucleation"
+            },
+            {
+                "type": "text",
+                "value": "Step where the solute molecules or atoms dispersed in the solvent start to gather into clusters, on the microscopic scale (elevating solute concentration in a small region), that become stable under the current operating conditions."
+            },
+            {
+                "type": "text",
+                "value": "This is the first step where molecules or atoms in a solution, melt, or vapor start to aggregate and form small, stable clusters.\nThese clusters need to reach a certain size (critical size) to be stable and act as seeds for further crystal growth.\nNucleation can be spontaneous (homogeneous) or influenced by impurities or introduced seeds (heterogeneous)."
+            },
+            {
+                "type": "headerText",
+                "value": "Crystal growth"
+            },
+            {
+                "type": "text",
+                "value": "Once stable nuclei are formed, molecules or atoms from the surrounding medium (solution, melt, or vapor) continue to attach to these nuclei, increasing their size.\nThis growth occurs layer by layer, with molecules or atoms arranging themselves in a specific, repeating pattern characteristic of the crystal structure.\nThe rate of crystal growth can be influenced by factors such as temperature, pressure, and the availability of molecules or atoms for attachment."
+            },
+            {
+                "type": "text",
+                "value": "Of course, with this knowledge, we could make an ice cube or even a snowflake."
+            },
+            {
+                "type": "image",
+                "value": "crystalline_image"
+            },
+            {
+                "type": "headerText",
+                "value": "But that's too easy for us."
+            },
+            {
+                "type": "text",
+                "value": "Moreover, ice should always be in the fridge, so this is not our option. We need a more stable crystal. After all, we want to show it off to our friends!"
+            },
+            {
+                "type": "headerText",
+                "value": "Behold!\nInfinity Gauntlet"
+            },
+            {
+                "type": "image",
+                "value": "Infinity_gauntlet_roman"
+            },
+            {
+                "type": "text",
+                "value": "No gem crystals yet, but we'll fix that soon."
+            },
+            {
+                "type": "headerText",
+                "value": "Prepare a saturated salt solution."
+            },
+            {
+                "type": "text",
+                "value": "Remember that we're talking about heating and cooling of liquid? In that case overheating helps us to saturate salt as much, as it possible. Heat water (preferably distilled) gradually and add table salt to it, pouring until the salt is mixed with the solution."
+            },
+            {
+                "type": "image",
+                "value": "roman_cooking"
+            },
+            {
+                "type": "text",
+                "value": "And don't forget, we're making a crystal, not a soup! Don't add potatoes to it!"
+            },
+            {
+                "type": "text",
+                "value": "As the water in the jar heats up, add salt to it. Here we are in for a surprise that no one is talking about – a large number of 'garbage' in the salt. All these grains float to the surface, and they need to be carefully removed. Or, if you have a filter paper, then run everything through it."
+            },
+            {
+                "type": "image",
+                "value": "roman_add_dye"
+            },
+            {
+                "type": "text",
+                "value": "Salts can be added with a margin so that the solution is as saturated as possible. As a result, some of the salt will no longer be able to dissolve and will remain at the bottom. To get rid of this salt, as well as any debris (which is precisely the source of the growth of excess crystals), it is necessary to pour the solution into a second jar. Now you can add the dye."
+            },
+            {
+                "type": "image",
+                "value": "roman_from_bottle_to_bottle"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "How do you think, for what we need to filtering our saturated salt solution from small parts?",
+                    "answers": [
+                        {
+                            "response": "Because we wanna a clear crystall",
+                            "description": "It's one of several reasons, but far from the most important one. By the way, in nature crystals can retain impurities.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Small parts of salt will grow, faster than our crystall itself",
+                            "description": "Correct!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "If there is even one trash piece, the crystal will not grow",
+                            "description": "No way! It's not a homunculus!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "The solvent start to gather into clusters, or"
+            },
+            {
+                "type": "text",
+                "value": "find another seed for our crystal. The future shape of our crystal depends on the correctness of its shape. Find the smoothest cubic salt crystal that needs to be tied to the string."
+            },
+            {
+                "type": "headerText",
+                "value": "Using the seed as embryo for our crystal."
+            },
+            {
+                "type": "text",
+                "value": "Our crystal will grow on another crystall of smaller size. Simplify, it just keeps growing. So, it's better to take biggest one seed, as it is more convenient to attach them to a thread. The salt crystal has a shape close to rectangular."
+            },
+            {
+                "type": "text",
+                "value": "Now is the longest phase of the experiment."
+            },
+            {
+                "type": "headerText",
+                "value": "Crystal growth"
+            },
+            {
+                "type": "text",
+                "value": "The solution has already been cleaned and poured into the final container in which the reaction will be completed. Our seeds are tied to a string. Now is the longest phase of the experiment."
+            },
+            {
+                "type": "headerText",
+                "value": "All you need is time and patience."
+            },
+            {
+                "type": "text",
+                "value": "We immerse our seed there so that it does not touch the walls of the container, wrap the container in something to cool down more slowly, and wait. If everything is right, then the next day our embryos will already grow up, if it is wrong, they will dissolve. Now we just cover the jar with paper on top so that dust does not get into it, and wait for another 3-4 days. As the water gradually evaporates, the salt must precipitate. And it will be deposited on our seed, that is, the crystal will grow."
+            },
+            {
+                "type": "image",
+                "value": "kid_grow_the_crystal"
+            },
+            {
+                "type": "headerText",
+                "value": "Tricks:"
+            },
+            {
+                "type": "text",
+                "value": "1. For best results, use distilled water and food coloring intended for use in food products.\n2. Small grains of salt remaining at the bottom of the jar can cause unwanted crystals, so it is recommended to pour the solution into another jar to get rid of them.\n3. If you want to get crystals of different colors, you can use different solutions with different dyes.\n4. Some crystals require varnishing."
+            },
+            {
+                "type": "headerText",
+                "value": "That's all! We did it."
+            },
+            {
+                "type": "text",
+                "value": "Now our Infinity Gauntlet is ready to use!"
+            },
+            {
+                "type": "image",
+                "value": "infinity_gauntlet_works"
+            },
+            {
+                "type": "headerText",
+                "value": "TAP TO CONTINUE"
             }
         ],
         "isCompleted": false
