@@ -640,35 +640,209 @@
         "structure": [
             {
                 "type": "headerText",
-                "value": "What do you new about privacy?"
+                "value": "What do you know about privacy?"
             },
             {
                 "type": "image",
-                "value": ""
+                "value": "roman_postman"
             },
             {
                 "type": "text",
-                "value": ""
+                "value": "In the modern world, all calls are protected by encryption, and all messengers you use to communicate can be password protected, and there are even disappearing messages. But how did they achieve privacy in the old days, when messages could only be sent on paper?"
+            },
+            {
+                "type": "image",
+                "value": "ciphertext"
+            },
+            {
+                "type": "text",
+                "value": "Indeed, various measures were taken to ensure that correspondence could not be read by those who should not do so. Various types of message encoding were used, the letters themselves were plombed with wax seals, and the messengers were among the most trusted people."
+            },
+            {
+                "type": "image",
+                "value": "sealing_wax_stamp"
+            },
+            {
+                "type": "text",
+                "value": "But even the most loyal person can be captured, the code can be guessed, and a wax seal is just a piece of wax. So what to do?"
+            },
+            {
+                "type": "image",
+                "value": "wax_sealed_scroll"
+            },
+            {
+                "type": "text",
+                "value": "Invisible ink deserves special attention in historical retrospect."
+            },
+            {
+                "type": "image",
+                "value": "inkpot_image"
+            },
+            {
+                "type": "headerText",
+                "value": "Sympathetic Ink"
+            },
+            {
+                "type": "text",
+                "value": "ink whose writing is initially invisible and becomes visible only under certain conditions (heat, light, chemical developer, etc.). Usually the writing process is as follows: the first layer - an important writing is made with invisible ink, the second layer - a meaningless writing with visible ink."
+            },
+            {
+                "type": "image",
+                "value": "letter_1"
+            },
+            {
+                "type": "text",
+                "value": "And after some secret manipulations, such as heating..."
+            },
+            {
+                "type": "image",
+                "value": "letter_and_candle"
+            },
+            {
+                "type": "text",
+                "value": "the text appeared in those places where invisible ink was applied."
+            },
+            {
+                "type": "image",
+                "value": "secret_text"
+            },
+            {
+                "type": "headerText",
+                "value": "A bit of history"
+            },
+            {
+                "type": "text",
+                "value": "Publius Ovidius Naso, also known in as Ovid, was a Roman poet who lived during the reign of Augustus. He was a younger contemporary of Virgil and Horace, with whom he is often ranked as one of the three canonical poets of Latin literature. Ovid suggest to use milk as invisible ink. Secret text written in milk between the lines of an ordinary letter was revealed by ironing the paper with a hot iron or holding it to a candle."
+            },
+            {
+                "type": "image",
+                "value": "ovidius"
+            },
+            {
+                "type": "text",
+                "value": "Ovid was exiled from Rome to the city of Tomis (modern Constanta, Romania) by order of the Emperor Augustus. The main reason, in his own words, was 'carmen et error' - 'verse and error' or 'poem and error'."
+            },
+            {
+                "type": "headerText",
+                "value": "The most common sympathetic ink and their developer:"
+            },
+            {
+                "type": "text",
+                "value": "1. Citric acid - methyl orange\n2. Wax - chalk\n3. Milk - heating\n4. Juise of some fruits & vegetables (apple, onion, rutabaga) - heating\n5. Starch - iodine tincture\n6. Aspirin - iron salts\n7. Baking soda (1:1 aqueous solution) - heating"
+            },
+            {
+                "type": "text",
+                "value": "Of course, this list can be continued indefinitely, which only costs ink, which is visible only under ultraviolet light..."
+            },
+            {
+                "type": "image",
+                "value": "passport"
             },
             {
                 "type": "question",
                 "value": {
-                    "text": "Is this volcano is safe?",
+                    "text": "Do you think invisible ink is common today?",
                     "answers": [
                         {
                             "response": "No",
-                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "description": "Invisible ink can be used not only for correspondence in mail. Under ultraviolet light, some elements on the banknotes glow; these are part of the security features.",
                             "isCorrect": false
                         },
                         {
                             "response": "Yes",
-                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "description": "Nowdays invisible ink used to mark various documents such as certificates, licenses, passports, visas, banknotes to prevent counterfeiting. Try shining a UV light on your passport.",
                             "isCorrect": true
                         }
                     ],
                     "userAnswered": false,
                     "userAnswer": []
                 }
+            },
+            {
+                "type": "image",
+                "value": "money_glows"
+            },
+            {
+                "type": "headerText",
+                "value": "And now is the time to experiment"
+            },
+            {
+                "type": "text",
+                "value": "This time we will not use the method that probably got Ovid exiled. We need a more reliable method, so we will exclude methods with activators in the form of heating."
+            },
+            {
+                "type": "headerText",
+                "value": "Invisible ink from starch"
+            },
+            {
+                "type": "text",
+                "value": "You will need starch, water, and possibly iodine for development."
+            },
+            {
+                "type": "text",
+                "value": "Mix the starch with water (usually in a 2:1 ratio) and heat, stirring, until it thickens to form a paste.\nAfter cooling, use its paint to write a message on paper. "
+            },
+            {
+                "type": "text",
+                "value": "To keep the text, use a solution of iodine (a few drops per glass of water). The paper will turn light purple, and the inscription made with starch paste will appear dark."
+            },
+            {
+                "type": "image",
+                "value": "starch_ink"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What products in the kitchen can be used to obtain starch?",
+                    "answers": [
+                        {
+                            "response": "Potato",
+                            "description": "Starch is the main source of carbohydrates in potatoes. On average, fresh potatoes contain about 17.5% starch. In terms of dry matter, starch is 75 to 80%.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Carrot",
+                            "description": "Raw carrots contain about 1.43 g of starch per 100 g of product.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Rice",
+                            "description": "Starch is the main carbohydrate in rice and is an essential part of its dry matter. The starch content of rice may vary by variety, but on average it is about 73-78% of the dry weight of rice.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Cucumber",
+                            "description": "No, cucumber contains a very small amount of starch, less than 0.1% of the total composition. Cucumbers are mainly water (94-96%).",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Remember"
+            },
+            {
+                "type": "text",
+                "value": "The more complex the developer, the more protected your secret is!"
+            },
+            {
+                "type": "text",
+                "value": "The ink should not leave crystals on the paper."
+            },
+            {
+                "type": "text",
+                "value": "The letter should not smell, as this is suspicious."
+            },
+            {
+                "type": "image",
+                "value": "roman_take_letter"
+            },
+            {
+                "type": "text",
+                "value": "From now you know how to prevent the data licking by using invisible ink! Now your secrets are only yours."
             }
         ],
         "isCompleted": false
