@@ -592,15 +592,107 @@
         "structure": [
             {
                 "type": "headerText",
-                "value": "Volcano at home. Now it's safe!"
-            },
-            {
-                "type": "image",
-                "value": ""
+                "value": "Volcano at home.\nNow it's safe!"
             },
             {
                 "type": "text",
-                "value": ""
+                "value": "In ancient times, when the Earth was different, there were giant creatures that filled the area with their power and magnificence. Their silhouettes were majestic and impressive. They could roar like wild animals, writhing and breaking out to the surface until those around them fled from their fury."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "Among them were those who slept for centuries. But there were also those who awoke from time to time, bringing terror to everything that came their way. With the eruption of their power, the earth shook. These events caused fear and admiration, indicating that the world around them was full of hidden secrets."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_2"
+            },
+            {
+                "type": "text",
+                "value": "But let's lift the veil of secrecy. All this time we have been talking not about dinosaurs, but about volcanoes. They, like dinosaurs, left their mark on the history of the Earth, shaping its landscape and changing the climate. Volcanoes are the real kings of the elements, capable of greatness and destruction."
+            },
+            {
+                "type": "image",
+                "value": "bones_and_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "Eventually, when the dust settled and time restored the world, new ecosystems, new beginnings arose in place of the echoes of their destructive power. It was amazing how their power created even after destruction."
+            },
+            {
+                "type": "image",
+                "value": "deer_and_volcano"
+            },
+            {
+                "type": "headerText",
+                "value": "Life always find their way!"
+            },
+            {
+                "type": "text",
+                "value": "We prefer to experiment safely. Therefore, you do not need to repeat the first fire-hazardous recipe, unless you feel an urgent need for it!"
+            },
+            {
+                "type": "headerText",
+                "value": "Rudolf Böttger Volcano"
+            },
+            {
+                "type": "text",
+                "value": "All that we use for this reaction is ammonium dichromate. It's an inorganic compound with the formula (NH4)2Cr2O7 and looking as bright orange-red crystalline solid."
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate"
+            },
+            {
+                "type": "headerText",
+                "value": "Attention!"
+            },
+            {
+                "type": "text",
+                "value": "We also used matches and had a fire extinguisher at the ready, but it was not needed because our reagent was burning on a huge heat-resistant metal plate."
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "text",
+                "value": "We thought about it in advance. Also, you shouldn't start this experiment without protective glasses, because our 'volcano' will throw out pieces of 'lava'."
+            },
+            {
+                "type": "text",
+                "value": "So, if all's ready, eyes are protected by glasses, cats are outside and all interested are here, we can start. Let's fired it!"
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate_fired"
+            },
+            {
+                "type": "text",
+                "value": "The reaction produces a large volume of green chromium(III) oxide (Cr₂O₃), steam, and nitrogen gas, with orange sparks and a darkening of the initial orange-red ammonium dichromate."
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate_burned"
+            },
+            {
+                "type": "text",
+                "value": "The reaction resembles an active volcano. After its completion, chromium(III) oxide occupies a volume approximately 2-3 times larger than the original substance. It should be noted that the particles of the resulting chromium(III) oxide (almost blackm but trully dark-dark-green), volcanic dust, will settle around the  volcano, so the experiment must be carried out on a large tray."
+            },
+            {
+                "type": "headerText",
+                "value": "Just a volcano in a mug"
+            },
+            {
+                "type": "text",
+                "value": "We did it!"
+            },
+            {
+                "type": "image",
+                "value": "volcano_in_cup_1"
             },
             {
                 "type": "question",
@@ -609,12 +701,12 @@
                     "answers": [
                         {
                             "response": "No",
-                            "description": "If you do everything right, no one will get hurt. Dinosaurs are not taken into account.",
+                            "description": "If you do everything right, no one will get hurt: not the cats, not you, not the dinosaurs.",
                             "isCorrect": false
                         },
                         {
                             "response": "Yes",
-                            "description": "Yes its quite safe but keep it on distance from your eyes! Acetic acid may cause irritation.",
+                            "description": "Yes, it is quite safe, but keep it away from your eyes! Keep your distance, use eye protection, that is, safety glasses and a heat-resistant plate where the reaction itself will take place.",
                             "isCorrect": true
                         }
                     ],
@@ -623,12 +715,201 @@
                 }
             },
             {
-                "type": "image",
-                "value": "dinosaurs_and_volcano"
+                "type": "text",
+                "value": "Let's take a breath"
+            },
+            {
+                "type": "headerText",
+                "value": "A bit of history:"
+            },
+            {
+                "type": "headerText",
+                "value": "Eruption of Vesuvius"
             },
             {
                 "type": "image",
-                "value": "dinosaurs_and_volcano_2"
+                "value": "pompeii_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "In 79 AD, Mount Vesuvius, a stratovolcano located in the modern-day region of Campania (near Naples), erupted, causing one of the deadliest eruptions in history."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_2"
+            },
+            {
+                "type": "text",
+                "value": "As a result of this cataclysm, several thousand inhabitants of the Roman cities of Pompeii, Herculaneum, Oplontis and Stabiae and several small villages and villas located at the very foot of the volcano perished."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_3"
+            },
+            {
+                "type": "text",
+                "value": "Vesuvius violently ejected a cloud of super-heated tephra and gases to a height of 33 km, ejecting molten rock, pulverized pumice and hot ash at 1.5 million tons per second, ultimately releasing 100,000 times the thermal energy of the atomic bombings of Hiroshima and Nagasaki."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_4"
+            },
+            {
+                "type": "text",
+                "value": "The eruption occurred in two stages. The first was a Plinian eruption, which began at about 13:00 and lasted for eighteen to twenty hours; from a huge column thrown out by Vesuvius to a height of 15 to 30 km, ash and pumice fell, covering the area, after which pyroclastic flows descended, covering a great distance and almost reaching the Roman city of Misenum."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_5"
+            },
+            {
+                "type": "text",
+                "value": "The second stage is the Peleian eruption: around night or early the next day, new pyroclastic flows formed in the immediate vicinity of the volcano, two of which hit Pompeii."
+            },
+            {
+                "type": "image",
+                "value": "lava_in_pompeii_1"
+            },
+            {
+                "type": "text",
+                "value": "The 1.8 m-deep streams were swift, dense and very hot, completely or partially demolishing all buildings in their path, incinerating or suffocating the remaining population and changing the landscape, including the coastline. They were accompanied by additional light tremors and a weak tsunami in the Gulf of Naples."
+            },
+            {
+                "type": "image",
+                "value": "lava_in_pompeii_2"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Have you seen the column of smoke from the volcano in the pictures? Which of the following gases is the main component of volcanic emissions?",
+                    "answers": [
+                        {
+                            "response": "Methane (CH4)",
+                            "description": "Although methane is also a gas, it is not a major component of volcanic emissions. It is more often released from organic and biogenic processes and has no significant relation to volcanic activity.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Carbon dioxide (CO2)",
+                            "description": "It is one of the main gases released during volcanic eruptions. CO2 can have a serious impact on climate and ecosystems if its emissions are significant.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Nitrogen (N2)",
+                            "description": "Nitrogen makes up most of the Earth's atmosphere, but it is not a gas that is released in significant quantities during volcanic eruptions. Volcanic gases mainly contain carbon dioxide (CO2), sulfur dioxide (SO2), and water vapor (H2O).",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Another eruption\nbut the same reason"
+            },
+            {
+                "type": "text",
+                "value": "The main reason for eruptions is the accumulation and release of gas contained in magma, provided that the requirements are met. Deep in the Earth, in magma chambers, magma (molten rock) contains dissolved gases. As magma accumulates, gases dissolve in it. When a critical concentration is reached, they begin to be released in the form of bubbles, creating high pressure. When the pressure becomes sufficient, magma erupts through the volcano's crater, spewing out lava, ash, gases and rock debris."
+            },
+            {
+                "type": "image",
+                "value": "underwater_volcano"
+            },
+            {
+                "type": "text",
+                "value": "There how it looks undervater. Yep, they can locate underwater!"
+            },
+            {
+                "type": "text",
+                "value": "One more reason of eruptions - collisions and movements of lithospheric plates. It also can lead to the formation of magma chambers and eruptions."
+            },
+            {
+                "type": "text",
+                "value": "But how can we conduct another volcanic experiment without shifting the lithospheric plates?"
+            },
+            {
+                "type": "image",
+                "value": "volcano_sticker"
+            },
+            {
+                "type": "headerText",
+                "value": "Another recipe"
+            },
+            {
+                "type": "text",
+                "value": "Don't worry, no dinosaurs will get hurt during this recipe either."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_3"
+            },
+            {
+                "type": "text",
+                "value": "But our task is to make it safe, including for you."
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "text",
+                "value": "So, use rubber gloves for this experiment. If reagents come into contact with skin, wash them off with plenty of water."
+            },
+            {
+                "type": "headerText",
+                "value": "You will need:"
+            },
+            {
+                "type": "text",
+                "value": "1. Baking soda\n2. Vinegar or solution of citric acid\n3. Orange or red food coloring\n4. Plasticine"
+            },
+            {
+                "type": "headerText",
+                "value": "Step one:"
+            },
+            {
+                "type": "text",
+                "value": "Divide the plasticine into 2 parts. Flatten one half (this will be the base), and mold the other into a hollow cone the size of a glass with a hole at the top ('slopes and mouth of the volcano'). Carefully connect both parts so that the 'volcano' is airtight. For clarity, we will make the size of the 'volcano' no more than a third of a cup. Place the 'volcano' on a plate, and the plate on a tray."
+            },
+            {
+                "type": "headerText",
+                "value": "Step two:"
+            },
+            {
+                "type": "text",
+                "value": "Put inside the 'volcano' a tablespoon of soda, a little food coloring and a teaspoon of dishwashing liquid. Mix gently until smooth."
+            },
+            {
+                "type": "image",
+                "value": "volcano_ends"
+            },
+            {
+                "type": "headerText",
+                "value": "Last step:"
+            },
+            {
+                "type": "text",
+                "value": "Volcano is ready to eruption. Just add a quarter cup of vinegar (or solution of citric acid) to the 'volcano's mouth'. The vinegar, having reacted with the soda, will provoke an 'eruption'."
+            },
+            {
+                "type": "image",
+                "value": "volcano_starts"
+            },
+            {
+                "type": "text",
+                "value": "This reaction occurs because sodium bicarbonate is a salt and vinegar is an acid. When mixed, they undergo a neutralization reaction that produces carbonic acid, which quickly breaks down into carbon dioxide and water. It is the release of carbon dioxide that causes the bubbles and effervescent effect that is observed when mixing baking soda and vinegar."
+            },
+            {
+                "type": "image",
+                "value": "volcano_in_cup_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Congrats!"
+            },
+            {
+                "type": "text",
+                "value": "Now you know how to safely make a volcano in the kitchen, and you can make it erupt whenever you want."
             }
         ],
         "isCompleted": false
