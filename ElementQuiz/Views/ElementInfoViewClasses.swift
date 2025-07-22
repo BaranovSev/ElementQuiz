@@ -513,6 +513,16 @@ class BoxViewWithTextView: UIView {
         setup()
     }
     
+    convenience init(title: String, infoText: String) {
+        self.init()
+        setup()
+        self.configure(titleBorderColor: UIColor.gray.cgColor,
+                       borderColor: UIColor.gray.cgColor,
+                       titleText: title,
+                       infoText: infoText,
+                       alignment: .center)
+    }
+    
     func setup() {
         layer.cornerRadius = 15
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
@@ -589,6 +599,17 @@ class HeaderWithText: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    convenience init(title: String, infoText: String) {
+        self.init()
+        setup()
+        self.configure(titleBorderColor: UIColor.gray.cgColor,
+                       borderColor: UIColor.gray.cgColor,
+                       titleText: title,
+                       infoText: infoText,
+                       alignment: .justified,
+                       infoIsBold: false)
     }
     
     func setup() {

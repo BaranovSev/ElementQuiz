@@ -1186,6 +1186,34 @@
             {
                 "type": "headerText",
                 "value": "Mock lesson"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "definition definition",
+                    "body": "definitionTextdefinitionTextdefinitionTextdefinitionText"
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "addition addition",
+                    "body": "additionTextadditionTextadditionTextadditionText"
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "definition definition definition definition",
+                    "body": "definitionTextdefinitionTextdefinitionTextdefinitionText"
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "addition addition addition addition",
+                    "body": "additionTextadditionTextadditionTextadditionText"
+                }
             }
         ],
         "isCompleted": false

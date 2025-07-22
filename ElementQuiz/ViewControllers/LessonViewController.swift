@@ -117,6 +117,12 @@ final class LessonViewController: UIViewController {
                 
             case .question(let question):
                 contentStackView.addArrangedSubview(QuestionView(question: question))
+                
+            case .definition(let twoComponentText):
+                contentStackView.addArrangedSubview(BoxViewWithTextView(title: twoComponentText.header, infoText: twoComponentText.body))
+                
+            case .addition(let twoComponentText):
+                contentStackView.addArrangedSubview(HeaderWithText(title: twoComponentText.header, infoText: twoComponentText.body))
             }
         }
     }

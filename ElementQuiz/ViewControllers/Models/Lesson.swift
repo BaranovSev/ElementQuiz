@@ -48,6 +48,8 @@ enum LessonContent: Codable {
     case text(String)
     case image(String)
     case question(Question)
+    case definition(TwoComponentText)
+    case addition(TwoComponentText)
     
     private enum CodingKeys: String, CodingKey {
         case type
@@ -59,6 +61,8 @@ enum LessonContent: Codable {
         case text
         case image
         case question
+        case definition
+        case addition
     }
     
     init(from decoder: Decoder) throws {
@@ -78,6 +82,12 @@ enum LessonContent: Codable {
         case .question:
             let value = try container.decode(Question.self, forKey: .value)
             self = .question(value)
+        case .definition:
+            let value = try container.decode(TwoComponentText.self, forKey: .value)
+            self = .definition(value)
+        case .addition:
+            let value = try container.decode(TwoComponentText.self, forKey: .value)
+            self = .addition(value)
         }
     }
     
@@ -95,6 +105,12 @@ enum LessonContent: Codable {
             try container.encode(value, forKey: .value)
         case .question(let value):
             try container.encode(ContentType.question, forKey: .type)
+            try container.encode(value, forKey: .value)
+        case .definition(let value):
+            try container.encode(ContentType.definition, forKey: .type)
+            try container.encode(value, forKey: .value)
+        case .addition(let value):
+            try container.encode(ContentType.addition, forKey: .type)
             try container.encode(value, forKey: .value)
         }
     }
@@ -137,3 +153,25 @@ extension Lesson {
         }
     }
 }
+
+final class TwoComponentText: Codable {
+    var header: String
+    var body: String
+    
+    init(header: String, body: String) {
+        self.header = header
+        self.body = body
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case header
+        case body
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.header = try container.decode(String.self, forKey: .header)
+        self.body = try container.decode(String.self, forKey: .body)
+    }
+}
+
