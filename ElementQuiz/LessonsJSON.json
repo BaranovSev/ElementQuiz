@@ -455,24 +455,725 @@
     },
     {
         "number": 2.0,
-        "name": "Secondary",
-        "lesson_image_name": "romans_laboratory_slime_reaction",
+        "name": "What is chemistry?",
+        "lesson_image_name": "roman_on_boat_3",
         "structure": [
             {
                 "type": "headerText",
-                "value": "Mock lesson"
+                "value": "Chemistry is a part of our life!"
+            },
+            {
+                "type": "image",
+                "value": "all_aboard"
+            },
+            {
+                "type": "headerText",
+                "value": "All aboard!"
+            },
+            {
+                "type": "text",
+                "value": "Hold on tight! We are embarking on a journey through the fascinating world of chemistry on our \"Knowledge\" ship. Are you ready to dive headfirst into chemistry? We will explore the wonders that elements and compounds offer. Get ready for an exciting journey full of discovery!"
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_1"
+            },
+            {
+                "type": "headerText",
+                "value": "Chemistry"
+            },
+            {
+                "type": "text",
+                "value": "is one of the most important and extensive fields of natural science, the science that studies substances, also their composition and structure, and their properties. And this science has many connections with physics and biology. It also studies the transformation of one or more initial substances (reactants) into other substances, so-called chemical reactions."
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_2"
+            },
+            {
+                "type": "text",
+                "value": "Chemistry is the science that studies the structure and properties of matter, and all the changes that happen to it, but what's the point? Why do we need it? Why do we need this knowledge?"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "That's actually a good question! And now you can find the answer to it on your own. Which of the following do you think relates to chemistry?",
+                    "answers": [
+                        {
+                            "response": "Water 💧",
+                            "description": "is a chemical substance that consists of molecules containing two hydrogen atoms and one oxygen atom, is involved in many chemical reactions as a solvent and reagent, and plays an important role in life on Earth.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Food 🍕",
+                            "description": "Chemistry plays a key role in the food industry, ensuring that raw materials are transformed into delicious and safe dishes. For example Salt, whose crystals we grew in our reactions section, is a natural preservative that allows food to keep longer and acquire new flavors.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Air 🌬️",
+                            "description": "Air makes up the Earth's air envelope and is essential for the normal existence of most living organisms. But did you know that air is also a mixture of gases: oxygen (about 21%) and nitrogen (about 78%). Wait a minute, one percent is missing, but it's not a mistake, it's other gases! They're just not as significant.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Ice cream 🍦",
+                            "description": "Ice cream does involve chemistry. Ice cream is made from cream. Cream is a mixture of fat, water, and other substances. When we add ingredients like sugar and flavorings and then freeze it, there is a process that results in ice cream. Temperatures and mixing are important in this process, and it's all part of the chemistry!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Medicines 💊",
+                            "description": "Whether they are vitamins or more serious medications, they are all chemical compounds. Pharmacists must know chemistry to create medicines that help us manage diseases.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "So, as you may have noticed, If you breathe the air, eat ice cream, or are surrounded by the ocean, you are surrounded by different chemical substances made up of many molecules. These molecules, in turn, are composed of atoms of chemical elements."
+            },
+            {
+                "type": "image",
+                "value": "roman_with_ice_cream"
+            },
+            {
+                "type": "text",
+                "value": "What's more, you yourself are a collection of chemical elements! Our body is made up of water, proteins, fats, carbohydrates and minerals that interact with each other to keep us vital and healthy. Every breath fills us with oxygen, every meal brings us essential nutrients."
+            },
+            {
+                "type": "image",
+                "value": "human_elements"
+            },
+            {
+                "type": "text",
+                "value": "So, whenever you see a chemical substance (like a tasty ice cream or clear water), you can remember that it’s made of molecules formed by atoms. It’s like a fun puzzle where tiny pieces create everything in our world!"
+            },
+            {
+                "type": "image",
+                "value": "roman_on_boat_2"
+            },
+            {
+                "type": "text",
+                "value": "But don't be in a hurry to leave our ship on a lifeboat, because you are safe, we just want to expand the scope of perception a little bit. Now we will explain the whole hierarchical system more formally."
+            },
+            {
+                "type": "headerText",
+                "value": "So, once again, but a little shorter"
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_3"
+            },
+            {
+                "type": "headerText",
+                "value": "Chemistry"
+            },
+            {
+                "type": "text",
+                "value": "the science that deals with the properties, composition, and structure of substances (defined as elements and compounds), the transformations they undergo, and the energy that is released or absorbed during these processes."
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_4"
+            },
+            {
+                "type": "text",
+                "value": "Now you are an experienced researcher, try to take the helm and steer our ship in the right direction!"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What does chemistry study?",
+                    "answers": [
+                        {
+                            "response": "Matter and its properties",
+                            "description": "Chemistry investigates the fundamental building blocks of matter (atoms and molecules) and their characteristics, including their physical and chemical properties.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "How to make a tasty food",
+                            "description": "Not directly.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Composition and structure",
+                            "description": "It delves into the makeup of substances, examining how atoms combine to form molecules and how these molecules arrange themselves to create different materials.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Planetary motion",
+                            "description": "While geochemistry might study the chemical composition of planets, it's not concerned with the physics of their orbits or gravitational interactions.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Chemical reactions",
+                            "description": "Chemistry explores how substances transform into new substances through chemical reactions, studying the conditions under which these reactions occur and the energy changes involved.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "How to make medicine pills",
+                            "description": "Not really. Pharmaceutics is the field of science and manufacturing related to medicines.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Energy transformations",
+                            "description": "Chemical reactions often involve the release or absorption of energy, and chemistry investigates these energy transfers. ",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "What about the substances, molecules, and other constituents that are part of this whole chemical story? Can you explain that to us?"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select the correct statement about chemical substance",
+                    "answers": [
+                        {
+                            "response": "Chemical substance is made up of one or more molecules",
+                            "description": "✅",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Molecule is made up of one or more chemical substances",
+                            "description": "Chemical substance is a form of matter that has a specific composition and distinct properties. And it made up of one or more molecules.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "glass_of_water"
+            },
+            {
+                "type": "text",
+                "value": "So water in the glass is our substance in this example."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select all the correct statements about molecules",
+                    "answers": [
+                        {
+                            "response": "Molecule is a group of two or more atoms that are bonded together.",
+                            "description": "⚛️👍🏻⚛️",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atom is a group of two or more molecules.",
+                            "description": "Is quite the opposite.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "The glass of water consists from molecules of water (H2O).",
+                            "description": "Totally correct! 🥛",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "water_molecule_model"
+            },
+            {
+                "type": "text",
+                "value": "This is water molecula. It consists of two hydrogen (H) atoms and one oxygen (O) atom. By the way, H-O-H bond angle is about 105°."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select all the correct statements about atoms",
+                    "answers": [
+                        {
+                            "response": "Atoms are like the tiny building blocks that make up everything.",
+                            "description": "Yes! Atoms are the basic particles of the chemical elements!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atom is bigger then molecule.",
+                            "description": "No, a molecule is generally larger than an atom. Atoms are the basic building blocks, and molecules are formed when two or more atoms bond together.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Normally atoms consists from electrons 🔵, protons 🔴 and neutrons 🟡",
+                            "description": "Yes! The only except is hydrogenium-1 (protium), which has no neutrons.",
+                            "isCorrect": true
+                        },
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "The model of the hydrogen (protium) atom is shown below."
+            },
+            {
+                "type": "text",
+                "value": "Electron 🔵 orbiting the only one proton 🔴"
+            },
+            {
+                "type": "image",
+                "value": "hydrogen_atom_model"
+            },
+            {
+                "type": "text",
+                "value": "The hydrogen atom is the simplest atom, consisting of one proton 🔴 (positive electric charge, shown in red) in the nucleus and one electron 🔵 (negative electric charge, shown in blue) orbiting around it. It is the basis for understanding the structure of all other atoms and plays a key role in chemistry and physics. A hydrogen atom is on the order of 10⁻¹⁰ meters in size, and its nucleus (proton) is several orders of magnitude smaller, on the order of 10⁻¹⁵ meters."
+            },
+            {
+                "type": "headerText",
+                "value": "You're doing pretty good."
+            },
+            {
+                "type": "text",
+                "value": "At least you know what chemistry learn, and that a substance is a form of matter."
+            },
+            {
+                "type": "image",
+                "value": "roman_lead"
+            },
+            {
+                "type": "text",
+                "value": "We can trust you on this journey, and it is you who will lead our ship to its next destination - Atom!"
             }
         ],
         "isCompleted": false
     },
     {
         "number": 3.0,
-        "name": "Third lesson with long theme name Third lesson with long theme name",
-        "lesson_image_name": "roman_with_slime",
+        "name": "Atom",
+        "lesson_image_name": "roman_with_atom",
         "structure": [
             {
                 "type": "headerText",
-                "value": "Mock lesson"
+                "value": "Let's take a closer look at what the atom is"
+            },
+            {
+                "type": "image",
+                "value": "roman_with_atom_2"
+            },
+            {
+                "type": "text",
+                "value": "You already know that all substances consist of molecules, and all molecules in turn consist of atoms."
+            },
+            {
+                "type": "text",
+                "value": "But we still haven’t seriously talked about what an atom actually is."
+            },
+            {
+                "type": "headerText",
+                "value": "Let's fix this."
+            },
+            {
+                "type": "text",
+                "value": "We are full of laziness, and as we know, laziness is the engine of progress, so at first we will give you the opportunity to be the first to guess what an atom is."
+            },
+            {
+                "type": "image",
+                "value": "roman_near_helm"
+            },
+            {
+                "type": "text",
+                "value": "Especially since we promised to give you the steering wheel in the last lesson. But don't worry, we'll give you hints on this way, and here's our first clue: a picture of a model of lithium atom."
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Choose the correct statements about atom.",
+                    "answers": [
+                        {
+                            "response": "All atoms prefer to relax on the beach, which is why they move slowly.",
+                            "description": "Even though EVERYTHING IS MADE UP OF ATOMS, including the sand on the beach and the ocean itself, we cannot claim that the speed of the atoms themselves is low, because the speed of atoms in matter depends on the temperature and the aggregate state of the matter, and we don't even know if the water is warm or not 🌊 🏄🏻 🏝️",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Everything is made up of atoms!",
+                            "description": "That's right! You probably didn't know that atoms are not static, they are in constant motion! Inside an atom, electrons move continuously around the nucleus, and the atoms themselves can move, oscillate, and rotate, depending on the temperature and the aggregate state of matter. The highest speed of atomic motion (excluding plasma state) is observed in gases and the lowest in solids 🐇🏁🐢",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms can talk to each other and share their daily life experiences.",
+                            "description": "Unfortunately atoms cannot communicate with each other and discuss their important atomic business like peoples do, but under certain conditions they can form bonds with each other to form molecules. These bonds, called chemical bonds, are the result of interactions between atoms in which they are held together by electrostatic forces ⛓️⛓️‍💥⛓️",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "from the ancient Greek ἄτομος - “indivisible”, from the chemical point of view, the smallest, electroneutral, chemically indivisible particle of a substance.",
+                            "description": "Yes, atoms, although considered indivisible in ancient times, are actually made up of smaller particles. Did you know that atomic nuclei can divide (nuclear fission) or combine (nuclear fusion), which is the basis for nuclear reactors and atomic weapons 🏭🤯💣",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms composed of: protons, neutrons and electrons.",
+                            "description": "An atom consists of a positively charged nucleus and negatively charged electrons 🔵 revolving around it, which form the electron shell. The atomic nucleus, in turn, consists of protons 🔴 and neutrons 🟡",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms invented pizza to share it with other elements!",
+                            "description": "Legend has it that Margherita pizza was created in 1889 in Naples when chef Raffaele Esposito made three pizzas for Queen Margherita of Savoy. One of the pizzas, decorated with tomatoes, mozzarella and basil, resembled the colors of the Italian flag.\nLike a pizza, atoms must contain 3 types of “ingredients”: electrons, protons and neutrons 🍕⚛️👨🏻‍🍳",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Wow, you're good at this!"
+            },
+            {
+                "type": "headerText",
+                "value": "Now our turn"
+            },
+            {
+                "type": "text",
+                "value": "Atoms are the fundamental building blocks of all matter, and they retain the properties of the element they represent. And all atoms really consists of electrons, protons and neutrons. The only except is hydrogenium-1 (also protium, model given below), which has no neutrons. Neutrons 🟡 is electoneutral."
+            },
+            {
+                "type": "image",
+                "value": "hydrogen_atom_model"
+            },
+            {
+                "type": "text",
+                "value": "If the number of electrons 🔵 (- charged) matches the number of protons 🔴 (+ charged) in the nucleus, the atom is considered electrically neutral. Otherwise it is called an ion and has some positive (called cation) or negative charge (called anion)."
+            },
+            {
+                "type": "text",
+                "value": "Almost all of the mass of an atom is made up of the nucleus, at least 99.9% of it, which consists of protons 🔴 and neutrons 🟡 linked together by strong interactions. The rest of atomic mass of the element is reserved for electrons 🔵 that surround the nucleus."
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "headerText",
+                "value": "But how to count all these particles?"
+            },
+            {
+                "type": "text",
+                "value": "We don't have to calculate them manually on the atomic model. (We certainly don't forbid you to do this, moreover, we recommend that you verify this yourself.) It's enough to just remember a few tricks."
+            },
+            {
+                "type": "headerText",
+                "value": "The number of\nprotons 🔴"
+            },
+            {
+                "type": "text",
+                "value": "corresponds to the atomic number of the atom in the periodic table."
+            },
+            {
+                "type": "headerText",
+                "value": "The number of\nneutrons 🟡"
+            },
+            {
+                "type": "text",
+                "value": "just subtract the atomic number from the atomic mass number of the element."
+            },
+            {
+                "type": "headerText",
+                "value": "The number of\nelectrons 🔵"
+            },
+            {
+                "type": "text",
+                "value": "in an electrically neutral atom corresponds to the atomic number of the atom in the periodic table (also equal the number of protons)."
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "image",
+                "value": "lithium_info_from_table"
+            },
+            {
+                "type": "text",
+                "value": "Now look at the data from the periodic table and check it against the model of the lithium atom. The theory works!"
+            },
+            {
+                "type": "headerText",
+                "value": "Isotopes"
+            },
+            {
+                "type": "text",
+                "value": "The number of protons determines its belonging to a certain chemical element, and the number of neutrons corresponds to a certain isotope of this element. A variant of an element that has the same number of protons 🔴 but a different number of neutrons 🟡 in the nucleus, resulting in different properties while still belonging to the same element, is called an isotope. We'll talk about isotopes later in other lessons."
+            },
+            {
+                "type": "headerText",
+                "value": "But how are these particles arranged?"
+            },
+            {
+                "type": "text",
+                "value": "If positioning the nucleus is clear, it is located in the center 🎯 of the atom, like the pith in a peach🍑, then we want to know more about positioning the electrons 🔵 that “surround or orbit” around this nucleus."
+            },
+            {
+                "type": "text",
+                "value": "Let's dive into history of understanding how atoms looks like"
+            },
+            {
+                "type": "headerText",
+                "value": "Ancient Greece"
+            },
+            {
+                "type": "text",
+                "value": "Already in 5th century BC, Leucippus and his talanted student Democritus anounced the idea that all matter was composed of small, invisible to the human eye, indivisible particles which they called “atoms”. Also they suposed that nature consists of two fundamental principles: atom and void. According to their theory, atoms are constantly moving, floating in the omnipresent void, and colliding with each other. These ideas formed the basis of the theory of atomism."
+            },
+            {
+                "type": "image",
+                "value": "democritus"
+            },
+            {
+                "type": "text",
+                "value": "Democritus belived that some atoms, he maintained, are convex, others concave, some shaped like hooks, and others like eyes. He alseo believed that the properties of a substance were determined by the shape, mass, and other characteristics of the atoms that formed it. Thus, for example, fire has sharp atoms, so the fire is able to burn, in solids they are rough, so they firmly adhere to each other, in water - smooth, so it is able to flow."
+            },
+            {
+                "type": "headerText",
+                "value": "Solid sphere"
+            },
+            {
+                "type": "image",
+                "value": "solid_sphere"
+            },
+            {
+                "type": "text",
+                "value": "In 1803, the English chemist John Dalton drew on the ideas of the ancient Greeks to describe atoms as small, solid spheres that are inseparable and that the atoms of a given element are identical to each other. He also suposed that atoms has no any charge."
+            },
+            {
+                "type": "image",
+                "value": "dalton_elements"
+            },
+            {
+                "type": "text",
+                "value": "On the picture you can see the Symbols of elements and Dalton's estimates of their atomic masses. He came up with theories about how atoms combine to make compounds, and also came up with the first set of chemical symbols for known elements."
+            },
+            {
+                "type": "headerText",
+                "value": "In 1897"
+            },
+            {
+                "type": "text",
+                "value": "J.J.Thomson discovered the existence of the electron 🔵"
+            },
+            {
+                "type": "headerText",
+                "value": "Plum pudding model"
+            },
+            {
+                "type": "image",
+                "value": "pudding_model"
+            },
+            {
+                "type": "text",
+                "value": "Shortly after the discovery of the electron, but before the discovery of the atomic nucleus, J.J.Thomson in 1904 proposed to consider the atom as a kind of positively charged spherical body “pudding” with electrons “raisins” enclosed inside it."
+            },
+            {
+                "type": "image",
+                "value": "pudding_model_schematically"
+            },
+            {
+                "type": "text",
+                "value": "Thomson guessed that atoms must also have a source of positive charge to balance the negative charge of the electrons, but the nucleus had not yet been discovered. He also argued that electrons were free to spin in circular orbits inside the positively charged substance."
+            },
+            {
+                "type": "headerText",
+                "value": "Nuclear model"
+            },
+            {
+                "type": "text",
+                "value": "Ernest Rutherford in 1911 suggested that the charge of atoms is concentrated in a very small nucleus. And that an atom consists of a positively charged nucleus with electrons orbiting around it. He did not discuss the organization of electrons in the atom's shells or orbits, by his theory electrons orbiting in arbitrary orbits."
+            },
+            {
+                "type": "image",
+                "value": "rutherford_atom_model"
+            },
+            {
+                "type": "text",
+                "value": "We have already seen something similar when we counted the number of electrons 🔵, protons 🔴 and neutrons 🟡."
+            },
+            {
+                "type": "text",
+                "value": "Rutherford came to this conclusion from an experiment in which he fired positively charged alpha particles into a thin sheet of gold foil."
+            },
+            {
+                "type": "image",
+                "value": "rutherford_experiment"
+            },
+            {
+                "type": "text",
+                "value": "The alpha particles were small enough to pass through the gold foil, and according to Thomson's model, which showed a positive charge scattered throughout the atom, they should do so with little or no deflection. Rutherford's analysis proposed a high central charge concentrated into a very small volume in comparison to the rest of the atom. (Rutherford's model of the atom on the plane given below.)"
+            },
+            {
+                "type": "image",
+                "value": "rutherford_atom_model_2"
+            },
+            {
+                "type": "text",
+                "value": "Alpha particle - a positively charged particle formed by two protons and two neutrons; the nucleus of the helium-4 atom. First discovered by Ernest Rutherford in 1899."
+            },
+            {
+                "type": "headerText",
+                "value": "Planetary model"
+            },
+            {
+                "type": "text",
+                "value": "In 1913, physicist Niels Bohr proposed a new model in which the electrons of an atom were thought to orbit the nucleus, but could only occupy a limited set of orbits. They could jump between these orbits only with discrete changes in energy, corresponding to the absorption or emission of a photon."
+            },
+            {
+                "type": "image",
+                "value": "lithium_planetary_model"
+            },
+            {
+                "type": "text",
+                "value": "The figure above shows a planetary model of a lithium atom, which contains a positively charged nucleus and 3 negatively charged electrons, 2 of which orbit in the first orbit (shell) and the last in the second orbit (shell). As we said earlier, Bohr's model suggested the existence of energy levels or shells for electrons. Electrons could only be located in these specific energy levels; in other words, their energy was quantized (i.e., strictly defined) and could not assume any arbitrary value."
+            },
+            {
+                "type": "text",
+                "value": "The nuclear model (Rutherford) and the planetary (Bohr) model of the atom are not the same, though they are related. The nuclear model, proposed by Rutherford, describes the atom as having a small, dense, positively charged nucleus with electrons orbiting around it. The planetary model, specifically Bohr's model, expands on this by specifying that electrons orbit in specific, quantized energy levels or shells, like planets orbiting the sun."
+            },
+            {
+                "type": "headerText",
+                "value": "In 1920"
+            },
+            {
+                "type": "text",
+                "value": "Rutherford discovered the existence of the proton 🔴"
+            },
+            {
+                "type": "headerText",
+                "value": "Quantum model"
+            },
+            {
+                "type": "text",
+                "value": "In 1926, Erwin Schrödinger proposed that electrons do not travel in fixed paths around the nucleus; instead, they behave like waves. We cannot determine the exact position of the electrons; rather, we have 'probability clouds' known as orbitals, where the likelihood of finding an electron is greater. He describes electrons as three-dimensional waveforms rather than points in space."
+            },
+            {
+                "type": "image",
+                "value": "shredinger_cat"
+            },
+            {
+                "type": "text",
+                "value": "We all know how Schrödinger liked to “formulate” his thoughts, and although this model of the atom is difficult to illustrate, we have attempted to do so."
+            },
+            {
+                "type": "image",
+                "value": "shredinger_model"
+            },
+            {
+                "type": "text",
+                "value": "Schrödinger was not interested in the nucleus of the atom itself. But, by the way, at the time of work on this model, it was not yet realized that the nucleus had neutrons."
+            },
+            {
+                "type": "headerText",
+                "value": "In 1932"
+            },
+            {
+                "type": "text",
+                "value": "James Chadwick (a student of Rutherford) discovered the existence of the neutron 🟡"
+            },
+            {
+                "type": "text",
+                "value": "So after that moment, mankind learned that the nucleus is made up of a proton 🔴 and a neutron 🟡."
+            },
+            {
+                "type": "text",
+                "value": "The nucleus is very small compared to the size of an atom (about 10,000 to 100,000 times), and although it is most often in the shape of a sphere or ellipsoid, more complex geometries can be observed in some cases."
+            },
+            {
+                "type": "image",
+                "value": "nucleus_model"
+            },
+            {
+                "type": "text",
+                "value": "What is the best model to use you may ask? Not so long ago mankind was content with the raisin pudding model and all was well, no one was hurt. Of course, we would like to get into the truest and most correct model the first time, but historical hindsight shows that even quite stable theories turn out to be false."
+            },
+            {
+                "type": "image",
+                "value": "roman_hold_puding"
+            },
+            {
+                "type": "text",
+                "value": "The situation is complicated by the incomplete knowledge of the properties of the nuclear forces and the fact that the nucleons themselves are also composite particles (they consist of quarks)."
+            },
+            {
+                "type": "image",
+                "value": "roman_drill_atom"
+            },
+            {
+                "type": "text",
+                "value": "But we believe that one day we will be able to safely saw the atom into small pieces, so to speak skillfully disassemble it into its component screws."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Let's remember which model of an atom can be used to count electrons?",
+                    "answers": [
+                        {
+                            "response": "Solid sphere model by Dalton",
+                            "description": "This model does not display any structural elements of an atom.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Plum pudding model by Thomson",
+                            "description": "Despite the fact that there is no nucleus in this model, there is a \"raisin\" in it, which played the role of electrons.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Nuclear model by Rutherford",
+                            "description": "Yes, you can! And they orbiting around the nucleus of an atom in arbitrary orbits.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Planetary model by Bohr",
+                            "description": "Yes, you can! This model complements Rutherford's model. Electrons on this model orbiting around the nucleus of an atom in STATIONARY orbits.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Quantum model by Schrödinger",
+                            "description": "Despite the fact that it is already known that electrons exist, this model contains only areas where they can appear, not their number.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "There is no answer to the question of which atom model is the best. It all depends on what you need and what task you set for yourself. It depends on what information or even other properties of the chemical element you want to see in the atom model."
+            },
+            {
+                "type": "headerText",
+                "value": "For example"
+            },
+            {
+                "type": "text",
+                "value": "The planetary model of an atom, often called the mechanical model, is used to simplify the representation of an atom, mainly to demonstrate the basic principles of structure and interaction.\nThe quantum model, on the contrary, is more accurate and complex, describing the behavior of electrons in an atom using quantum mechanical laws.\nThe mechanical model is used for initial understanding, and the quantum model is used for deeper study."
+            },
+            {
+                "type": "headerText",
+                "value": "Wait a minute!\nWhat other element properties?"
+            },
+            {
+                "type": "image",
+                "value": "Roman_with_magnifying_glass"
+            },
+            {
+                "type": "text",
+                "value": "We will take a closer look at them in the following lessons."
             }
         ],
         "isCompleted": false
