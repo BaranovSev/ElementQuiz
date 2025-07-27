@@ -272,6 +272,20 @@
                 "value": "roman_lectorium"
             },
             {
+                "type": "definition",
+                "value": {
+                    "header": "Definition block",
+                    "body": "To make it easier to memorize information, we try to break it down visually into different logical blocks. By the way, this is what a block with important information looks like."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Addition block",
+                    "body": "And there is also an additional block, which usually contains information that helps to form the “complete picture”, giving an explanation of something."
+                }
+            },
+            {
                 "type": "text",
                 "value": "As part of the training, it is quite normal to ask questions and give wrong answers to them. Don't worry, in lectures you can answer until you have chosen all the correct answers, which can be one or more."
             },
@@ -322,6 +336,17 @@
                 "value": "Although it is necessary to know the theoretical material, with personal participation comes a more visual understanding of what is happening and how it should be. And you must agree, it is much more interesting to observe the reaction live, and even more so to carry it out yourself.\nIn this section, you will do just that!"
             },
             {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "Observe safety precautions when carrying out chemical reactions"
+                }
+            },
+            {
                 "type": "question",
                 "value" : {
                     "text": "Do you think you carry out chemical reactions in your daily life?",
@@ -355,7 +380,18 @@
             },
             {
                 "type": "text",
-                "value": "As you might seen, each icon in section has it's own number and specific color. Each color represent category of elements from periodic table. For example orange color present diatomic nonmetals category, rather blue is nobel gases. But what about number on the icons..."
+                "value": "As you might seen, each icon in section has it's own number and specific color. Each color represent category of elements from periodic table."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For example",
+                    "body": "Orange color present diatomic nonmetals category, rather blue is nobel gases."
+                }
+            },
+            {
+                "type": "text",
+                "value": "But what about number on the icons..."
             },
             {
                 "type": "question",
@@ -472,19 +508,18 @@
             },
             {
                 "type": "text",
-                "value": "Hold on tight! We are embarking on a journey through the fascinating world of chemistry on our \"Knowledge\" ship. Are you ready to dive headfirst into chemistry? We will explore the wonders that elements and compounds offer. Get ready for an exciting journey full of discovery!"
+                "value": "Hold on tight! We are embarking on a journey through the fascinating world of chemistry on our “Knowledge” ship. Are you ready to dive headfirst into chemistry? We will explore the wonders that elements and compounds offer. Get ready for an exciting journey full of discovery!"
             },
             {
                 "type": "image",
                 "value": "roman_ship_1"
             },
             {
-                "type": "headerText",
-                "value": "Chemistry"
-            },
-            {
-                "type": "text",
-                "value": "is one of the most important and extensive fields of natural science, the science that studies substances, also their composition and structure, and their properties. And this science has many connections with physics and biology. It also studies the transformation of one or more initial substances (reactants) into other substances, so-called chemical reactions."
+                "type": "definition",
+                "value": {
+                    "header": "Chemistry",
+                    "body": "is one of the most important and extensive fields of natural science, the science that studies substances, also their composition and structure, and their properties. And this science has many connections with physics and biology. It also studies the transformation of one or more initial substances (reactants) into other substances, so-called chemical reactions."
+                }
             },
             {
                 "type": "image",
@@ -538,8 +573,15 @@
                 "value": "roman_with_ice_cream"
             },
             {
+                "type": "addition",
+                "value": {
+                    "header": "What's more",
+                    "body": "you yourself are a collection of chemical elements!"
+                }
+            },
+            {
                 "type": "text",
-                "value": "What's more, you yourself are a collection of chemical elements! Our body is made up of water, proteins, fats, carbohydrates and minerals that interact with each other to keep us vital and healthy. Every breath fills us with oxygen, every meal brings us essential nutrients."
+                "value": "Our body is made up of water, proteins, fats, carbohydrates and minerals that interact with each other to keep us vital and healthy. Every breath fills us with oxygen, every meal brings us essential nutrients."
             },
             {
                 "type": "image",
@@ -566,12 +608,11 @@
                 "value": "roman_ship_3"
             },
             {
-                "type": "headerText",
-                "value": "Chemistry"
-            },
-            {
-                "type": "text",
-                "value": "the science that deals with the properties, composition, and structure of substances (defined as elements and compounds), the transformations they undergo, and the energy that is released or absorbed during these processes."
+                "type": "definition",
+                "value": {
+                    "header": "Chemistry",
+                    "body": "the science that deals with the properties, composition, and structure of substances (defined as elements and compounds), the transformations they undergo, and the energy that is released or absorbed during these processes."
+                }
             },
             {
                 "type": "image",
@@ -685,11 +726,63 @@
             },
             {
                 "type": "image",
-                "value": "water_molecule_model"
+                "value": "roman_and_molecules_1"
             },
             {
                 "type": "text",
-                "value": "This is water molecula. It consists of two hydrogen (H) atoms and one oxygen (O) atom. By the way, H-O-H bond angle is about 105°."
+                "value": "Oops, looks like we forgot to define Molecule. But you did a good job with the task!"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molecule",
+                    "body": "is the smallest unit of a substance that retains the chemical properties of that substance. It is formed when two or more atoms are chemically bonded together."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Atoms in molecule",
+                    "body": "can be of the same element, like oxygen gas (O2), or of different elements, like water (H2O)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Molecules are fundamental to the structure of matter and are essential for understanding chemistry and biology."
+            },
+            {
+                "type": "image",
+                "value": "water_molecule_model"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "This is water molecula",
+                    "body": "It consists of two hydrogen (H) atoms and one oxygen (O) atom. By the way, H-O-H bond angle is about 105°."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "We figured out what molecule is!"
+            },
+            {
+                "type": "image",
+                "value": "roman_and_molecules_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Let's continue our discussion about atoms..."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Atom",
+                    "body": "is the basic building block of matter, the smallest unit of an element that retains the chemical properties of that element."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Now it's your turn to try to guess a couple of facts about the atom."
             },
             {
                 "type": "question",
@@ -730,7 +823,29 @@
             },
             {
                 "type": "text",
-                "value": "The hydrogen atom is the simplest atom, consisting of one proton 🔴 (positive electric charge, shown in red) in the nucleus and one electron 🔵 (negative electric charge, shown in blue) orbiting around it. It is the basis for understanding the structure of all other atoms and plays a key role in chemistry and physics. A hydrogen atom is on the order of 10⁻¹⁰ meters in size, and its nucleus (proton) is several orders of magnitude smaller, on the order of 10⁻¹⁵ meters."
+                "value": "The hydrogen atom is the simplest atom, consisting of one proton 🔴 (positive electric charge, shown in red) in the nucleus and one electron 🔵 (negative electric charge, shown in blue) orbiting around it. It is the basis for understanding the structure of all other atoms and plays a key role in chemistry and physics."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Hydrogen atom",
+                    "body": "is on the order of 10⁻¹⁰ meters in size, and its nucleus (proton) is several orders of magnitude smaller, on the order of 10⁻¹⁵ meters."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Normally atoms look like in model below"
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Here is a model of the Lithium atom",
+                    "body": "The next lecture is devoted to atoms and their models. There we will also give a definition of the Atom and talk about its structure. It will be extensive, but interesting!"
+                }
             },
             {
                 "type": "headerText",
@@ -738,7 +853,7 @@
             },
             {
                 "type": "text",
-                "value": "At least you know what chemistry learn, and that a substance is a form of matter."
+                "value": "At least you know what chemistry learn, and that a substance is a form of matter. Moreover, you almost single-handedly coped with our tricky questions about what a molecule is!"
             },
             {
                 "type": "image",
@@ -841,8 +956,22 @@
                 "value": "Now our turn"
             },
             {
+                "type": "definition",
+                "value": {
+                    "header": "Atoms",
+                    "body": "are the fundamental building blocks of all matter, and they retain the properties of the element they represent."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Structure",
+                    "body": "electrons 🔵 negatively charged\nprotons 🔴 positively charged\nneutrons 🟡 electrically neutral"
+                }
+            },
+            {
                 "type": "text",
-                "value": "Atoms are the fundamental building blocks of all matter, and they retain the properties of the element they represent. And all atoms really consists of electrons, protons and neutrons. The only except is hydrogenium-1 (also protium, model given below), which has no neutrons. Neutrons 🟡 is electoneutral."
+                "value": "And all atoms really consists of electrons, protons and neutrons. The only except is hydrogenium-1 (also protium, model given below), which has no neutrons. Neutrons 🟡 is electoneutral."
             },
             {
                 "type": "image",
@@ -850,7 +979,14 @@
             },
             {
                 "type": "text",
-                "value": "If the number of electrons 🔵 (- charged) matches the number of protons 🔴 (+ charged) in the nucleus, the atom is considered electrically neutral. Otherwise it is called an ion and has some positive (called cation) or negative charge (called anion)."
+                "value": "If the number of electrons 🔵 (- charged) matches the number of protons 🔴 (+ charged) in the nucleus, the atom is considered electrically neutral."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Otherwise",
+                    "body": "it is called an ion and has some positive (called cation) or negative charge (called anion)."
+                }
             },
             {
                 "type": "text",
@@ -869,28 +1005,25 @@
                 "value": "We don't have to calculate them manually on the atomic model. (We certainly don't forbid you to do this, moreover, we recommend that you verify this yourself.) It's enough to just remember a few tricks."
             },
             {
-                "type": "headerText",
-                "value": "The number of\nprotons 🔴"
+                "type": "addition",
+                "value": {
+                    "header": "The number of protons 🔴",
+                    "body": "corresponds to the atomic number of the atom in the periodic table."
+                }
             },
             {
-                "type": "text",
-                "value": "corresponds to the atomic number of the atom in the periodic table."
+                "type": "addition",
+                "value": {
+                    "header": "The number of neutrons 🟡",
+                    "body": "just subtract the atomic number from the atomic mass number of the element."
+                }
             },
             {
-                "type": "headerText",
-                "value": "The number of\nneutrons 🟡"
-            },
-            {
-                "type": "text",
-                "value": "just subtract the atomic number from the atomic mass number of the element."
-            },
-            {
-                "type": "headerText",
-                "value": "The number of\nelectrons 🔵"
-            },
-            {
-                "type": "text",
-                "value": "in an electrically neutral atom corresponds to the atomic number of the atom in the periodic table (also equal the number of protons)."
+                "type": "addition",
+                "value": {
+                    "header": "The number of electrons 🔵",
+                    "body": "corresponds to the atomic number of the electroneutral atom in the periodic table (also equal the number of protons)."
+                }
             },
             {
                 "type": "image",
@@ -905,12 +1038,11 @@
                 "value": "Now look at the data from the periodic table and check it against the model of the lithium atom. The theory works!"
             },
             {
-                "type": "headerText",
-                "value": "Isotopes"
-            },
-            {
-                "type": "text",
-                "value": "The number of protons determines its belonging to a certain chemical element, and the number of neutrons corresponds to a certain isotope of this element. A variant of an element that has the same number of protons 🔴 but a different number of neutrons 🟡 in the nucleus, resulting in different properties while still belonging to the same element, is called an isotope. We'll talk about isotopes later in other lessons."
+                "type": "addition",
+                "value": {
+                    "header": "Isotopes",
+                    "body": "The number of protons 🔴 determines its belonging to a certain chemical element, and the number of neutrons🟡 corresponds to a certain isotope of this element. A variant of an element that has the same number of protons 🔴 but a different number of neutrons 🟡 in the nucleus, resulting in different properties while still belonging to the same element, is called an isotope. We'll talk about isotopes later in other lessons."
+                }
             },
             {
                 "type": "headerText",
@@ -961,12 +1093,11 @@
                 "value": "On the picture you can see the Symbols of elements and Dalton's estimates of their atomic masses. He came up with theories about how atoms combine to make compounds, and also came up with the first set of chemical symbols for known elements."
             },
             {
-                "type": "headerText",
-                "value": "In 1897"
-            },
-            {
-                "type": "text",
-                "value": "J.J.Thomson discovered the existence of the electron 🔵"
+                "type": "addition",
+                "value": {
+                    "header": "In 1897",
+                    "body": "J.J.Thomson discovered the existence of the electron 🔵"
+                }
             },
             {
                 "type": "headerText",
@@ -1001,8 +1132,11 @@
                 "value": "rutherford_atom_model"
             },
             {
-                "type": "text",
-                "value": "We have already seen something similar when we counted the number of electrons 🔵, protons 🔴 and neutrons 🟡."
+                "type": "addition",
+                "value": {
+                    "header": "We have already seen",
+                    "body": "something similar when we counted the number of electrons 🔵, protons 🔴 and neutrons 🟡"
+                }
             },
             {
                 "type": "text",
@@ -1045,12 +1179,11 @@
                 "value": "The nuclear model (Rutherford) and the planetary (Bohr) model of the atom are not the same, though they are related. The nuclear model, proposed by Rutherford, describes the atom as having a small, dense, positively charged nucleus with electrons orbiting around it. The planetary model, specifically Bohr's model, expands on this by specifying that electrons orbit in specific, quantized energy levels or shells, like planets orbiting the sun."
             },
             {
-                "type": "headerText",
-                "value": "In 1920"
-            },
-            {
-                "type": "text",
-                "value": "Rutherford discovered the existence of the proton 🔴"
+                "type": "addition",
+                "value": {
+                    "header": "In 1920",
+                    "body": "Rutherford discovered the existence of the proton 🔴"
+                }
             },
             {
                 "type": "headerText",
@@ -1077,16 +1210,19 @@
                 "value": "Schrödinger was not interested in the nucleus of the atom itself. But, by the way, at the time of work on this model, it was not yet realized that the nucleus had neutrons."
             },
             {
+                "type": "addition",
+                "value": {
+                    "header": "In 1932",
+                    "body": "James Chadwick (a student of Rutherford) discovered the existence of the neutron 🟡"
+                }
+            },
+            {
+                "type": "text",
+                "value": "So after 1932, mankind learned that the nucleus is made up of a proton 🔴 and a neutron 🟡."
+            },
+            {
                 "type": "headerText",
-                "value": "In 1932"
-            },
-            {
-                "type": "text",
-                "value": "James Chadwick (a student of Rutherford) discovered the existence of the neutron 🟡"
-            },
-            {
-                "type": "text",
-                "value": "So after that moment, mankind learned that the nucleus is made up of a proton 🔴 and a neutron 🟡."
+                "value": "What is known about nucleus now"
             },
             {
                 "type": "text",
@@ -1098,7 +1234,7 @@
             },
             {
                 "type": "text",
-                "value": "What is the best model to use you may ask? Not so long ago mankind was content with the raisin pudding model and all was well, no one was hurt. Of course, we would like to get into the truest and most correct model the first time, but historical hindsight shows that even quite stable theories turn out to be false."
+                "value": "What is the best model of atom to use you may ask? Not so long ago mankind was content with the raisin pudding model and all was well, no one was hurt. Of course, we would like to get into the truest and most correct model the first time, but historical hindsight shows that even quite stable theories turn out to be false."
             },
             {
                 "type": "image",
@@ -1128,7 +1264,7 @@
                         },
                         {
                             "response": "Plum pudding model by Thomson",
-                            "description": "Despite the fact that there is no nucleus in this model, there is a \"raisin\" in it, which played the role of electrons.",
+                            "description": "Despite the fact that there is no nucleus in this model, there is a “raisin” in it, which played the role of electrons.",
                             "isCorrect": true
                         },
                         {
@@ -1156,12 +1292,11 @@
                 "value": "There is no answer to the question of which atom model is the best. It all depends on what you need and what task you set for yourself. It depends on what information or even other properties of the chemical element you want to see in the atom model."
             },
             {
-                "type": "headerText",
-                "value": "For example"
-            },
-            {
-                "type": "text",
-                "value": "The planetary model of an atom, often called the mechanical model, is used to simplify the representation of an atom, mainly to demonstrate the basic principles of structure and interaction.\nThe quantum model, on the contrary, is more accurate and complex, describing the behavior of electrons in an atom using quantum mechanical laws.\nThe mechanical model is used for initial understanding, and the quantum model is used for deeper study."
+                "type": "addition",
+                "value": {
+                    "header": "For example",
+                    "body": "The planetary model of an atom, often called the mechanical model, is used to simplify the representation of an atom, mainly to demonstrate the basic principles of structure and interaction.\nThe quantum model, on the contrary, is more accurate and complex, describing the behavior of electrons in an atom using quantum mechanical laws.\nThe mechanical model is used for initial understanding, and the quantum model is used for deeper study."
+                }
             },
             {
                 "type": "headerText",
@@ -1191,20 +1326,6 @@
                 "type": "definition",
                 "value": {
                     "header": "definition definition",
-                    "body": "definitionTextdefinitionTextdefinitionTextdefinitionText"
-                }
-            },
-            {
-                "type": "addition",
-                "value": {
-                    "header": "addition addition",
-                    "body": "additionTextadditionTextadditionTextadditionText"
-                }
-            },
-            {
-                "type": "definition",
-                "value": {
-                    "header": "definition definition definition definition",
                     "body": "definitionTextdefinitionTextdefinitionTextdefinitionText"
                 }
             },

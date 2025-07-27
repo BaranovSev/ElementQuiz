@@ -14,11 +14,25 @@
             },
             {
                 "type": "text",
-                "value": "Is a fun and popular DIY item that delights both kids and adults. Making slime can be viewed as a creative process that develops fine motor skills and imagination. Slime is made using a chemical reaction between a polymer (like PVA glue) and a thickener (like sodium tetraborate). This creates a Non-Newtonian fluid that behaves like a solid when hit hard and like a liquid when hit gently. In this topic, we will discuss the main components and steps involved in making slime, as well as some tips and recipes."
+                "value": "Is a fun and popular DIY item that delights both kids and adults. Making slime can be viewed as a creative process that develops fine motor skills and imagination."
             },
             {
-                "type": "headerText",
-                "value": "History of Slime"
+                "type": "definition",
+                "value": {
+                    "header": "Slime",
+                    "body": "is made using a chemical reaction between a polymer (like PVA glue) and a thickener (like sodium tetraborate). This creates a Non-Newtonian fluid that behaves like a solid when hit hard and like a liquid when hit gently."
+                }
+            },
+            {
+                "type": "text",
+                "value": "In this topic, we will discuss the main components and steps involved in making slime, as well as some tips and recipes. But first..."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "How slime was created"
+                }
             },
             {
                 "type": "image",
@@ -26,19 +40,25 @@
             },
             {
                 "type": "text",
-                "value": "Slime was introduced in the 1976s as a toy for children. Over time, its popularity increased, especially due to social media, where users share their recipes and showcase unique types of slime. Slimes are easy to crumple with your hands, have a sticky surface and collect pet hair very well. By the way, this is exactly what slimes were created for — collecting lint and hair from clothes. But the thing turned out to be so funny that the children turned the slimes into a toy."
+                "value": "Slime was introduced in the 1976s as a toy for children. Over time, its popularity increased, especially due to social media, where users share their recipes and showcase unique types of slime. Slimes are easy to crumple with your hands, have a sticky surface and collect pet hair very well."
             },
             {
-                "type": "headerText",
-                "value": "Attention!"
+                "type": "addition",
+                "value": {
+                    "header": "By the way",
+                    "body": "this is exactly what slimes were created for — collecting lint and hair from clothes. But the thing turned out to be so funny that the children turned the slimes into a toy."
+                }
             },
             {
                 "type": "image",
                 "value": "warning_image"
             },
             {
-                "type": "text",
-                "value": "Borax (and other boron derivatives like sodium borate, sodium tetraborate or disodium tetraborate) is used to cross-link with the glue to create the rubbery substance. Overexposure to boron can irritate a person's skin, cause respiratory problems and lead to gastrointestinal bleeding if ingested."
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "Borax (and other boron derivatives like sodium borate, sodium tetraborate or disodium tetraborate) is used to cross-link with the glue to create the rubbery substance. Overexposure to boron can irritate a person's skin, cause respiratory problems and lead to gastrointestinal bleeding if ingested."
+                }
             },
             {
                 "type": "headerText",
@@ -81,12 +101,11 @@
                 "value": "slime_red_image"
             },
             {
-                "type": "headerText",
-                "value": "Tips"
-            },
-            {
-                "type": "text",
-                "value": "- If your slime turns out too sticky, add a bit more activator.\n- Store slime in an airtight container to prevent it from drying out.\n- Experiment with textures: try adding shaving cream for a fluffier slime or cornstarch for a thicker one."
+                "type": "addition",
+                "value": {
+                    "header": "Tips",
+                    "body": "- If your slime turns out too sticky, add a bit more activator.\n- Store slime in an airtight container to prevent it from drying out.\n- Experiment with textures: try adding shaving cream for a fluffier slime or cornstarch for a thicker one."
+                }
             },
             {
                 "type": "question",
@@ -123,12 +142,18 @@
                 "value": "Well, if there are so many of them, then"
             },
             {
-                "type": "headerText",
-                "value": "Take one more recipe!\nSlime without Sodium Tetraborate."
+                "type": "definition",
+                "value": {
+                    "header": "Take one\n more recipe!",
+                    "body": "Slime without Sodium Tetraborate"
+                }
             },
             {
-                "type": "text",
-                "value": "For that you'll need:\n- 60 ml PVA glue\n- 75 g starch\n- 150 ml water\n- Food coloring or slime dye (optional)"
+                "type": "addition",
+                "value": {
+                    "header": "For that you'll need:",
+                    "body": "- 60 ml PVA glue\n- 75 g starch\n- 150 ml water\n- Food coloring or slime dye (optional)"
+                }
             },
             {
                 "type": "image",
@@ -144,23 +169,29 @@
             },
             {
                 "type": "headerText",
-                "value": "Slime isn't just for kids!\nCleaning slime."
+                "value": "Slime isn't just for kids!"
             },
             {
                 "type": "text",
                 "value": "A special slime recipe taken from the Reddit website will allow you to prepare a unique slime for cleaning hard-to-reach surfaces from dust. We certainly don't recommend using it to clean electronic devices. But, really, some of difficult textures like «pop it» or even like keyboard on your Mac (we didn't say that) can cleaned by this way."
             },
             {
+                "type": "definition",
+                "value": {
+                    "header": "One more recipe!",
+                    "body": "Cleaning slime"
+                }
+            },
+            {
                 "type": "image",
                 "value": "roman_cleaner"
             },
             {
-                "type": "headerText",
-                "value": "To make cleaning slime, you will need:"
-            },
-            {
-                "type": "text",
-                "value": "- 1 ½ cups warm water\n- ¼ cup borax laundry booster\n- 5 ounces white school glue (Polyvinyl Acetate type II)"
+                "type": "addition",
+                "value": {
+                    "header": "You will need:",
+                    "body": "- 1 ½ cups warm water\n- ¼ cup borax laundry booster\n- 5 ounces white school glue (Polyvinyl Acetate type II)"
+                }
             },
             {
                 "type": "headerText",
@@ -171,16 +202,15 @@
                 "value": "1. In a paper cup, mix 1 cup warm water with the borax and stir until the borax is dissolved. Put the borax water aside.\n2. In a mixing bowl mix a half-cup of warm water, the glue and two drops of food coloring.\n3. Add the borax water.\n4. Stir until firm. It will start out as a gooey mess. Don't worry. It will firm up as you mix.\n5. Knead with your hands until it becomes a dry ball of ooze. This can take around five minutes."
             },
             {
-                "type": "headerText",
-                "value": "Careful!"
-            },
-            {
                 "type": "image",
                 "value": "roman_with_slime"
             },
             {
-                "type": "text",
-                "value": "If the slime is sticking to your hands or will not form into a ball; add a couple more tablespoons of borax.\nDo not use the cleaning slime if the slime won't roll into a ball (it could get stuck)."
+                "type": "addition",
+                "value": {
+                    "header": "Careful!",
+                    "body": "If the slime is sticking to your hands or will not form into a ball; add a couple more tablespoons of borax.\nDo not use the cleaning slime if the slime won't roll into a ball (it could get stuck)."
+                }
             },
             {
                 "type": "headerText",
@@ -244,8 +274,18 @@
                 "value": "To begin with, it would be a good idea to understand what a crystal is and what the crystallization process is."
             },
             {
-                "type": "text",
-                "value": "A crystal is a solid in which the atoms or molecules are arranged in a very specific, repeating pattern, forming a three-dimensional lattice. In simple terms, it is as if the building blocks (atoms) are laid out in a very neat, repeating pattern, rather than just scattered randomly."
+                "type": "definition",
+                "value": {
+                    "header": "Crystal",
+                    "body": "is a solid in which the atoms or molecules are arranged in a very specific, repeating pattern, forming a three-dimensional lattice."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "In simple terms",
+                    "body": "it is as if the building blocks (atoms) are laid out in a very neat, repeating pattern, rather than just scattered randomly."
+                }
             },
             {
                 "type": "text",
@@ -277,7 +317,18 @@
             },
             {
                 "type": "text",
-                "value": "However, solids can also exist in an amorphous state, where the atoms are arranged randomly, without a specific crystal structure. For example: glass, rubber, and plastics. But this is not a crystal!"
+                "value": "However, solids can also exist in an amorphous state, where the atoms are arranged randomly, without a specific crystal structure."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For example:",
+                    "body": "glass, rubber and plastic are solids, but they are not crystals."
+                }
+            },
+            {
+                "type": "image",
+                "value": "rock_crystal"
             },
             {
                 "type": "text",
@@ -285,19 +336,14 @@
             },
             {
                 "type": "image",
-                "value": "rock_crystal"
-            },
-            {
-                "type": "headerText",
-                "value": "Interesting fact about romans:"
-            },
-            {
-                "type": "image",
                 "value": "roman_in_alps"
             },
             {
-                "type": "text",
-                "value": "Roman naturalist Pliny the Elder believed quartz to be water ice, permanently frozen after great lengths of time. He supported this idea by saying that quartz is found near glaciers in the Alps, but not on volcanic mountains, and that large quartz crystals were fashioned into spheres to cool the hands. This idea persisted until at least the 17th century. He also knew of the ability of quartz to split light into a spectrum."
+                "type": "addition",
+                "value": {
+                    "header": "Interesting fact about romans:",
+                    "body": "Roman naturalist Pliny the Elder believed quartz to be water ice, permanently frozen after great lengths of time. He supported this idea by saying that quartz is found near glaciers in the Alps, but not on volcanic mountains, and that large quartz crystals were fashioned into spheres to cool the hands. This idea persisted until at least the 17th century. He also knew of the ability of quartz to split light into a spectrum."
+                }
             },
             {
                 "type": "question",
@@ -402,28 +448,58 @@
                 "value": "pyrite_crystal"
             },
             {
-                "type": "headerText",
-                "value": "Steps of crystallization:"
+                "type": "definition",
+                "value": {
+                    "header": "Crystallisation",
+                    "body": "is the process of formation of solid crystals from solution, melt or by deposition directly from a gas phase."
+                }
             },
             {
-                "type": "headerText",
-                "value": "I. Nucleation"
+                "type": "addition",
+                "value": {
+                    "header": "Steps of crystallization:",
+                    "body": "I. Nucleation\nII. Crystal growth"
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Nucleation",
+                    "body": "Step where the solute molecules or atoms dispersed in the solvent start to gather into clusters, on the microscopic scale (elevating solute concentration in a small region), that become stable under the current operating conditions."
+                }
             },
             {
                 "type": "text",
-                "value": "Step where the solute molecules or atoms dispersed in the solvent start to gather into clusters, on the microscopic scale (elevating solute concentration in a small region), that become stable under the current operating conditions."
+                "value": "This is the first step where molecules or atoms in a solution, melt, or vapor start to aggregate and form small, stable clusters.\nThese clusters need to reach a certain size (critical size) to be stable and act as seeds for further crystal growth."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Types of Nucleation",
+                    "body": "it can be spontaneous (homogeneous) or influenced by impurities or introduced seeds (heterogeneous).\nHeterogeneous nucleation occurs at nucleation sites (on glass,like winter patterns, e.g.) on surfaces in the system.\nHomogeneous nucleation occurs away from a surface (in the air, like snowflakes, e.g)."
+                }
+            },
+            {
+                "type": "image",
+                "value": "winter_pattern_and_snowflake"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Crystal growth",
+                    "body": "Once stable nuclei are formed, molecules or atoms from the surrounding medium (solution, melt, or vapor) continue to attach to these nuclei, increasing their size."
+                }
             },
             {
                 "type": "text",
-                "value": "This is the first step where molecules or atoms in a solution, melt, or vapor start to aggregate and form small, stable clusters.\nThese clusters need to reach a certain size (critical size) to be stable and act as seeds for further crystal growth.\nNucleation can be spontaneous (homogeneous) or influenced by impurities or introduced seeds (heterogeneous)."
+                "value": "This growth occurs layer by layer, with molecules or atoms arranging themselves in a specific, repeating pattern characteristic of the crystal structure."
             },
             {
-                "type": "headerText",
-                "value": "II. Crystal growth"
-            },
-            {
-                "type": "text",
-                "value": "Once stable nuclei are formed, molecules or atoms from the surrounding medium (solution, melt, or vapor) continue to attach to these nuclei, increasing their size.\nThis growth occurs layer by layer, with molecules or atoms arranging themselves in a specific, repeating pattern characteristic of the crystal structure.\nThe rate of crystal growth can be influenced by factors such as temperature, pressure, and the availability of molecules or atoms for attachment."
+                "type": "addition",
+                "value": {
+                    "header": "The rate of crystal growth",
+                    "body": "can be influenced by factors such as temperature, pressure, and the availability of molecules or atoms for attachment."
+                }
             },
             {
                 "type": "image",
@@ -458,8 +534,18 @@
                 "value": "No gem crystals yet, but we'll fix that soon."
             },
             {
-                "type": "headerText",
-                "value": "Prepare a saturated salt solution."
+                "type": "definition",
+                "value": {
+                    "header": "Step I",
+                    "body": "Prepare a saturated salt solution."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "You'll need:",
+                    "body": "Salt (NaCl), overheated water, filter paper, tiny thread and couple of jars."
+                }
             },
             {
                 "type": "text",
@@ -472,6 +558,17 @@
             {
                 "type": "text",
                 "value": "And don't forget, we're making a crystal, not a soup! Don't add potatoes to it!"
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "The solution is very hot. Use special heat-resistant gloves to avoid getting burned."
+                }
             },
             {
                 "type": "text",
@@ -515,36 +612,48 @@
                 }
             },
             {
-                "type": "headerText",
-                "value": "The solvent start to gather into clusters, or"
+                "type": "definition",
+                "value": {
+                    "header": "Step II",
+                    "body": "The solvent start to gather into clusters"
+                }
             },
             {
-                "type": "text",
-                "value": "find another seed for our crystal. The future shape of our crystal depends on the correctness of its shape. Find the smoothest cubic salt crystal that needs to be tied to the string."
+                "type": "addition",
+                "value": {
+                    "header": "or",
+                    "body": "find another seed for our crystal. The future shape of our crystal depends on the correctness of its shape. Find the smoothest cubic salt crystal that needs to be tied to the string."
+                }
             },
             {
                 "type": "headerText",
-                "value": "Using the seed as embryo for our crystal."
+                "value": "We're using the seed as embryo for our crystal."
             },
             {
                 "type": "text",
                 "value": "Our crystal will grow on another crystall of smaller size. Simplify, it just keeps growing. So, it's better to take biggest one seed, as it is more convenient to attach them to a thread. The salt crystal has a shape close to rectangular."
             },
             {
-                "type": "text",
-                "value": "Now is the longest phase of the experiment."
+                "type": "addition",
+                "value": {
+                    "header": "Don't worry",
+                    "body": "If you can't find a seed crystal, just lower the thread into the jar, having previously tied any weight to the crystal's place. The crystals will grow right on the thread!"
+                }
             },
             {
                 "type": "image",
                 "value": "kid_grow_the_crystal"
             },
             {
-                "type": "headerText",
-                "value": "Crystal growth"
+                "type": "addition",
+                "value": {
+                    "header": "Crystal growth phase",
+                    "body": "This is the longest phase of the experiment."
+                }
             },
             {
                 "type": "text",
-                "value": "The solution has already been cleaned and poured into the final container in which the reaction will be completed. Our seeds are tied to a string. Now is the longest phase of the experiment."
+                "value": "On this stage our solution has already been cleaned and poured into the final container in which the reaction will be completed. Our seed are tied to a thread that does not touch the walls of the jar. Now is the longest phase of the experiment."
             },
             {
                 "type": "headerText",
@@ -559,12 +668,11 @@
                 "value": "crystal_in_bottle"
             },
             {
-                "type": "headerText",
-                "value": "Tricks:"
-            },
-            {
-                "type": "text",
-                "value": "1. For best results, use distilled water and food coloring intended for use in food products.\n2. Small grains of salt remaining at the bottom of the jar can cause unwanted crystals, so it is recommended to pour the solution into another jar to get rid of them.\n3. If you want to get crystals of different colors, you can use different solutions with different dyes.\n4. Some crystals require varnishing."
+                "type": "addition",
+                "value": {
+                    "header": "Tricks:",
+                    "body": "1. For best results, use distilled water and food coloring intended for use in food products.\n2. Small grains of salt remaining at the bottom of the jar can cause unwanted crystals, so it is recommended to pour the solution into another jar to get rid of them.\n3. If you want to get crystals of different colors, you can use different solutions with different dyes.\n4. Some crystals require varnishing.\n5. Use a pencil or chopsticks to tie and hang the seed crystal.\n6. The solution with the seed crystal should cool slowly, wrap it up.\n7. Сover the jar with the solution with a sheet of paper to prevent dust from falling in."
+                }
             },
             {
                 "type": "headerText",
@@ -631,8 +739,11 @@
                 "value": "Life always find their way!"
             },
             {
-                "type": "text",
-                "value": "We prefer to experiment safely. Therefore, you do not need to repeat the first fire-hazardous recipe, unless you feel an urgent need for it!"
+                "type": "addition",
+                "value": {
+                    "header": "We prefer to experiment safely.",
+                    "body": "Therefore, you do not need to repeat the first fire-hazardous recipe, unless you feel an urgent need for it!"
+                }
             },
             {
                 "type": "headerText",
@@ -647,20 +758,22 @@
                 "value": "ammonium_dichromate"
             },
             {
-                "type": "headerText",
-                "value": "Attention!"
-            },
-            {
-                "type": "text",
-                "value": "We also used matches and had a fire extinguisher at the ready, but it was not needed because our reagent was burning on a huge heat-resistant metal plate."
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "We also used matches and had a fire extinguisher at the ready, but it was not needed because our reagent was burning on a huge heat-resistant metal plate."
+                }
             },
             {
                 "type": "image",
                 "value": "warning_image"
             },
             {
-                "type": "text",
-                "value": "We thought about it in advance. Also, you shouldn't start this experiment without protective glasses, because our 'volcano' will throw out pieces of 'lava'."
+                "type": "addition",
+                "value": {
+                    "header": "We thought about it in advance.",
+                    "body": "Also, you shouldn't start this experiment without protective glasses, because our 'volcano' will throw out pieces of 'lava'."
+                }
             },
             {
                 "type": "text",
@@ -680,16 +793,17 @@
             },
             {
                 "type": "text",
-                "value": "The reaction resembles an active volcano. After its completion, chromium(III) oxide occupies a volume approximately 2-3 times larger than the original substance. It should be noted that the particles of the resulting chromium(III) oxide (almost blackm but trully dark-dark-green), volcanic dust, will settle around the  volcano, so the experiment must be carried out on a large tray."
+                "value": "The reaction resembles an active volcano. After its completion, chromium(III) oxide occupies a volume approximately 2-3 times larger than the original substance. It should be noted that the particles of the resulting chromium(III) oxide (almost black but trully dark-dark-green), volcanic dust, will settle around the  volcano, so the experiment must be carried out on a large tray."
             },
             {
                 "type": "headerText",
-                "value": "Just a volcano in a mug"
+                "value": "We did it!"
             },
             {
                 "type": "text",
-                "value": "We did it!"
+                "value": "Just a volcano in a mug"
             },
+            
             {
                 "type": "image",
                 "value": "volcano_in_cup_1"
@@ -715,16 +829,15 @@
                 }
             },
             {
-                "type": "text",
+                "type": "headerText",
                 "value": "Let's take a breath"
             },
             {
-                "type": "headerText",
-                "value": "A bit of history:"
-            },
-            {
-                "type": "headerText",
-                "value": "Eruption of Vesuvius"
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Eruption of Vesuvius"
+                }
             },
             {
                 "type": "image",
@@ -852,16 +965,18 @@
                 "value": "warning_image"
             },
             {
-                "type": "text",
-                "value": "So, use rubber gloves for this experiment. If reagents come into contact with skin, wash them off with plenty of water."
+                "type": "addition",
+                "value": {
+                    "header": "Safety recomendations:",
+                    "body": "Use rubber gloves for this experiment. If reagents come into contact with skin, wash them off with plenty of water."
+                }
             },
             {
-                "type": "headerText",
-                "value": "You will need:"
-            },
-            {
-                "type": "text",
-                "value": "1. Baking soda\n2. Vinegar or solution of citric acid\n3. Orange or red food coloring\n4. Plasticine"
+                "type": "definition",
+                "value": {
+                    "header": "You will need:",
+                    "body": "1. Baking soda\n2. Vinegar or solution of citric acid\n3. Orange or red food coloring\n4. Plasticine"
+                }
             },
             {
                 "type": "headerText",
@@ -960,12 +1075,18 @@
                 "value": "inkpot_image"
             },
             {
-                "type": "headerText",
-                "value": "Sympathetic Ink"
+                "type": "definition",
+                "value": {
+                    "header": "Sympathetic Ink",
+                    "body": "ink whose writing is initially invisible and becomes visible only under certain conditions (heat, light, chemical developer, etc.)."
+                }
             },
             {
-                "type": "text",
-                "value": "ink whose writing is initially invisible and becomes visible only under certain conditions (heat, light, chemical developer, etc.). Usually the writing process is as follows: the first layer - an important writing is made with invisible ink, the second layer - a meaningless writing with visible ink."
+                "type": "addition",
+                "value": {
+                    "header": "The writing process is as follows:",
+                    "body": "First layer - an important writing is made with invisible ink,\nSecond layer - a meaningless writing with visible ink."
+                }
             },
             {
                 "type": "image",
@@ -988,8 +1109,11 @@
                 "value": "secret_text"
             },
             {
-                "type": "headerText",
-                "value": "A bit of history"
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Sympathetic ink in Ancient Rome"
+                }
             },
             {
                 "type": "text",
@@ -1001,7 +1125,7 @@
             },
             {
                 "type": "text",
-                "value": "Ovid was exiled from Rome to the city of Tomis (modern Constanta, Romania) by order of the Emperor Augustus. The main reason, in his own words, was 'carmen et error' - 'verse and error' or 'poem and error'."
+                "value": "Ovid was exiled from Rome to the city of Tomis (modern Constanta, Romania) by order of the Emperor Augustus. The main reason, in his own words, was “carmen et error” - “verse and error” or ”poem and error”."
             },
             {
                 "type": "headerText",
@@ -1052,20 +1176,23 @@
                 "value": "This time we will not use the method that probably got Ovid exiled. We need a more reliable method, so we will exclude methods with activators in the form of heating."
             },
             {
+                "type": "definition",
+                "value": {
+                    "header": "Invisible ink from starch",
+                    "body": "You will need starch, water, and possibly iodine for development."
+                }
+            },
+            {
                 "type": "headerText",
-                "value": "Invisible ink from starch"
+                "value": "Instructions:"
             },
             {
                 "type": "text",
-                "value": "You will need starch, water, and possibly iodine for development."
+                "value": "1. Mix the starch with water (usually in a 2:1 ratio) and heat, stirring, until it thickens to form a paste.\n2. After cooling, use its paint to write a message on paper.\n3. To keep the text, use a solution of iodine (a few drops per glass of water)."
             },
             {
                 "type": "text",
-                "value": "Mix the starch with water (usually in a 2:1 ratio) and heat, stirring, until it thickens to form a paste.\nAfter cooling, use its paint to write a message on paper. "
-            },
-            {
-                "type": "text",
-                "value": "To keep the text, use a solution of iodine (a few drops per glass of water). The paper will turn light purple, and the inscription made with starch paste will appear dark."
+                "value": "The paper will turn light purple, and the inscription made with starch paste will appear dark."
             },
             {
                 "type": "image",
@@ -1102,20 +1229,11 @@
                 }
             },
             {
-                "type": "headerText",
-                "value": "Remember"
-            },
-            {
-                "type": "text",
-                "value": "The more complex the developer, the more protected your secret is!"
-            },
-            {
-                "type": "text",
-                "value": "The ink should not leave crystals on the paper."
-            },
-            {
-                "type": "text",
-                "value": "The letter should not smell, as this is suspicious."
+                "type": "addition",
+                "value": {
+                    "header": "Remember",
+                    "body": "The more complex the developer, the more protected your secret is!\nThe ink should not leave crystals on the paper.\nThe letter should not smell, as this is suspicious."
+                }
             },
             {
                 "type": "image",
