@@ -524,7 +524,7 @@ extension StartViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.98),
                                                             heightDimension: .fractionalHeight(1)))
 
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.2)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.25)),
                                                        subitems: [item])
 
         let section = createLayoutSection(group: group,
@@ -878,7 +878,7 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom)
             make.width.lessThanOrEqualTo(parentView.snp.width)
-            make.height.lessThanOrEqualTo(parentView.snp.height)
+            make.height.lessThanOrEqualTo(parentView.snp.width)
         }
     }
     

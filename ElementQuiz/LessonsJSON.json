@@ -1315,8 +1315,8 @@
     },
     {
         "number": 4.0,
-        "name": "Lesson number four with long theme name",
-        "lesson_image_name": "roman_cleaner",
+        "name": "Atomic mass & molecular mass",
+        "lesson_image_name": "roman_with_weigher",
         "structure": [
             {
                 "type": "headerText",
