@@ -2,7 +2,7 @@
     {
         "number": 1.0,
         "name": "Entry",
-        "lesson_image_name": "hello_romans",
+        "lesson_image_name": "teacher_with_pupil",
         "structure": [
             {
                 "type": "headerText",
@@ -320,6 +320,24 @@
                 }
             },
             {
+                "type": "definition",
+                "value": {
+                    "header": "Don't move fast!",
+                    "body": "You have some degree of independence in the lesson material. Go through this material slowly, don't swallow lessons in batches at once. It is better to take fewer lessons but learn more."
+                }
+            },
+            {
+                "type": "image",
+                "value": "tired_pupil"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "just remember",
+                    "body": "that sometimes you just need to take a break.\nAt such moments we try to cool your overheated brain with interesting historical facts. But you can even just take a break and go to the kitchen for cookies and tea\n🍪🍪🍪🍪🍪🍪🍪🍵"
+                }
+            },
+            {
                 "type": "headerText",
                 "value": "Reactions 🌋"
             },
@@ -492,7 +510,7 @@
     {
         "number": 2.0,
         "name": "What is chemistry?",
-        "lesson_image_name": "roman_on_boat_3",
+        "lesson_image_name": "experienced_researcher",
         "structure": [
             {
                 "type": "headerText",
@@ -621,6 +639,10 @@
             {
                 "type": "text",
                 "value": "Now you are an experienced researcher, try to take the helm and steer our ship in the right direction!"
+            },
+            {
+                "type": "image",
+                "value": "roman_on_boat_3"
             },
             {
                 "type": "question",
