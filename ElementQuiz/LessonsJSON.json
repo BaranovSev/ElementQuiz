@@ -1598,7 +1598,7 @@
                             "isCorrect": true
                         },
                         {
-                            "response": "1.008 + 15.999 + 15.999 = 33,006 amu",
+                            "response": "1.008 + 15.999 + 15.999 = 33.006 amu",
                             "description": "In this calculation, the first number is the atomic mass of hydrogenium.",
                             "isCorrect": false
                         }
