@@ -217,7 +217,7 @@
             },
             {
                 "type": "text",
-                "value": "Ok, lets look on another situation. For example you wanna chose only polyatomic nonmetals. So press «Presets» button and chose «polyatomic nonmetals»"
+                "value": "Ok, let's look on another situation. For example you wanna chose only polyatomic nonmetals. So press «Presets» button and chose «polyatomic nonmetals»"
             },
             {
                 "type": "image",
@@ -237,7 +237,7 @@
             },
             {
                 "type": "text",
-                "value": "Try to click those button couple times after this lesson. And now lets look how our situation changed by pressing this button."
+                "value": "Try to click those button couple times after this lesson. And now let's look how our situation changed by pressing this button."
             },
             {
                 "type": "image",
@@ -779,7 +779,7 @@
             {
                 "type": "addition",
                 "value": {
-                    "header": "This is water molecula",
+                    "header": "This is water molecule",
                     "body": "It consists of two hydrogen (H) atoms and one oxygen (O) atom. By the way, H-O-H bond angle is about 105°."
                 }
             },
@@ -1342,22 +1342,318 @@
         "structure": [
             {
                 "type": "headerText",
-                "value": "Mock lesson"
+                "value": "Finally, land!"
+            },
+            {
+                "type": "image",
+                "value": "first_port_1"
+            },
+            {
+                "type": "text",
+                "value": "You've brought us to the first trading port. Traders with baskets and scales are scurrying around everywhere, hoping to sell their wares. Get ready to weigh the goods!"
             },
             {
                 "type": "definition",
                 "value": {
-                    "header": "definition definition",
-                    "body": "definitionTextdefinitionTextdefinitionTextdefinitionText"
+                    "header": "Atomic mass",
+                    "body": "is the mass of a single atom of a chemical element. It includes the masses of all his protons, neutrons and electrons. It's measured in unified atomic mass units (amu)."
+                }
+            },
+            {
+                "type": "text",
+                "value": "An electron's mass is about 1/1830 of a proton or neutron. Therefore, when determining the atomic mass of an element, the mass of the electrons is generally ignored."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "More scientifically we could say:",
+                    "body": "Atomic mass mostly comes from the combined mass of the protons and neutrons in the nucleus, with minor contributions from the electrons and nuclear binding energy."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_atom_1"
+            },
+            {
+                "type": "headerText",
+                "value": "Atomic mass for all chemical elements is defined in periodic table"
+            },
+            {
+                "type": "text",
+                "value": "Atomic mass often measured in unified atomic mass units (amu) but sometimes could be expressed in daltons (Da), they are essentially equal and are used interchangeably in many contexts."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Atomic Mass Unit",
+                    "body": "or shortly amu, defined as 1/12 the mass of a carbon-12 atom. It's a convenient way to express the mass of individual atoms."
+                }
+            },
+            {
+                "type": "image",
+                "value": "first_port_4"
+            },
+            {
+                "type": "text",
+                "value": "We know that more common for people to interact with ordinary weights params like kilos, lbs or OZ. To avoid being misled by traders and their cunning camels, you need to calculate everything in advance, even before landing on the shore."
+            },
+            {
+                "type": "headerText",
+                "value": "1 amu = 1 Da\n1 amu is equal to:\n\n1.6605×10\u207B\u00B2\u2077 kg\n\n3.6608×10\u207B\u00B2\u2077 lbs\n\n5,857×10\u207B\u00B2\u2076 OZ"
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_atom_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Let's look on atomic mass of different chemical elements:"
+            },
+            {
+                "type": "text",
+                "value": "Ar(H) = 1.008 amu\nAr(O) = 15.999 amu\nAr(S) = 32.060 amu\nAr(Ag) = 107.868 amu\nAr(Au) = 196.967 amu"
+            },
+            {
+                "type": "text",
+                "value": "To find the absolute mass of an atom in kilograms, multiply the atomic mass in amu by the conversion factor given earlier:"
+            },
+            {
+                "type": "text",
+                "value": "ma(H) = 1.008 amu × 1.6605×10\u207B\u00B2\u2077 kg\nma(H) = 1.674×10\u207B\u00B2\u2077 kg"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Try to calculate the same absolute mass (ma) in kilograms for oxigenium (O)",
+                    "answers": [
+                        {
+                            "response": "15.999 × 1.6605×10\u207B\u00B2\u2076",
+                            "description": "Сheck the power of the number.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "15.999 × 5,857×10\u207B\u00B2\u2076",
+                            "description": "That mass presented in OZ.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "15.999 × 1.6605×10\u207B\u00B2\u2077",
+                            "description": "That's right!\nma(O) = 1.673×10\u207B\u00B2\u2077 kg.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Let's take a breath"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Attempts to define atomic mass"
+                }
+            },
+            {
+                "type": "image",
+                "value": "scientists_1"
+            },
+            {
+                "type": "text",
+                "value": "In 1803, John Dalton gave the definition of atomic mass, he used the mass of a hydrogen atom as a unit of measurement (hydrogen scale)."
+            },
+            {
+                "type": "text",
+                "value": "In 1818, Berzelius published a table of atomic masses related to the atomic mass of oxygen (oxygen scale). It prevailed until the 1860s, when chemists again adopted the hydrogen scale."
+            },
+            {
+                "type": "image",
+                "value": "scientists_2"
+            },
+            {
+                "type": "text",
+                "value": "in 1898, chemist Wilhelm Ostwald and others proposed to redefine the unit of atomic mass as ⁠1/16⁠ the mass of an oxygen atom. That proposal was formally adopted by the International Committee on Atomic Weights (ICAW) in 1903."
+            },
+            {
+                "type": "text",
+                "value": "In 1960, first the 10th General Assembly of the International Union of Pure and Applied Physics (IUPAP), and in 1961 the Congress of the International Union of Pure and Applied Chemistry (IUPAC) adopted the carbon scale."
+            },
+            {
+                "type": "image",
+                "value": "scientists_3"
+            },
+            {
+                "type": "text",
+                "value": "In 1993, the IUPAC proposed the shorter name 'dalton' (with symbol 'Da') for the unified atomic mass unit."
+            },
+            {
+                "type": "text",
+                "value": "In 2019, the International Bureau for Weights and Measures (BIPM) retained the dalton in its 9th edition of the SI brochure, while dropping the unified atomic mass unit from its table of non-SI units accepted for use with the SI, but secondarily notes that the dalton (Da) and the unified atomic mass unit are alternative names for the same unit."
+            },
+            {
+                "type": "headerText",
+                "value": "So, let's get back to our camels and their traders."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_3"
+            },
+            {
+                "type": "text",
+                "value": "Similar definitions apply to molecules. We can calculate the molecular mass of a compound by adding the atomic masses of its constituent atoms."
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_molecule_1"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molecular mass",
+                    "body": "The mass of a single molecule, calculated by summing the atomic masses of all atoms in the molecule. It is expressed in unified atomic mass units (amu)."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Also you might heard something about molar mass, sometimes called molecular weight or formula weight, but see related quantities for usage."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molar mass",
+                    "body": "is the mass of one mole of a substance. It's expressed in grams per mole (g/mol)."
                 }
             },
             {
                 "type": "addition",
                 "value": {
-                    "header": "addition addition addition addition",
-                    "body": "additionTextadditionTextadditionTextadditionText"
+                    "header": "Mole",
+                    "body": "is a unit of measurement in chemistry equal to 6.022×10\u00B2\u00B3 of the number of particles (atoms, molecules, ions, etc.). This number is called Avogadro's number."
                 }
-            }
+            },
+            {
+                "type": "image",
+                "value": "roman_teacher_near_desk"
+            },
+            {
+                "type": "headerText",
+                "value": "Molecular mass and molar mass are numerically equal"
+            },
+            {
+                "type": "text",
+                "value": "For example, if the molecular mass of water (H₂O) is 18 amu, then its molar mass is also 18 g/mol."
+            },
+            {
+                "type": "headerText",
+                "value": "Let's take a closer look"
+            },
+            {
+                "type": "image",
+                "value": "closer_look_mass"
+            },
+            {
+                "type": "text",
+                "value": "Atomic mass of Hydrogenium is 1.008 amu.\nAtomic mass of Oxygenium is 15.999 amu.\nMolecule of water has a formula H₂O, that means it has two atoms of Hydrogenium and one atom of Oxygenium."
+            },
+            {
+                "type": "text",
+                "value": "Ar(H) = 1.008 amu\nAr(O) = 15.999 amu\nMr(H₂O) = 1.008 × 2 + 15.999\nMr(H₂O) = 18.015 amu\nM(H₂O) = 18.015 g/mol"
+            },
+            {
+                "type": "text",
+                "value": "You even can find the number of moles (n) in 36 grams of water, using the formula downbelow. All that you need is divide the mass of water (wich is 36 gramms) on molar mass of water molecule (wich is almost 18 g/mol)."
+            },
+            {
+                "type": "headerText",
+                "value": "n = m/M"
+            },
+            {
+                "type": "text",
+                "value": "n = 36/18 = 2 mol\n(in 36 gramms of water)"
+            },
+            {
+                "type": "text",
+                "value": "Remember that 1 mole of any substance is always equal 6.022×10\u00B2\u00B3 molecules."
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_molecule_3"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Now try to calculate the molecular mass of molecule CO₂ yourself.\n(atomic masses were given above)",
+                    "answers": [
+                        {
+                            "response": "12.011 + 12.011 + 15.999 = 40.021 amu",
+                            "description": "In this calculation is two atoms of carboneum.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "12.011 + 15.999 + 15.999 = 44.009 amu",
+                            "description": "That's right! Carbon dioxide contains 2 molecules of oxygenium and one of carboneum.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "1.008 + 15.999 + 15.999 = 33,006 amu",
+                            "description": "In this calculation, the first number is the atomic mass of hydrogenium.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "Molecular mass is the mass of a molecule, which is the sum of its constituent atomic masses. Molar mass is an average of the masses of the constituent molecules in a chemically pure but isotopically heterogeneous ensemble. In both cases, the multiplicity of the atoms (the number of times it occurs) must be taken into account, usually by multiplication of each unique mass by its multiplicity."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Сomparing",
+                    "body": "Molar mass and molecular mass are closely related but refer to different scales of measurement. Molecular mass is the mass of a single molecule, expressed in atomic mass units (amu), while molar mass is the mass of one mole of a substance, expressed in grams per mole (g/mol)."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Summarizing"
+            },
+            {
+                "type": "image",
+                "value": "first_port_2"
+            },
+            {
+                "type": "text",
+                "value": "In this lesson, we learned what the atomic mass of a chemical element is, what units it is measured in, and how to express it in units of measurement that are familiar to us. We also learned what the molecular and molar mass of a substance is and how to calculate them.\nAll of this is of fundamental importance to chemical science, which will not allow us to be misled."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_1"
+            },
+            {
+                "type": "text",
+                "value": "But it is quite fair if you object that you cannot buy just a couple of molecules or atoms of oil, wine, or any other product! Moreover, calculating weight from the molecular or molar mass of a substance is too tedious, and it would still be impossible to prove to the seller that they gave you less than what was originally agreed upon."
+            },
+            {
+                "type": "image",
+                "value": "first_port_3"
+            },
+            {
+                "type": "text",
+                "value": "How can you protect yourself? Don't worry, in this lesson you calculated the absolute mass of an atom of air in kilograms. This means that you will easily be able to calculate the mass of gold in the next! We will take you down a simpler path, because the next lesson topic is: Density."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_2"
+            },
+            {
+                "type": "headerText",
+                "value": "🐪🐪🐪🐪🐪"
+            },
         ],
         "isCompleted": false
     }
