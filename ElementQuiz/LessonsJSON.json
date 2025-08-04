@@ -1,0 +1,1660 @@
+[
+    {
+        "number": 1.0,
+        "name": "Entry",
+        "lesson_image_name": "teacher_with_pupil",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Let's get to know each other"
+            },
+            {
+                "type": "image",
+                "value": "hello_romans"
+            },
+            {
+                "type": "text",
+                "value": "Welcome to Mendelevi - our chemistry application, and your friend in Science world!\nHere, you'll embark on an exciting journey to explore the fascinating chemistry world and chemical elements."
+            },
+            {
+                "type": "image",
+                "value": "laboratory_journey"
+            },
+            {
+                "type": "headerText",
+                "value": "Learning all chemical elements from the periodic table is possible!"
+            },
+            {
+                "type": "text",
+                "value": "To start learning a random element that our application has automatically selected for you from our collection of ancient scrolls, click on the big 'Learn' button on start screen and you will be taken to the infarmation screen with the all necessary information that we have prepared."
+            },
+            {
+                "type": "image",
+                "value": "scrolls"
+            },
+            {
+                "type": "text",
+                "value": "Here's what the 'Learn' button should look like. If you happen to notice it's not where it should be, please let us know, and we might just have to retrain our developers to become elephant trainers instead."
+            },
+            {
+                "type": "image",
+                "value": "learn_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Each element is presented with detailed information about its physical and chemical properties, the story behind its discovery, and additional reference details."
+            },
+            {
+                "type": "image",
+                "value": "single_scroll"
+            },
+            {
+                "type": "text",
+                "value": "Take your time, read thoughtfully. Try to associate what you read with something familiar to you, make notes, draw non-standard schemes. The more you understand, the less you will have to memorize, although undoubtedly memorize will come and a lot.  If you are trying to understand or memorize something, say it out loud."
+            },
+            {
+                "type": "image",
+                "value": "roman_learn"
+            },
+            {
+                "type": "text",
+                "value": "Once you have finished reading about a specific element, you'll have the opportunity to test your knowledge through a quiz, specially for that our designer draw another important button 'Memorize'."
+            },
+            {
+                "type": "image",
+                "value": "memorize_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Most importantly, relax, you are not in an exam, and we are not an angry supervisor who demands something from you. It is better to imagine that we are somewhere on the rostrum of the ancient Roman Colosseum discussing how flat our Earth is and how fast other planets revolve around it. The main thing to remember is that there are no final truths in science, and all great things start from small."
+            },
+            {
+                "type": "image",
+                "value": "romans_discussing"
+            },
+            {
+                "type": "text",
+                "value": "Our goal is to help you memorize the necessary information, so the correct answer will be highlighted in green and if you answered incorrectly, you will most likely see the same question in the same Memorizing session. In these questions, only one answer choice is correct. At the end of the session we will make sure to show your result."
+            },
+            {
+                "type": "image",
+                "value": "composite_stars"
+            },
+            {
+                "type": "text",
+                "value": "If the learned items counter has moved from 0, you are on the right way! Keep up the good work, but don't forget about practicing repetition. Especially for this purpose we did not remove the “repeat” button, when you click on it, a lesson is generated to repeat the most previously learned element. And remember that practice makes perfect!"
+            },
+            {
+                "type": "image",
+                "value": "counter"
+            },
+            {
+                "type": "image",
+                "value": "learned_elements_count"
+            },
+            {
+                "type": "headerText",
+                "value": "App sections"
+            },            {
+                "type": "headerText",
+                "value": "👨🏻‍🏫 🛠️ 📜 📚 👑 📊"
+            },
+            {
+                "type": "text",
+                "value": "At current stage in Mendelevi acessible next sections: «Periodic tables», «Tools», «Lessons», «Category test», «Big games», «User statistic»."
+            },
+            {
+                "type": "headerText",
+                "value": "Periodic tables 👨🏻‍🏫"
+            },
+            {
+                "type": "text",
+                "value": "Despite the fact that there are already more than 100 varieties of periodic tables, our application allows you to explore what we consider the four most important ones: “Short Polyatomic,” “Wide Polyatomic,” “Classic,” and “Standard.” As the application develops, we will add other types of periodic tables to this section."
+            },
+            {
+                "type": "image",
+                "value": "standard_table_example"
+            },
+            {
+                "type": "text",
+                "value": "(example of the standard representation of periodic table)"
+            },
+            {
+                "type": "text",
+                "value": "Each of the visual representations has its own settings for the table scale, during the change of which the displayed information about the item dynamically changes."
+            },
+            {
+                "type": "image",
+                "value": "element_sizes_example"
+            },
+            {
+                "type": "text",
+                "value": "As you can see when zooming in, the view is enhanced with additional information. These are optionally displayed item parameters that the user can select at any time."
+            },
+            {
+                "type": "image",
+                "value": "swap_parameters"
+            },
+            {
+                "type": "text",
+                "value": "Obviously try to scale the element size and swap the optional parameter later."
+            },
+            {
+                "type": "image",
+                "value": "phase_example"
+            },
+            {
+                "type": "text",
+                "value": "From optional parameter density to density for example."
+            },
+            {
+                "type": "image",
+                "value": "density_example"
+            },
+            {
+                "type": "text",
+                "value": "All views are interactive and have their own memory that memorizes the user's position on the table, as well as the selected optional parameter."
+            },
+            {
+                "type": "text",
+                "value": "So You can select any chemical element to memorize or repeating just in the table!"
+            },
+            {
+                "type": "image",
+                "value": "brain_process"
+            },
+            {
+                "type": "text",
+                "value": "The main thing is not to overdo it! We recommend memorizing from 2 to 5 new chemical elements per day, and the rest of the time to devote to repeating the studied ones."
+            },
+            {
+                "type": "text",
+                "value": "After successful memorization we will return you to the same position in the table."
+            },
+            {
+                "type": "headerText",
+                "value": "Tools 🛠️"
+            },
+            {
+                "type": "text",
+                "value": "This section contains useful tools for solving various chemical problems, easier information retrieval, etc."
+            },
+            {
+                "type": "image",
+                "value": "Search table"
+            },
+            {
+                "type": "text",
+                "value": "For example, our Search table gives you the ability to find items by their property values, it is a very flexible and practical tool that allows you to work with groups of items. At same time you can tag element an click the switcher button in the right up corner to show only selected elements"
+            },
+            {
+                "type": "text",
+                "value": "Ok, I'll show how to use it. Put the tag on two chekboxes near the elements that you wanna to choose."
+            },
+            {
+                "type": "image",
+                "value": "tag_chekbox_example"
+            },
+            {
+                "type": "text",
+                "value": "Then drag the switcher to the active state, there must only two elements lefts."
+            },
+            {
+                "type": "image",
+                "value": "switcher_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "After that, we want the only thing left on that list to be gases. So in search field, write «Gas» or just «G» and let's see what remains."
+            },
+            {
+                "type": "image",
+                "value": "search_example"
+            },
+            {
+                "type": "text",
+                "value": "Now you need to clean your search by pressing the cross button in a search field, then press «Presets» button and chose «clear all»"
+            },
+            {
+                "type": "text",
+                "value": "Ok, let's look on another situation. For example you wanna chose only polyatomic nonmetals. So press «Presets» button and chose «polyatomic nonmetals»"
+            },
+            {
+                "type": "image",
+                "value": "presets_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "Now imagine that you want to see the resulting list in order of, say, atomic mass ascending or descending. Chose optional parameter clicking «gear button» and chose atomic mass parameter, and click «order button»"
+            },
+            {
+                "type": "image",
+                "value": "order_btn_example"
+            },
+            {
+                "type": "text",
+                "value": "Order button have three states:\n- unordered\n- ascending order\n- descending order"
+            },
+            {
+                "type": "text",
+                "value": "Try to click those button couple times after this lesson. And now let's look how our situation changed by pressing this button."
+            },
+            {
+                "type": "image",
+                "value": "descending_order_btn_clicked"
+            },
+            {
+                "type": "text",
+                "value": "Search tools also has a memory, so it remembers your chosen chemical elements that you tagged and selected and optional parameter to show."
+            },
+            {
+                "type": "text",
+                "value": "By the way, you can share some chemical properties of element to your contacts by pressing the element just in array and then pressing the share button. Try it!"
+            },
+            {
+                "type": "image",
+                "value": "plane_btn_image"
+            },
+            {
+                "type": "text",
+                "value": "Try it! Just send some useful info to your friends."
+            },
+            {
+                "type": "headerText",
+                "value": "Lessons 📜"
+            },
+            {
+                "type": "text",
+                "value": "This section contains educational materials on chemistry on different themes. These lectures feature interactive questions that help users better understand the content. We don't just ask questions, we teach you!"
+            },
+            {
+                "type": "image",
+                "value": "roman_lectorium"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Definition block",
+                    "body": "To make it easier to memorize information, we try to break it down visually into different logical blocks. By the way, this is what a block with important information looks like."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Addition block",
+                    "body": "And there is also an additional block, which usually contains information that helps to form the “complete picture”, giving an explanation of something."
+                }
+            },
+            {
+                "type": "text",
+                "value": "As part of the training, it is quite normal to ask questions and give wrong answers to them. Don't worry, in lectures you can answer until you have chosen all the correct answers, which can be one or more."
+            },
+            {
+                "type": "question",
+                "value" : {
+                    "text": "Have you figured out how to answer the questions?",
+                    "answers": [
+                        {
+                            "response": "Yes",
+                            "description": "This is one of the 'correct' answers, it green colored or have positive prompt. Are you sure it's all clear?",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "I'm not shure",
+                            "description": "Here more than one correct answer, try to press one more ansewr button. This button is red colored. All red colored answers are 'incorrect' or gave neagative prompt.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Absolutley",
+                            "description": "Great! After clicking all 'corrects' answers you can't tap other answers. And, wait a second, here must be some salutte!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "No",
+                            "description": "Even if you choose all the wrong options, the question will remain open until you give all the correct answers.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Don't move fast!",
+                    "body": "You have some degree of independence in the lesson material. Go through this material slowly, don't swallow lessons in batches at once. It is better to take fewer lessons but learn more."
+                }
+            },
+            {
+                "type": "image",
+                "value": "tired_pupil"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "just remember",
+                    "body": "that sometimes you just need to take a break.\nAt such moments we try to cool your overheated brain with interesting historical facts. But you can even just take a break and go to the kitchen for cookies and tea\n🍪🍪🍪🍪🍪🍪🍪🍵"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Reactions 🌋"
+            },
+            {
+                "type": "text",
+                "value": "Of course, what kind of chemistry can you study without experiments and without carrying out chemical reactions?"
+            },
+            {
+                "type": "image",
+                "value": "lesson_one_romans_reaction"
+            },
+            {
+                "type": "text",
+                "value": "Although it is necessary to know the theoretical material, with personal participation comes a more visual understanding of what is happening and how it should be. And you must agree, it is much more interesting to observe the reaction live, and even more so to carry it out yourself.\nIn this section, you will do just that!"
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "Observe safety precautions when carrying out chemical reactions"
+                }
+            },
+            {
+                "type": "question",
+                "value" : {
+                    "text": "Do you think you carry out chemical reactions in your daily life?",
+                    "answers": [
+                        {
+                            "response": "Yes",
+                            "description": "Wow, we're do that too!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "No",
+                            "description": "Even stirring sugar in tea is a dissolution reaction. In addition,if you don't eat sugar, your stomach oxidizes food under the action of hydrochloric acid and enzymes, so you are essentially a mobile laboratory yourself!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Category test 📚"
+            },
+            {
+                "type": "text",
+                "value": "In this section, you can test your knowledge of which chemical elements belong to the selected category."
+            },
+            {
+                "type": "image",
+                "value": "books_closet"
+            },
+            {
+                "type": "text",
+                "value": "As you might seen, each icon in section has it's own number and specific color. Each color represent category of elements from periodic table."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For example",
+                    "body": "Orange color present diatomic nonmetals category, rather blue is nobel gases."
+                }
+            },
+            {
+                "type": "text",
+                "value": "But what about number on the icons..."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think this number represents?",
+                    "answers": [
+                        {
+                            "response": "Сount of questions",
+                            "description": "Yep, but not at all.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Number of correct answers for the previous session.",
+                            "description": "Good idea, we'll think about it, but for now we have a separate section named «User statistic» for it",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Number of chemicals elements per category.",
+                            "description": "Absolutley! And what does it's mean?",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Big games 👑"
+            },
+            {
+                "type": "text",
+                "value": "Come on, it's not that big... i guess. Just a little over 120 questions in all. The question asks for a specific property for each element on the periodic table."
+            },
+            {
+                "type": "image",
+                "value": "big_games_in_rome"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think about Big games?",
+                    "answers": [
+                        {
+                            "response": "It's so big! There so many questions...",
+                            "description": "No, it's not! If I could, the pyramid built in the name of Cleopatra would be big, and this number of questions is quite normal. We believe in your abilities, just give it a try!",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "I'll do that!",
+                            "description": "Yes you can! And remember that all great things start from small.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "User statistic 📊"
+            },
+            {
+                "type": "text",
+                "value": "We keep a tally of your general statistical information so that nothing is lost, it is not always very useful, but it is there and you can brag about it to your friends and colleagues."
+            },
+            {
+                "type": "image",
+                "value": "roman_with_counter"
+            },
+            {
+                "type": "text",
+                "value": "It shows how many elements from each category of chemical elements you have memorized, we will even try to draw a pie chart."
+            },
+            {
+                "type": "image",
+                "value": "roman_painter"
+            },
+            {
+                "type": "text",
+                "value": "What's more, we keep a tally of the completion of certain events and the number of questions passed, so check back here from time to time. Watching your own progress and seeing the results will motivate you to conquer new heights!"
+            },
+            {
+                "type": "headerText",
+                "value": "Afterwords"
+            },
+            {
+                "type": "image",
+                "value": "see_you_friend"
+            },
+            {
+                "type": "text",
+                "value": "At the end of the journey, the student outgrows his teacher. We hope it also happens to us. Please don't forget about us, okay? And write some feedback about our app after using it."
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 2.0,
+        "name": "What is chemistry?",
+        "lesson_image_name": "experienced_researcher",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Chemistry is a part of our life!"
+            },
+            {
+                "type": "image",
+                "value": "all_aboard"
+            },
+            {
+                "type": "headerText",
+                "value": "All aboard!"
+            },
+            {
+                "type": "text",
+                "value": "Hold on tight! We are embarking on a journey through the fascinating world of chemistry on our “Knowledge” ship. Are you ready to dive headfirst into chemistry? We will explore the wonders that elements and compounds offer. Get ready for an exciting journey full of discovery!"
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_1"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Chemistry",
+                    "body": "is one of the most important and extensive fields of natural science, the science that studies substances, also their composition and structure, and their properties. And this science has many connections with physics and biology. It also studies the transformation of one or more initial substances (reactants) into other substances, so-called chemical reactions."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_2"
+            },
+            {
+                "type": "text",
+                "value": "Chemistry is the science that studies the structure and properties of matter, and all the changes that happen to it, but what's the point? Why do we need it? Why do we need this knowledge?"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "That's actually a good question! And now you can find the answer to it on your own. Which of the following do you think relates to chemistry?",
+                    "answers": [
+                        {
+                            "response": "Water 💧",
+                            "description": "is a chemical substance that consists of molecules containing two hydrogen atoms and one oxygen atom, is involved in many chemical reactions as a solvent and reagent, and plays an important role in life on Earth.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Food 🍕",
+                            "description": "Chemistry plays a key role in the food industry, ensuring that raw materials are transformed into delicious and safe dishes. For example Salt, whose crystals we grew in our reactions section, is a natural preservative that allows food to keep longer and acquire new flavors.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Air 🌬️",
+                            "description": "Air makes up the Earth's air envelope and is essential for the normal existence of most living organisms. But did you know that air is also a mixture of gases: oxygen (about 21%) and nitrogen (about 78%). Wait a minute, one percent is missing, but it's not a mistake, it's other gases! They're just not as significant.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Ice cream 🍦",
+                            "description": "Ice cream does involve chemistry. Ice cream is made from cream. Cream is a mixture of fat, water, and other substances. When we add ingredients like sugar and flavorings and then freeze it, there is a process that results in ice cream. Temperatures and mixing are important in this process, and it's all part of the chemistry!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Medicines 💊",
+                            "description": "Whether they are vitamins or more serious medications, they are all chemical compounds. Pharmacists must know chemistry to create medicines that help us manage diseases.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "So, as you may have noticed, If you breathe the air, eat ice cream, or are surrounded by the ocean, you are surrounded by different chemical substances made up of many molecules. These molecules, in turn, are composed of atoms of chemical elements."
+            },
+            {
+                "type": "image",
+                "value": "roman_with_ice_cream"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "What's more",
+                    "body": "you yourself are a collection of chemical elements!"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Our body is made up of water, proteins, fats, carbohydrates and minerals that interact with each other to keep us vital and healthy. Every breath fills us with oxygen, every meal brings us essential nutrients."
+            },
+            {
+                "type": "image",
+                "value": "human_elements"
+            },
+            {
+                "type": "text",
+                "value": "So, whenever you see a chemical substance (like a tasty ice cream or clear water), you can remember that it’s made of molecules formed by atoms. It’s like a fun puzzle where tiny pieces create everything in our world!"
+            },
+            {
+                "type": "image",
+                "value": "roman_on_boat_2"
+            },
+            {
+                "type": "text",
+                "value": "But don't be in a hurry to leave our ship on a lifeboat, because you are safe, we just want to expand the scope of perception a little bit. Now we will explain the whole hierarchical system more formally."
+            },
+            {
+                "type": "headerText",
+                "value": "So, once again, but a little shorter"
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_3"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Chemistry",
+                    "body": "the science that deals with the properties, composition, and structure of substances (defined as elements and compounds), the transformations they undergo, and the energy that is released or absorbed during these processes."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_ship_4"
+            },
+            {
+                "type": "text",
+                "value": "Now you are an experienced researcher, try to take the helm and steer our ship in the right direction!"
+            },
+            {
+                "type": "image",
+                "value": "roman_on_boat_3"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What does chemistry study?",
+                    "answers": [
+                        {
+                            "response": "Matter and its properties",
+                            "description": "Chemistry investigates the fundamental building blocks of matter (atoms and molecules) and their characteristics, including their physical and chemical properties.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "How to make a tasty food",
+                            "description": "Not directly.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Composition and structure",
+                            "description": "It delves into the makeup of substances, examining how atoms combine to form molecules and how these molecules arrange themselves to create different materials.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Planetary motion",
+                            "description": "While geochemistry might study the chemical composition of planets, it's not concerned with the physics of their orbits or gravitational interactions.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Chemical reactions",
+                            "description": "Chemistry explores how substances transform into new substances through chemical reactions, studying the conditions under which these reactions occur and the energy changes involved.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "How to make medicine pills",
+                            "description": "Not really. Pharmaceutics is the field of science and manufacturing related to medicines.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Energy transformations",
+                            "description": "Chemical reactions often involve the release or absorption of energy, and chemistry investigates these energy transfers. ",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "What about the substances, molecules, and other constituents that are part of this whole chemical story? Can you explain that to us?"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select the correct statement about chemical substance",
+                    "answers": [
+                        {
+                            "response": "Chemical substance is made up of one or more molecules",
+                            "description": "✅",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Molecule is made up of one or more chemical substances",
+                            "description": "Chemical substance is a form of matter that has a specific composition and distinct properties. And it made up of one or more molecules.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "glass_of_water"
+            },
+            {
+                "type": "text",
+                "value": "So water in the glass is our substance in this example."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select all the correct statements about molecules",
+                    "answers": [
+                        {
+                            "response": "Molecule is a group of two or more atoms that are bonded together.",
+                            "description": "⚛️👍🏻⚛️",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atom is a group of two or more molecules.",
+                            "description": "Is quite the opposite.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "The glass of water consists from molecules of water (H2O).",
+                            "description": "Totally correct! 🥛",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_and_molecules_1"
+            },
+            {
+                "type": "text",
+                "value": "Oops, looks like we forgot to define Molecule. But you did a good job with the task!"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molecule",
+                    "body": "is the smallest unit of a substance that retains the chemical properties of that substance. It is formed when two or more atoms are chemically bonded together."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Atoms in molecule",
+                    "body": "can be of the same element, like oxygen gas (O2), or of different elements, like water (H2O)"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Molecules are fundamental to the structure of matter and are essential for understanding chemistry and biology."
+            },
+            {
+                "type": "image",
+                "value": "water_molecule_model"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "This is water molecule",
+                    "body": "It consists of two hydrogen (H) atoms and one oxygen (O) atom. By the way, H-O-H bond angle is about 105°."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "We figured out what molecule is!"
+            },
+            {
+                "type": "image",
+                "value": "roman_and_molecules_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Let's continue our discussion about atoms..."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Atom",
+                    "body": "is the basic building block of matter, the smallest unit of an element that retains the chemical properties of that element."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Now it's your turn to try to guess a couple of facts about the atom."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Select all the correct statements about atoms",
+                    "answers": [
+                        {
+                            "response": "Atoms are like the tiny building blocks that make up everything.",
+                            "description": "Yes! Atoms are the basic particles of the chemical elements!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atom is bigger then molecule.",
+                            "description": "No, a molecule is generally larger than an atom. Atoms are the basic building blocks, and molecules are formed when two or more atoms bond together.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Normally atoms consists from electrons 🔵, protons 🔴 and neutrons 🟡",
+                            "description": "Yes! The only except is hydrogenium-1 (protium), which has no neutrons.",
+                            "isCorrect": true
+                        },
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "The model of the hydrogen (protium) atom is shown below."
+            },
+            {
+                "type": "text",
+                "value": "Electron 🔵 orbiting the only one proton 🔴"
+            },
+            {
+                "type": "image",
+                "value": "hydrogen_atom_model"
+            },
+            {
+                "type": "text",
+                "value": "The hydrogen atom is the simplest atom, consisting of one proton 🔴 (positive electric charge, shown in red) in the nucleus and one electron 🔵 (negative electric charge, shown in blue) orbiting around it. It is the basis for understanding the structure of all other atoms and plays a key role in chemistry and physics."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Hydrogen atom",
+                    "body": "is on the order of 10⁻¹⁰ meters in size, and its nucleus (proton) is several orders of magnitude smaller, on the order of 10⁻¹⁵ meters."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Normally atoms look like in model below"
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Here is a model of the Lithium atom",
+                    "body": "The next lecture is devoted to atoms and their models. There we will also give a definition of the Atom and talk about its structure. It will be extensive, but interesting!"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "You're doing pretty good."
+            },
+            {
+                "type": "text",
+                "value": "At least you know what chemistry learn, and that a substance is a form of matter. Moreover, you almost single-handedly coped with our tricky questions about what a molecule is!"
+            },
+            {
+                "type": "image",
+                "value": "roman_lead"
+            },
+            {
+                "type": "text",
+                "value": "We can trust you on this journey, and it is you who will lead our ship to its next destination - Atom!"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 3.0,
+        "name": "Atom",
+        "lesson_image_name": "roman_with_atom",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Let's take a closer look at what the atom is"
+            },
+            {
+                "type": "image",
+                "value": "roman_with_atom_2"
+            },
+            {
+                "type": "text",
+                "value": "You already know that all substances consist of molecules, and all molecules in turn consist of atoms."
+            },
+            {
+                "type": "text",
+                "value": "But we still haven’t seriously talked about what an atom actually is."
+            },
+            {
+                "type": "headerText",
+                "value": "Let's fix this."
+            },
+            {
+                "type": "text",
+                "value": "We are full of laziness, and as we know, laziness is the engine of progress, so at first we will give you the opportunity to be the first to guess what an atom is."
+            },
+            {
+                "type": "image",
+                "value": "roman_near_helm"
+            },
+            {
+                "type": "text",
+                "value": "Especially since we promised to give you the steering wheel in the last lesson. But don't worry, we'll give you hints on this way, and here's our first clue: a picture of a model of lithium atom."
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Choose the correct statements about atom.",
+                    "answers": [
+                        {
+                            "response": "All atoms prefer to relax on the beach, which is why they move slowly.",
+                            "description": "Even though EVERYTHING IS MADE UP OF ATOMS, including the sand on the beach and the ocean itself, we cannot claim that the speed of the atoms themselves is low, because the speed of atoms in matter depends on the temperature and the aggregate state of the matter, and we don't even know if the water is warm or not 🌊 🏄🏻 🏝️",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Everything is made up of atoms!",
+                            "description": "That's right! You probably didn't know that atoms are not static, they are in constant motion! Inside an atom, electrons move continuously around the nucleus, and the atoms themselves can move, oscillate, and rotate, depending on the temperature and the aggregate state of matter. The highest speed of atomic motion (excluding plasma state) is observed in gases and the lowest in solids 🐇🏁🐢",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms can talk to each other and share their daily life experiences.",
+                            "description": "Unfortunately atoms cannot communicate with each other and discuss their important atomic business like peoples do, but under certain conditions they can form bonds with each other to form molecules. These bonds, called chemical bonds, are the result of interactions between atoms in which they are held together by electrostatic forces ⛓️⛓️‍💥⛓️",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "from the ancient Greek ἄτομος - “indivisible”, from the chemical point of view, the smallest, electroneutral, chemically indivisible particle of a substance.",
+                            "description": "Yes, atoms, although considered indivisible in ancient times, are actually made up of smaller particles. Did you know that atomic nuclei can divide (nuclear fission) or combine (nuclear fusion), which is the basis for nuclear reactors and atomic weapons 🏭🤯💣",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms composed of: protons, neutrons and electrons.",
+                            "description": "An atom consists of a positively charged nucleus and negatively charged electrons 🔵 revolving around it, which form the electron shell. The atomic nucleus, in turn, consists of protons 🔴 and neutrons 🟡",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Atoms invented pizza to share it with other elements!",
+                            "description": "Legend has it that Margherita pizza was created in 1889 in Naples when chef Raffaele Esposito made three pizzas for Queen Margherita of Savoy. One of the pizzas, decorated with tomatoes, mozzarella and basil, resembled the colors of the Italian flag.\nLike a pizza, atoms must contain 3 types of “ingredients”: electrons, protons and neutrons 🍕⚛️👨🏻‍🍳",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Wow, you're good at this!"
+            },
+            {
+                "type": "headerText",
+                "value": "Now our turn"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Atoms",
+                    "body": "are the fundamental building blocks of all matter, and they retain the properties of the element they represent."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Structure",
+                    "body": "electrons 🔵 negatively charged\nprotons 🔴 positively charged\nneutrons 🟡 electrically neutral"
+                }
+            },
+            {
+                "type": "text",
+                "value": "And all atoms really consists of electrons, protons and neutrons. The only except is hydrogenium-1 (also protium, model given below), which has no neutrons. Neutrons 🟡 is electoneutral."
+            },
+            {
+                "type": "image",
+                "value": "hydrogen_atom_model"
+            },
+            {
+                "type": "text",
+                "value": "If the number of electrons 🔵 (- charged) matches the number of protons 🔴 (+ charged) in the nucleus, the atom is considered electrically neutral."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Otherwise",
+                    "body": "it is called an ion and has some positive (called cation) or negative charge (called anion)."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Almost all of the mass of an atom is made up of the nucleus, at least 99.9% of it, which consists of protons 🔴 and neutrons 🟡 linked together by strong interactions. The rest of atomic mass of the element is reserved for electrons 🔵 that surround the nucleus."
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "headerText",
+                "value": "But how to count all these particles?"
+            },
+            {
+                "type": "text",
+                "value": "We don't have to calculate them manually on the atomic model. (We certainly don't forbid you to do this, moreover, we recommend that you verify this yourself.) It's enough to just remember a few tricks."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "The number of protons 🔴",
+                    "body": "corresponds to the atomic number of the atom in the periodic table."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "The number of neutrons 🟡",
+                    "body": "just subtract the atomic number from the atomic mass number of the element."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "The number of electrons 🔵",
+                    "body": "corresponds to the atomic number of the electroneutral atom in the periodic table (also equal the number of protons)."
+                }
+            },
+            {
+                "type": "image",
+                "value": "lithium_atom_model"
+            },
+            {
+                "type": "image",
+                "value": "lithium_info_from_table"
+            },
+            {
+                "type": "text",
+                "value": "Now look at the data from the periodic table and check it against the model of the lithium atom. The theory works!"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Isotopes",
+                    "body": "The number of protons 🔴 determines its belonging to a certain chemical element, and the number of neutrons🟡 corresponds to a certain isotope of this element. A variant of an element that has the same number of protons 🔴 but a different number of neutrons 🟡 in the nucleus, resulting in different properties while still belonging to the same element, is called an isotope. We'll talk about isotopes later in other lessons."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "But how are these particles arranged?"
+            },
+            {
+                "type": "text",
+                "value": "If positioning the nucleus is clear, it is located in the center 🎯 of the atom, like the pith in a peach🍑, then we want to know more about positioning the electrons 🔵 that “surround or orbit” around this nucleus."
+            },
+            {
+                "type": "text",
+                "value": "Let's dive into history of understanding how atoms looks like"
+            },
+            {
+                "type": "headerText",
+                "value": "Ancient Greece"
+            },
+            {
+                "type": "text",
+                "value": "Already in 5th century BC, Leucippus and his talanted student Democritus anounced the idea that all matter was composed of small, invisible to the human eye, indivisible particles which they called “atoms”. Also they suposed that nature consists of two fundamental principles: atom and void. According to their theory, atoms are constantly moving, floating in the omnipresent void, and colliding with each other. These ideas formed the basis of the theory of atomism."
+            },
+            {
+                "type": "image",
+                "value": "democritus"
+            },
+            {
+                "type": "text",
+                "value": "Democritus belived that some atoms, he maintained, are convex, others concave, some shaped like hooks, and others like eyes. He alseo believed that the properties of a substance were determined by the shape, mass, and other characteristics of the atoms that formed it. Thus, for example, fire has sharp atoms, so the fire is able to burn, in solids they are rough, so they firmly adhere to each other, in water - smooth, so it is able to flow."
+            },
+            {
+                "type": "headerText",
+                "value": "Solid sphere"
+            },
+            {
+                "type": "image",
+                "value": "solid_sphere"
+            },
+            {
+                "type": "text",
+                "value": "In 1803, the English chemist John Dalton drew on the ideas of the ancient Greeks to describe atoms as small, solid spheres that are inseparable and that the atoms of a given element are identical to each other. He also suposed that atoms has no any charge."
+            },
+            {
+                "type": "image",
+                "value": "dalton_elements"
+            },
+            {
+                "type": "text",
+                "value": "On the picture you can see the Symbols of elements and Dalton's estimates of their atomic masses. He came up with theories about how atoms combine to make compounds, and also came up with the first set of chemical symbols for known elements."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "In 1897",
+                    "body": "J.J.Thomson discovered the existence of the electron 🔵"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Plum pudding model"
+            },
+            {
+                "type": "image",
+                "value": "pudding_model"
+            },
+            {
+                "type": "text",
+                "value": "Shortly after the discovery of the electron, but before the discovery of the atomic nucleus, J.J.Thomson in 1904 proposed to consider the atom as a kind of positively charged spherical body “pudding” with electrons “raisins” enclosed inside it."
+            },
+            {
+                "type": "image",
+                "value": "pudding_model_schematically"
+            },
+            {
+                "type": "text",
+                "value": "Thomson guessed that atoms must also have a source of positive charge to balance the negative charge of the electrons, but the nucleus had not yet been discovered. He also argued that electrons were free to spin in circular orbits inside the positively charged substance."
+            },
+            {
+                "type": "headerText",
+                "value": "Nuclear model"
+            },
+            {
+                "type": "text",
+                "value": "Ernest Rutherford in 1911 suggested that the charge of atoms is concentrated in a very small nucleus. And that an atom consists of a positively charged nucleus with electrons orbiting around it. He did not discuss the organization of electrons in the atom's shells or orbits, by his theory electrons orbiting in arbitrary orbits."
+            },
+            {
+                "type": "image",
+                "value": "rutherford_atom_model"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "We have already seen",
+                    "body": "something similar when we counted the number of electrons 🔵, protons 🔴 and neutrons 🟡"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Rutherford came to this conclusion from an experiment in which he fired positively charged alpha particles into a thin sheet of gold foil."
+            },
+            {
+                "type": "image",
+                "value": "rutherford_experiment"
+            },
+            {
+                "type": "text",
+                "value": "The alpha particles were small enough to pass through the gold foil, and according to Thomson's model, which showed a positive charge scattered throughout the atom, they should do so with little or no deflection. Rutherford's analysis proposed a high central charge concentrated into a very small volume in comparison to the rest of the atom. (Rutherford's model of the atom on the plane given below.)"
+            },
+            {
+                "type": "image",
+                "value": "rutherford_atom_model_2"
+            },
+            {
+                "type": "text",
+                "value": "Alpha particle - a positively charged particle formed by two protons and two neutrons; the nucleus of the helium-4 atom. First discovered by Ernest Rutherford in 1899."
+            },
+            {
+                "type": "headerText",
+                "value": "Planetary model"
+            },
+            {
+                "type": "text",
+                "value": "In 1913, physicist Niels Bohr proposed a new model in which the electrons of an atom were thought to orbit the nucleus, but could only occupy a limited set of orbits. They could jump between these orbits only with discrete changes in energy, corresponding to the absorption or emission of a photon."
+            },
+            {
+                "type": "image",
+                "value": "lithium_planetary_model"
+            },
+            {
+                "type": "text",
+                "value": "The figure above shows a planetary model of a lithium atom, which contains a positively charged nucleus and 3 negatively charged electrons, 2 of which orbit in the first orbit (shell) and the last in the second orbit (shell). As we said earlier, Bohr's model suggested the existence of energy levels or shells for electrons. Electrons could only be located in these specific energy levels; in other words, their energy was quantized (i.e., strictly defined) and could not assume any arbitrary value."
+            },
+            {
+                "type": "text",
+                "value": "The nuclear model (Rutherford) and the planetary (Bohr) model of the atom are not the same, though they are related. The nuclear model, proposed by Rutherford, describes the atom as having a small, dense, positively charged nucleus with electrons orbiting around it. The planetary model, specifically Bohr's model, expands on this by specifying that electrons orbit in specific, quantized energy levels or shells, like planets orbiting the sun."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "In 1920",
+                    "body": "Rutherford discovered the existence of the proton 🔴"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Quantum model"
+            },
+            {
+                "type": "text",
+                "value": "In 1926, Erwin Schrödinger proposed that electrons do not travel in fixed paths around the nucleus; instead, they behave like waves. We cannot determine the exact position of the electrons; rather, we have 'probability clouds' known as orbitals, where the likelihood of finding an electron is greater. He describes electrons as three-dimensional waveforms rather than points in space."
+            },
+            {
+                "type": "image",
+                "value": "shredinger_cat"
+            },
+            {
+                "type": "text",
+                "value": "We all know how Schrödinger liked to “formulate” his thoughts, and although this model of the atom is difficult to illustrate, we have attempted to do so."
+            },
+            {
+                "type": "image",
+                "value": "shredinger_model"
+            },
+            {
+                "type": "text",
+                "value": "Schrödinger was not interested in the nucleus of the atom itself. But, by the way, at the time of work on this model, it was not yet realized that the nucleus had neutrons."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "In 1932",
+                    "body": "James Chadwick (a student of Rutherford) discovered the existence of the neutron 🟡"
+                }
+            },
+            {
+                "type": "text",
+                "value": "So after 1932, mankind learned that the nucleus is made up of a proton 🔴 and a neutron 🟡."
+            },
+            {
+                "type": "headerText",
+                "value": "What is known about nucleus now"
+            },
+            {
+                "type": "text",
+                "value": "The nucleus is very small compared to the size of an atom (about 10,000 to 100,000 times), and although it is most often in the shape of a sphere or ellipsoid, more complex geometries can be observed in some cases."
+            },
+            {
+                "type": "image",
+                "value": "nucleus_model"
+            },
+            {
+                "type": "text",
+                "value": "What is the best model of atom to use you may ask? Not so long ago mankind was content with the raisin pudding model and all was well, no one was hurt. Of course, we would like to get into the truest and most correct model the first time, but historical hindsight shows that even quite stable theories turn out to be false."
+            },
+            {
+                "type": "image",
+                "value": "roman_hold_puding"
+            },
+            {
+                "type": "text",
+                "value": "The situation is complicated by the incomplete knowledge of the properties of the nuclear forces and the fact that the nucleons themselves are also composite particles (they consist of quarks)."
+            },
+            {
+                "type": "image",
+                "value": "roman_drill_atom"
+            },
+            {
+                "type": "text",
+                "value": "But we believe that one day we will be able to safely saw the atom into small pieces, so to speak skillfully disassemble it into its component screws."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Let's remember which model of an atom can be used to count electrons?",
+                    "answers": [
+                        {
+                            "response": "Solid sphere model by Dalton",
+                            "description": "This model does not display any structural elements of an atom.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Plum pudding model by Thomson",
+                            "description": "Despite the fact that there is no nucleus in this model, there is a “raisin” in it, which played the role of electrons.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Nuclear model by Rutherford",
+                            "description": "Yes, you can! And they orbiting around the nucleus of an atom in arbitrary orbits.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Planetary model by Bohr",
+                            "description": "Yes, you can! This model complements Rutherford's model. Electrons on this model orbiting around the nucleus of an atom in STATIONARY orbits.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Quantum model by Schrödinger",
+                            "description": "Despite the fact that it is already known that electrons exist, this model contains only areas where they can appear, not their number.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "There is no answer to the question of which atom model is the best. It all depends on what you need and what task you set for yourself. It depends on what information or even other properties of the chemical element you want to see in the atom model."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For example",
+                    "body": "The planetary model of an atom, often called the mechanical model, is used to simplify the representation of an atom, mainly to demonstrate the basic principles of structure and interaction.\nThe quantum model, on the contrary, is more accurate and complex, describing the behavior of electrons in an atom using quantum mechanical laws.\nThe mechanical model is used for initial understanding, and the quantum model is used for deeper study."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Wait a minute!\nWhat other element properties?"
+            },
+            {
+                "type": "image",
+                "value": "Roman_with_magnifying_glass"
+            },
+            {
+                "type": "text",
+                "value": "We will take a closer look at them in the following lessons."
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 4.0,
+        "name": "Atomic mass & molecular mass",
+        "lesson_image_name": "roman_with_weigher",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Finally, land!"
+            },
+            {
+                "type": "image",
+                "value": "first_port_1"
+            },
+            {
+                "type": "text",
+                "value": "You've brought us to the first trading port. Traders with baskets and scales are scurrying around everywhere, hoping to sell their wares. Get ready to weigh the goods!"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Atomic mass",
+                    "body": "is the mass of a single atom of a chemical element. It includes the masses of all his protons, neutrons and electrons. It's measured in unified atomic mass units (amu)."
+                }
+            },
+            {
+                "type": "text",
+                "value": "An electron's mass is about 1/1830 of a proton or neutron. Therefore, when determining the atomic mass of an element, the mass of the electrons is generally ignored."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "More scientifically we could say:",
+                    "body": "Atomic mass mostly comes from the combined mass of the protons and neutrons in the nucleus, with minor contributions from the electrons and nuclear binding energy."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_atom_1"
+            },
+            {
+                "type": "headerText",
+                "value": "Atomic mass for all chemical elements is defined in periodic table"
+            },
+            {
+                "type": "text",
+                "value": "Atomic mass often measured in unified atomic mass units (amu) but sometimes could be expressed in daltons (Da), they are essentially equal and are used interchangeably in many contexts."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Atomic Mass Unit",
+                    "body": "or shortly amu, defined as 1/12 the mass of a carbon-12 atom. It's a convenient way to express the mass of individual atoms."
+                }
+            },
+            {
+                "type": "image",
+                "value": "first_port_4"
+            },
+            {
+                "type": "text",
+                "value": "We know that more common for people to interact with ordinary weights params like kilos, lbs or OZ. To avoid being misled by traders and their cunning camels, you need to calculate everything in advance, even before landing on the shore."
+            },
+            {
+                "type": "headerText",
+                "value": "1 amu = 1 Da\n1 amu is equal to:\n\n1.6605×10\u207B\u00B2\u2077 kg\n\n3.6608×10\u207B\u00B2\u2077 lbs\n\n5,857×10\u207B\u00B2\u2076 OZ"
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_atom_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Let's look on atomic mass of different chemical elements:"
+            },
+            {
+                "type": "text",
+                "value": "Ar(H) = 1.008 amu\nAr(O) = 15.999 amu\nAr(S) = 32.060 amu\nAr(Ag) = 107.868 amu\nAr(Au) = 196.967 amu"
+            },
+            {
+                "type": "text",
+                "value": "To find the absolute mass of an atom in kilograms, multiply the atomic mass in amu by the conversion factor given earlier:"
+            },
+            {
+                "type": "text",
+                "value": "ma(H) = 1.008 amu × 1.6605×10\u207B\u00B2\u2077 kg\nma(H) = 1.674×10\u207B\u00B2\u2077 kg"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Try to calculate the same absolute mass (ma) in kilograms for oxigenium (O)",
+                    "answers": [
+                        {
+                            "response": "15.999 × 1.6605×10\u207B\u00B2\u2076",
+                            "description": "Сheck the power of the number.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "15.999 × 5,857×10\u207B\u00B2\u2076",
+                            "description": "That mass presented in OZ.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "15.999 × 1.6605×10\u207B\u00B2\u2077",
+                            "description": "That's right!\nma(O) = 1.673×10\u207B\u00B2\u2077 kg.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Let's take a breath"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Attempts to define atomic mass"
+                }
+            },
+            {
+                "type": "image",
+                "value": "scientists_1"
+            },
+            {
+                "type": "text",
+                "value": "In 1803, John Dalton gave the definition of atomic mass, he used the mass of a hydrogen atom as a unit of measurement (hydrogen scale)."
+            },
+            {
+                "type": "text",
+                "value": "In 1818, Berzelius published a table of atomic masses related to the atomic mass of oxygen (oxygen scale). It prevailed until the 1860s, when chemists again adopted the hydrogen scale."
+            },
+            {
+                "type": "image",
+                "value": "scientists_2"
+            },
+            {
+                "type": "text",
+                "value": "in 1898, chemist Wilhelm Ostwald and others proposed to redefine the unit of atomic mass as ⁠1/16⁠ the mass of an oxygen atom. That proposal was formally adopted by the International Committee on Atomic Weights (ICAW) in 1903."
+            },
+            {
+                "type": "text",
+                "value": "In 1960, first the 10th General Assembly of the International Union of Pure and Applied Physics (IUPAP), and in 1961 the Congress of the International Union of Pure and Applied Chemistry (IUPAC) adopted the carbon scale."
+            },
+            {
+                "type": "image",
+                "value": "scientists_3"
+            },
+            {
+                "type": "text",
+                "value": "In 1993, the IUPAC proposed the shorter name 'dalton' (with symbol 'Da') for the unified atomic mass unit."
+            },
+            {
+                "type": "text",
+                "value": "In 2019, the International Bureau for Weights and Measures (BIPM) retained the dalton in its 9th edition of the SI brochure, while dropping the unified atomic mass unit from its table of non-SI units accepted for use with the SI, but secondarily notes that the dalton (Da) and the unified atomic mass unit are alternative names for the same unit."
+            },
+            {
+                "type": "headerText",
+                "value": "So, let's get back to our camels and their traders."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_3"
+            },
+            {
+                "type": "text",
+                "value": "Similar definitions apply to molecules. We can calculate the molecular mass of a compound by adding the atomic masses of its constituent atoms."
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_molecule_1"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molecular mass",
+                    "body": "The mass of a single molecule, calculated by summing the atomic masses of all atoms in the molecule. It is expressed in unified atomic mass units (amu)."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Also you might heard something about molar mass, sometimes called molecular weight or formula weight, but see related quantities for usage."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Molar mass",
+                    "body": "is the mass of one mole of a substance. It's expressed in grams per mole (g/mol)."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Mole",
+                    "body": "is a unit of measurement in chemistry equal to 6.022×10\u00B2\u00B3 of the number of particles (atoms, molecules, ions, etc.). This number is called Avogadro's number."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_teacher_near_desk"
+            },
+            {
+                "type": "headerText",
+                "value": "Molecular mass and molar mass are numerically equal"
+            },
+            {
+                "type": "text",
+                "value": "For example, if the molecular mass of water (H₂O) is 18 amu, then its molar mass is also 18 g/mol."
+            },
+            {
+                "type": "headerText",
+                "value": "Let's take a closer look"
+            },
+            {
+                "type": "image",
+                "value": "closer_look_mass"
+            },
+            {
+                "type": "text",
+                "value": "Atomic mass of Hydrogenium is 1.008 amu.\nAtomic mass of Oxygenium is 15.999 amu.\nMolecule of water has a formula H₂O, that means it has two atoms of Hydrogenium and one atom of Oxygenium."
+            },
+            {
+                "type": "text",
+                "value": "Ar(H) = 1.008 amu\nAr(O) = 15.999 amu\nMr(H₂O) = 1.008 × 2 + 15.999\nMr(H₂O) = 18.015 amu\nM(H₂O) = 18.015 g/mol"
+            },
+            {
+                "type": "text",
+                "value": "You even can find the number of moles (n) in 36 grams of water, using the formula downbelow. All that you need is divide the mass of water (wich is 36 gramms) on molar mass of water molecule (wich is almost 18 g/mol)."
+            },
+            {
+                "type": "headerText",
+                "value": "n = m/M"
+            },
+            {
+                "type": "text",
+                "value": "n = 36/18 = 2 mol\n(in 36 gramms of water)"
+            },
+            {
+                "type": "text",
+                "value": "Remember that 1 mole of any substance is always equal 6.022×10\u00B2\u00B3 molecules."
+            },
+            {
+                "type": "image",
+                "value": "roman_weights_molecule_3"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Now try to calculate the molecular mass of molecule CO₂ yourself.\n(atomic masses were given above)",
+                    "answers": [
+                        {
+                            "response": "12.011 + 12.011 + 15.999 = 40.021 amu",
+                            "description": "In this calculation is two atoms of carboneum.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "12.011 + 15.999 + 15.999 = 44.009 amu",
+                            "description": "That's right! Carbon dioxide contains 2 molecules of oxygenium and one of carboneum.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "1.008 + 15.999 + 15.999 = 33,006 amu",
+                            "description": "In this calculation, the first number is the atomic mass of hydrogenium.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "Molecular mass is the mass of a molecule, which is the sum of its constituent atomic masses. Molar mass is an average of the masses of the constituent molecules in a chemically pure but isotopically heterogeneous ensemble. In both cases, the multiplicity of the atoms (the number of times it occurs) must be taken into account, usually by multiplication of each unique mass by its multiplicity."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Сomparing",
+                    "body": "Molar mass and molecular mass are closely related but refer to different scales of measurement. Molecular mass is the mass of a single molecule, expressed in atomic mass units (amu), while molar mass is the mass of one mole of a substance, expressed in grams per mole (g/mol)."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Summarizing"
+            },
+            {
+                "type": "image",
+                "value": "first_port_2"
+            },
+            {
+                "type": "text",
+                "value": "In this lesson, we learned what the atomic mass of a chemical element is, what units it is measured in, and how to express it in units of measurement that are familiar to us. We also learned what the molecular and molar mass of a substance is and how to calculate them.\nAll of this is of fundamental importance to chemical science, which will not allow us to be misled."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_1"
+            },
+            {
+                "type": "text",
+                "value": "But it is quite fair if you object that you cannot buy just a couple of molecules or atoms of oil, wine, or any other product! Moreover, calculating weight from the molecular or molar mass of a substance is too tedious, and it would still be impossible to prove to the seller that they gave you less than what was originally agreed upon."
+            },
+            {
+                "type": "image",
+                "value": "first_port_3"
+            },
+            {
+                "type": "text",
+                "value": "How can you protect yourself? Don't worry, in this lesson you calculated the absolute mass of an atom of air in kilograms. This means that you will easily be able to calculate the mass of gold in the next! We will take you down a simpler path, because the next lesson topic is: Density."
+            },
+            {
+                "type": "image",
+                "value": "roman_market_and_camel_2"
+            },
+            {
+                "type": "headerText",
+                "value": "🐪🐪🐪🐪🐪"
+            },
+        ],
+        "isCompleted": false
+    }
+]

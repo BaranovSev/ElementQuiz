@@ -15,18 +15,35 @@ enum TypeOfGame {
 }
 
 protocol ShowCongratulationProtocol {
-    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String)
+    func showCongratulationViewController()
     func selfDismiss()
 }
 
 final class CongratulationViewController: UIViewController {
-    private let totalQuestions, correctAnswers: Int
+    private let totalQuestions, correctAnswers: Int?
     private let delegate: ShowCongratulationProtocol
     private let describeOfSense: String
+    private let imageName: String?
     
 
+    private lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            congratulationLabel,
+            youLearnedLabel,
+            imageView,
+            countOfLearnedElementsLabel,
+            chemicalElementsLabel,
+            bigButton
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.setCustomSpacing(35, after: chemicalElementsLabel)
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
     
-    private lazy var congratulationLabel: UILabel = {
+    private let congratulationLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 75)
         label.textAlignment = .center
@@ -36,18 +53,19 @@ final class CongratulationViewController: UIViewController {
         return label
     }()
     
-    private lazy var youLearnedLabel: UILabel = {
+    private let youLearnedLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 35)
         label.textColor = CustomColors.generalTextColor
         label.textAlignment = .center
         label.numberOfLines = 3
+        label.lineBreakMode = .byWordWrapping
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         return label
     }()
     
-    private lazy var countOfLearnedElementsLabel: UILabel = {
+    private let countOfLearnedElementsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Impact", size: 75)
         label.textAlignment = .center
@@ -57,7 +75,7 @@ final class CongratulationViewController: UIViewController {
         return label
     }()
     
-    private lazy var chemicalElementsLabel: UILabel = {
+    private let chemicalElementsLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Hoefler Text", size: 35)
         label.textColor = CustomColors.generalTextColor
@@ -68,7 +86,13 @@ final class CongratulationViewController: UIViewController {
         return label
     }()
     
-    private lazy var bigButton: UIButton = {
+    private let imageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
+            return imageView
+    }()
+    
+    private let bigButton: UIButton = {
         let button = UIButton()
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
@@ -79,11 +103,21 @@ final class CongratulationViewController: UIViewController {
         return button
     }()
     
-    init(totalQuestions: Int, correctAnswers: Int, delegate: ShowCongratulationProtocol, describeOfSense: String) {
+    init(totalQuestions: Int? = nil, correctAnswers: Int? = nil, delegate: ShowCongratulationProtocol, describeOfSense: String) {
         self.totalQuestions = totalQuestions
         self.correctAnswers = correctAnswers
         self.delegate = delegate
         self.describeOfSense = describeOfSense
+        self.imageName = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(delegate: ShowCongratulationProtocol, describeOfSense: String, imageName: String? = nil) {
+        self.totalQuestions = nil
+        self.correctAnswers = nil
+        self.delegate = delegate
+        self.describeOfSense = describeOfSense
+        self.imageName = imageName
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -101,7 +135,14 @@ final class CongratulationViewController: UIViewController {
     
     private func setup() {
         view.backgroundColor = CustomColors.generalAppPhont
-        let goodResult: Bool = Double(correctAnswers) / Double(totalQuestions) >= 0.6
+        var goodResult: Bool = true
+        var correctAnswersText = ""
+        var totalQuestionsText = ""
+        if let correctAnswers = correctAnswers, let totalQuestions = totalQuestions {
+            goodResult = Double(correctAnswers) / Double(totalQuestions) >= 0.6
+            correctAnswersText = String(correctAnswers)
+            totalQuestionsText = String(totalQuestions)
+        }
         
         if goodResult {
             showSalute()
@@ -129,6 +170,15 @@ final class CongratulationViewController: UIViewController {
                 "Keep improving"
             ].shuffled().first
         }
+        
+        if let imageName = imageName {
+            guard let image = UIImage(named: imageName) else { return }
+            imageView.image = image.withRoundedCorners(inPercentageFromSmallestSide: 5)
+            mainStackView.removeArrangedSubview(countOfLearnedElementsLabel)
+            mainStackView.removeArrangedSubview(chemicalElementsLabel)
+        } else {
+            mainStackView.removeArrangedSubview(imageView)
+        }
 
         
         switch delegate {
@@ -138,60 +188,37 @@ final class CongratulationViewController: UIViewController {
             } else {
                 youLearnedLabel.text = "We recommend revisiting\nthe \(describeOfSense) study again\nYou correctly answered"
             }
-            countOfLearnedElementsLabel.text = "\(correctAnswers)"
-            chemicalElementsLabel.text = "from \(totalQuestions) questions"
+            countOfLearnedElementsLabel.text = "\(correctAnswersText)"
+            chemicalElementsLabel.text = "from \(totalQuestionsText) questions"
         case _ as CategoryTestViewController:
             youLearnedLabel.text = "In the \(describeOfSense) category knowledge test\n You gave"
-            countOfLearnedElementsLabel.text = "\(correctAnswers)"
-            chemicalElementsLabel.text = "correct answers out of \(totalQuestions) questions"
+            countOfLearnedElementsLabel.text = "\(correctAnswersText)"
+            chemicalElementsLabel.text = "correct answers out of \(totalQuestionsText) questions"
         case _ as BigGameViewController:
             youLearnedLabel.text = "You heroically made it through the Big Game by responding"
-            countOfLearnedElementsLabel.text = "\(correctAnswers)"
-            chemicalElementsLabel.text = "from \(totalQuestions) questions"
+            countOfLearnedElementsLabel.text = "\(correctAnswersText)"
+            chemicalElementsLabel.text = "from \(totalQuestionsText) questions"
+        case _ as LessonViewController:
+            youLearnedLabel.text = "\(describeOfSense)"
         default:
             youLearnedLabel.text = "You answered"
-            countOfLearnedElementsLabel.text = "\(correctAnswers)"
-            chemicalElementsLabel.text = "from \(totalQuestions)"
+            countOfLearnedElementsLabel.text = "\(correctAnswersText)"
+            chemicalElementsLabel.text = "from \(totalQuestionsText)"
         }
     }
     
     private func addSubViews() {
-        view.addSubview(congratulationLabel)
-        view.addSubview(youLearnedLabel)
-        view.addSubview(countOfLearnedElementsLabel)
-        view.addSubview(chemicalElementsLabel)
-        view.addSubview(bigButton)
+        view.addSubview(mainStackView)
     }
     
     private func layout() {
-        congratulationLabel.snp.makeConstraints { make in
+        mainStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.width).offset(-15)
-            make.centerX.equalToSuperview()
-        }
-        
-        youLearnedLabel.snp.makeConstraints { make in
-            make.top.equalTo(congratulationLabel.snp.bottom).offset(25)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.width).offset(-15)
-            make.centerX.equalToSuperview()
-        }
-        
-        countOfLearnedElementsLabel.snp.makeConstraints { make in
-            make.top.equalTo(youLearnedLabel.snp.bottom).offset(5)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.width).offset(-15)
-            make.centerX.equalToSuperview()
-        }
-        
-        chemicalElementsLabel.snp.makeConstraints { make in
-            make.top.equalTo(countOfLearnedElementsLabel.snp.bottom).offset(5)
-            make.width.equalTo(view.safeAreaLayoutGuide.snp.width).offset(-15)
-            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(-25)
         }
         
         bigButton.snp.makeConstraints { make in
-            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(-25)
-            make.top.greaterThanOrEqualTo(chemicalElementsLabel.snp.bottom).offset(35)
-            make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.width.equalTo(200)
         }

@@ -1,0 +1,1249 @@
+[
+    {
+        "number": 1.0,
+        "name": "Creating Slime",
+        "lesson_image_name": "slime_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Slime"
+            },
+            {
+                "type": "image",
+                "value": "slime_green_image"
+            },
+            {
+                "type": "text",
+                "value": "Is a fun and popular DIY item that delights both kids and adults. Making slime can be viewed as a creative process that develops fine motor skills and imagination."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Slime",
+                    "body": "is made using a chemical reaction between a polymer (like PVA glue) and a thickener (like sodium tetraborate). This creates a Non-Newtonian fluid that behaves like a solid when hit hard and like a liquid when hit gently."
+                }
+            },
+            {
+                "type": "text",
+                "value": "In this topic, we will discuss the main components and steps involved in making slime, as well as some tips and recipes. But first..."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "How slime was created"
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_kid_with_slime"
+            },
+            {
+                "type": "text",
+                "value": "Slime was introduced in the 1976s as a toy for children. Over time, its popularity increased, especially due to social media, where users share their recipes and showcase unique types of slime. Slimes are easy to crumple with your hands, have a sticky surface and collect pet hair very well."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "By the way",
+                    "body": "this is exactly what slimes were created for — collecting lint and hair from clothes. But the thing turned out to be so funny that the children turned the slimes into a toy."
+                }
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "Borax (and other boron derivatives like sodium borate, sodium tetraborate or disodium tetraborate) is used to cross-link with the glue to create the rubbery substance. Overexposure to boron can irritate a person's skin, cause respiratory problems and lead to gastrointestinal bleeding if ingested."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "To make slime, you will need:"
+            },
+            {
+                "type": "text",
+                "value": "1. Glue — it’s best to use white or clear PVA glue.\n2. Borax or contact lens solution — for activating the slime.\n3. Water — to mix the components more easily.\n4. Colorants — to add color to your slime.\n5. Glitter, beads, stickers or aromatical oils and other additions — for decoration and creating unique textures and smells."
+            },
+            {
+                "type": "image",
+                "value": "romans_create_slime"
+            },
+            {
+                "type": "headerText",
+                "value": "Step one: Prepare the Mixture"
+            },
+            {
+                "type": "text",
+                "value": "- In a bowl, mix ½ cup of glue with ½ cup of water. Stir until you achieve a uniform consistency.\n- Add a few drops of colorant and mix well."
+            },
+            {
+                "type": "headerText",
+                "value": "Step two: Activate the Slime"
+            },
+            {
+                "type": "text",
+                "value": "- Gradually add the borax solution (or contact lens solution) to the mixture. Stir until clumps begin to form.\n- After this, continue kneading the mixture with your hands until it becomes elastic and stops sticking to your hands."
+            },
+            {
+                "type": "headerText",
+                "value": "Step three: Add Decorations"
+            },
+            {
+                "type": "text",
+                "value": "- If you want to make your slime unique, add glitter, beads, or other materials at this stage. Mix them into your slime right now!"
+            },
+            {
+                "type": "image",
+                "value": "slime_red_image"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Tips",
+                    "body": "- If your slime turns out too sticky, add a bit more activator.\n- Store slime in an airtight container to prevent it from drying out.\n- Experiment with textures: try adding shaving cream for a fluffier slime or cornstarch for a thicker one."
+                }
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "How many types of slime do you think there are?",
+                    "answers": [
+                        {
+                            "response": "1-3",
+                            "description": "nope, there are more",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "4-6",
+                            "description": "there are more",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "more than 7?",
+                            "description": "Actually, we don’t know ourselves, but we heard about: Classic, Clear, Butter, Fluffy, Crunchy, Glossie, Avalanche, Cloud",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "56",
+                            "description": "Wow, that's too many! There are probably fewer...",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "Well, if there are so many of them, then"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Take one\n more recipe!",
+                    "body": "Slime without Sodium Tetraborate"
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For that you'll need:",
+                    "body": "- 60 ml PVA glue\n- 75 g starch\n- 150 ml water\n- Food coloring or slime dye (optional)"
+                }
+            },
+            {
+                "type": "image",
+                "value": "slime_orange_image"
+            },
+            {
+                "type": "headerText",
+                "value": "Instructions:"
+            },
+            {
+                "type": "text",
+                "value": "1. In a container, mix the starch and cold water. Stir well.\n2. Add the glue and optional coloring, mixing until you achieve a smooth consistency."
+            },
+            {
+                "type": "headerText",
+                "value": "Slime isn't just for kids!"
+            },
+            {
+                "type": "text",
+                "value": "A special slime recipe taken from the Reddit website will allow you to prepare a unique slime for cleaning hard-to-reach surfaces from dust. We certainly don't recommend using it to clean electronic devices. But, really, some of difficult textures like «pop it» or even like keyboard on your Mac (we didn't say that) can cleaned by this way."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "One more recipe!",
+                    "body": "Cleaning slime"
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_cleaner"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "You will need:",
+                    "body": "- 1 ½ cups warm water\n- ¼ cup borax laundry booster\n- 5 ounces white school glue (Polyvinyl Acetate type II)"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Instructions:"
+            },
+            {
+                "type": "text",
+                "value": "1. In a paper cup, mix 1 cup warm water with the borax and stir until the borax is dissolved. Put the borax water aside.\n2. In a mixing bowl mix a half-cup of warm water, the glue and two drops of food coloring.\n3. Add the borax water.\n4. Stir until firm. It will start out as a gooey mess. Don't worry. It will firm up as you mix.\n5. Knead with your hands until it becomes a dry ball of ooze. This can take around five minutes."
+            },
+            {
+                "type": "image",
+                "value": "roman_with_slime"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Careful!",
+                    "body": "If the slime is sticking to your hands or will not form into a ball; add a couple more tablespoons of borax.\nDo not use the cleaning slime if the slime won't roll into a ball (it could get stuck)."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "How to use it?"
+            },
+            {
+                "type": "text",
+                "value": "You need to knead a piece into a firm ball, then dab whatever you are trying to clean. Remember that slime is a Non-Newtonian fluid, so your movements must be quite fast and precise. Do not let the slime sit on any piece of cleaning texture for more than a second because it will start to ooze inside of it."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What ingredients from the list below are needed to make slime?",
+                    "answers": [
+                        {
+                            "response": "Glitter",
+                            "description": "It's an optional ingredient",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Glue",
+                            "description": "Aha! Maybe soon we'll teach you how to make glue at home!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Paint or dye",
+                            "description": "Actually, if we add some colored ingredient to cleaning slime it will be nice, but dirty... almost like using glitter...",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "romans_laboratory_slime_reaction"
+            },
+            {
+                "type": "text",
+                "value": "Creating slime is not only an entertaining activity but also an opportunity to express creativity. Try different recipes and find your unique combinations! Good luck in making your perfect slime!"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 2.0,
+        "name": "Growing a crystal",
+        "lesson_image_name": "crystal_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Who said you can only grow plants?\nLet's grow a real crystal!"
+            },
+            {
+                "type": "image",
+                "value": "growing_crystal_1"
+            },
+            {
+                "type": "text",
+                "value": "To begin with, it would be a good idea to understand what a crystal is and what the crystallization process is."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Crystal",
+                    "body": "is a solid in which the atoms or molecules are arranged in a very specific, repeating pattern, forming a three-dimensional lattice."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "In simple terms",
+                    "body": "it is as if the building blocks (atoms) are laid out in a very neat, repeating pattern, rather than just scattered randomly."
+                }
+            },
+            {
+                "type": "text",
+                "value": "So according to the previous term, we can decide that Crystallization is the process of crystal formation from gases, solutions, melts or glasses.\nCrystallization is also referred to as the formation of crystals with a given structure from crystals of a different structure (polymorphic transformations) or the process of transition from a liquid state to a solid crystalline state. Due to crystallization, minerals and ice, tooth enamel and bones of living organisms are formed."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Here's how to explain it even more simply. Let's think abstractly... which of the above looks more like a crystal?",
+                    "answers": [
+                        {
+                            "response": "brick house",
+                            "description": "Each brick is an atom, and the whole house is a crystal. In the house, the bricks are laid in even rows, one above the other, creating a solid structure. Unlike liquids and gases, atoms in a crystal cannot move freely throughout the entire volume. So, bricks can't swap their places in the building. The brick house is a crystal in that case.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "pile of sand",
+                            "description": "Grains of sand are atoms, but they are scattered randomly, without forming any order. The grains can change places by themselves, and they don't touch each other tightly. Even if we take the individual grain... which is a solid, this is the single atom in that case, but not the structure itself.",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Every crystal is a solid but not every solid is a crystall"
+            },
+            {
+                "type": "text",
+                "value": "However, solids can also exist in an amorphous state, where the atoms are arranged randomly, without a specific crystal structure."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "For example:",
+                    "body": "glass, rubber and plastic are solids, but they are not crystals."
+                }
+            },
+            {
+                "type": "image",
+                "value": "rock_crystal"
+            },
+            {
+                "type": "text",
+                "value": "Here is looks like quartz crystal cluster."
+            },
+            {
+                "type": "image",
+                "value": "roman_in_alps"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Interesting fact about romans:",
+                    "body": "Roman naturalist Pliny the Elder believed quartz to be water ice, permanently frozen after great lengths of time. He supported this idea by saying that quartz is found near glaciers in the Alps, but not on volcanic mountains, and that large quartz crystals were fashioned into spheres to cool the hands. This idea persisted until at least the 17th century. He also knew of the ability of quartz to split light into a spectrum."
+                }
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think is the largest naturally occurring crystal that ever found?",
+                    "answers": [
+                        {
+                            "response": "quater kilo",
+                            "description": "It's almost my daily norm of sugar. By the way, sugar can be a crystal!",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "half kilo",
+                            "description": "The largest diamond gem-quality rough diamond ever found, weighing 621.2 gramms (3,106 carats), and named The Cullinan Diamond. But not all crystals are diamonds, so this is not the biggest crystal.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "800 kilos",
+                            "description": "The largest diamond gem-quality rough diamond ever found, weighing 621.2 gramms (3,106 carats), and named The Cullinan Diamond. But not all crystals are diamonds, so this is not the biggest crystal.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "2.5 tonns",
+                            "description": "The largest amethyst geode in the world is the 'Empress of Uruguay', found in 2007 in the Artigas countries of northern Uruguay, a mining area known for producing the finest amethysts in the world. It weighs about 2.5 tons and is 3.27 meters high! More than 10,000 deep purple crystals formed in this geode.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "70 tonns",
+                            "description": "Trully, in 1961, a quartz crystal was discovered in Kazakhstan that weighed 70 tons, was 7.5 meters long and 1.6 meters in diameter. But this is not the biggest one.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "380 tonns",
+                            "description": "Yes, you're right! Its a crystal of beryl from Malakialina, Madagascar, 18 m (59 ft) long and 3.5 m (11 ft) in diameter, and weighing 380,000 kg (840,000 lb).",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "560 tonns",
+                            "description": "We would like to see one like this!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "How does the crystallization process work?"
+            },
+            {
+                "type": "text",
+                "value": "How do we create our own crystal?"
+            },
+            {
+                "type": "text",
+                "value": "Crystallization can occur by various routes including precipitation from solution, freezing of a liquid, or deposition from a gas. Attributes of the resulting crystal can depend largely on factors such as temperature, air pressure, cooling rate, or solute concentration."
+            },
+            {
+                "type": "text",
+                "value": "During the formation of crystals, a phase transition occurs, that is, the transition of matter from one thermodynamic phase to another. The formation of crystals from gases, solutions, melts, or glasses is a phase transition of the first kind, and crystallization during polymorphic transformations can be a phase transition of the second kind."
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What do you think can be attributed to crystallization processes?",
+                    "answers": [
+                        {
+                            "response": "snowfall",
+                            "description": "Yes, snowfall is indeed a crystallization process. It involves the formation of ice crystals from water vapor (gaseous state of water) in the atmosphere, where water molecules arrange themselves into a specific, repeating pattern, forming a crystalline structure.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "glass forming",
+                            "description": "It's amorphous state of Si, where the atoms are arranged randomly.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "ice freezing",
+                            "description": "Yes, the process of ice freezing is a type of crystallization. This transition is driven by a decrease in temperature, causing the water molecules to slow down and lock into the specific arrangement characteristic of ice.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "text",
+                "value": "As you may noticed the crystallization process driven by thermodynamic properties. But here one more secret: it also depends from it's chemical properties. The shape of a crystal is determined by its internal atomic structure and the conditions under which it grows, such as temperature, pressure, and the presence of impurities."
+            },
+            {
+                "type": "image",
+                "value": "bismutum_crystal"
+            },
+            {
+                "type": "text",
+                "value": "Just look on that Bismutum crystal. And then look at a completely different pyrite crystal."
+            },
+            {
+                "type": "image",
+                "value": "pyrite_crystal"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Crystallisation",
+                    "body": "is the process of formation of solid crystals from solution, melt or by deposition directly from a gas phase."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Steps of crystallization:",
+                    "body": "I. Nucleation\nII. Crystal growth"
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Nucleation",
+                    "body": "Step where the solute molecules or atoms dispersed in the solvent start to gather into clusters, on the microscopic scale (elevating solute concentration in a small region), that become stable under the current operating conditions."
+                }
+            },
+            {
+                "type": "text",
+                "value": "This is the first step where molecules or atoms in a solution, melt, or vapor start to aggregate and form small, stable clusters.\nThese clusters need to reach a certain size (critical size) to be stable and act as seeds for further crystal growth."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Types of Nucleation",
+                    "body": "it can be spontaneous (homogeneous) or influenced by impurities or introduced seeds (heterogeneous).\nHeterogeneous nucleation occurs at nucleation sites (on glass,like winter patterns, e.g.) on surfaces in the system.\nHomogeneous nucleation occurs away from a surface (in the air, like snowflakes, e.g)."
+                }
+            },
+            {
+                "type": "image",
+                "value": "winter_pattern_and_snowflake"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Crystal growth",
+                    "body": "Once stable nuclei are formed, molecules or atoms from the surrounding medium (solution, melt, or vapor) continue to attach to these nuclei, increasing their size."
+                }
+            },
+            {
+                "type": "text",
+                "value": "This growth occurs layer by layer, with molecules or atoms arranging themselves in a specific, repeating pattern characteristic of the crystal structure."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "The rate of crystal growth",
+                    "body": "can be influenced by factors such as temperature, pressure, and the availability of molecules or atoms for attachment."
+                }
+            },
+            {
+                "type": "image",
+                "value": "crystallization_steps"
+            },
+            {
+                "type": "text",
+                "value": "Of course, with this knowledge, we could make an ice cube or even a snowflake."
+            },
+            {
+                "type": "image",
+                "value": "crystalline_image"
+            },
+            {
+                "type": "headerText",
+                "value": "But that's too easy for us."
+            },
+            {
+                "type": "text",
+                "value": "Moreover, ice should always be in the fridge, so this is not our option. We need a more stable crystal. After all, we want to show it off to our friends!"
+            },
+            {
+                "type": "headerText",
+                "value": "Behold!\nInfinity Gauntlet"
+            },
+            {
+                "type": "image",
+                "value": "Infinity_gauntlet_roman"
+            },
+            {
+                "type": "text",
+                "value": "No gem crystals yet, but we'll fix that soon."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Step I",
+                    "body": "Prepare a saturated salt solution."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "You'll need:",
+                    "body": "Salt (NaCl), overheated water, filter paper, tiny thread and couple of jars."
+                }
+            },
+            {
+                "type": "text",
+                "value": "Remember that we're talking about heating and cooling of liquid? In that case overheating helps us to saturate salt as much, as it possible. Heat water (preferably distilled) gradually and add table salt to it, pouring until the salt is mixed with the solution."
+            },
+            {
+                "type": "image",
+                "value": "roman_cooking"
+            },
+            {
+                "type": "text",
+                "value": "And don't forget, we're making a crystal, not a soup! Don't add potatoes to it!"
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "The solution is very hot. Use special heat-resistant gloves to avoid getting burned."
+                }
+            },
+            {
+                "type": "text",
+                "value": "As the water in the jar heats up, add salt to it. Here we are in for a surprise that no one is talking about – a large number of 'garbage' in the salt. All these grains float to the surface, and they need to be carefully removed. Or, if you have a filter paper, then run everything through it."
+            },
+            {
+                "type": "image",
+                "value": "roman_add_dye"
+            },
+            {
+                "type": "text",
+                "value": "Salts can be added with a margin so that the solution is as saturated as possible. As a result, some of the salt will no longer be able to dissolve and will remain at the bottom. To get rid of this salt, as well as any debris (which is precisely the source of the growth of excess crystals), it is necessary to pour the solution into a second jar. Now you can add the dye."
+            },
+            {
+                "type": "image",
+                "value": "roman_from_bottle_to_bottle"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "How do you think, for what we need to filtering our saturated salt solution from small parts?",
+                    "answers": [
+                        {
+                            "response": "Because we wanna a clear crystall",
+                            "description": "It's one of several reasons, but far from the most important one. By the way, in nature crystals can retain impurities.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Small parts of salt will grow, faster than our crystall itself",
+                            "description": "Correct!",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "If there is even one trash piece, the crystal will not grow",
+                            "description": "No way! It's not a homunculus!",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Step II",
+                    "body": "The solvent start to gather into clusters"
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "or",
+                    "body": "find another seed for our crystal. The future shape of our crystal depends on the correctness of its shape. Find the smoothest cubic salt crystal that needs to be tied to the string."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "We're using the seed as embryo for our crystal."
+            },
+            {
+                "type": "text",
+                "value": "Our crystal will grow on another crystall of smaller size. Simplify, it just keeps growing. So, it's better to take biggest one seed, as it is more convenient to attach them to a thread. The salt crystal has a shape close to rectangular."
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Don't worry",
+                    "body": "If you can't find a seed crystal, just lower the thread into the jar, having previously tied any weight to the crystal's place. The crystals will grow right on the thread!"
+                }
+            },
+            {
+                "type": "image",
+                "value": "kid_grow_the_crystal"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Crystal growth phase",
+                    "body": "This is the longest phase of the experiment."
+                }
+            },
+            {
+                "type": "text",
+                "value": "On this stage our solution has already been cleaned and poured into the final container in which the reaction will be completed. Our seed are tied to a thread that does not touch the walls of the jar. Now is the longest phase of the experiment."
+            },
+            {
+                "type": "headerText",
+                "value": "All you need is time and patience."
+            },
+            {
+                "type": "text",
+                "value": "We immerse our seed there so that it does not touch the walls of the container, wrap the container in something to cool down more slowly, and wait. If everything is right, then the next day our embryos will already grow up, if it is wrong, they will dissolve. Now we just cover the jar with paper on top so that dust does not get into it, and wait for another 3-4 days. As the water gradually evaporates, the salt must precipitate. And it will be deposited on our seed, that is, the crystal will grow."
+            },
+            {
+                "type": "image",
+                "value": "crystal_in_bottle"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Tricks:",
+                    "body": "1. For best results, use distilled water and food coloring intended for use in food products.\n2. Small grains of salt remaining at the bottom of the jar can cause unwanted crystals, so it is recommended to pour the solution into another jar to get rid of them.\n3. If you want to get crystals of different colors, you can use different solutions with different dyes.\n4. Some crystals require varnishing.\n5. Use a pencil or chopsticks to tie and hang the seed crystal.\n6. The solution with the seed crystal should cool slowly, wrap it up.\n7. Сover the jar with the solution with a sheet of paper to prevent dust from falling in."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "That's all! We did it."
+            },
+            {
+                "type": "text",
+                "value": "Now our Infinity Gauntlet is ready to use!"
+            },
+            {
+                "type": "image",
+                "value": "infinity_gauntlet_works"
+            },
+            {
+                "type": "headerText",
+                "value": "TAP TO CONTINUE"
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 3.0,
+        "name": "Volcano",
+        "lesson_image_name": "volcano_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "Volcano at home.\nNow it's safe!"
+            },
+            {
+                "type": "text",
+                "value": "In ancient times, when the Earth was different, there were giant creatures that filled the area with their power and magnificence. Their silhouettes were majestic and impressive. They could roar like wild animals, writhing and breaking out to the surface until those around them fled from their fury."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "Among them were those who slept for centuries. But there were also those who awoke from time to time, bringing terror to everything that came their way. With the eruption of their power, the earth shook. These events caused fear and admiration, indicating that the world around them was full of hidden secrets."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_2"
+            },
+            {
+                "type": "text",
+                "value": "But let's lift the veil of secrecy. All this time we have been talking not about dinosaurs, but about volcanoes. They, like dinosaurs, left their mark on the history of the Earth, shaping its landscape and changing the climate. Volcanoes are the real kings of the elements, capable of greatness and destruction."
+            },
+            {
+                "type": "image",
+                "value": "bones_and_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "Eventually, when the dust settled and time restored the world, new ecosystems, new beginnings arose in place of the echoes of their destructive power. It was amazing how their power created even after destruction."
+            },
+            {
+                "type": "image",
+                "value": "deer_and_volcano"
+            },
+            {
+                "type": "headerText",
+                "value": "Life always find their way!"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "We prefer to experiment safely.",
+                    "body": "Therefore, you do not need to repeat the first fire-hazardous recipe, unless you feel an urgent need for it!"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Rudolf Böttger Volcano"
+            },
+            {
+                "type": "text",
+                "value": "All that we use for this reaction is ammonium dichromate. It's an inorganic compound with the formula (NH4)2Cr2O7 and looking as bright orange-red crystalline solid."
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Attention!",
+                    "body": "We also used matches and had a fire extinguisher at the ready, but it was not needed because our reagent was burning on a huge heat-resistant metal plate."
+                }
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "We thought about it in advance.",
+                    "body": "Also, you shouldn't start this experiment without protective glasses, because our 'volcano' will throw out pieces of 'lava'."
+                }
+            },
+            {
+                "type": "text",
+                "value": "So, if all's ready, eyes are protected by glasses, cats are outside and all interested are here, we can start. Let's fired it!"
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate_fired"
+            },
+            {
+                "type": "text",
+                "value": "The reaction produces a large volume of green chromium(III) oxide (Cr₂O₃), steam, and nitrogen gas, with orange sparks and a darkening of the initial orange-red ammonium dichromate."
+            },
+            {
+                "type": "image",
+                "value": "ammonium_dichromate_burned"
+            },
+            {
+                "type": "text",
+                "value": "The reaction resembles an active volcano. After its completion, chromium(III) oxide occupies a volume approximately 2-3 times larger than the original substance. It should be noted that the particles of the resulting chromium(III) oxide (almost black but trully dark-dark-green), volcanic dust, will settle around the  volcano, so the experiment must be carried out on a large tray."
+            },
+            {
+                "type": "headerText",
+                "value": "We did it!"
+            },
+            {
+                "type": "text",
+                "value": "Just a volcano in a mug"
+            },
+            
+            {
+                "type": "image",
+                "value": "volcano_in_cup_1"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Is this volcano is safe?",
+                    "answers": [
+                        {
+                            "response": "No",
+                            "description": "If you do everything right, no one will get hurt: not the cats, not you, not the dinosaurs.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Yes",
+                            "description": "Yes, it is quite safe, but keep it away from your eyes! Keep your distance, use eye protection, that is, safety glasses and a heat-resistant plate where the reaction itself will take place.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Let's take a breath"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Eruption of Vesuvius"
+                }
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_1"
+            },
+            {
+                "type": "text",
+                "value": "In 79 AD, Mount Vesuvius, a stratovolcano located in the modern-day region of Campania (near Naples), erupted, causing one of the deadliest eruptions in history."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_2"
+            },
+            {
+                "type": "text",
+                "value": "As a result of this cataclysm, several thousand inhabitants of the Roman cities of Pompeii, Herculaneum, Oplontis and Stabiae and several small villages and villas located at the very foot of the volcano perished."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_3"
+            },
+            {
+                "type": "text",
+                "value": "Vesuvius violently ejected a cloud of super-heated tephra and gases to a height of 33 km, ejecting molten rock, pulverized pumice and hot ash at 1.5 million tons per second, ultimately releasing 100,000 times the thermal energy of the atomic bombings of Hiroshima and Nagasaki."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_4"
+            },
+            {
+                "type": "text",
+                "value": "The eruption occurred in two stages. The first was a Plinian eruption, which began at about 13:00 and lasted for eighteen to twenty hours; from a huge column thrown out by Vesuvius to a height of 15 to 30 km, ash and pumice fell, covering the area, after which pyroclastic flows descended, covering a great distance and almost reaching the Roman city of Misenum."
+            },
+            {
+                "type": "image",
+                "value": "pompeii_volcano_5"
+            },
+            {
+                "type": "text",
+                "value": "The second stage is the Peleian eruption: around night or early the next day, new pyroclastic flows formed in the immediate vicinity of the volcano, two of which hit Pompeii."
+            },
+            {
+                "type": "image",
+                "value": "lava_in_pompeii_1"
+            },
+            {
+                "type": "text",
+                "value": "The 1.8 m-deep streams were swift, dense and very hot, completely or partially demolishing all buildings in their path, incinerating or suffocating the remaining population and changing the landscape, including the coastline. They were accompanied by additional light tremors and a weak tsunami in the Gulf of Naples."
+            },
+            {
+                "type": "image",
+                "value": "lava_in_pompeii_2"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Have you seen the column of smoke from the volcano in the pictures? Which of the following gases is the main component of volcanic emissions?",
+                    "answers": [
+                        {
+                            "response": "Methane (CH4)",
+                            "description": "Although methane is also a gas, it is not a major component of volcanic emissions. It is more often released from organic and biogenic processes and has no significant relation to volcanic activity.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Carbon dioxide (CO2)",
+                            "description": "It is one of the main gases released during volcanic eruptions. CO2 can have a serious impact on climate and ecosystems if its emissions are significant.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Nitrogen (N2)",
+                            "description": "Nitrogen makes up most of the Earth's atmosphere, but it is not a gas that is released in significant quantities during volcanic eruptions. Volcanic gases mainly contain carbon dioxide (CO2), sulfur dioxide (SO2), and water vapor (H2O).",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Another eruption\nbut the same reason"
+            },
+            {
+                "type": "text",
+                "value": "The main reason for eruptions is the accumulation and release of gas contained in magma, provided that the requirements are met. Deep in the Earth, in magma chambers, magma (molten rock) contains dissolved gases. As magma accumulates, gases dissolve in it. When a critical concentration is reached, they begin to be released in the form of bubbles, creating high pressure. When the pressure becomes sufficient, magma erupts through the volcano's crater, spewing out lava, ash, gases and rock debris."
+            },
+            {
+                "type": "image",
+                "value": "underwater_volcano"
+            },
+            {
+                "type": "text",
+                "value": "There how it looks undervater. Yep, they can locate underwater!"
+            },
+            {
+                "type": "text",
+                "value": "One more reason of eruptions - collisions and movements of lithospheric plates. It also can lead to the formation of magma chambers and eruptions."
+            },
+            {
+                "type": "text",
+                "value": "But how can we conduct another volcanic experiment without shifting the lithospheric plates?"
+            },
+            {
+                "type": "image",
+                "value": "volcano_sticker"
+            },
+            {
+                "type": "headerText",
+                "value": "Another recipe"
+            },
+            {
+                "type": "text",
+                "value": "Don't worry, no dinosaurs will get hurt during this recipe either."
+            },
+            {
+                "type": "image",
+                "value": "trex_and_volcano_3"
+            },
+            {
+                "type": "text",
+                "value": "But our task is to make it safe, including for you."
+            },
+            {
+                "type": "image",
+                "value": "warning_image"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Safety recomendations:",
+                    "body": "Use rubber gloves for this experiment. If reagents come into contact with skin, wash them off with plenty of water."
+                }
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "You will need:",
+                    "body": "1. Baking soda\n2. Vinegar or solution of citric acid\n3. Orange or red food coloring\n4. Plasticine"
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Step one:"
+            },
+            {
+                "type": "text",
+                "value": "Divide the plasticine into 2 parts. Flatten one half (this will be the base), and mold the other into a hollow cone the size of a glass with a hole at the top ('slopes and mouth of the volcano'). Carefully connect both parts so that the 'volcano' is airtight. For clarity, we will make the size of the 'volcano' no more than a third of a cup. Place the 'volcano' on a plate, and the plate on a tray."
+            },
+            {
+                "type": "headerText",
+                "value": "Step two:"
+            },
+            {
+                "type": "text",
+                "value": "Put inside the 'volcano' a tablespoon of soda, a little food coloring and a teaspoon of dishwashing liquid. Mix gently until smooth."
+            },
+            {
+                "type": "image",
+                "value": "volcano_ends"
+            },
+            {
+                "type": "headerText",
+                "value": "Last step:"
+            },
+            {
+                "type": "text",
+                "value": "Volcano is ready to eruption. Just add a quarter cup of vinegar (or solution of citric acid) to the 'volcano's mouth'. The vinegar, having reacted with the soda, will provoke an 'eruption'."
+            },
+            {
+                "type": "image",
+                "value": "volcano_starts"
+            },
+            {
+                "type": "text",
+                "value": "This reaction occurs because sodium bicarbonate is a salt and vinegar is an acid. When mixed, they undergo a neutralization reaction that produces carbonic acid, which quickly breaks down into carbon dioxide and water. It is the release of carbon dioxide that causes the bubbles and effervescent effect that is observed when mixing baking soda and vinegar."
+            },
+            {
+                "type": "image",
+                "value": "volcano_in_cup_2"
+            },
+            {
+                "type": "headerText",
+                "value": "Congrats!"
+            },
+            {
+                "type": "text",
+                "value": "Now you know how to safely make a volcano in the kitchen, and you can make it erupt whenever you want."
+            }
+        ],
+        "isCompleted": false
+    },
+    {
+        "number": 4.0,
+        "name": "Invisible ink",
+        "lesson_image_name": "invisible_ink_reaction_image",
+        "structure": [
+            {
+                "type": "headerText",
+                "value": "What do you know about privacy?"
+            },
+            {
+                "type": "image",
+                "value": "roman_postman"
+            },
+            {
+                "type": "text",
+                "value": "In the modern world, all calls are protected by encryption, and all messengers you use to communicate can be password protected, and there are even disappearing messages. But how did they achieve privacy in the old days, when messages could only be sent on paper?"
+            },
+            {
+                "type": "image",
+                "value": "ciphertext"
+            },
+            {
+                "type": "text",
+                "value": "Indeed, various measures were taken to ensure that correspondence could not be read by those who should not do so. Various types of message encoding were used, the letters themselves were plombed with wax seals, and the messengers were among the most trusted people."
+            },
+            {
+                "type": "image",
+                "value": "sealing_wax_stamp"
+            },
+            {
+                "type": "text",
+                "value": "But even the most loyal person can be captured, the code can be guessed, and a wax seal is just a piece of wax. So what to do?"
+            },
+            {
+                "type": "image",
+                "value": "wax_sealed_scroll"
+            },
+            {
+                "type": "text",
+                "value": "Invisible ink deserves special attention in historical retrospect."
+            },
+            {
+                "type": "image",
+                "value": "inkpot_image"
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Sympathetic Ink",
+                    "body": "ink whose writing is initially invisible and becomes visible only under certain conditions (heat, light, chemical developer, etc.)."
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "The writing process is as follows:",
+                    "body": "First layer - an important writing is made with invisible ink,\nSecond layer - a meaningless writing with visible ink."
+                }
+            },
+            {
+                "type": "image",
+                "value": "letter_1"
+            },
+            {
+                "type": "text",
+                "value": "And after some secret manipulations, such as heating..."
+            },
+            {
+                "type": "image",
+                "value": "letter_and_candle"
+            },
+            {
+                "type": "text",
+                "value": "the text appeared in those places where invisible ink was applied."
+            },
+            {
+                "type": "image",
+                "value": "secret_text"
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "A bit of history:",
+                    "body": "Sympathetic ink in Ancient Rome"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Publius Ovidius Naso, also known in as Ovid, was a Roman poet who lived during the reign of Augustus. He was a younger contemporary of Virgil and Horace, with whom he is often ranked as one of the three canonical poets of Latin literature. Ovid suggest to use milk as invisible ink. Secret text written in milk between the lines of an ordinary letter was revealed by ironing the paper with a hot iron or holding it to a candle."
+            },
+            {
+                "type": "image",
+                "value": "ovidius"
+            },
+            {
+                "type": "text",
+                "value": "Ovid was exiled from Rome to the city of Tomis (modern Constanta, Romania) by order of the Emperor Augustus. The main reason, in his own words, was “carmen et error” - “verse and error” or ”poem and error”."
+            },
+            {
+                "type": "headerText",
+                "value": "The most common sympathetic ink and their developer:"
+            },
+            {
+                "type": "text",
+                "value": "1. Citric acid - methyl orange\n2. Wax - chalk\n3. Milk - heating\n4. Juise of some fruits & vegetables (apple, onion, rutabaga) - heating\n5. Starch - iodine tincture\n6. Aspirin - iron salts\n7. Baking soda (1:1 aqueous solution) - heating"
+            },
+            {
+                "type": "text",
+                "value": "Of course, this list can be continued indefinitely, which only costs ink, which is visible only under ultraviolet light..."
+            },
+            {
+                "type": "image",
+                "value": "passport"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "Do you think invisible ink is common today?",
+                    "answers": [
+                        {
+                            "response": "No",
+                            "description": "Invisible ink can be used not only for correspondence in mail. Under ultraviolet light, some elements on the banknotes glow; these are part of the security features.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Yes",
+                            "description": "Nowdays invisible ink used to mark various documents such as certificates, licenses, passports, visas, banknotes to prevent counterfeiting. Try shining a UV light on your passport.",
+                            "isCorrect": true
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "image",
+                "value": "money_glows"
+            },
+            {
+                "type": "headerText",
+                "value": "And now is the time to experiment"
+            },
+            {
+                "type": "text",
+                "value": "This time we will not use the method that probably got Ovid exiled. We need a more reliable method, so we will exclude methods with activators in the form of heating."
+            },
+            {
+                "type": "definition",
+                "value": {
+                    "header": "Invisible ink from starch",
+                    "body": "You will need starch, water, and possibly iodine for development."
+                }
+            },
+            {
+                "type": "headerText",
+                "value": "Instructions:"
+            },
+            {
+                "type": "text",
+                "value": "1. Mix the starch with water (usually in a 2:1 ratio) and heat, stirring, until it thickens to form a paste.\n2. After cooling, use its paint to write a message on paper.\n3. To keep the text, use a solution of iodine (a few drops per glass of water)."
+            },
+            {
+                "type": "text",
+                "value": "The paper will turn light purple, and the inscription made with starch paste will appear dark."
+            },
+            {
+                "type": "image",
+                "value": "starch_ink"
+            },
+            {
+                "type": "question",
+                "value": {
+                    "text": "What products in the kitchen can be used to obtain starch?",
+                    "answers": [
+                        {
+                            "response": "Potato",
+                            "description": "Starch is the main source of carbohydrates in potatoes. On average, fresh potatoes contain about 17.5% starch. In terms of dry matter, starch is 75 to 80%.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Carrot",
+                            "description": "Raw carrots contain about 1.43 g of starch per 100 g of product.",
+                            "isCorrect": false
+                        },
+                        {
+                            "response": "Rice",
+                            "description": "Starch is the main carbohydrate in rice and is an essential part of its dry matter. The starch content of rice may vary by variety, but on average it is about 73-78% of the dry weight of rice.",
+                            "isCorrect": true
+                        },
+                        {
+                            "response": "Cucumber",
+                            "description": "No, cucumber contains a very small amount of starch, less than 0.1% of the total composition. Cucumbers are mainly water (94-96%).",
+                            "isCorrect": false
+                        }
+                    ],
+                    "userAnswered": false,
+                    "userAnswer": []
+                }
+            },
+            {
+                "type": "addition",
+                "value": {
+                    "header": "Remember",
+                    "body": "The more complex the developer, the more protected your secret is!\nThe ink should not leave crystals on the paper.\nThe letter should not smell, as this is suspicious."
+                }
+            },
+            {
+                "type": "image",
+                "value": "roman_take_letter"
+            },
+            {
+                "type": "text",
+                "value": "From now you know how to prevent the data licking by using invisible ink! Now your secrets are only yours."
+            }
+        ],
+        "isCompleted": false
+    }
+]

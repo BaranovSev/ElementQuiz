@@ -513,6 +513,16 @@ class BoxViewWithTextView: UIView {
         setup()
     }
     
+    convenience init(title: String, infoText: String) {
+        self.init()
+        setup()
+        self.configure(titleBorderColor: UIColor.gray.cgColor,
+                       borderColor: UIColor.gray.cgColor,
+                       titleText: title,
+                       infoText: infoText,
+                       alignment: .justified)
+    }
+    
     func setup() {
         layer.cornerRadius = 15
         titleLabel.font = UIFont(name: "Menlo Bold", size: 30)
@@ -520,6 +530,7 @@ class BoxViewWithTextView: UIView {
         titleLabel.minimumScaleFactor = 0.5
         titleLabel.textColor = CustomColors.generalTextColor
         titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 3
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
@@ -545,7 +556,7 @@ class BoxViewWithTextView: UIView {
     
     func layout() {
         titleLabel.snp.makeConstraints { make in
-            make.width.lessThanOrEqualToSuperview().offset(15)
+            make.width.lessThanOrEqualToSuperview().offset(-10)
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
         }
@@ -559,7 +570,7 @@ class BoxViewWithTextView: UIView {
         }
         
         infoTextView.snp.makeConstraints { make in
-            make.top.equalTo(parentView.snp.top).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.centerY.equalTo(parentView).offset(titleLabel.bounds.height)
@@ -589,6 +600,17 @@ class HeaderWithText: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    convenience init(title: String, infoText: String) {
+        self.init()
+        setup()
+        self.configure(titleBorderColor: UIColor.gray.cgColor,
+                       borderColor: UIColor.gray.cgColor,
+                       titleText: title,
+                       infoText: infoText,
+                       alignment: .justified,
+                       infoIsBold: false)
     }
     
     func setup() {

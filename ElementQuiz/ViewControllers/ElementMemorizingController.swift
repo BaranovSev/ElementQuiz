@@ -200,7 +200,7 @@ final class ElementMemorizingController: UIViewController {
             }
         case .score:
             saveResultOfGame()
-            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: element.name)
+            showCongratulationViewController()
         }
     }
     
@@ -267,8 +267,8 @@ final class ElementMemorizingController: UIViewController {
 
 // MARK: - ShowCongratulationProtocol
 extension ElementMemorizingController: ShowCongratulationProtocol {
-    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
-        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+    func showCongratulationViewController() {
+        let vc = CongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, delegate: self, describeOfSense: currentElement.name)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }

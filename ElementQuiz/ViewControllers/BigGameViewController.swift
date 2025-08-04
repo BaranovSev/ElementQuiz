@@ -245,7 +245,7 @@ final class BigGameViewController: UIViewController {
         case .score:
             //TODO: new controller with result
             saveResultOfGame()
-            showCongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, fromViewControllerDelegate: self, describeOfSense: typeOfGame.rawValue)
+            showCongratulationViewController()
         }
     }
     
@@ -425,8 +425,8 @@ extension BigGameViewController: GameProtocol {
 
 // MARK: - ShowCongratulationProtocol
 extension BigGameViewController: ShowCongratulationProtocol {
-    func showCongratulationViewController(totalQuestions: Int, correctAnswers: Int, fromViewControllerDelegate: ShowCongratulationProtocol, describeOfSense: String) {
-        let vc = CongratulationViewController(totalQuestions: totalQuestions, correctAnswers: correctAnswers, delegate: fromViewControllerDelegate, describeOfSense: describeOfSense)
+    func showCongratulationViewController() {
+        let vc = CongratulationViewController(totalQuestions: sequenceOfQuestions.count, correctAnswers: correctAnswerCount, delegate: self, describeOfSense: typeOfGame.rawValue)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
