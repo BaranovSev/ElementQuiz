@@ -35,7 +35,7 @@ final class LessonViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = CustomColors.purple
+        button.backgroundColor = CustomColors.bigButtonColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.bigButtonTapped), for: .touchUpInside)

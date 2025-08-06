@@ -7,7 +7,81 @@
 
 import UIKit
 
+enum Theme: String {
+    case standard
+    case dark
+}
+
 struct CustomColors {
+    private static var currentTheme: Theme = .dark
+    
+    private static var colors: (phontColor: UIColor, secondaryColor: UIColor, softColor: UIColor, progressBarColor: UIColor, salutteColor: UIColor, bigButtonColor: UIColor, mainColor: UIColor, forHeaders: UIColor, periodicTableTextColor: UIColor, phontForCell: UIColor, alphaPhontInCell: UIColor) {
+        
+        switch currentTheme {
+        case .standard:
+            return (
+                UIColor(named: "white_richBlack") ?? UIColor.white,
+                UIColor(named: "lavender_black") ?? UIColor.white,
+                UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white,
+                UIColor(named: "gold") ?? UIColor.white,
+                UIColor(named: "gold") ?? UIColor.white,
+                UIColor(named: "ultraViolet") ?? UIColor.white,
+                UIColor(named: "oxfordBlue_lavender") ?? UIColor.white,
+                UIColor(named: "charcoal_lavender") ?? UIColor.white,
+                UIColor(named: "oxfordBlue_white") ?? UIColor.white,
+                UIColor(named: "lavender_charcoal") ?? UIColor.white,
+                UIColor(named: "white_with_alpha") ?? UIColor.white
+            )
+            
+        case .dark:
+            return (
+                UIColor(named: "dark_white_richBlack") ?? UIColor.black,
+                UIColor(named: "dark_lavender_black") ?? UIColor.black,
+                UIColor(named: "dark_oxfordBlue_charcoal") ?? UIColor.black,
+                UIColor(named: "dark_gold") ?? UIColor.black,
+                UIColor(named: "dark_gold") ?? UIColor.black,
+                UIColor(named: "dark_ultraViolet") ?? UIColor.black,
+                UIColor(named: "dark_oxfordBlue_lavender") ?? UIColor.black,
+                UIColor(named: "dark_charcoal_lavender") ?? UIColor.black,
+                UIColor(named: "dark_oxfordBlue_white") ?? UIColor.black,
+                UIColor(named: "dark_lavender_charcoal") ?? UIColor.black,
+                UIColor(named: "dark_white_with_alpha") ?? UIColor.black
+            )
+        }
+    }
+    
+    static var softAppColor: UIColor {
+        return colors.softColor
+    }
+    static var generalTextColor: UIColor {
+        return colors.mainColor
+    }
+    static var secondaryTextColor: UIColor {
+        return colors.forHeaders
+    }
+    static var generalAppPhont: UIColor {
+        return colors.phontColor
+    }
+    static var periodicTableTextColor: UIColor {
+        return colors.periodicTableTextColor
+    }
+    static var backgroundForCell: UIColor {
+        return colors.phontForCell
+    }
+    static var progressBarColor: UIColor {
+        return colors.progressBarColor
+    }
+    static var salutteColor: UIColor {
+        return colors.salutteColor
+    }
+    static var alphaPhontInCell: UIColor {
+        return colors.alphaPhontInCell
+    }
+    static var bigButtonColor: UIColor {
+        return colors.bigButtonColor
+    }
+
+    //Chemical elements colors:
     static let actinide = UIColor(named: "actinide") ?? UIColor.white
     static let alkaliMetal = UIColor(named: "alkaliMetal") ?? UIColor.white
     static let alkalineEarthMetal = UIColor(named: "alkalineEarthMetal") ?? UIColor.white
@@ -21,7 +95,6 @@ struct CustomColors {
     static let nonmetal = UIColor(named: "nonmetal") ?? UIColor.white
     static let halogen = UIColor(named: "halogen") ?? UIColor.white
     static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
-//    static let lightPurple = UIColor(named: "lightPurple") ?? UIColor.white
     static let sblock = UIColor(named: "sblock") ?? UIColor.white
     static let pblock = UIColor(named: "pblock") ?? UIColor.white
     static let dblock = UIColor(named: "dblock") ?? UIColor.white
@@ -30,43 +103,47 @@ struct CustomColors {
 //    technical colors
     static let greenCorrectAnswer = UIColor(red: 0.298, green: 1.0, blue: 0.298, alpha: 1.0)
     static let greenLight = UIColor(red: 0.400, green: 1.0, blue: 0.400, alpha: 1.0)
-//    static let greenCorrectAnswer = UIColor.green.withAlphaComponent(0.7)
     static let redIncorrectAnswer = UIColor(red: 1.0, green: 0.298, blue: 0.298, alpha: 1.0)
     static let redLight = UIColor(red: 1.0, green: 0.400, blue: 0.400, alpha: 1.0)
-//    static let redIncorrectAnswer = UIColor.red.withAlphaComponent(0.7)
-    
-//    theme colors
-    //dark blue theme
-    static private let phontColor = UIColor(named: "white_richBlack") ?? UIColor.white
-    static private let secondaryColor = UIColor(named: "lavender_black") ?? UIColor.white
-    static private let softColor = UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white
-    static private let goldSoft = UIColor(named: "gold") ?? UIColor.white
-    static private let purpleButton = UIColor(named: "ultraViolet") ?? UIColor.white
-    static private let mainColor = UIColor(named: "oxfordBlue_lavender") ?? UIColor.white
-    static private let forHeaders = UIColor(named: "charcoal_lavender") ?? UIColor.white
-    static private let oxfordBlueWhite = UIColor(named: "oxfordBlue_white") ?? UIColor.white
-    static private let phontForCell = UIColor(named: "lavender_charcoal") ?? UIColor.white
-    static private let whiteCustomAlpha = UIColor(named: "white_with_alpha") ?? UIColor.white
-    
-    static let softAppColor = softColor
-    static let generalTextColor = mainColor
-    static let secondaryTextColor = forHeaders
-    static let generalAppPhont = phontColor
-// TODO: - chose color for secondary
-    static let blackWhite = oxfordBlueWhite
-    static let backgroundForCell = phontForCell
-    static let gold = goldSoft
-    static let customWhite = whiteCustomAlpha
-    
-    //Absolute black
-//    static let generalAppPhont = secondaryColor
-//    static let backgroundForCell = phontColor
-    //Violete
 
-//    static let secondaryColor
-    static let purple = purpleButton
+    
+    //TODO: uncomment >
+////    theme colors
+//    //dark blue theme
+//    static private let phontColor = UIColor(named: "white_richBlack") ?? UIColor.white
+//    static private let secondaryColor = UIColor(named: "lavender_black") ?? UIColor.white
+//    static private let softColor = UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white
+//    static private let goldSoft = UIColor(named: "gold") ?? UIColor.white
+//    static private let purpleButton = UIColor(named: "ultraViolet") ?? UIColor.white
+//    static private let mainColor = UIColor(named: "oxfordBlue_lavender") ?? UIColor.white
+//    static private let forHeaders = UIColor(named: "charcoal_lavender") ?? UIColor.white
+//    static private let oxfordBlueWhite = UIColor(named: "oxfordBlue_white") ?? UIColor.white
+//    static private let phontForCell = UIColor(named: "lavender_charcoal") ?? UIColor.white
+//    static private let whiteCustomAlpha = UIColor(named: "white_with_alpha") ?? UIColor.white
+//
+//    static let softAppColor = softColor
+//    static let generalTextColor = mainColor
+//    static let secondaryTextColor = forHeaders
+//    static let generalAppPhont = phontColor
+//// TODO: - chose color for secondary
+//    static let blackWhite = oxfordBlueWhite
+//    static let backgroundForCell = phontForCell
+//    static let gold = goldSoft
+//    static let customWhite = whiteCustomAlpha
+//
+//    //Absolute black
+////    static let generalAppPhont = secondaryColor
+////    static let backgroundForCell = phontColor
+//    //Violete
+//
+////    static let secondaryColor
+//    static let purple = purpleButton
 
+    
+//TODO: uncomment <
 }
+
+
 
 extension CustomColors {
     static func choseColor(_ category: String) -> UIColor {

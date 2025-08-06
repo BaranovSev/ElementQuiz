@@ -126,7 +126,7 @@ final class StartViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = CustomColors.purple
+        button.backgroundColor = CustomColors.bigButtonColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.showElementInfoViewController), for: .touchUpInside)
@@ -179,6 +179,7 @@ final class StartViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = CustomColors.generalAppPhont
         addSubViews()
         startTimer()
         layout()
@@ -643,7 +644,7 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         countLabel.layer.masksToBounds = true
         countLabel.layer.cornerRadius = 25
         countLabel.textColor = CustomColors.generalTextColor
-        countLabel.backgroundColor = CustomColors.customWhite
+        countLabel.backgroundColor = CustomColors.alphaPhontInCell
     }
     
     private func addSubViews() {
@@ -987,7 +988,7 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
         secondaryLabel.adjustsFontSizeToFitWidth = true
         secondaryLabel.layer.masksToBounds = true
         secondaryLabel.layer.cornerRadius = 10
-        secondaryLabel.backgroundColor = CustomColors.customWhite
+        secondaryLabel.backgroundColor = CustomColors.alphaPhontInCell
     }
     
     private func addSubViews() {

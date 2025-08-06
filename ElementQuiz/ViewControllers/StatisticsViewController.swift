@@ -288,7 +288,7 @@ private final class AvatarClassView: UIView {
     }
 
     private func setupViews() {
-        progressBar.progressTintColor = CustomColors.gold
+        progressBar.progressTintColor = CustomColors.progressBarColor
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
