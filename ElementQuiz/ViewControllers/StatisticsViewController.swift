@@ -69,7 +69,9 @@ final class StatisticViewControler: UIViewController {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
         backButton.tintColor = CustomColors.generalTextColor
+        self.navigationController?.hidesBarsOnSwipe = true
         
         setup()
         addSubViews()

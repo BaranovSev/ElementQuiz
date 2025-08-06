@@ -92,6 +92,7 @@ final class PeriodicTableViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
         backButton.tintColor = CustomColors.generalTextColor
         settingsButton.tintColor = CustomColors.generalTextColor

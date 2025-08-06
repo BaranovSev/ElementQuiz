@@ -74,6 +74,7 @@ final class LessonViewController: UIViewController {
         backButton.tintColor = CustomColors.generalTextColor
         navigationItem.leftBarButtonItem = backButton
         self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
     }
