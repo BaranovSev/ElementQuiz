@@ -89,7 +89,7 @@ final class SearchViewController: UIViewController {
         
         setupButton.setTitleColor(color, for: .normal)
         setupButton.layer.borderColor = color.cgColor
-        setupButton.backgroundColor = CustomColors.generalAppPhont
+        setupButton.backgroundColor = CustomColors.generalAppFont
 
         setupButton.layer.borderWidth = 2
         setupButton.layer.cornerRadius = 4
@@ -130,7 +130,7 @@ final class SearchViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellForElement.reusableIdentifier)
         tableView.rowHeight = 90
-        tableView.backgroundColor = CustomColors.generalAppPhont
+        tableView.backgroundColor = CustomColors.generalAppFont
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -155,11 +155,11 @@ final class SearchViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.title = userSelectedOptionalParameter.descriptionHumanReadable()
         self.navigationItem.rightBarButtonItem = settingsButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
         backButton.tintColor = CustomColors.generalTextColor
         settingsButton.tintColor = CustomColors.generalTextColor
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         
         setup()
         addSubViews()
@@ -551,9 +551,11 @@ final private class CellForElement: UITableViewCell {
     
     private func setup() {
         selectionStyle = .none
-        contentView.backgroundColor = CustomColors.generalAppPhont
+        contentView.backgroundColor = CustomColors.generalAppFont
         
         elementNumberLabel.font = UIFont(name: "Avenir", size: 15)
+        elementNumberLabel.textColor = CustomColors.generalTextColor
+        
         symbolLabel.font = UIFont(name: "Avenir", size: 40)
         symbolLabel.textAlignment = .center
         symbolLabel.textColor = CustomColors.generalTextColor
@@ -657,7 +659,7 @@ final private class CellForElement: UITableViewCell {
         infoColorView.backgroundColor = color
         separateView.backgroundColor = color
         //MARK: phont of cell
-        parentView.backgroundColor = CustomColors.generalAppPhont
+        parentView.backgroundColor = CustomColors.generalAppFont
         
         button.imageView?.tintColor = color
         choseIconForButton(symbol)
@@ -780,11 +782,11 @@ final class UpscaledTextViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         labelName.textColor = CustomColors.generalTextColor
         labelParameter.textColor = CustomColors.generalTextColor
         descriptionTextView.textColor = CustomColors.generalTextColor
-        descriptionTextView.backgroundColor = CustomColors.generalAppPhont
+        descriptionTextView.backgroundColor = CustomColors.generalAppFont
     }
     
     func configure(elementName: String, parameter: String, info: String) {

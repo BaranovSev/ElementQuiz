@@ -78,7 +78,7 @@ class PhaseView: UIView {
         parentView.layer.cornerRadius = 10
         parentView.layer.borderWidth = 2.0
         parentView.layer.borderColor = CustomColors.softAppColor.cgColor
-        parentView.backgroundColor = CustomColors.generalAppPhont
+        parentView.backgroundColor = CustomColors.generalAppFont
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont(name:"Menlo Bold", size: 30)
@@ -162,7 +162,7 @@ class AccentBoxView: UIView {
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
         infoLabel.font = UIFont(name: "Avenir", size: 20)
         infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.textAlignment = .center
@@ -242,9 +242,7 @@ class PalleteView: UIView {
     }
     
     private func configureLayer() {
-//        layer.cornerRadius = 15
-//        layer.borderWidth = 2.0
-        backgroundColor = CustomColors.generalAppPhont
+        backgroundColor = CustomColors.generalAppFont
     }
     
     private func configureTitleLabel() {
@@ -256,7 +254,7 @@ class PalleteView: UIView {
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
     }
     
     private func configureParentStack() {
@@ -291,8 +289,6 @@ class PalleteView: UIView {
         label.text = toRoman ? String(value.toRoman()) : String(value)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = (form == .square) ? 2 : 20
-//        label.layer.borderWidth = 2.0
-//        label.layer.borderColor = CustomColors.secondaryTextColor.cgColor
         if toRoman == false {
             if value == 0 {
                 label.backgroundColor = CustomColors.backgroundForCell
@@ -419,7 +415,7 @@ class TemperatureView: UIView {
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
     }
     
     private func configureVerticalStack() {
@@ -487,9 +483,9 @@ class TemperatureView: UIView {
     
     func configure(titleBorderColor: CGColor, borderColor: CGColor, titleText: String, labelOneText: String, labelTwoText: String, labelThreeText: String, imageName: String) {
         titleLabel.layer.borderColor = titleBorderColor
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
         parentView.layer.borderColor = borderColor
-        parentView.backgroundColor = CustomColors.generalAppPhont
+        parentView.backgroundColor = CustomColors.generalAppFont
         titleLabel.text = " " + titleText + " "
         labelOne.text = labelOneText
         labelTwo.text = labelTwoText
@@ -534,7 +530,7 @@ class BoxViewWithTextView: UIView {
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 15
         titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
         infoTextView.font = UIFont(name: "Avenir", size: 20)
         infoTextView.textColor = CustomColors.generalTextColor
         infoTextView.textAlignment = .center
@@ -623,7 +619,7 @@ class HeaderWithText: UIView {
         titleLabel.layer.masksToBounds = true
 //        titleLabel.layer.cornerRadius = 15
 //        titleLabel.layer.borderWidth = 2.0
-        titleLabel.backgroundColor = CustomColors.generalAppPhont
+        titleLabel.backgroundColor = CustomColors.generalAppFont
         infoTextView.font = UIFont(name: "Menlo Bold", size: 30)
         infoTextView.textColor = CustomColors.generalTextColor
         infoTextView.textAlignment = .center

@@ -24,7 +24,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height * 2.7)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -68,8 +68,8 @@ final class StatisticViewControler: UIViewController {
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
-        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
         backButton.tintColor = CustomColors.generalTextColor
         self.navigationController?.hidesBarsOnSwipe = true
         
@@ -393,7 +393,7 @@ private class SliderBox: UIView {
         parentView.layer.cornerRadius = corner
         parentView.layer.borderColor = CustomColors.backgroundForCell.cgColor
         parentView.layer.borderWidth = 2
-        parentView.backgroundColor = CustomColors.generalAppPhont
+        parentView.backgroundColor = CustomColors.generalAppFont
         
         coloredView.layer.masksToBounds = true
         coloredView.layer.cornerRadius = corner

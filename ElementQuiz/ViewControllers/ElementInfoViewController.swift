@@ -24,7 +24,7 @@ final class ElementInfoViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 4550)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -472,7 +472,7 @@ final class ElementInfoViewController: UIViewController {
 
 private extension ElementInfoViewController {
     func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         showInformation()
     }
     

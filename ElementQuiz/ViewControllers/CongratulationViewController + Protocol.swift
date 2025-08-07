@@ -134,7 +134,7 @@ final class CongratulationViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         var goodResult: Bool = true
         var correctAnswersText = ""
         var totalQuestionsText = ""

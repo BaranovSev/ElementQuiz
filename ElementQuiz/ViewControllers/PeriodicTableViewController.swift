@@ -68,7 +68,7 @@ final class PeriodicTableViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: 2000, height: 1200)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         return scrollView
     }()
     
@@ -91,8 +91,8 @@ final class PeriodicTableViewController: UIViewController {
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.rightBarButtonItem = settingsButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
-        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
         backButton.tintColor = CustomColors.generalTextColor
         settingsButton.tintColor = CustomColors.generalTextColor

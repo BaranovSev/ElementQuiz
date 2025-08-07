@@ -28,7 +28,7 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellWithLabel.reusableIdentifier)
-        tableView.backgroundColor = CustomColors.generalAppPhont
+        tableView.backgroundColor = CustomColors.generalAppFont
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
         return tableView
@@ -73,7 +73,7 @@ final class ParametersButtonViewController: UIViewController, UITableViewDelegat
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -125,7 +125,7 @@ final private class CellWithLabel: UITableViewCell {
         infoLabel.textAlignment = .justified
         infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.numberOfLines = 2
-        backgroundColor = CustomColors.generalAppPhont
+        backgroundColor = CustomColors.generalAppFont
 //        parentView.layer.borderWidth = 2
         parentView.layer.cornerRadius = 4
         parentView.backgroundColor = CustomColors.backgroundForCell

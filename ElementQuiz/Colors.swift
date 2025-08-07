@@ -10,51 +10,66 @@ import UIKit
 enum Theme: String {
     case standard = "standard"
     case darkBlue = "darkBlue"
+    case brown = "brown"
 }
 
 struct CustomColors {
-    private static var currentTheme: Theme = .darkBlue
+    private static var currentTheme: Theme = .brown
     
     private static var colors: (
-        generalAppPhont: UIColor,
+        generalAppFont: UIColor,
+        generalTextColor: UIColor,
         softAppColor: UIColor,
         progressBarColor: UIColor,
         salutteColor: UIColor,
         bigButtonColor: UIColor,
-        generalTextColor: UIColor,
         forHeaders: UIColor,
         periodicTableTextColor: UIColor,
-        phontForCell: UIColor,
-        alphaPhontInCell: UIColor
+        fontForCell: UIColor,
+        alphaFontInCell: UIColor
     ) {
         
         switch currentTheme {
         case .standard:
             return (
-                generalAppPhont: UIColor(named: "white_richBlack") ?? UIColor.white,
+                generalAppFont: UIColor(named: "white_richBlack") ?? UIColor.white,
+                generalTextColor: UIColor(named: "oxfordBlue_lavender") ?? UIColor.white,
                 softAppColor: UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white,
                 progressBarColor: UIColor(named: "gold") ?? UIColor.white,
                 salutteColor: UIColor(named: "gold") ?? UIColor.white,
                 bigButtonColor: UIColor(named: "ultraViolet") ?? UIColor.white,
-                generalTextColor: UIColor(named: "oxfordBlue_lavender") ?? UIColor.white,
                 forHeaders: UIColor(named: "charcoal_lavender") ?? UIColor.white,
                 periodicTableTextColor: UIColor(named: "oxfordBlue_white") ?? UIColor.white,
-                phontForCell: UIColor(named: "lavender_charcoal") ?? UIColor.white,
-                alphaPhontInCell: UIColor(named: "white_with_alpha") ?? UIColor.white
+                fontForCell: UIColor(named: "lavender_charcoal") ?? UIColor.white,
+                alphaFontInCell: UIColor(named: "white_with_alpha") ?? UIColor.white
             )
             
         case .darkBlue:
             return (
-                generalAppPhont: UIColor(named: "dark_richBlack_blackBlue") ?? UIColor.white,
-                softAppColor: UIColor(named: "dark_charcoal_lapisLazuli") ?? UIColor.white,
+                generalAppFont: UIColor(named: "dark_richBlack_blackBlue") ?? UIColor.white,
+                generalTextColor: UIColor(named: "dark_columbiaBlue_airSuperiorityBlue") ?? UIColor.white,
+                softAppColor: UIColor(named: "dark_charocal_lapisLazuli") ?? UIColor.white,
                 progressBarColor: UIColor(named: "dark_gold") ?? UIColor.white,
                 salutteColor: UIColor(named: "dark_gold") ?? UIColor.white,
                 bigButtonColor: UIColor(named: "dark_ultraBlue") ?? UIColor.white,
-                generalTextColor: UIColor(named: "dark_columbiaBlue_airSuperiorityBlue") ?? UIColor.white,
                 forHeaders: UIColor(named: "dark_airSuperiorityBlue") ?? UIColor.white,
                 periodicTableTextColor: UIColor(named: "dark_richBlack_blackBlue") ?? UIColor.white, //here the same as generalAppPhont
-                phontForCell: UIColor(named: "dark_charocal_oxfordBlue") ?? UIColor.white,
-                alphaPhontInCell: UIColor(named: "dark_white_with_alpha") ?? UIColor.white
+                fontForCell: UIColor(named: "dark_charocal_oxfordBlue") ?? UIColor.white,
+                alphaFontInCell: UIColor(named: "dark_white_with_alpha") ?? UIColor.white
+            )
+            
+        case .brown:
+            return (
+                generalAppFont: UIColor(named: "brown_generalAppFont") ?? UIColor.white,
+                generalTextColor: UIColor(named: "brown_generalTextColor") ?? UIColor.white,
+                softAppColor: UIColor(named: "brown_softAppColor") ?? UIColor.white,
+                progressBarColor: UIColor(named: "brown_gold") ?? UIColor.white,
+                salutteColor: UIColor(named: "brown_gold") ?? UIColor.white,
+                bigButtonColor: UIColor(named: "brown_ultraBrown") ?? UIColor.white,
+                forHeaders: UIColor(named: "brown_forHeaders") ?? UIColor.white,
+                periodicTableTextColor: UIColor(named: "brown_periodicTableTextColor") ?? UIColor.white,
+                fontForCell: UIColor(named: "brown_fontForCell") ?? UIColor.white,
+                alphaFontInCell: UIColor(named: "brown_white_with_alpha") ?? UIColor.white
             )
         }
     }
@@ -68,14 +83,14 @@ struct CustomColors {
     static var secondaryTextColor: UIColor {
         return colors.forHeaders
     }
-    static var generalAppPhont: UIColor {
-        return colors.generalAppPhont
+    static var generalAppFont: UIColor {
+        return colors.generalAppFont
     }
     static var periodicTableTextColor: UIColor {
         return colors.periodicTableTextColor
     }
     static var backgroundForCell: UIColor {
-        return colors.phontForCell
+        return colors.fontForCell
     }
     static var progressBarColor: UIColor {
         return colors.progressBarColor
@@ -83,11 +98,15 @@ struct CustomColors {
     static var salutteColor: UIColor {
         return colors.salutteColor
     }
-    static var alphaPhontInCell: UIColor {
-        return colors.alphaPhontInCell
+    static var alphaFontInCell: UIColor {
+        return colors.alphaFontInCell
     }
     static var bigButtonColor: UIColor {
         return colors.bigButtonColor
+    }
+    
+    static func setTheme(_ theme: Theme) {
+        currentTheme = theme
     }
 
     //Chemical elements colors:
@@ -159,3 +178,23 @@ extension CustomColors {
     }
 }
 
+extension UIColor {
+    convenience init?(hex: String, alpha: CGFloat = 1.0) {
+        var formattedHex = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if formattedHex.hasPrefix("#") {
+            formattedHex.remove(at: formattedHex.startIndex)
+        }
+        
+        guard formattedHex.count == 6 else { return nil }
+        
+        var rgbValue: UInt64 = 0
+        Scanner(string: formattedHex).scanHexInt64(&rgbValue)
+        
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
+}

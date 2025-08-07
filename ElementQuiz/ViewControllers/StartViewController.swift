@@ -89,7 +89,7 @@ final class StartViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1250)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -166,7 +166,7 @@ final class StartViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = CustomColors.generalAppPhont
+        collectionView.backgroundColor = CustomColors.generalAppFont
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
         collectionView.isScrollEnabled = false
@@ -179,7 +179,7 @@ final class StartViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         addSubViews()
         startTimer()
         layout()
@@ -644,7 +644,7 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         countLabel.layer.masksToBounds = true
         countLabel.layer.cornerRadius = 25
         countLabel.textColor = CustomColors.generalTextColor
-        countLabel.backgroundColor = CustomColors.alphaPhontInCell
+        countLabel.backgroundColor = CustomColors.alphaFontInCell
     }
     
     private func addSubViews() {
@@ -988,7 +988,7 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
         secondaryLabel.adjustsFontSizeToFitWidth = true
         secondaryLabel.layer.masksToBounds = true
         secondaryLabel.layer.cornerRadius = 10
-        secondaryLabel.backgroundColor = CustomColors.alphaPhontInCell
+        secondaryLabel.backgroundColor = CustomColors.alphaFontInCell
     }
     
     private func addSubViews() {

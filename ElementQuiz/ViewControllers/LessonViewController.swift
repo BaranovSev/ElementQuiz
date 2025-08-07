@@ -16,7 +16,7 @@ final class LessonViewController: UIViewController {
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         return scrollView
     }()
     
@@ -62,7 +62,7 @@ final class LessonViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         navigationItem.title = headerText
         
         let backButton = UIBarButtonItem(
@@ -73,8 +73,8 @@ final class LessonViewController: UIViewController {
         )
         backButton.tintColor = CustomColors.generalTextColor
         navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
-        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
     }

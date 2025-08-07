@@ -138,7 +138,7 @@ final class ElementMemorizingController: UIViewController {
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
         backButton.tintColor = CustomColors.generalTextColor
 
         setupQuestionSequens()
@@ -281,7 +281,7 @@ extension ElementMemorizingController: ShowCongratulationProtocol {
 // MARK: - UI setup layout functions
 private extension ElementMemorizingController {
     private func setUp() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         view.addSubview(elementSymbolLabel)
         view.addSubview(questionLabel)
         view.addSubview(verticalStack)
