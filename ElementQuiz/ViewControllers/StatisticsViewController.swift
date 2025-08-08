@@ -43,6 +43,14 @@ final class StatisticViewControler: UIViewController {
         SliderBox()
     }()
     
+    private lazy var lessonsSection: SliderBox = {
+        SliderBox()
+    }()
+    
+    private lazy var reactionsSection: SliderBox = {
+        SliderBox()
+    }()
+    
     private lazy var bigGamesSection: SliderBox = {
         SliderBox()
     }()
@@ -87,6 +95,8 @@ final class StatisticViewControler: UIViewController {
         
         scrollView.addSubview(userStatisticProgress)
         scrollView.addSubview(memorizingSection)
+        scrollView.addSubview(lessonsSection)
+        scrollView.addSubview(reactionsSection)
         scrollView.addSubview(bigGamesSection)
         scrollView.addSubview(shareButton)
     }
@@ -130,8 +140,22 @@ final class StatisticViewControler: UIViewController {
             make.height.equalTo(memorizingSection.snp.width).dividedBy(2)
         }
         
-        bigGamesSection.snp.makeConstraints { make in
+        lessonsSection.snp.makeConstraints { make in
             make.top.equalTo(memorizingSection.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(memorizingSection)
+            make.height.equalTo(memorizingSection)
+        }
+        
+        reactionsSection.snp.makeConstraints { make in
+            make.top.equalTo(lessonsSection.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(memorizingSection)
+            make.height.equalTo(memorizingSection)
+        }
+        
+        bigGamesSection.snp.makeConstraints { make in
+            make.top.equalTo(reactionsSection.snp.bottom).offset(35)
             make.centerX.equalToSuperview()
             make.width.equalTo(memorizingSection)
             make.height.equalTo(memorizingSection)
@@ -170,6 +194,32 @@ final class StatisticViewControler: UIViewController {
                                     subscriptText: "passed",
                                     sideContentText: memorizingSideInfoText,
                                     imageForEvent: "ancient_table")
+        
+        let countOfLessons = 0//[0,1,2,3].randomElement()!
+        //user.countPassedLessons (by lesson id)
+        let totalCountOfLessons = 4
+        let lessonsHeader = countOfLessons != 1 ? "lessons" : "lesson"
+        let lessonsLeft = totalCountOfLessons - countOfLessons
+        let lessonsSideInfoText = lessonsLeft <= 0 ? "Congratulations!\nYou've learned them all." : "still left: \(lessonsLeft)"
+        lessonsSection.configure(position: .right,
+                                    headerText: lessonsHeader,
+                                    score: countOfLessons,
+                                    subscriptText: "studied",
+                                    sideContentText: lessonsSideInfoText,
+                                    imageForEvent: "scroll_lesson")
+        
+        let countOfReactions = 0//[0,1,2,3].randomElement()!
+        //user.countPassedReactions (by lesson id)
+        let totalCountOfReactions = 4
+        let reactionsHeader = countOfReactions != 1 ? "reactions" : "reaction"
+        let reactionsLeft = totalCountOfReactions - countOfReactions
+        let reactionsSideInfoText = reactionsLeft <= 0 ? "Congratulate!\nYou've done them all." : "still left: \(reactionsLeft)"
+        reactionsSection.configure(position: .left,
+                                    headerText: reactionsHeader,
+                                    score: countOfReactions,
+                                    subscriptText: "carried out",
+                                    sideContentText: reactionsSideInfoText,
+                                    imageForEvent: "flask")
         
         let countOfBigGames = user.countBigGames
         let countBigGameQuestions = user.countBigGamesQuestions
