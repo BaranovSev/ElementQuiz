@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD08E6752E4644BB0055C6F5 /* ThemeSelectorVC + Protocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = FD08E6742E4644BB0055C6F5 /* ThemeSelectorVC + Protocol .swift */; };
 		FD19C84E2B52FACA005AFAC8 /* ElementInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */; };
 		FD316D4A2B9C7D1F007263CC /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */; };
 		FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD08E6742E4644BB0055C6F5 /* ThemeSelectorVC + Protocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeSelectorVC + Protocol .swift"; sourceTree = "<group>"; };
 		FD19C84D2B52FACA005AFAC8 /* ElementInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInfoViewController.swift; sourceTree = "<group>"; };
 		FD316D492B9C7D1F007263CC /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
 		FD316D4B2B9CC3BD007263CC /* PeriodicTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableCellView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */,
 				FD8FDB832BBD858800C77650 /* SearchViewController.swift */,
 				FDF64D3D2BC60D8E002E03E0 /* MenuButtonVC + Protocol.swift */,
+				FD08E6742E4644BB0055C6F5 /* ThemeSelectorVC + Protocol .swift */,
 				FD91549D2BC8532B00209124 /* CongratulationViewController + Protocol.swift */,
 				FDAEE3C62CD2797800113CA1 /* LessonViewController.swift */,
 				FDB03A6C2B25F890004BC16E /* ElementQuiz */,
@@ -427,6 +430,7 @@
 				FDBA190B2B385A5500747B81 /* StartViewController.swift in Sources */,
 				FD7A10BE2CA851F600C25877 /* StringQuotes.swift in Sources */,
 				FDAD240D2BC3E74B008B40D6 /* UIImage+extension.swift in Sources */,
+				FD08E6752E4644BB0055C6F5 /* ThemeSelectorVC + Protocol .swift in Sources */,
 				FD316D4C2B9CC3BD007263CC /* PeriodicTableCellView.swift in Sources */,
 				FD8FDB842BBD858800C77650 /* SearchViewController.swift in Sources */,
 				FD7A10C02CA8597700C25877 /* UITextView+extension.swift in Sources */,

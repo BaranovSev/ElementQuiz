@@ -7,14 +7,30 @@
 
 import UIKit
 
-enum Theme: String {
-    case standard = "standard"
-    case darkBlue = "darkBlue"
-    case brown = "brown"
+
+enum SelectionBoxType {
+    case square
+    case round
+}
+
+struct UserSelectionStyle {
+    static private var selectedType: SelectionBoxType = .square
+    static var currentType: SelectionBoxType {
+        return selectedType
+    }
+    static func setStyle(_ style: SelectionBoxType) {
+        selectedType = style
+    }
+}
+
+enum Theme: String, CaseIterable {
+    case standard = "Standard colors"
+    case darkBlue = "Night blue"
+    case brown = "Autumn brown"
 }
 
 struct CustomColors {
-    private static var currentTheme: Theme = .brown
+    private static var currentTheme: Theme = .standard
     
     private static var colors: (
         generalAppFont: UIColor,
@@ -107,6 +123,10 @@ struct CustomColors {
     
     static func setTheme(_ theme: Theme) {
         currentTheme = theme
+    }
+    
+    static func getCurrentTheme() -> Theme {
+        return currentTheme
     }
 
     //Chemical elements colors:

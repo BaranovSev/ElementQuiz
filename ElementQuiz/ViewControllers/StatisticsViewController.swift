@@ -74,16 +74,24 @@ final class StatisticViewControler: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
-        self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
-        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
-        backButton.tintColor = CustomColors.generalTextColor
-        self.navigationController?.hidesBarsOnSwipe = true
-        
+        setupNavBar()
         setup()
         addSubViews()
         layout()
+    }
+    
+    func setupNavBar() {
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
+        
+        backButton.tintColor = CustomColors.generalTextColor
+        settingsButton.tintColor = CustomColors.generalTextColor
+        
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.rightBarButtonItem = settingsButton
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
+        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     private func addSubViews() {
@@ -195,7 +203,8 @@ final class StatisticViewControler: UIViewController {
                                     sideContentText: memorizingSideInfoText,
                                     imageForEvent: "ancient_table")
         
-        let countOfLessons = 0//[0,1,2,3].randomElement()!
+        //TODO: countOfLessons real data need
+        let countOfLessons = [0,1,2,3].randomElement()!
         //user.countPassedLessons (by lesson id)
         let totalCountOfLessons = 4
         let lessonsHeader = countOfLessons != 1 ? "lessons" : "lesson"
@@ -208,7 +217,8 @@ final class StatisticViewControler: UIViewController {
                                     sideContentText: lessonsSideInfoText,
                                     imageForEvent: "scroll_lesson")
         
-        let countOfReactions = 0//[0,1,2,3].randomElement()!
+        //TODO: countOfReactions real data need
+        let countOfReactions = [0,1,2,3].randomElement()!
         //user.countPassedReactions (by lesson id)
         let totalCountOfReactions = 4
         let reactionsHeader = countOfReactions != 1 ? "reactions" : "reaction"
@@ -313,6 +323,13 @@ final class StatisticViewControler: UIViewController {
     
     @objc func backAction() {
         self.dismiss(animated: true)
+    }
+    
+    @objc func showSettings() {
+        let vc = ThemeSelectorViewController() 
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
 }
 
