@@ -15,10 +15,6 @@ private enum OrderCases {
 }
 
 private var chosenElements: Set<String> = []
-private let chosenSquareImages = ["square.fill", "square.inset.filled", "square.dashed.inset.filled"]
-private let chosenCircleImages = ["circle.fill", "circle.inset.filled", "circle.dashed.inset.filled"]
-private let unchosenSquareImages = ["square.dotted", "square.dashed", "square"]
-private let unchosenCircleImages = ["circle.dotted", "circle.dashed", "circle"]
 
 final class SearchViewController: UIViewController {
     private let dataSource: ElementQuizDataSource
@@ -667,10 +663,12 @@ final private class CellForElement: UITableViewCell {
     }
     
     private func choseIconForButton(_ elementSymbol: String) {
-        let imageName = chosenElements.contains(elementSymbol) ? chosenSquareImages.shuffled().first! : unchosenSquareImages.shuffled().first!
-        //circular check boxes
-//        let imageName = chosenElements.contains(elementSymbol) ? chosenCircleImages.shuffled().first! : unchosenCircleImages.shuffled().first!
-        button.setImage(UIImage(systemName: imageName) ?? UIImage(), for: .normal)
+        let (chosenImages, unchosenImages) = UserSelectionStyle.currentType.images
+        let pool = chosenElements.contains(elementSymbol) ? chosenImages : unchosenImages
+        
+        guard let imageName = pool.randomElement() else { button.setImage(nil, for: .normal); return }
+        
+        button.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
     @objc func bookmarkButtonTaped() {
@@ -708,7 +706,6 @@ final class UpscaledTextViewController: UIViewController {
         var text = UITextView()
         text.font = UIFont(name: "Avenir", size: 27)
         text.textColor = CustomColors.generalTextColor
-//        text.textAlignment = .justified
         text.isEditable = false
         text.isSelectable = false
         return text
@@ -719,8 +716,6 @@ final class UpscaledTextViewController: UIViewController {
         button.setImage(UIImage(named: "plane") ?? UIImage(), for: .normal)
         button.tintColor = CustomColors.secondaryTextColor
         button.backgroundColor = CustomColors.backgroundForCell
-//        button.layer.borderColor = CustomColors.secondaryTextColor.cgColor
-//        button.layer.borderWidth = 3
         button.layer.cornerRadius = 30
         button.addTarget(self, action: #selector(Self.shareAction), for: .touchUpInside)
         button.imageView?.snp.makeConstraints { make in

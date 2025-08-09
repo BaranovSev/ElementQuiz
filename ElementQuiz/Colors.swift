@@ -13,6 +13,20 @@ enum SelectionBoxType {
     case round
 }
 
+extension SelectionBoxType {
+    var images: (chosen: [String], unchosen: [String]) {
+        switch self {
+        case .square:
+            return (["square.fill", "square.inset.filled", "square.dashed.inset.filled"],
+                    ["square.dotted", "square.dashed", "square"])
+        case .round:
+            return (["circle.fill", "circle.inset.filled", "circle.dashed.inset.filled"],
+                    ["circle.dotted", "circle.dashed", "circle"])
+        }
+    }
+}
+
+
 struct UserSelectionStyle {
     static private var selectedType: SelectionBoxType = .square
     static var currentType: SelectionBoxType {
