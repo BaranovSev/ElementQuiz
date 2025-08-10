@@ -8,9 +8,15 @@
 import UIKit
 
 
-enum SelectionBoxType {
+enum SelectionBoxType: CaseIterable {
     case square
     case round
+    case heart
+    case star
+    case seal
+    case triangle
+    case diamond
+    case hexagon
 }
 
 extension SelectionBoxType {
@@ -22,6 +28,24 @@ extension SelectionBoxType {
         case .round:
             return (["circle.fill", "circle.inset.filled", "circle.dashed.inset.filled"],
                     ["circle.dotted", "circle.dashed", "circle"])
+        case .heart:
+            return (["heart.fill"],
+                    ["heart"])
+        case .star:
+            return (["star.fill"],
+                    ["star"])
+        case .seal:
+            return (["seal.fill"],
+                    ["seal"])
+        case .triangle:
+            return (["triangle.fill"],
+                    ["triangle"])
+        case .diamond:
+            return (["diamond.fill"],
+                    ["diamond"])
+        case .hexagon:
+            return (["hexagon.fill"],
+                    ["hexagon"])
         }
     }
 }
@@ -141,6 +165,11 @@ struct CustomColors {
     
     static func getCurrentTheme() -> Theme {
         return currentTheme
+    }
+    
+    static func getRandomElementColor() -> UIColor {
+        return [actinide, alkaliMetal, alkalineEarthMetal, diatomicNonmetal, lanthanide,
+                metalloid, nobleGas, polyatomicNonmetal, postTransitionMetal, transitionMetal, nonmetal, halogen, unknownElement].randomElement() ?? UIColor.white
     }
 
     //Chemical elements colors:

@@ -7,6 +7,7 @@
 import UIKit
 import SnapKit
 
+//TODO: make local variables for prefered boxes s color theme
 //MARK: - ThemeSelectorViewController
 final class ThemeSelectorViewController: UIViewController {
     private let themes: [Theme] = Theme.allCases
@@ -21,7 +22,7 @@ final class ThemeSelectorViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellThemeName.reusableIdentifier)
         tableView.backgroundColor = CustomColors.generalAppFont
-        tableView.rowHeight = 60
+        tableView.rowHeight = 45
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -66,11 +67,12 @@ final class ThemeSelectorViewController: UIViewController {
     private func layout() {
         checkboxView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.height.equalTo(75)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
         
         exampleView.snp.makeConstraints { make in
-            make.top.equalTo(checkboxView.snp.bottom).offset(10)
+            make.top.lessThanOrEqualTo(checkboxView.snp.bottom).offset(10)
             make.leading.greaterThanOrEqualTo(view.safeAreaLayoutGuide).inset(16)
             make.trailing.lessThanOrEqualTo(view.safeAreaLayoutGuide).inset(16)
             make.centerX.equalToSuperview()
@@ -79,7 +81,9 @@ final class ThemeSelectorViewController: UIViewController {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(exampleView.snp.bottom).offset(10)
+//            make.top.equalTo(exampleView.snp.bottom).offset(20)
+            make.top.lessThanOrEqualTo(exampleView.snp.bottom).offset(20)
+//            make.top.greaterThanOrEqualTo(exampleView.snp.bottom).offset(20)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
     }
@@ -114,10 +118,7 @@ extension ThemeSelectorViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CellThemeName(style: .default, reuseIdentifier: CellThemeName.reusableIdentifier)
         cell.configure(theme: themes[indexPath.row])
-        let view: UIView = UIView()
-        view.layer.cornerRadius = 10
-        view.backgroundColor = CustomColors.secondaryTextColor
-        cell.selectedBackgroundView = view
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -224,6 +225,7 @@ final private class ThemeExampleView: UIView {
         imageView.contentMode = .scaleAspectFit
         
         infoButton.setTitle("Apply", for: .normal)
+        infoButton.setTitle("Saved!", for: .highlighted)
         infoButton.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
         infoButton.backgroundColor = CustomColors.bigButtonColor
         infoButton.setTitleColor(.white, for: .normal)
@@ -296,8 +298,9 @@ final private class ThemeExampleView: UIView {
 
 final class ExclusiveCheckboxView: UIView {
     private let label = UILabel()
-    private let squareBox = UIButton(type: .custom)
-    private let roundBox = UIButton(type: .custom)
+    private let stackView: UIStackView = .init()
+    private var selectionButtons: [UIButton] = []
+    private let allStyles: [SelectionBoxType] = [.round, .seal, .hexagon, .diamond, .square]
     private var selected: SelectionBoxType = UserSelectionStyle.currentType
 
     override init(frame: CGRect) {
@@ -318,21 +321,22 @@ final class ExclusiveCheckboxView: UIView {
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         
-        squareBox.setTitle("", for: .normal)
-        squareBox.addTarget(self, action: #selector(squareTapped), for: .touchUpInside)
-        squareBox.imageView?.tintColor = CustomColors.secondaryTextColor
-
-        roundBox.setTitle("", for: .normal)
-        roundBox.addTarget(self, action: #selector(roundTapped), for: .touchUpInside)
-        roundBox.imageView?.tintColor = CustomColors.secondaryTextColor
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
         
-        choseIconForButton(selected)
+        for caseType in allStyles {
+            let button = createButton(type: caseType)
+            selectionButtons.append(button)
+        }
     }
 
     private func addViews() {
         addSubview(label)
-        addSubview(squareBox)
-        addSubview(roundBox)
+        addSubview(stackView)
+        
+        for eachButton in selectionButtons {
+            stackView.addArrangedSubview(eachButton)
+        }
     }
 
     private func layout() {
@@ -340,56 +344,51 @@ final class ExclusiveCheckboxView: UIView {
             make.top.centerX.equalToSuperview()
         }
         
-        squareBox.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(15)
-            make.centerX.equalToSuperview().offset(50)
-            make.width.equalTo(45)
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom)
             make.height.equalTo(45)
-            make.bottom.equalToSuperview()
-        }
-        
-        squareBox.imageView?.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-15)
-            make.height.equalToSuperview().offset(-15)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-5)
-        }
-        
-        roundBox.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(15)
-            make.centerX.equalToSuperview().offset(-50)
-            make.width.equalTo(45)
-            make.height.equalTo(45)
-            make.bottom.equalToSuperview()
-        }
-        
-        roundBox.imageView?.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-15)
-            make.height.equalToSuperview().offset(-15)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-5)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
-    private func choseIconForButton(_ forType: SelectionBoxType) {
-        if forType == .square {
-            squareBox.setImage(UIImage(systemName: "square.dashed.inset.filled") ?? UIImage(), for: .normal)
-            roundBox.setImage(UIImage(systemName: "circle.dashed") ?? UIImage(), for: .normal)
-        } else {
-            roundBox.setImage(UIImage(systemName: "circle.dashed.inset.filled") ?? UIImage(), for: .normal)
-            squareBox.setImage(UIImage(systemName: "square.dashed") ?? UIImage(), for: .normal)
+    private func createButton(type: SelectionBoxType) -> UIButton {
+        let button = UIButton(type: .custom)
+        button.addAction(UIAction { [weak self] _ in
+            self?.checkBoxTapped(type: type)
+        }, for: .touchUpInside)
+        button.imageView?.tintColor = CustomColors.getRandomElementColor()
+        
+        choseIconForButton(with: type, button)
+        
+        button.imageView?.snp.makeConstraints { make in
+            make.width.equalTo(35)
+            make.height.equalTo(35)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        return button
+    }
+    
+    func refreshButtons() {
+        for (index, button) in selectionButtons.enumerated() {
+            let type = allStyles[index]
+            choseIconForButton(with: type, button)
         }
     }
     
-    @objc private func squareTapped() {
-        selected = .square
-        UserSelectionStyle.setStyle(selected)
-        choseIconForButton(.square)
+    private func choseIconForButton(with type: SelectionBoxType, _ button: UIButton) {
+        let (chosenImages, unchosenImages) = type.images
+        let pool = UserSelectionStyle.currentType == type ? chosenImages : unchosenImages
+        
+        guard let imageName = pool.randomElement() else { button.setImage(nil, for: .normal); return }
+        
+        button.setImage(UIImage(systemName: imageName), for: .normal)
     }
-
-    @objc private func roundTapped() {
-        selected = .round
+        
+    private func checkBoxTapped(type: SelectionBoxType) {
+        selected = type
         UserSelectionStyle.setStyle(selected)
-        choseIconForButton(.round)
+        refreshButtons()
     }
 }
