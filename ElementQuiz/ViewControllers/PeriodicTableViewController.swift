@@ -97,6 +97,7 @@ final class PeriodicTableViewController: UIViewController {
         backButton.tintColor = CustomColors.generalTextColor
         settingsButton.tintColor = CustomColors.generalTextColor
 
+        view.backgroundColor = CustomColors.generalAppFont
         refreshNavigationItemTitle()
         addSubViews()
         layout()

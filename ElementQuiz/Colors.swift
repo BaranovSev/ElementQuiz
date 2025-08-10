@@ -11,6 +11,7 @@ enum Theme: String, CaseIterable {
     case standard = "Standard colors"
     case darkBlue = "Night blue"
     case brown = "Autumn brown"
+    case violet = "Violet purple"
 }
 
 struct ThemeColors {
@@ -27,6 +28,9 @@ struct ThemeColors {
 }
 
 struct CustomColors {
+    
+    private static var currentTheme: Theme = .violet
+    private static var current: ThemeColors { colors(for: currentTheme) }
     
     private static func color(_ name: String, fallback: UIColor = .white) -> UIColor {
             UIColor(named: name) ?? fallback
@@ -68,17 +72,26 @@ struct CustomColors {
                 progressBarColor: color("brown_gold"),
                 salutteColor: color("brown_gold"),
                 bigButtonColor: color("brown_ultraBrown"),
-                secondaryTextColor: color("brown_forHeaders"),
+                secondaryTextColor: color("brown_secondaryTextColor"),
                 periodicTableTextColor: color("brown_periodicTableTextColor"),
-                backgroundForCell: color("brown_fontForCell"),
+                backgroundForCell: color("brown_backgroundForCell"),
                 alphaFontInCell: color("brown_white_with_alpha")
+            )
+        case .violet:
+            return ThemeColors(
+                generalAppFont: color("violet_generalAppFont"),
+                generalTextColor: color("violet_generalTextColor"),
+                softAppColor: color("violet_softAppColor"),
+                progressBarColor: color("violet_gold"),
+                salutteColor: color("violet_gold"),
+                bigButtonColor: color("violet_ultraViolet"),
+                secondaryTextColor: color("violet_secondaryTextColor"),
+                periodicTableTextColor: color("violet_periodicTableTextColor"),
+                backgroundForCell: color("violet_backgroundForCell"),
+                alphaFontInCell: color("violet_white_with_alpha")
             )
         }
     }
-    
-    private static var currentTheme: Theme = .standard
-    
-    private static var current: ThemeColors { colors(for: currentTheme) }
     
     static func colors(forPreview theme: Theme) -> ThemeColors {
         colors(for: theme)
