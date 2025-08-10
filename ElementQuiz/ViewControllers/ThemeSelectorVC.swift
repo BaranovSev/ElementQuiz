@@ -7,7 +7,6 @@
 import UIKit
 import SnapKit
 
-//TODO: make local variables for prefered boxes s color theme
 //MARK: - ThemeSelectorViewController
 final class ThemeSelectorViewController: UIViewController {
     private let themes: [Theme] = Theme.allCases
@@ -81,9 +80,7 @@ final class ThemeSelectorViewController: UIViewController {
         }
         
         tableView.snp.makeConstraints { make in
-//            make.top.equalTo(exampleView.snp.bottom).offset(20)
             make.top.lessThanOrEqualTo(exampleView.snp.bottom).offset(20)
-//            make.top.greaterThanOrEqualTo(exampleView.snp.bottom).offset(20)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
     }
@@ -128,6 +125,7 @@ extension ThemeSelectorViewController: UITableViewDelegate, UITableViewDataSourc
 
         let text = CustomColors.getCurrentTheme() == locallySelectedTheme ? "This is your current theme:" : "Set a new theme?"
         exampleView.configure(firstLable: text, themeName: parameter.rawValue)
+        exampleView.refreshColors(theme: parameter)
     }
 }
 
@@ -156,7 +154,7 @@ final private class CellThemeName: UITableViewCell {
         infoLabel.textColor = CustomColors.generalTextColor
         infoLabel.numberOfLines = 2
         backgroundColor = CustomColors.generalAppFont
-        parentView.layer.cornerRadius = 4
+        parentView.layer.cornerRadius = 10
         parentView.backgroundColor = CustomColors.backgroundForCell
     }
     
@@ -232,10 +230,20 @@ final private class ThemeExampleView: UIView {
         infoButton.layer.cornerRadius = 15
         infoButton.addTarget(self, action: #selector(infoTapped), for: .touchUpInside)
 
-        parentView.layer.cornerRadius = 4
+        parentView.layer.cornerRadius = 15
         parentView.layer.borderWidth = 2
         parentView.layer.borderColor = CustomColors.softAppColor.cgColor
         parentView.backgroundColor = CustomColors.generalAppFont
+    }
+    
+    func refreshColors(theme: Theme) {
+        let colors = CustomColors.colors(forPreview: theme)
+        infoLabelOne.textColor = colors.secondaryTextColor
+        infoLabelTwo.textColor = colors.generalTextColor
+        infoLabelTwo.backgroundColor = colors.backgroundForCell
+        infoButton.backgroundColor = colors.bigButtonColor
+        parentView.layer.borderColor = colors.softAppColor.cgColor
+        parentView.backgroundColor = colors.generalAppFont
     }
     
     private func addSubViews() {
@@ -292,6 +300,7 @@ final private class ThemeExampleView: UIView {
     }
     
     @objc private func infoTapped() {
+        infoLabelOne.text = "This is your current theme:"
         onInfoTap?()
     }
 }

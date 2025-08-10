@@ -7,156 +7,121 @@
 
 import UIKit
 
-
-enum SelectionBoxType: CaseIterable {
-    case square
-    case round
-    case heart
-    case star
-    case seal
-    case triangle
-    case diamond
-    case hexagon
-}
-
-extension SelectionBoxType {
-    var images: (chosen: [String], unchosen: [String]) {
-        switch self {
-        case .square:
-            return (["square.fill", "square.inset.filled", "square.dashed.inset.filled"],
-                    ["square.dotted", "square.dashed", "square"])
-        case .round:
-            return (["circle.fill", "circle.inset.filled", "circle.dashed.inset.filled"],
-                    ["circle.dotted", "circle.dashed", "circle"])
-        case .heart:
-            return (["heart.fill"],
-                    ["heart"])
-        case .star:
-            return (["star.fill"],
-                    ["star"])
-        case .seal:
-            return (["seal.fill"],
-                    ["seal"])
-        case .triangle:
-            return (["triangle.fill"],
-                    ["triangle"])
-        case .diamond:
-            return (["diamond.fill"],
-                    ["diamond"])
-        case .hexagon:
-            return (["hexagon.fill"],
-                    ["hexagon"])
-        }
-    }
-}
-
-
-struct UserSelectionStyle {
-    static private var selectedType: SelectionBoxType = .square
-    static var currentType: SelectionBoxType {
-        return selectedType
-    }
-    static func setStyle(_ style: SelectionBoxType) {
-        selectedType = style
-    }
-}
-
 enum Theme: String, CaseIterable {
     case standard = "Standard colors"
     case darkBlue = "Night blue"
     case brown = "Autumn brown"
 }
 
+struct ThemeColors {
+    let generalAppFont: UIColor
+    let generalTextColor: UIColor
+    let softAppColor: UIColor
+    let progressBarColor: UIColor
+    let salutteColor: UIColor
+    let bigButtonColor: UIColor
+    let secondaryTextColor: UIColor
+    let periodicTableTextColor: UIColor
+    let backgroundForCell: UIColor
+    let alphaFontInCell: UIColor
+}
+
 struct CustomColors {
-    private static var currentTheme: Theme = .standard
     
-    private static var colors: (
-        generalAppFont: UIColor,
-        generalTextColor: UIColor,
-        softAppColor: UIColor,
-        progressBarColor: UIColor,
-        salutteColor: UIColor,
-        bigButtonColor: UIColor,
-        forHeaders: UIColor,
-        periodicTableTextColor: UIColor,
-        fontForCell: UIColor,
-        alphaFontInCell: UIColor
-    ) {
-        
-        switch currentTheme {
+    private static func color(_ name: String, fallback: UIColor = .white) -> UIColor {
+            UIColor(named: name) ?? fallback
+        }
+    
+    static private func colors(for theme: Theme) -> ThemeColors {
+        switch theme {
         case .standard:
-            return (
-                generalAppFont: UIColor(named: "white_richBlack") ?? UIColor.white,
-                generalTextColor: UIColor(named: "oxfordBlue_lavender") ?? UIColor.white,
-                softAppColor: UIColor(named: "oxfordBlue_charcoal") ?? UIColor.white,
-                progressBarColor: UIColor(named: "gold") ?? UIColor.white,
-                salutteColor: UIColor(named: "gold") ?? UIColor.white,
-                bigButtonColor: UIColor(named: "ultraViolet") ?? UIColor.white,
-                forHeaders: UIColor(named: "charcoal_lavender") ?? UIColor.white,
-                periodicTableTextColor: UIColor(named: "oxfordBlue_white") ?? UIColor.white,
-                fontForCell: UIColor(named: "lavender_charcoal") ?? UIColor.white,
-                alphaFontInCell: UIColor(named: "white_with_alpha") ?? UIColor.white
+            return ThemeColors(
+                generalAppFont: color("white_richBlack"),
+                generalTextColor: color("oxfordBlue_lavender"),
+                softAppColor: color("oxfordBlue_charcoal"),
+                progressBarColor: color("gold"),
+                salutteColor: color("gold"),
+                bigButtonColor: color("ultraViolet"),
+                secondaryTextColor: color("charcoal_lavender"),
+                periodicTableTextColor: color("oxfordBlue_white"),
+                backgroundForCell: color("lavender_charcoal"),
+                alphaFontInCell: color("white_with_alpha")
             )
-            
         case .darkBlue:
-            return (
-                generalAppFont: UIColor(named: "dark_richBlack_blackBlue") ?? UIColor.white,
-                generalTextColor: UIColor(named: "dark_columbiaBlue_airSuperiorityBlue") ?? UIColor.white,
-                softAppColor: UIColor(named: "dark_charocal_lapisLazuli") ?? UIColor.white,
-                progressBarColor: UIColor(named: "dark_gold") ?? UIColor.white,
-                salutteColor: UIColor(named: "dark_gold") ?? UIColor.white,
-                bigButtonColor: UIColor(named: "dark_ultraBlue") ?? UIColor.white,
-                forHeaders: UIColor(named: "dark_airSuperiorityBlue") ?? UIColor.white,
-                periodicTableTextColor: UIColor(named: "dark_richBlack_blackBlue") ?? UIColor.white, //here the same as generalAppPhont
-                fontForCell: UIColor(named: "dark_charocal_oxfordBlue") ?? UIColor.white,
-                alphaFontInCell: UIColor(named: "dark_white_with_alpha") ?? UIColor.white
+            return ThemeColors(
+                generalAppFont: color("dark_richBlack_blackBlue"),
+                generalTextColor: color("dark_columbiaBlue_airSuperiorityBlue"),
+                softAppColor: color("dark_charocal_lapisLazuli"),
+                progressBarColor: color("dark_gold"),
+                salutteColor: color("dark_gold"),
+                bigButtonColor: color("dark_ultraBlue"),
+                secondaryTextColor: color("dark_airSuperiorityBlue"),
+                periodicTableTextColor: color("dark_richBlack_blackBlue"), //here the same as generalAppPhont
+                backgroundForCell: color("dark_charocal_oxfordBlue"),
+                alphaFontInCell: color("dark_white_with_alpha")
             )
-            
         case .brown:
-            return (
-                generalAppFont: UIColor(named: "brown_generalAppFont") ?? UIColor.white,
-                generalTextColor: UIColor(named: "brown_generalTextColor") ?? UIColor.white,
-                softAppColor: UIColor(named: "brown_softAppColor") ?? UIColor.white,
-                progressBarColor: UIColor(named: "brown_gold") ?? UIColor.white,
-                salutteColor: UIColor(named: "brown_gold") ?? UIColor.white,
-                bigButtonColor: UIColor(named: "brown_ultraBrown") ?? UIColor.white,
-                forHeaders: UIColor(named: "brown_forHeaders") ?? UIColor.white,
-                periodicTableTextColor: UIColor(named: "brown_periodicTableTextColor") ?? UIColor.white,
-                fontForCell: UIColor(named: "brown_fontForCell") ?? UIColor.white,
-                alphaFontInCell: UIColor(named: "brown_white_with_alpha") ?? UIColor.white
+            return ThemeColors(
+                generalAppFont: color("brown_generalAppFont"),
+                generalTextColor: color("brown_generalTextColor"),
+                softAppColor: color("brown_softAppColor"),
+                progressBarColor: color("brown_gold"),
+                salutteColor: color("brown_gold"),
+                bigButtonColor: color("brown_ultraBrown"),
+                secondaryTextColor: color("brown_forHeaders"),
+                periodicTableTextColor: color("brown_periodicTableTextColor"),
+                backgroundForCell: color("brown_fontForCell"),
+                alphaFontInCell: color("brown_white_with_alpha")
             )
         }
     }
     
+    private static var currentTheme: Theme = .standard
+    
+    private static var current: ThemeColors { colors(for: currentTheme) }
+    
+    static func colors(forPreview theme: Theme) -> ThemeColors {
+        colors(for: theme)
+    }
+
     static var softAppColor: UIColor {
-        return colors.softAppColor
+        return current.softAppColor
     }
+    
     static var generalTextColor: UIColor {
-        return colors.generalTextColor
+        return current.generalTextColor
     }
+    
     static var secondaryTextColor: UIColor {
-        return colors.forHeaders
+        return current.secondaryTextColor
     }
+    
     static var generalAppFont: UIColor {
-        return colors.generalAppFont
+        return current.generalAppFont
     }
+    
     static var periodicTableTextColor: UIColor {
-        return colors.periodicTableTextColor
+        return current.periodicTableTextColor
     }
+    
     static var backgroundForCell: UIColor {
-        return colors.fontForCell
+        return current.backgroundForCell
     }
+    
     static var progressBarColor: UIColor {
-        return colors.progressBarColor
+        return current.progressBarColor
     }
+    
     static var salutteColor: UIColor {
-        return colors.salutteColor
+        return current.salutteColor
     }
+    
     static var alphaFontInCell: UIColor {
-        return colors.alphaFontInCell
+        return current.alphaFontInCell
     }
+    
     static var bigButtonColor: UIColor {
-        return colors.bigButtonColor
+        return current.bigButtonColor
     }
     
     static func setTheme(_ theme: Theme) {
@@ -173,23 +138,23 @@ struct CustomColors {
     }
 
     //Chemical elements colors:
-    static let actinide = UIColor(named: "actinide") ?? UIColor.white
-    static let alkaliMetal = UIColor(named: "alkaliMetal") ?? UIColor.white
-    static let alkalineEarthMetal = UIColor(named: "alkalineEarthMetal") ?? UIColor.white
-    static let diatomicNonmetal = UIColor(named: "diatomicNonmetal") ?? UIColor.white
-    static let lanthanide = UIColor(named: "lanthanide") ?? UIColor.white
-    static let metalloid = UIColor(named: "metalloid") ?? UIColor.white
-    static let nobleGas = UIColor(named: "nobleGas") ?? UIColor.white
-    static let polyatomicNonmetal = UIColor(named: "polyatomicNonmetal") ?? UIColor.white
-    static let postTransitionMetal = UIColor(named: "postTransitionMetal") ?? UIColor.white
-    static let transitionMetal = UIColor(named: "transitionMetal") ?? UIColor.white
-    static let nonmetal = UIColor(named: "nonmetal") ?? UIColor.white
-    static let halogen = UIColor(named: "halogen") ?? UIColor.white
-    static let unknownElement = UIColor(named: "unknownElement") ?? UIColor.white
-    static let sblock = UIColor(named: "sblock") ?? UIColor.white
-    static let pblock = UIColor(named: "pblock") ?? UIColor.white
-    static let dblock = UIColor(named: "dblock") ?? UIColor.white
-    static let fblock = UIColor(named: "fblock") ?? UIColor.white
+    static let actinide = color("actinide")
+    static let alkaliMetal = color("alkaliMetal")
+    static let alkalineEarthMetal = color("alkalineEarthMetal")
+    static let diatomicNonmetal = color("diatomicNonmetal")
+    static let lanthanide = color("lanthanide")
+    static let metalloid = color("metalloid")
+    static let nobleGas = color("nobleGas")
+    static let polyatomicNonmetal = color("polyatomicNonmetal")
+    static let postTransitionMetal = color("postTransitionMetal")
+    static let transitionMetal = color("transitionMetal")
+    static let nonmetal = color("nonmetal")
+    static let halogen = color("halogen")
+    static let unknownElement = color("unknownElement")
+    static let sblock = color("sblock")
+    static let pblock = color("pblock")
+    static let dblock = color("dblock")
+    static let fblock = color("fblock")
     
 //    technical colors
     static let greenCorrectAnswer = UIColor(red: 0.298, green: 1.0, blue: 0.298, alpha: 1.0)
