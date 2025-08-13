@@ -31,6 +31,8 @@ final class DataManager {
                 let defaultId = UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
                 user.id = defaultId
                 user.learnedChemicalElements = [:]
+                user.learnedLessons = []
+                user.learnedReactions = []
                 user.searchTableSelectedElements = []
             }
             
@@ -44,6 +46,8 @@ final class DataManager {
         let data = User(context: self.context)
         data.id = user.id
         data.learnedChemicalElements = user.learnedChemicalElements
+        data.learnedLessons = user.learnedLessons
+        data.learnedReactions = user.learnedReactions
         data.wideTableOptionalParameter = user.wideTableOptionalParameter
         data.shortTableOptionalParameter = user.shortTableOptionalParameter
         data.classicTableOptionalParameter = user.classicTableOptionalParameter

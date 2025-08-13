@@ -110,6 +110,7 @@
 		FDBA190A2B385A5500747B81 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		FDC64C9D2BB59378000DFE20 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		FDC64C9F2BB59FC8000DFE20 /* BigGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGameViewController.swift; sourceTree = "<group>"; };
+		FDC837972E4CFF7C008CA80E /* DataBase2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase2.xcdatamodel; sourceTree = "<group>"; };
 		FDCB3FA82B8C99400055BF6B /* ElementMemorizingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementMemorizingController.swift; sourceTree = "<group>"; };
 		FDCBF9E72B1DEF4200214599 /* ChemicalElementModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalElementModelJSON.swift; sourceTree = "<group>"; };
 		FDCBF9E92B1E0C0F00214599 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
@@ -848,9 +849,10 @@
 		FDB03AB62B263CA4004BC16E /* DataBase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FDC837972E4CFF7C008CA80E /* DataBase2.xcdatamodel */,
 				FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */,
 			);
-			currentVersion = FDB03AB72B263CA4004BC16E /* DataBase.xcdatamodel */;
+			currentVersion = FDC837972E4CFF7C008CA80E /* DataBase2.xcdatamodel */;
 			path = DataBase.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

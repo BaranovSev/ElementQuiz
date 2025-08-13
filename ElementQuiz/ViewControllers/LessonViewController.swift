@@ -10,6 +10,7 @@ import SnapKit
 
 
 final class LessonViewController: UIViewController {
+    private let user: User = DataManager.shared.fetchUser()
     private let lesson: Lesson
     private let headerText: String
     
@@ -208,8 +209,13 @@ final class LessonViewController: UIViewController {
         //TODO: - save user data
         switch lesson.contentKind {
             case .lesson:
+            user.learnedLessons.insert(lesson.id)
+
             case .reaction:
+            user.learnedReactions.insert(lesson.id)
         }
+        
+        DataManager.shared.saveUserData(from: user)
         showCongratulationViewController()
     }
 }

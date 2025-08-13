@@ -11,6 +11,8 @@ import SnapKit
 final class StatisticViewControler: UIViewController {
     private let userDataSource: UserStatisticDataSource = UserStatisticDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+    private let listOfLessons: [Lesson] = Lesson.getMockLessonsFromJSON()
+    private let listOfReactions: [Lesson] = Lesson.getMockReactionsFromJSON()
     private let user: User = DataManager.shared.fetchUser()
     private var learnedElements: [ChemicalElementModel] {
         get {
@@ -203,10 +205,8 @@ final class StatisticViewControler: UIViewController {
                                     sideContentText: memorizingSideInfoText,
                                     imageForEvent: "ancient_table")
         
-        //TODO: countOfLessons real data need
-        let countOfLessons = [0,1,2,3].randomElement()!
-        //user.countPassedLessons (by lesson id)
-        let totalCountOfLessons = 4
+        let countOfLessons = user.learnedLessons.count
+        let totalCountOfLessons = listOfLessons.count
         let lessonsHeader = countOfLessons != 1 ? "lessons" : "lesson"
         let lessonsLeft = totalCountOfLessons - countOfLessons
         let lessonsSideInfoText = lessonsLeft <= 0 ? "Congratulations!\nYou've learned them all." : "still left: \(lessonsLeft)"
@@ -217,10 +217,8 @@ final class StatisticViewControler: UIViewController {
                                     sideContentText: lessonsSideInfoText,
                                     imageForEvent: "scroll_lesson")
         
-        //TODO: countOfReactions real data need
-        let countOfReactions = [0,1,2,3].randomElement()!
-        //user.countPassedReactions (by lesson id)
-        let totalCountOfReactions = 4
+        let countOfReactions = user.learnedReactions.count
+        let totalCountOfReactions = listOfReactions.count
         let reactionsHeader = countOfReactions != 1 ? "reactions" : "reaction"
         let reactionsLeft = totalCountOfReactions - countOfReactions
         let reactionsSideInfoText = reactionsLeft <= 0 ? "Congratulate!\nYou've done them all." : "still left: \(reactionsLeft)"
