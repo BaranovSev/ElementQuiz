@@ -205,6 +205,11 @@ final class LessonViewController: UIViewController {
     }
 
     @objc private func bigButtonTapped() {
+        //TODO: - save user data
+        switch lesson.contentKind {
+            case .lesson:
+            case .reaction:
+        }
         showCongratulationViewController()
     }
 }
@@ -213,7 +218,15 @@ final class LessonViewController: UIViewController {
 // MARK: - ShowCongratulationProtocol
 extension LessonViewController: ShowCongratulationProtocol {
     func showCongratulationViewController() {
-        let describeOfSense: String = headerText.contains("Lesson") ? "Passed \(headerText.lowercased()):\n\(lesson.name)" : "Studied reaction:\n\(lesson.name)"
+//        let describeOfSense: String = headerText.contains("Lesson") ? "Passed \(headerText.lowercased()):\n\(lesson.name)" : "Studied reaction:\n\(lesson.name)"
+        var describeOfSense: String = ""
+        switch lesson.contentKind {
+            case .lesson:
+            describeOfSense = "Passed \(headerText.lowercased()):\n\(lesson.name)"
+            case .reaction:
+            describeOfSense = "Studied reaction:\n\(lesson.name)"
+        }
+        
         let vc = CongratulationViewController(delegate: self, describeOfSense: describeOfSense, imageName: lesson.lessonImageName)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
