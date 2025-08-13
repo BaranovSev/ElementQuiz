@@ -47,6 +47,8 @@
         <attribute name="learnedChemicalElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Date]"/>
         <attribute name="learnedLessons" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;Int&gt;"/>
         <attribute name="learnedReactions" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;Int&gt;"/>
+        <attribute name="preferedSelectorTheme" attributeType="String" defaultValueString=""/>
+        <attribute name="preferedTheme" attributeType="String" defaultValueString=""/>
         <attribute name="searchTableOptionalParameter" attributeType="String" defaultValueString="atomicMass"/>
         <attribute name="searchTableSearchedText" attributeType="String" defaultValueString=""/>
         <attribute name="searchTableSelectedElements" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Set&lt;String&gt;"/>

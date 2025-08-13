@@ -29,7 +29,8 @@ struct ThemeColors {
 
 struct CustomColors {
     
-    private static var currentTheme: Theme = .violet
+    private static var currentTheme: Theme = DataManager.shared.fetchUserTheme() 
+
     private static var current: ThemeColors { colors(for: currentTheme) }
     
     private static func color(_ name: String, fallback: UIColor = .white) -> UIColor {
@@ -139,6 +140,7 @@ struct CustomColors {
     
     static func setTheme(_ theme: Theme) {
         currentTheme = theme
+        DataManager.shared.updatePreferredTheme(theme)
     }
     
     static func getCurrentTheme() -> Theme {

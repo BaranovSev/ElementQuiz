@@ -5,7 +5,7 @@
 //  Created by Stepan Baranov on 10.08.2025.
 //
 
-enum SelectionBoxType: CaseIterable {
+enum SelectionBoxType: String, CaseIterable {
     case square
     case round
     case heart
@@ -49,11 +49,12 @@ extension SelectionBoxType {
 
 
 struct UserSelectionStyle {
-    static private var selectedType: SelectionBoxType = .square
+    static private var selectedType: SelectionBoxType = DataManager.shared.fetchUserSelectorTheme()
     static var currentType: SelectionBoxType {
         return selectedType
     }
     static func setStyle(_ style: SelectionBoxType) {
         selectedType = style
+        DataManager.shared.updatePreferredSelectorTheme(style)
     }
 }

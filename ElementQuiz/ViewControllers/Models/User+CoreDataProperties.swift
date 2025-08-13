@@ -20,6 +20,8 @@ extension User {
     @NSManaged public var learnedChemicalElements: [String:Date]
     @NSManaged public var learnedLessons: Set<Int>
     @NSManaged public var learnedReactions: Set<Int>
+    @NSManaged public var preferedTheme: String
+    @NSManaged public var preferedSelectorTheme: String
     @NSManaged public var wideTableOptionalParameter: String
     @NSManaged public var shortTableOptionalParameter: String
     @NSManaged public var classicTableOptionalParameter: String
