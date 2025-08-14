@@ -6,9 +6,12 @@
 //
 import UIKit
 import SnapKit
+import Combine
+
 
 //MARK: - ThemeSelectorViewController
 final class ThemeSelectorViewController: UIViewController {
+    private var cancellables = Set<AnyCancellable>()
     private let themes: [Theme] = Theme.allCases
     private var locallySelectedTheme: Theme?
     private lazy var checkboxView = ExclusiveCheckboxView()
@@ -37,6 +40,7 @@ final class ThemeSelectorViewController: UIViewController {
     // MARK: Lifecycle methods
     override func viewDidLoad() {
         setupNavBar()
+        setupThemeBinding()
         setup()
         addSubViews()
         layout()
@@ -55,6 +59,25 @@ final class ThemeSelectorViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
         backButton.tintColor = CustomColors.generalTextColor
         navigationItem.title = "Customize 🎨"
+    }
+    private func setupThemeBinding() {
+        CustomColors.themePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.applyTheme()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func applyTheme() {
+        view.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
+        self.navigationItem.leftBarButtonItem?.tintColor = CustomColors.generalTextColor
+        checkboxView.applyTheme()
+        tableView.backgroundColor = CustomColors.generalAppFont
+        tableView.reloadData()
     }
     
     private func addSubViews() {
@@ -337,6 +360,10 @@ final class ExclusiveCheckboxView: UIView {
             let button = createButton(type: caseType)
             selectionButtons.append(button)
         }
+    }
+    
+    func applyTheme() {
+        label.textColor = CustomColors.generalTextColor
     }
 
     private func addViews() {

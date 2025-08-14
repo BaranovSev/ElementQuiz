@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 enum Theme: String, CaseIterable {
     case standard = "Standard colors"
@@ -27,9 +28,23 @@ struct ThemeColors {
     let alphaFontInCell: UIColor
 }
 
+private extension Notification.Name {
+    static let themeDidChange = Notification.Name("themeDidChange")
+}
+
 struct CustomColors {
     
-    private static var currentTheme: Theme = DataManager.shared.fetchUserTheme() 
+    private static var currentTheme: Theme = DataManager.shared.fetchUserTheme()  {
+        didSet {
+            // Отправляем уведомление при изменении темы
+            NotificationCenter.default.post(name: .themeDidChange, object: nil)
+        }
+    }
+    
+    static var themePublisher = NotificationCenter.default
+        .publisher(for: .themeDidChange)
+        .map { _ in current }
+        .eraseToAnyPublisher()
 
     private static var current: ThemeColors { colors(for: currentTheme) }
     
