@@ -169,7 +169,7 @@ final class BigGameViewController: UIViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
         backButton.tintColor = CustomColors.generalTextColor
         
         setupQuestionSequens()
@@ -305,7 +305,7 @@ final class BigGameViewController: UIViewController {
         case .orderNumberQuestion:
             elementIcon.elementNumberLabel.text = currentElement.name
         case .categoryQuestion:
-            elementIcon.backgroundColor = CustomColors.generalAppPhont
+            elementIcon.backgroundColor = CustomColors.generalAppFont
             elementIcon.layer.borderWidth = 4
             elementIcon.layer.borderColor = CustomColors.softAppColor.cgColor
             elementIcon.symbolLabel.textColor = CustomColors.softAppColor
@@ -321,7 +321,7 @@ final class BigGameViewController: UIViewController {
 // MARK: UI methods
 private extension BigGameViewController {
     private func setUp() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         view.addSubview(elementIcon)
         view.addSubview(questionLabel)
         view.addSubview(verticalStack)

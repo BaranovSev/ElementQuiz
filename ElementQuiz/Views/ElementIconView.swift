@@ -60,6 +60,9 @@ private extension ElementIconView {
         symbolLabel.text = displayItem.symbolTitle
         elementNumberLabel.text = displayItem.elementNumberTitle
         atomicMassLabel.text = displayItem.atomicMassTitle
+        symbolLabel.textColor = CustomColors.softAppColor
+        elementNumberLabel.textColor = CustomColors.softAppColor
+        atomicMassLabel.textColor = CustomColors.softAppColor
         backgroundColor = displayItem.color
     }
     

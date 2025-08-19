@@ -31,6 +31,8 @@ final class DataManager {
                 let defaultId = UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")
                 user.id = defaultId
                 user.learnedChemicalElements = [:]
+                user.learnedLessons = []
+                user.learnedReactions = []
                 user.searchTableSelectedElements = []
             }
             
@@ -44,6 +46,10 @@ final class DataManager {
         let data = User(context: self.context)
         data.id = user.id
         data.learnedChemicalElements = user.learnedChemicalElements
+        data.learnedLessons = user.learnedLessons
+        data.learnedReactions = user.learnedReactions
+        data.preferedTheme = user.preferedTheme
+        data.preferedSelectorTheme = user.preferedSelectorTheme
         data.wideTableOptionalParameter = user.wideTableOptionalParameter
         data.shortTableOptionalParameter = user.shortTableOptionalParameter
         data.classicTableOptionalParameter = user.classicTableOptionalParameter
@@ -72,6 +78,40 @@ final class DataManager {
         } catch {
             fatalError("failure to save context \(error)")
         }
+    }
+    
+    func fetchUserTheme() -> Theme {
+        let user = fetchUser()
+        let themeName = user.preferedTheme
+        
+        guard let theme = Theme(rawValue: themeName) else {
+            return .standard
+        }
+        
+        return theme
+    }
+    
+    func updatePreferredTheme(_ theme: Theme) {
+        let user = fetchUser()
+        user.preferedTheme = theme.rawValue
+        saveUserData(from: user)
+    }
+    
+    func fetchUserSelectorTheme() -> SelectionBoxType {
+        let user = fetchUser()
+        let themeName = user.preferedSelectorTheme
+        
+        guard let theme = SelectionBoxType(rawValue: themeName) else {
+            return .square
+        }
+        
+        return theme
+    }
+    
+    func updatePreferredSelectorTheme(_ theme: SelectionBoxType) {
+        let user = fetchUser()
+        user.preferedSelectorTheme = theme.rawValue
+        saveUserData(from: user)
     }
     
     func fetchElements(orderedBy value: OrderedCases? = nil) -> [ChemicalElementModel] {

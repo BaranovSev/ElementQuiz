@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-private let textColor = CustomColors.blackWhite
+private let textColor = CustomColors.periodicTableTextColor
 
 final class PeriodicTableCellView: UIView {
     lazy var elementNumberLabel: UILabel = {
@@ -118,7 +118,7 @@ final class EmptyCell: UIView {
         let label = UILabel()
         label.font = UIFont(name: "Menlo Bold", size: 15)
         label.textAlignment = .center
-        label.textColor = CustomColors.blackWhite
+        label.textColor = CustomColors.periodicTableTextColor
         addSubview(label)
         return label
     }()

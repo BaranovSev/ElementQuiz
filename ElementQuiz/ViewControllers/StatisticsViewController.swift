@@ -7,10 +7,14 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class StatisticViewControler: UIViewController {
+    private var cancellables = Set<AnyCancellable>()
     private let userDataSource: UserStatisticDataSource = UserStatisticDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
+    private let listOfLessons: [Lesson] = Lesson.getMockLessonsFromJSON()
+    private let listOfReactions: [Lesson] = Lesson.getMockReactionsFromJSON()
     private let user: User = DataManager.shared.fetchUser()
     private var learnedElements: [ChemicalElementModel] {
         get {
@@ -24,7 +28,7 @@ final class StatisticViewControler: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height * 2.7)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -40,6 +44,14 @@ final class StatisticViewControler: UIViewController {
     }()
     
     private lazy var memorizingSection: SliderBox = {
+        SliderBox()
+    }()
+    
+    private lazy var lessonsSection: SliderBox = {
+        SliderBox()
+    }()
+    
+    private lazy var reactionsSection: SliderBox = {
         SliderBox()
     }()
     
@@ -66,14 +78,55 @@ final class StatisticViewControler: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
-        self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
-        backButton.tintColor = CustomColors.generalTextColor
-        
+        setupNavBar()
+        setupThemeBinding()
         setup()
         addSubViews()
         layout()
+    }
+    
+    func setupNavBar() {
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(showSettings))
+        
+        backButton.tintColor = CustomColors.generalTextColor
+        settingsButton.tintColor = CustomColors.generalTextColor
+        
+        self.navigationItem.leftBarButtonItem = backButton
+        self.navigationItem.rightBarButtonItem = settingsButton
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
+        self.navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    private func setupThemeBinding() {
+        CustomColors.themePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.applyTheme()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func applyTheme() {
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
+        self.navigationItem.leftBarButtonItem?.tintColor = CustomColors.generalTextColor
+        self.navigationItem.rightBarButtonItem?.tintColor = CustomColors.generalTextColor
+        scrollView.backgroundColor = CustomColors.generalAppFont
+        
+        for view in categoriesViews {
+            guard let lable = view.subviews.last as? UILabel else { return }
+            lable.textColor = CustomColors.generalTextColor
+        }
+        
+        avatarView.applyTheme()
+        memorizingSection.applyTheme()
+        lessonsSection.applyTheme()
+        reactionsSection.applyTheme()
+        bigGamesSection.applyTheme()
+        shareButton.tintColor = CustomColors.generalTextColor
+        shareButton.backgroundColor = CustomColors.backgroundForCell
     }
     
     private func addSubViews() {
@@ -85,6 +138,8 @@ final class StatisticViewControler: UIViewController {
         
         scrollView.addSubview(userStatisticProgress)
         scrollView.addSubview(memorizingSection)
+        scrollView.addSubview(lessonsSection)
+        scrollView.addSubview(reactionsSection)
         scrollView.addSubview(bigGamesSection)
         scrollView.addSubview(shareButton)
     }
@@ -128,8 +183,22 @@ final class StatisticViewControler: UIViewController {
             make.height.equalTo(memorizingSection.snp.width).dividedBy(2)
         }
         
-        bigGamesSection.snp.makeConstraints { make in
+        lessonsSection.snp.makeConstraints { make in
             make.top.equalTo(memorizingSection.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(memorizingSection)
+            make.height.equalTo(memorizingSection)
+        }
+        
+        reactionsSection.snp.makeConstraints { make in
+            make.top.equalTo(lessonsSection.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(memorizingSection)
+            make.height.equalTo(memorizingSection)
+        }
+        
+        bigGamesSection.snp.makeConstraints { make in
+            make.top.equalTo(reactionsSection.snp.bottom).offset(35)
             make.centerX.equalToSuperview()
             make.width.equalTo(memorizingSection)
             make.height.equalTo(memorizingSection)
@@ -168,6 +237,30 @@ final class StatisticViewControler: UIViewController {
                                     subscriptText: "passed",
                                     sideContentText: memorizingSideInfoText,
                                     imageForEvent: "ancient_table")
+        
+        let countOfLessons = user.learnedLessons.count
+        let totalCountOfLessons = listOfLessons.count
+        let lessonsHeader = countOfLessons != 1 ? "lessons" : "lesson"
+        let lessonsLeft = totalCountOfLessons - countOfLessons
+        let lessonsSideInfoText = lessonsLeft <= 0 ? "Congratulations!\nYou've learned them all." : "still left: \(lessonsLeft)"
+        lessonsSection.configure(position: .right,
+                                    headerText: lessonsHeader,
+                                    score: countOfLessons,
+                                    subscriptText: "studied",
+                                    sideContentText: lessonsSideInfoText,
+                                    imageForEvent: "scroll_lesson")
+        
+        let countOfReactions = user.learnedReactions.count
+        let totalCountOfReactions = listOfReactions.count
+        let reactionsHeader = countOfReactions != 1 ? "reactions" : "reaction"
+        let reactionsLeft = totalCountOfReactions - countOfReactions
+        let reactionsSideInfoText = reactionsLeft <= 0 ? "Congratulate!\nYou've done them all." : "still left: \(reactionsLeft)"
+        reactionsSection.configure(position: .left,
+                                    headerText: reactionsHeader,
+                                    score: countOfReactions,
+                                    subscriptText: "carried out",
+                                    sideContentText: reactionsSideInfoText,
+                                    imageForEvent: "flask")
         
         let countOfBigGames = user.countBigGames
         let countBigGameQuestions = user.countBigGamesQuestions
@@ -262,6 +355,13 @@ final class StatisticViewControler: UIViewController {
     @objc func backAction() {
         self.dismiss(animated: true)
     }
+    
+    @objc func showSettings() {
+        let vc = ThemeSelectorViewController() 
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
+    }
 }
 
 private final class AvatarClassView: UIView {
@@ -288,29 +388,33 @@ private final class AvatarClassView: UIView {
     }
 
     private func setupViews() {
-        progressBar.progressTintColor = CustomColors.gold
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         let avatarImage: UIImage = UIImage(named: "Caesar_right") ?? UIImage()
         imageView.image = avatarImage
         
-        label.textColor = CustomColors.generalTextColor
         label.font = UIFont(name: "Menlo Bold", size: 30)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.textAlignment = .right
         
-        textView.backgroundColor = CustomColors.backgroundForCell
-        textView.textColor = CustomColors.generalTextColor
         textView.font = UIFont(name: "Avenir", size: 25)
         textView.adjustsFontForContentSizeCategory = true
         textView.layer.cornerRadius = 10
         textView.isScrollEnabled = false
         textView.isEditable = false
         
+        applyTheme()
         addSubViews()
         layout()
+    }
+    
+    func applyTheme() {
+        progressBar.progressTintColor = CustomColors.progressBarColor
+        label.textColor = CustomColors.generalTextColor
+        textView.backgroundColor = CustomColors.backgroundForCell
+        textView.textColor = CustomColors.generalTextColor
     }
     
     func configure(longText: String, scoreText: String, progress: Float) {
@@ -391,7 +495,7 @@ private class SliderBox: UIView {
         parentView.layer.cornerRadius = corner
         parentView.layer.borderColor = CustomColors.backgroundForCell.cgColor
         parentView.layer.borderWidth = 2
-        parentView.backgroundColor = CustomColors.generalAppPhont
+        parentView.backgroundColor = CustomColors.generalAppFont
         
         coloredView.layer.masksToBounds = true
         coloredView.layer.cornerRadius = corner
@@ -414,6 +518,15 @@ private class SliderBox: UIView {
         generalSubscriptLabel.textAlignment = .center
         
         addSubViews()
+    }
+    
+    func applyTheme() {
+        parentView.layer.borderColor = CustomColors.backgroundForCell.cgColor
+        parentView.backgroundColor = CustomColors.generalAppFont
+        coloredView.backgroundColor = CustomColors.backgroundForCell
+        generalHeaderLabel.textColor = CustomColors.generalTextColor
+        generalCountLabel.textColor = CustomColors.generalTextColor
+        generalSubscriptLabel.textColor = CustomColors.generalTextColor
     }
     
     func configure(position: Position, headerText: String, score: Int, subscriptText: String, sideContentText: String, imageForEvent: String) {

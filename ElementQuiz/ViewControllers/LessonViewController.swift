@@ -10,13 +10,14 @@ import SnapKit
 
 
 final class LessonViewController: UIViewController {
+    private let user: User = DataManager.shared.fetchUser()
     private let lesson: Lesson
     private let headerText: String
     
     // MARK: - UI Properties
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         return scrollView
     }()
     
@@ -35,7 +36,7 @@ final class LessonViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = CustomColors.purple
+        button.backgroundColor = CustomColors.bigButtonColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.bigButtonTapped), for: .touchUpInside)
@@ -62,7 +63,7 @@ final class LessonViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         navigationItem.title = headerText
         
         let backButton = UIBarButtonItem(
@@ -73,7 +74,8 @@ final class LessonViewController: UIViewController {
         )
         backButton.tintColor = CustomColors.generalTextColor
         navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
+        self.navigationController?.navigationBar.barTintColor = CustomColors.generalAppFont
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.generalTextColor]
     }
@@ -204,6 +206,16 @@ final class LessonViewController: UIViewController {
     }
 
     @objc private func bigButtonTapped() {
+        //TODO: - save user data
+        switch lesson.contentKind {
+            case .lesson:
+            user.learnedLessons.insert(lesson.id)
+
+            case .reaction:
+            user.learnedReactions.insert(lesson.id)
+        }
+        
+        DataManager.shared.saveUserData(from: user)
         showCongratulationViewController()
     }
 }
@@ -212,7 +224,15 @@ final class LessonViewController: UIViewController {
 // MARK: - ShowCongratulationProtocol
 extension LessonViewController: ShowCongratulationProtocol {
     func showCongratulationViewController() {
-        let describeOfSense: String = headerText.contains("Lesson") ? "Passed \(headerText.lowercased()):\n\(lesson.name)" : "Studied reaction:\n\(lesson.name)"
+//        let describeOfSense: String = headerText.contains("Lesson") ? "Passed \(headerText.lowercased()):\n\(lesson.name)" : "Studied reaction:\n\(lesson.name)"
+        var describeOfSense: String = ""
+        switch lesson.contentKind {
+            case .lesson:
+            describeOfSense = "Passed \(headerText.lowercased()):\n\(lesson.name)"
+            case .reaction:
+            describeOfSense = "Studied reaction:\n\(lesson.name)"
+        }
+        
         let vc = CongratulationViewController(delegate: self, describeOfSense: describeOfSense, imageName: lesson.lessonImageName)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)

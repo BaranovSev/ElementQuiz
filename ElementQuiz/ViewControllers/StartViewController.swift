@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 private enum CollectionSections {
     case periodicTable([String])
@@ -56,6 +57,7 @@ private enum CollectionSections {
 
 final class StartViewController: UIViewController {
     // MARK: - Properties
+    private var cancellables = Set<AnyCancellable>()
     private var timer: Timer?
     private var dataSource: ElementQuizDataSource = ElementQuizDataSource()
     private let fixedElementList: [ChemicalElementModel] = DataManager.shared.fetchElements()
@@ -89,7 +91,7 @@ final class StartViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         var scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1250)
-        scrollView.backgroundColor = CustomColors.generalAppPhont
+        scrollView.backgroundColor = CustomColors.generalAppFont
         scrollView.accessibilityScroll(.down)
         return scrollView
     }()
@@ -126,7 +128,7 @@ final class StartViewController: UIViewController {
         
         button.setTitle("Lets start!", for: .highlighted)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = CustomColors.purple
+        button.backgroundColor = CustomColors.bigButtonColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.showElementInfoViewController), for: .touchUpInside)
@@ -166,7 +168,7 @@ final class StartViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewLayout()
         var collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = CustomColors.generalAppPhont
+        collectionView.backgroundColor = CustomColors.generalAppFont
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
         collectionView.isScrollEnabled = false
@@ -179,6 +181,9 @@ final class StartViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = CustomColors.generalAppFont
+
+        setupThemeBinding()
         addSubViews()
         startTimer()
         layout()
@@ -189,6 +194,28 @@ final class StartViewController: UIViewController {
         refresh()
     }
     
+    private func setupThemeBinding() {
+        CustomColors.themePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.applyTheme()
+            }
+            .store(in: &cancellables)
+    }
+    
+    func applyTheme() {
+        view.backgroundColor = CustomColors.generalAppFont
+        scrollView.backgroundColor = CustomColors.generalAppFont
+        localizedNameLabel.textColor = CustomColors.secondaryTextColor
+        latinNameLabel.textColor = CustomColors.secondaryTextColor
+        bigButton.backgroundColor = CustomColors.bigButtonColor
+        smallLabel.textColor = CustomColors.secondaryTextColor
+        smallButton.setTitleColor(CustomColors.secondaryTextColor, for: .normal)
+        smallButton.layer.borderColor = CustomColors.secondaryTextColor.cgColor
+        collectionView.backgroundColor = CustomColors.generalAppFont
+        collectionView.reloadData()
+    }
+      
     func refresh() {
         smallLabel.text = "progress: \(learnedElements.count)/\(fixedElementList.count)"
     }
@@ -630,11 +657,9 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
     private func setup() {
         let corner = 10.0
         parentView.layer.cornerRadius = corner
-        parentView.backgroundColor = CustomColors.backgroundForCell
         booksImageView.contentMode = .scaleAspectFit
         booksImageView.clipsToBounds = true
         label.textAlignment = .left
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         infoColor.layer.cornerRadius = parentView.layer.cornerRadius
@@ -642,8 +667,6 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         countLabel.textAlignment = .center
         countLabel.layer.masksToBounds = true
         countLabel.layer.cornerRadius = 25
-        countLabel.textColor = CustomColors.generalTextColor
-        countLabel.backgroundColor = CustomColors.customWhite
     }
     
     private func addSubViews() {
@@ -690,7 +713,16 @@ private final class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+        countLabel.textColor = CustomColors.generalTextColor
+        countLabel.backgroundColor = CustomColors.alphaFontInCell
+    }
+    
     func configureCell(category: String, countOfElements: String, color: UIColor, imageName: String) {
+        applyTheme()
+        
         label.text = category
         countLabel.text = countOfElements
         infoColor.backgroundColor = color
@@ -718,10 +750,8 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.backgroundColor = CustomColors.backgroundForCell
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -757,7 +787,14 @@ private final class PeriodicTableCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+    }
+    
     func configureCell(typeOfTable: String) {
+        applyTheme()
+        
         label.text = typeOfTable
         imageView.image = UIImage(named: typeOfTable) ?? UIImage()
     }
@@ -782,9 +819,7 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.backgroundColor = CustomColors.backgroundForCell
         label.textAlignment = .center
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
@@ -818,7 +853,14 @@ private final class ToolsCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+    }
+    
     func configureCell(typeOfTable: String, imageName: String) {
+        applyTheme()
+        
         label.text = typeOfTable
         imageView.image = UIImage(named: imageName)
     }
@@ -843,11 +885,8 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.backgroundColor = CustomColors.backgroundForCell
         parentView.layer.masksToBounds = true
-        label.backgroundColor = CustomColors.backgroundForCell
         label.textAlignment = .center
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.8
@@ -882,7 +921,15 @@ private final class LessonsCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+    }
+    
     func configureCell(lessonName: String, lessonImageName: String) {
+        applyTheme()
+        
         label.text = lessonName
         imageView.image = UIImage(named: lessonImageName) ?? UIImage(named: "coin")
     }
@@ -907,10 +954,8 @@ private final class ReactionsCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.backgroundColor = CustomColors.backgroundForCell
         parentView.layer.masksToBounds = true
         label.textAlignment = .center
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.8
@@ -946,7 +991,14 @@ private final class ReactionsCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+    }
+    
     func configureCell(reactionName: String, reactionImageName: String) {
+        applyTheme()
+        
         label.text = reactionName
         imageView.image = UIImage(named: reactionImageName) ?? UIImage(named: "coin")
     }
@@ -971,23 +1023,19 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         parentView.layer.cornerRadius = 10
-        parentView.backgroundColor = CustomColors.backgroundForCell
         label.textAlignment = .center
-        label.textColor = CustomColors.generalTextColor
         label.numberOfLines = 3
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         
         secondaryLabel.textAlignment = .center
-        secondaryLabel.textColor = CustomColors.generalTextColor
         secondaryLabel.numberOfLines = 1
         secondaryLabel.font = UIFont(name: "Avenir", size: 20)
         secondaryLabel.minimumScaleFactor = 0.5
         secondaryLabel.adjustsFontSizeToFitWidth = true
         secondaryLabel.layer.masksToBounds = true
         secondaryLabel.layer.cornerRadius = 10
-        secondaryLabel.backgroundColor = CustomColors.customWhite
     }
     
     private func addSubViews() {
@@ -1018,7 +1066,16 @@ private final class BigGameCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        parentView.backgroundColor = CustomColors.backgroundForCell
+        label.textColor = CustomColors.generalTextColor
+        secondaryLabel.textColor = CustomColors.generalTextColor
+        secondaryLabel.backgroundColor = CustomColors.alphaFontInCell
+    }
+    
     func configureCell(typeOfGame: String) {
+        applyTheme()
+        
         label.text = typeOfGame
         
         switch typeOfGame {
@@ -1071,7 +1128,6 @@ private final class UserStatisticCollectionViewCell: UICollectionViewCell {
         imageView.image = userImage
         imageView.layer.cornerRadius = (UIScreen.main.bounds.width / 3) / 2
         imageView.layer.masksToBounds = true
-        imageView.backgroundColor = CustomColors.backgroundForCell
     }
     
     private func addSubViews() {
@@ -1084,7 +1140,12 @@ private final class UserStatisticCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func applyTheme() {
+        imageView.backgroundColor = CustomColors.backgroundForCell
+    }
+    
     func configureCell(typeOfTable: String) {
+        applyTheme()
     }
 }
 
@@ -1106,7 +1167,7 @@ private final class CustomHeaderView: UICollectionReusableView {
     private func setup() {
         label.textAlignment = .left
         label.numberOfLines = 3
-        label.textColor = CustomColors.secondaryTextColor
+//        label.textColor = CustomColors.secondaryTextColor
         label.font = UIFont(name: "Avenir", size: 20)
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
@@ -1124,7 +1185,13 @@ private final class CustomHeaderView: UICollectionReusableView {
         }
     }
     
+    func applyTheme() {
+        label.textColor = CustomColors.secondaryTextColor
+    }
+    
     func configure(text: String) {
+        applyTheme()
+        
         label.text = text
     }
 }

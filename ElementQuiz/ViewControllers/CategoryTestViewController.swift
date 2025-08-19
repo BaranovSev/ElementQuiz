@@ -122,7 +122,7 @@ final class CategoryTestViewController: UIViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backAction))
         self.navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppPhont
+        self.navigationController?.navigationBar.backgroundColor = CustomColors.generalAppFont
         backButton.tintColor = CustomColors.generalTextColor
         
         setupQuestionSequens()
@@ -240,7 +240,7 @@ final class CategoryTestViewController: UIViewController {
 
 private extension CategoryTestViewController {
     private func setUp() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         view.addSubview(questionLabel)
         view.addSubview(coloredView)
         view.addSubview(verticalStack)

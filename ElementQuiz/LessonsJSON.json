@@ -1,5 +1,7 @@
 [
     {
+        "id": 1,
+        "content_kind": "lesson",
         "number": 1.0,
         "name": "Entry",
         "lesson_image_name": "teacher_with_pupil",
@@ -109,7 +111,7 @@
             },
             {
                 "type": "text",
-                "value": "Despite the fact that there are already more than 100 varieties of periodic tables, our application allows you to explore what we consider the four most important ones: “Short Polyatomic,” “Wide Polyatomic,” “Classic,” and “Standard.” As the application develops, we will add other types of periodic tables to this section."
+                "value": "Despite the fact that there are already more than 100 varieties of periodic tables, our application allows you to explore what we consider the four most important ones: “Short Polyatomic”, “Wide Polyatomic”, “Classic” and “Standard”. As the application develops, we will add other types of periodic tables to this section."
             },
             {
                 "type": "image",
@@ -508,6 +510,8 @@
         "isCompleted": false
     },
     {
+        "id": 2,
+        "content_kind": "lesson",
         "number": 2.0,
         "name": "What is chemistry?",
         "lesson_image_name": "experienced_researcher",
@@ -889,6 +893,8 @@
         "isCompleted": false
     },
     {
+        "id": 3,
+        "content_kind": "lesson",
         "number": 3.0,
         "name": "Atom",
         "lesson_image_name": "roman_with_atom",
@@ -1336,6 +1342,8 @@
         "isCompleted": false
     },
     {
+        "id": 4,
+        "content_kind": "lesson",
         "number": 4.0,
         "name": "Atomic mass & molecular mass",
         "lesson_image_name": "roman_with_weigher",

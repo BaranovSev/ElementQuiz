@@ -96,7 +96,7 @@ final class CongratulationViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont(name: "Hoefler Text", size: 35)
-        button.backgroundColor = CustomColors.purple
+        button.backgroundColor = CustomColors.bigButtonColor
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(Self.dismissCurrentAndDelegateController), for: .touchUpInside)
@@ -134,7 +134,7 @@ final class CongratulationViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = CustomColors.generalAppPhont
+        view.backgroundColor = CustomColors.generalAppFont
         var goodResult: Bool = true
         var correctAnswersText = ""
         var totalQuestionsText = ""
@@ -235,7 +235,7 @@ final class CongratulationViewController: UIViewController {
         cell.birthRate = 7
         cell.velocity = 10
         cell.contents = UIImage(named: "mystar")!.cgImage
-        cell.color = CustomColors.gold.cgColor
+        cell.color = CustomColors.salutteColor.cgColor
         layer.emitterCells = [cell]
         
         view.layer.addSublayer(layer)

@@ -7,13 +7,17 @@
 
 import Foundation
 final class Lesson: Codable {
+    let id: Int
+    let contentKind: ContentKind
     let number: Double
     let name: String
     let lessonImageName: String
     let structure: [LessonContent]
     private var isCompleted: Bool
     
-    init(number: Double, name: String, lessonImageName: String, structure: [LessonContent], isCompleted: Bool) {
+    init(id: Int, contentKind: ContentKind, number: Double, name: String, lessonImageName: String, structure: [LessonContent], isCompleted: Bool) {
+        self.id = id
+        self.contentKind = contentKind
         self.number = number
         self.name = name
         self.lessonImageName = lessonImageName
@@ -21,7 +25,25 @@ final class Lesson: Codable {
         self.isCompleted = isCompleted
     }
     
+    enum ContentKind: String, Codable {
+        case lesson
+        case reaction
+        
+        init(from decoder: any Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let stringValue = try container.decode(String.self)
+            self = ContentKind(rawValue: stringValue) ?? ContentKind.lesson
+        }
+        
+        func encode(to encoder: any Encoder) throws {
+            var container = encoder.singleValueContainer()
+            try container.encode(self.rawValue)
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
+        case id
+        case contentKind = "content_kind"
         case number
         case name
         case lessonImageName = "lesson_image_name"
@@ -31,6 +53,8 @@ final class Lesson: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.contentKind = try container.decode(ContentKind.self, forKey: .contentKind)
         self.number = try container.decode(Double.self, forKey: .number)
         self.name = try container.decode(String.self, forKey: .name)
         self.lessonImageName = try container.decode(String.self, forKey: .lessonImageName)

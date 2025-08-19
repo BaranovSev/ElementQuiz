@@ -1,5 +1,7 @@
 [
     {
+        "id": 1,
+        "content_kind": "reaction",
         "number": 1.0,
         "name": "Creating Slime",
         "lesson_image_name": "slime_reaction_image",
@@ -257,6 +259,8 @@
         "isCompleted": false
     },
     {
+        "id": 2,
+        "content_kind": "reaction",
         "number": 2.0,
         "name": "Growing a crystal",
         "lesson_image_name": "crystal_reaction_image",
@@ -694,6 +698,8 @@
         "isCompleted": false
     },
     {
+        "id": 3,
+        "content_kind": "reaction",
         "number": 3.0,
         "name": "Volcano",
         "lesson_image_name": "volcano_reaction_image",
@@ -1030,6 +1036,8 @@
         "isCompleted": false
     },
     {
+        "id": 4,
+        "content_kind": "reaction",
         "number": 4.0,
         "name": "Invisible ink",
         "lesson_image_name": "invisible_ink_reaction_image",
