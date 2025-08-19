@@ -181,6 +181,8 @@ final class StartViewController: UIViewController {
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = CustomColors.generalAppFont
+
         setupThemeBinding()
         addSubViews()
         startTimer()
